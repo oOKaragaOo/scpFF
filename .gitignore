@@ -1,0 +1,6 @@
+# Ignore environment and temporary folders
+venv/
+save/
+profile/
+trass/
+chrome_profile/
