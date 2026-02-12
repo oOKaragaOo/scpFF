@@ -81,25 +81,30 @@ class ParserService:
         self.loader = loader
 
     def parse_arrivals(self, arrival_airport, current_date):
-        rows = []
-        failed_indexes = []
 
-        # 🔥 เรียกผ่าน loader
+        rows = []
+
         self.loader.wait_list_stable()
 
-        total = self.page.locator("li.ff-li-list.deparr").count()
+        locator = self.page.locator("li.ff-li-list.deparr")
+        total = locator.count()
+
+        # 🔥 snapshot element handles ก่อน
+        elements = []
 
         for i in range(total):
+            elements.append(locator.nth(i).element_handle())
+
+        for el in elements:
             try:
-                ensure_page_clean(self.page)  # ถ้ายังเป็น global ก็ปล่อยไว้ก่อน
+                ensure_page_clean(self.page)
 
-                row = self.page.locator("li.ff-li-list.deparr").nth(i)
-                btn = row.locator(".flightsfrom-list-money")
-
-                self.page.evaluate(
-                    "(el) => el.click()",
-                    btn.element_handle()
+                row = self.page.locator("li.ff-li-list.deparr").filter(
+                    has=self.page.locator(f"xpath=.", has_text=el.inner_text())
                 )
+
+                btn = el.query_selector(".flightsfrom-list-money")
+                self.page.evaluate("(e) => e.click()", btn)
 
                 self.page.wait_for_function(
                     "() => document.querySelector('#ff-day-infobox')?.innerText.length > 20",
@@ -109,18 +114,18 @@ class ParserService:
                 popup = self.page.locator("#ff-day-infobox")
 
                 def get_val(label):
-                    el = popup.locator(
+                    el2 = popup.locator(
                         f"div.ff-font-s.uk-flex:has(div.ff-font-strong:text-is('{label}')) div.uk-text-right"
                     )
-                    return el.inner_text() if el.count() else None
+                    return el2.inner_text() if el2.count() else None
 
                 rows.append({
                     "arrival_airport": arrival_airport,
                     "date": current_date,
-                    "arrival_time": row.locator(".deparr_time div").inner_text(),
-                    "flight": row.locator(".deparr_flight").inner_text(),
-                    "airline": row.locator(".deparr_airline_name").inner_text(),
-                    "duration": row.locator(".deparr_duration").inner_text(),
+                    "arrival_time": el.query_selector(".deparr_time div").inner_text(),
+                    "flight": el.query_selector(".deparr_flight").inner_text(),
+                    "airline": el.query_selector(".deparr_airline_name").inner_text(),
+                    "duration": el.query_selector(".deparr_duration").inner_text(),
                     "distance": get_val("Distance"),
                     "aircraft": get_val("Aircraft"),
                     "seats": get_val("Seats"),
@@ -132,7 +137,6 @@ class ParserService:
                 self.page.wait_for_timeout(120)
 
             except Exception:
-                failed_indexes.append(i)
                 self.page.keyboard.press("Escape")
                 continue
 

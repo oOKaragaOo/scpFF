@@ -12,6 +12,19 @@ class AirportScraper:
         self.loader = LoaderService(page)
         self.parser = ParserService(page, self.loader)
 
+    def reset_if_large_dataset(self, row_count, threshold=100):
+        """
+        Reload page ถ้าจำนวน row เกิน threshold
+        ใช้แก้ปัญหา SPA state สะสม
+        """
+        if row_count > threshold:
+            print("   🔄 Large dataset detected, reloading page...")
+            self.page.reload()
+            self.page.wait_for_load_state("networkidle")
+            self.page.wait_for_timeout(800)
+            return True
+
+        return False
 
 
     def scrape_airport(self, code, start_date, end_date):
@@ -79,12 +92,14 @@ class AirportScraper:
 
             # 🔥 เปิด calendar ใหม่ทุกวัน (เหมือนที่แก้ล่าสุด)
             self.calendar.open_calendar()
-
+    
             print("   👉 Clicking calendar day...")
             self.calendar.click_calendar_day(page_date)
 
             print("   ⏳ Waiting overlay...")
+
             self.loader.wait_overlay_clear()
+
             print("   ✅ Overlay cleared")
 
             self.page.wait_for_timeout(800)
@@ -124,7 +139,12 @@ class AirportScraper:
                 page_date.isoformat(),
                 "arrivals"
             )
+            # 🔥 reset ถ้าข้อมูลเยอะ
+            reloaded = self.reset_if_large_dataset(after_rows)
 
+            if reloaded:
+                print("   ⏭ Skipping to next day after reload")
+                continue
             time.sleep(1.2)
 
         return month_rows

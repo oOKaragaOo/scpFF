@@ -3,26 +3,26 @@ class CalendarService:
     def __init__(self, page):
         self.page = page
 
-    def open_calendar(self):
+    # def open_calendar(self):
 
-        # ถ้าเปิดอยู่แล้ว ไม่ต้องกด
-        if self.page.locator(".flatpickr-calendar.open").count() > 0:
-            return
+    #     # ถ้าเปิดอยู่แล้ว ไม่ต้องกด
+    #     if self.page.locator(".flatpickr-calendar.open").count() > 0:
+    #         return
 
-        try:
-            self.page.evaluate("""
-                () => {
-                    const btn = document.querySelector("a.select-date");
-                    if (btn) btn.click();
-                }
-            """)
-        except:
-            pass
+    #     try:
+    #         self.page.evaluate("""
+    #             () => {
+    #                 const btn = document.querySelector("a.select-date");
+    #                 if (btn) btn.click();
+    #             }
+    #         """)
+    #     except:
+    #         pass
 
-        self.page.wait_for_selector(
-            ".flatpickr-calendar.open",
-            timeout=10000
-        )
+    #     self.page.wait_for_selector(
+    #         ".flatpickr-calendar.open",
+    #         timeout=10000
+    #     )
 
     def goto_month_year(self, year, month):
         self.open_calendar()
@@ -49,3 +49,111 @@ class CalendarService:
         )
 
         day_el.first.click(force=True)
+
+    # def open_calendar(self):
+
+    #     # ✅ รอ overlay หายก่อนทุกครั้ง
+    #     try:
+    #         self.page.wait_for_selector(
+    #             ".pageload-background",
+    #             state="detached",
+    #             timeout=15000
+    #         )
+    #     except:
+    #         pass
+
+    def open_calendar(self):
+
+        # ✅ รอ overlay หายก่อน
+        try:
+            self.page.wait_for_selector(
+                ".pageload-background",
+                state="detached",
+                timeout=15000
+            )
+        except:
+            pass
+
+        # ✅ reset row tracker ทุกครั้งก่อนเปลี่ยนวัน
+        # try:
+        #     self.page.evaluate("window.__lastCount = undefined;")
+        #     print("window")
+        # except:
+        #     print("cant reset")
+        #     pass
+
+        # ถ้าเปิดอยู่แล้ว ไม่ต้องกด
+        if self.page.locator(".flatpickr-calendar.open").count() > 0:
+            return
+
+        try:
+            self.page.evaluate("""
+                () => {
+                    const btn = document.querySelector("a.select-date");
+                    if (btn) btn.click();
+                }
+            """)
+        except:
+            pass
+
+        self.page.wait_for_selector(
+            ".flatpickr-calendar.open",
+            timeout=10000
+        )
+
+
+        # ✅ รอ overlay หายก่อน
+        try:
+            self.page.wait_for_selector(
+                ".pageload-background",
+                state="detached",
+                timeout=15000
+            )
+        except:
+            pass
+
+        # ✅ reset row tracker ทุกครั้งก่อนเปลี่ยนวัน
+        try:
+            self.page.evaluate("window.__lastCount = undefined;")
+        except:
+            print("window.__lastCount XX")
+            pass
+
+        # ถ้าเปิดอยู่แล้ว ไม่ต้องกด
+        if self.page.locator(".flatpickr-calendar.open").count() > 0:
+            return
+
+        try:
+            self.page.evaluate("""
+                () => {
+                    const btn = document.querySelector("a.select-date");
+                    if (btn) btn.click();
+                }
+            """)
+        except:
+            pass
+
+        self.page.wait_for_selector(
+            ".flatpickr-calendar.open",
+            timeout=10000
+        )
+
+        # ถ้าเปิดอยู่แล้ว ไม่ต้องกด
+        if self.page.locator(".flatpickr-calendar.open").count() > 0:
+            return
+
+        try:
+            self.page.evaluate("""
+                () => {
+                    const btn = document.querySelector("a.select-date");
+                    if (btn) btn.click();
+                }
+            """)
+        except:
+            pass
+
+        self.page.wait_for_selector(
+            ".flatpickr-calendar.open",
+            timeout=10000
+        )
+
