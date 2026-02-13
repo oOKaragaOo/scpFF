@@ -4,13 +4,38 @@ from services.loader_service import LoaderService
 from services.parser_service import ParserService
 from utils.exporter import export_day_debug
 
+
+
+
 class AirportScraper:
 
     def __init__(self, page):
         self.page = page
         self.calendar = CalendarService(page)
         self.loader = LoaderService(page)
-        self.parser = ParserService(page, self.loader)
+        self.parser = ParserService(page, self.loader )
+
+    def snapshot_flights(self):
+
+        self.loader.wait_list_stable()
+
+        locator = self.page.locator("li.ff-li-list.deparr")
+        dom_count = locator.count()
+
+        flights = set()
+
+        for i in range(dom_count):
+            flight_code = locator.nth(i).locator(
+                ".deparr_flight"
+            ).inner_text()
+
+            flights.add(flight_code.strip())
+
+        print(f"   📸 Snapshot DOM count: {dom_count}")
+        print(f"   🧾 Snapshot unique flights: {len(flights)}")
+
+        return flights
+
 
     def reset_if_large_dataset(self, row_count, threshold=100):
         """
@@ -96,7 +121,7 @@ class AirportScraper:
             print("   👉 Clicking calendar day...")
             self.calendar.click_calendar_day(page_date)
 
-            print("   ⏳ Waiting overlay...")
+            # print("   ⏳ Waiting overlay...")
 
             self.loader.wait_overlay_clear()
 
@@ -113,7 +138,7 @@ class AirportScraper:
             self.loader.ensure_all_rows_loaded()
             print("   🏁 Exit ensure_all_rows_loaded")
 
-            print("   🔄 Waiting list stable...")
+            # print("   🔄 Waiting list stable...")
             self.loader.wait_list_stable()
             print("   ✅ List stable")
 
@@ -121,11 +146,16 @@ class AirportScraper:
                 "li.ff-li-list.deparr"
             ).count()
             print(f"   📊 Rows before parse: {after_rows}")
+            snapshot = self.snapshot_flights()
 
             print("   🔍 Start parse_arrivals")
+
             day_rows = self.parser.parse_arrivals(
-                code, page_date.isoformat()
+                code,
+                page_date.isoformat(),
+                snapshot
             )
+
             print("   ✅ parse_arrivals finished")
 
             scraped = len(day_rows)
