@@ -37,12 +37,12 @@ class CalendarService:
             ".flatpickr-calendar.open",
             timeout=10000
         )
-
-    def _reset_row_tracker(self):
-        try:
-            self.page.evaluate("window.__lastCount = undefined;")
-        except:
-            pass
+    # move to loader
+    # def _reset_row_tracker(self):
+    #     try:
+    #         self.page.evaluate("window.__lastCount = undefined;")
+    #     except:
+    #         pass
 
     def _set_year(self, year):
         year_input = self.page.locator(
@@ -91,8 +91,8 @@ class CalendarService:
         # 4️⃣ overlay clear อีกครั้ง
         self._wait_overlay_clear()
 
-        # 5️⃣ reset row tracker
-        self._reset_row_tracker()
+        # 5️⃣ reset row tracker move to loader
+        # self._reset_row_tracker() 
 
         # 6️⃣ ถ้าเปิดอยู่แล้ว → return
         if self._is_calendar_open():
