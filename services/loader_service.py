@@ -1,4 +1,5 @@
 import re
+from tqdm import tqdm
 
 
 class LoaderService:
@@ -60,7 +61,7 @@ class LoaderService:
             ):
                 button.first.click(force=True)
 
-            print("      👉 Clicked show more (XHR detected)")
+            # print("      👉 Clicked show more (XHR detected)")
             return True
 
         except:
@@ -125,27 +126,44 @@ class LoaderService:
         expected = self.get_expected_rows()
         print("      🎯 Expected rows:", expected)
 
-        while True:
+        click_count = 0
 
-            current = self._get_current_row_count()
-            print(f"      📦 Loop | Currently loaded: {current}")
+        with tqdm(
+            total=expected,
+            desc="Loading flight",
+            ascii=("_", "▄"),
+            unit="row",
+            colour="#26bdeb",
+            ncols=150
+        ) as pbar:
 
-            if self._is_fully_loaded(current, expected):
-                print("      ✅ All rows loaded.")
-                break
+            while True:
 
-            if not self._has_show_more_button():
-                print("      ❌ No more show more button")
-                break
+                current = self._get_current_row_count()
 
-            if not self._wait_button_enabled():
-                print("      ⚠️ Button not ready")
-                break
+                # update progress
+                pbar.n = current
+                pbar.set_postfix({"showmore click": click_count})
+                pbar.refresh()
 
-            if not self._click_show_more():
-                break
+                if self._is_fully_loaded(current, expected):
+                    # print("      ✅ All rows loaded.")
+                    break
 
-            self._wait_dom_settle()
+                if not self._has_show_more_button():
+                    print("      ❌ No more show more button")
+                    break
+
+                if not self._wait_button_enabled():
+                    print("      ⚠️ Button not ready")
+                    break
+
+                if not self._click_show_more():
+                    break
+
+                click_count += 1
+
+                self._wait_dom_settle()
 
         print(
             "      🟢 Final row count:",

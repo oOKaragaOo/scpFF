@@ -2,6 +2,8 @@ from datetime import timedelta
 from services.calendar_service import CalendarService
 from services.loader_service import LoaderService
 from services.parser_service import ParserService
+from services.pageGuard_service import PageGuardService
+
 from utils.exporter import export_day_debug
 
 
@@ -11,7 +13,8 @@ class AirportScraper:
         self.page = page
         self.calendar = CalendarService(page)
         self.loader = LoaderService(page)
-        self.parser = ParserService(page, self.loader)
+        self.guard = PageGuardService(page)
+        self.parser = ParserService(page,self.loader,self.guard)
 # =========================
 # PRIVATE HELPERS
 # =========================
@@ -32,7 +35,7 @@ class AirportScraper:
 
             flights.add(flight_code.strip())
 
-        print(f"   📸 Snapshot DOM count: {dom_count}")
+        # print(f"   📸 Snapshot DOM count: {dom_count}")
         print(f"   🧾 Snapshot unique flights: {len(flights)}")
 
         return flights
@@ -122,7 +125,7 @@ class AirportScraper:
         self.page.wait_for_timeout(800)
 
         before_rows = self._get_row_count()
-        print(f"   📦 Rows after day click: {before_rows}")
+        print(f"   📦 Rows : {before_rows}")
 
         # --- load full list ---
         print("   🚀 Enter ensure_all_rows_loaded")
@@ -133,7 +136,7 @@ class AirportScraper:
         print("   ✅ List stable")
 
         after_rows = self._get_row_count()
-        print(f"   📊 Rows before parse: {after_rows}")
+        # print(f"   📊 Rows before parse: {after_rows}")
 
         snapshot = self.snapshot_flights()
 
