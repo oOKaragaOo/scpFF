@@ -1,9 +1,10 @@
 from datetime import timedelta
-from services.calendar_service import CalendarService
+# from services.calendar_service import CalendarService
+from services.calendar_service import DeterministicCalendarService
 from services.loader_service import LoaderService
 from services.parser_service import ParserService
 from services.pageGuard_service import PageGuardService
-
+import time
 from utils.exporter import export_day_debug
 
 
@@ -11,7 +12,8 @@ class AirportScraper:
 
     def __init__(self, page):
         self.page = page
-        self.calendar = CalendarService(page)
+        # self.calendar = CalendarService(page)
+        self.calendar = DeterministicCalendarService(page)
         self.loader = LoaderService(page)
         self.guard = PageGuardService(page)
         self.parser = ParserService(page,self.loader,self.guard)
@@ -72,7 +74,8 @@ class AirportScraper:
         month_rows = []
 
         print(f"\n🗓 Processing month: {current_month.strftime('%Y-%m')}")
-
+        
+        
         self._prepare_month(year, month)
 
         for day in range(1, 32):
@@ -87,12 +90,16 @@ class AirportScraper:
 
             print(f"\n📅 {page_date}")
 
-            day_rows = self._process_single_day(
+            # day_rows = self._process_single_day(
+            #     code,
+            #     page_date,
+            #     time
+            # )
+            day_rows = self._process_single_day_dryrun(
                 code,
                 page_date,
                 time
             )
-
             month_rows.extend(day_rows)
 
         return month_rows
@@ -103,7 +110,6 @@ class AirportScraper:
         self.page.wait_for_timeout(200)
 
         self.loader._reset_row_tracker()
-        self.calendar.open_calendar()
         print("   📂 Calendar opened")
 
         self.calendar.goto_month_year(year, month)
@@ -113,10 +119,11 @@ class AirportScraper:
 
         # --- open calendar and click day ---
         self.loader._reset_row_tracker()
-        self.calendar.open_calendar()
 
         print("   👉 Clicking calendar day...")
-        self.calendar.click_calendar_day(page_date)
+        if not self.calendar.resolve_target_date(page_date):
+            print("   ⏭️ skip date (cannot select)")
+            return []
 
         # --- wait overlay ---
         self.loader.wait_overlay_clear()
@@ -136,7 +143,6 @@ class AirportScraper:
         print("   ✅ List stable")
 
         after_rows = self._get_row_count()
-        # print(f"   📊 Rows before parse: {after_rows}")
 
         snapshot = self.snapshot_flights()
 
@@ -203,3 +209,17 @@ class AirportScraper:
 
         print(f"\n✅ DONE | TOTAL ROWS: {len(all_rows)}")
         return all_rows
+
+    def _process_single_day_dryrun(self, code, page_date, time_module):
+
+        # --- test only: no scraping ---
+        self.loader._reset_row_tracker()
+
+        print("   👉 Clicking calendar day...")
+        # time.sleep(2)
+        if not self.calendar.resolve_target_date(page_date):
+            print("   ⏭️ skip date (cannot select)")
+            return []
+
+        print("   🧪 DRY RUN: click success (no scraping)")
+        return []
