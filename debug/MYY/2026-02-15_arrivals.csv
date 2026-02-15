@@ -1,45 +1,39 @@
-arrival_airport,date,arrival_time,flight,airline,duration,distance,aircraft,seats,codeshare,meals
-MYY,2026-02-15,08:00,AK6180,AirAsia,1h 0m,"320 miles, 515 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,08:05,AK6071,AirAsia,0h 50m,"181 miles, 291 km",Airbus A320 (sharklets),180,,Meal (none specific)
-MYY,2026-02-15,08:25,MY3221,MAXjet,0h 45m,"110 miles, 177 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,08:55,AK5651,AirAsia,2h 25m,"858 miles, 1381 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,09:10,AK5012,AirAsia,Duration: 2h 0m,"739 miles, 1189 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,09:25,MY3652,MAXjet,Duration: 1h 0m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,10:45,AK6077,AirAsia,Duration: 0h 50m,"181 miles, 291 km",Airbus A320 (sharklets),180,,Meal (none specific)
-MYY,2026-02-15,11:05,AK6190,AirAsia,Duration: 1h 5m,"320 miles, 515 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,11:10,MY3654,MAXjet,Duration: 1h 0m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,11:25,MY3471,MAXjet,Duration: 0h 35m,"78 miles, 126 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,11:25,MH2574,Malaysia Airlines,Duration: 2h 25m,"858 miles, 1381 km",Boeing 737-800 (winglets) Passenger/BBJ2,166,FY 7570 /JL 7195 /PR 3556 /QR 5426 /SQ 5666 /TK 4821 /WY 5658,Meal (none specific)
-MYY,2026-02-15,12:05,MY3631,MAXjet,Duration: 0h 30m,"59 miles, 95 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,12:15,AK5642,AirAsia,Duration: 2h 20m,"858 miles, 1381 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,12:30,AK6192,AirAsia,Duration: 1h 0m,"320 miles, 515 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,12:35,MY3225,MAXjet,Duration: 0h 45m,"110 miles, 177 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,14:35,MY3633,MAXjet,Duration: 0h 30m,"59 miles, 95 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,14:45,AK6186,AirAsia,Duration: 1h 5m,"320 miles, 515 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,15:30,AK5644,AirAsia,Duration: 2h 20m,"858 miles, 1381 km",Airbus A320neo,186,,Meal (none specific)
-MYY,2026-02-15,15:40,AK6073,AirAsia,Duration: 0h 50m,"181 miles, 291 km",Airbus A320 (sharklets),180,,Meal (none specific)
-MYY,2026-02-15,15:50,MY3223,MAXjet,Duration: 0h 45m,"110 miles, 177 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,16:05,AK6182,AirAsia,Duration: 1h 0m,"320 miles, 515 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,16:25,TR412,Scoot,Duration: 2h 10m,"723 miles, 1163 km",Embraer 190 E2,112,SQ 8512,Meal (none specific)
-MYY,2026-02-15,16:35,MY3473,MAXjet,Duration: 0h 35m,"78 miles, 126 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,16:45,MH2594,Malaysia Airlines,Duration: 2h 25m,"858 miles, 1381 km",Boeing 737-800 Passenger,172,FY 7576 /GA 8926 /PR 3532 /QR 5431 /TK 4854,Meal (none specific)
-MYY,2026-02-15,17:15,MY3475,MAXjet,Duration: 0h 35m,"78 miles, 126 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,17:55,MY3229,MAXjet,Duration: 0h 45m,"110 miles, 177 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,18:20,AK6075,AirAsia,Duration: 0h 50m,"181 miles, 291 km",Airbus A320 (sharklets),180,,Meal (none specific)
-MYY,2026-02-15,18:55,AK6184,AirAsia,Duration: 1h 0m,"320 miles, 515 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,19:00,MY3227,MAXjet,Duration: 0h 45m,"110 miles, 177 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,19:30,AK6188,AirAsia,Duration: 1h 0m,"320 miles, 515 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,19:40,AK5646,AirAsia,Duration: 2h 20m,"858 miles, 1381 km",Airbus A320,180,,Meal (none specific)
-MYY,2026-02-15,19:50,MY3446,MAXjet,Duration: 0h 40m,"106 miles, 171 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,19:50,MH2584,Malaysia Airlines,Duration: 2h 35m,"858 miles, 1381 km",Boeing 737-800 (winglets) Passenger/BBJ2,166,FY 7572 /GA 9315 /KL 3854 /PR 3530 /QR 5428,Meal (none specific)
-MYY,2026-02-15,20:05,MY3656,MAXjet,Duration: 1h 0m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,22:10,AK5648,AirAsia,Duration: 2h 20m,"858 miles, 1381 km",Airbus A320 (sharklets),180,,Meal (none specific)
-MYY,2026-02-15,22:35,MY3658,MAXjet,Duration: 1h 0m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,15:00,MY3552,MAXjet,1h 10m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,09:00,MY3511,MAXjet,0h 45m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,15:50,MY3525,MAXjet,0h 45m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,11:20,MY3625,MAXjet,0h 40m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,14:40,MY3439,MAXjet,0h 50m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,13:40,MY3437,MAXjet,0h 50m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,11:15,MY3527,MAXjet,0h 45m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
-MYY,2026-02-15,14:25,MY3601,MAXjet,0h 20m,"199 miles, 320 km",ATR 72,68,,Meal (none specific)
+date,day_name,airport,direction,time,flight,airline,duration,time_range,distance,aircraft,seats,codeshare,meals,uid,airline_source,page_date_verified,scraped_at
+15/2/2026,Sunday,MYY,arrival,08:00,AK6180,AirAsia,1h 0m,07:00 - 08:00,"320 miles, 515 km",Airbus A320,180,,Meal (none specific),260215_AK6180_07000800,text,True,2026-02-14T16:51:13.221780
+15/2/2026,Sunday,MYY,arrival,08:05,AK6071,AirAsia,0h 50m,07:15 - 08:05,"181 miles, 291 km",Airbus A320 (sharklets),180,,Meal (none specific),260215_AK6071_07150805,text,True,2026-02-14T16:51:13.441308
+15/2/2026,Sunday,MYY,arrival,08:25,MY3221,MAXjet,0h 45m,07:40 - 08:25,"110 miles, 177 km",ATR 72,68,,Meal (none specific),260215_MY3221_07400825,text,True,2026-02-14T16:51:13.667124
+15/2/2026,Sunday,MYY,arrival,08:55,AK5651,AirAsia,2h 25m,06:30 - 08:55,"858 miles, 1381 km",Airbus A320,180,,Meal (none specific),260215_AK5651_06300855,text,True,2026-02-14T16:51:13.900954
+15/2/2026,Sunday,MYY,arrival,09:10,AK5012,AirAsia,Duration: 2h 0m,07:10 - 09:10,"739 miles, 1189 km",Airbus A320,180,,Meal (none specific),260215_AK5012_07100910,text,True,2026-02-14T16:51:18.324274
+15/2/2026,Sunday,MYY,arrival,09:25,MY3652,MAXjet,Duration: 1h 0m,08:25 - 09:25,"199 miles, 320 km",ATR 72,68,,Meal (none specific),260215_MY3652_08250925,text,True,2026-02-14T16:51:18.537163
+15/2/2026,Sunday,MYY,arrival,10:45,AK6077,AirAsia,Duration: 0h 50m,09:55 - 10:45,"181 miles, 291 km",Airbus A320 (sharklets),180,,Meal (none specific),260215_AK6077_09551045,text,True,2026-02-14T16:51:18.751237
+15/2/2026,Sunday,MYY,arrival,11:05,AK6190,AirAsia,Duration: 1h 5m,10:00 - 11:05,"320 miles, 515 km",Airbus A320,180,,Meal (none specific),260215_AK6190_10001105,text,True,2026-02-14T16:51:18.954791
+15/2/2026,Sunday,MYY,arrival,11:10,MY3654,MAXjet,Duration: 1h 0m,10:10 - 11:10,"199 miles, 320 km",ATR 72,68,,Meal (none specific),260215_MY3654_10101110,text,True,2026-02-14T16:51:19.157212
+15/2/2026,Sunday,MYY,arrival,11:25,MY3471,MAXjet,Duration: 0h 35m,10:50 - 11:25,"78 miles, 126 km",ATR 72,68,,Meal (none specific),260215_MY3471_10501125,text,True,2026-02-14T16:51:27.858765
+15/2/2026,Sunday,MYY,arrival,11:25,MH2574,Malaysia Airlines,Duration: 2h 25m,09:00 - 11:25,"858 miles, 1381 km",Boeing 737-800 (winglets) Passenger/BBJ2,166,FY 7570 /JL 7195 /PR 3556 /QR 5426 /SQ 5666 /TK 4821 /WY 5658,Meal (none specific),260215_MH2574_09001125,text,True,2026-02-14T16:51:28.178773
+15/2/2026,Sunday,MYY,arrival,12:05,MY3631,MAXjet,Duration: 0h 30m,11:35 - 12:05,"59 miles, 95 km",ATR 72,68,,Meal (none specific),260215_MY3631_11351205,text,True,2026-02-14T16:51:28.502100
+15/2/2026,Sunday,MYY,arrival,12:15,AK5642,AirAsia,Duration: 2h 20m,09:55 - 12:15,"858 miles, 1381 km",Airbus A320,180,,Meal (none specific),260215_AK5642_09551215,text,True,2026-02-14T16:51:28.812418
+15/2/2026,Sunday,MYY,arrival,12:30,AK6192,AirAsia,Duration: 1h 0m,11:30 - 12:30,"320 miles, 515 km",Airbus A320,180,,Meal (none specific),260215_AK6192_11301230,text,True,2026-02-14T16:51:33.304282
+15/2/2026,Sunday,MYY,arrival,12:35,MY3225,MAXjet,Duration: 0h 45m,11:50 - 12:35,"110 miles, 177 km",ATR 72,68,,Meal (none specific),260215_MY3225_11501235,text,True,2026-02-14T16:51:33.516138
+15/2/2026,Sunday,MYY,arrival,14:35,MY3633,MAXjet,Duration: 0h 30m,14:05 - 14:35,"59 miles, 95 km",ATR 72,68,,Meal (none specific),260215_MY3633_14051435,text,True,2026-02-14T16:51:50.328388
+15/2/2026,Sunday,MYY,arrival,14:45,AK6186,AirAsia,Duration: 1h 5m,13:40 - 14:45,"320 miles, 515 km",Airbus A320,180,,Meal (none specific),260215_AK6186_13401445,text,True,2026-02-14T16:51:54.735334
+15/2/2026,Sunday,MYY,arrival,15:30,AK5644,AirAsia,Duration: 2h 20m,13:10 - 15:30,"858 miles, 1381 km",Airbus A320neo,186,,Meal (none specific),260215_AK5644_13101530,text,True,2026-02-14T16:51:59.140581
+15/2/2026,Sunday,MYY,arrival,15:40,AK6073,AirAsia,Duration: 0h 50m,14:50 - 15:40,"181 miles, 291 km",Airbus A320 (sharklets),180,,Meal (none specific),260215_AK6073_14501540,text,True,2026-02-14T16:51:59.340300
+15/2/2026,Sunday,MYY,arrival,15:50,MY3223,MAXjet,Duration: 0h 45m,15:05 - 15:50,"110 miles, 177 km",ATR 72,68,,Meal (none specific),260215_MY3223_15051550,text,True,2026-02-14T16:52:03.748892
+15/2/2026,Sunday,MYY,arrival,16:05,AK6182,AirAsia,Duration: 1h 0m,15:05 - 16:05,"320 miles, 515 km",Airbus A320,180,,Meal (none specific),260215_AK6182_15051605,text,True,2026-02-14T16:52:03.949062
+15/2/2026,Sunday,MYY,arrival,16:25,TR412,Scoot,Duration: 2h 10m,14:15 - 16:25,"723 miles, 1163 km",Embraer 190 E2,112,SQ 8512,Meal (none specific),260215_TR412_14151625,text,True,2026-02-14T16:52:04.145976
+15/2/2026,Sunday,MYY,arrival,16:35,MY3473,MAXjet,Duration: 0h 35m,16:00 - 16:35,"78 miles, 126 km",ATR 72,68,,Meal (none specific),260215_MY3473_16001635,text,True,2026-02-14T16:52:04.352040
+15/2/2026,Sunday,MYY,arrival,16:45,MH2594,Malaysia Airlines,Duration: 2h 25m,14:20 - 16:45,"858 miles, 1381 km",Boeing 737-800 Passenger,172,FY 7576 /GA 8926 /PR 3532 /QR 5431 /TK 4854,Meal (none specific),260215_MH2594_14201645,text,True,2026-02-14T16:52:04.549420
+15/2/2026,Sunday,MYY,arrival,17:15,MY3475,MAXjet,Duration: 0h 35m,16:40 - 17:15,"78 miles, 126 km",ATR 72,68,,Meal (none specific),260215_MY3475_16401715,text,True,2026-02-14T16:52:08.947081
+15/2/2026,Sunday,MYY,arrival,17:55,MY3229,MAXjet,Duration: 0h 45m,17:10 - 17:55,"110 miles, 177 km",ATR 72,68,,Meal (none specific),260215_MY3229_17101755,text,True,2026-02-14T16:52:09.140564
+15/2/2026,Sunday,MYY,arrival,18:20,AK6075,AirAsia,Duration: 0h 50m,17:30 - 18:20,"181 miles, 291 km",Airbus A320 (sharklets),180,,Meal (none specific),260215_AK6075_17301820,text,True,2026-02-14T16:52:09.333480
+15/2/2026,Sunday,MYY,arrival,18:55,AK6184,AirAsia,Duration: 1h 0m,17:55 - 18:55,"320 miles, 515 km",Airbus A320,180,,Meal (none specific),260215_AK6184_17551855,text,True,2026-02-14T16:52:09.535403
+15/2/2026,Sunday,MYY,arrival,19:00,MY3227,MAXjet,Duration: 0h 45m,18:15 - 19:00,"110 miles, 177 km",ATR 72,68,,Meal (none specific),260215_MY3227_18151900,text,True,2026-02-14T16:52:09.746118
+15/2/2026,Sunday,MYY,arrival,19:30,AK6188,AirAsia,Duration: 1h 0m,18:30 - 19:30,"320 miles, 515 km",Airbus A320,180,,Meal (none specific),260215_AK6188_18301930,text,True,2026-02-14T16:52:09.940978
+15/2/2026,Sunday,MYY,arrival,19:40,AK5646,AirAsia,Duration: 2h 20m,17:20 - 19:40,"858 miles, 1381 km",Airbus A320,180,,Meal (none specific),260215_AK5646_17201940,text,True,2026-02-14T16:52:10.146245
+15/2/2026,Sunday,MYY,arrival,19:50,MY3446,MAXjet,Duration: 0h 40m,19:10 - 19:50,"106 miles, 171 km",ATR 72,68,,Meal (none specific),260215_MY3446_19101950,text,True,2026-02-14T16:52:10.340130
+15/2/2026,Sunday,MYY,arrival,19:50,MH2584,Malaysia Airlines,Duration: 2h 35m,17:15 - 19:50,"858 miles, 1381 km",Boeing 737-800 (winglets) Passenger/BBJ2,166,FY 7572 /GA 9315 /KL 3854 /PR 3530 /QR 5428,Meal (none specific),260215_MH2584_17151950,text,True,2026-02-14T16:52:10.545624
+15/2/2026,Sunday,MYY,arrival,20:05,MY3656,MAXjet,Duration: 1h 0m,19:05 - 20:05,"199 miles, 320 km",ATR 72,68,,Meal (none specific),260215_MY3656_19052005,text,True,2026-02-14T16:52:10.734149
+15/2/2026,Sunday,MYY,arrival,22:10,AK5648,AirAsia,Duration: 2h 20m,19:50 - 22:10,"858 miles, 1381 km",Airbus A320 (sharklets),180,,Meal (none specific),260215_AK5648_19502210,text,True,2026-02-14T16:52:10.928106
+15/2/2026,Sunday,MYY,arrival,22:35,MY3658,MAXjet,Duration: 1h 0m,21:35 - 22:35,"199 miles, 320 km",ATR 72,68,,Meal (none specific),260215_MY3658_21352235,text,True,2026-02-14T16:52:11.121834
+15/2/2026,Sunday,MYY,arrival,12:50,MY3435,MAXjet,0h 50m,21:35 - 22:35,"199 miles, 320 km",ATR 72,68,,Meal (none specific),260215_MY3435_21352235,text,True,2026-02-14T16:52:11.819418
+15/2/2026,Sunday,MYY,arrival,15:00,MY3552,MAXjet,1h 10m,,,,,,,,text,True,2026-02-14T16:52:13.242695

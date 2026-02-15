@@ -4,8 +4,8 @@ from services.calendar_service import DeterministicCalendarService
 from services.loader_service import LoaderService
 from services.parser_service import ParserService
 from services.pageGuard_service import PageGuardService
-import time
 from utils.exporter import export_day_debug
+from datetime import datetime
 
 
 class AirportScraper:
@@ -17,9 +17,15 @@ class AirportScraper:
         self.loader = LoaderService(page)
         self.guard = PageGuardService(page)
         self.parser = ParserService(page,self.loader,self.guard)
+
+
+
 # =========================
 # PRIVATE HELPERS
 # =========================
+    def _format_date(self, date_text):
+        dt = datetime.strptime(date_text, "%A, %d %B, %Y")
+        return f"{dt.day}/{dt.month}/{dt.year}"
 
     def snapshot_flights(self):
 
@@ -90,16 +96,16 @@ class AirportScraper:
 
             print(f"\n📅 {page_date}")
 
-            # day_rows = self._process_single_day(
-            #     code,
-            #     page_date,
-            #     time
-            # )
-            day_rows = self._process_single_day_dryrun(
+            day_rows = self._process_single_day(
                 code,
                 page_date,
                 time
             )
+            # day_rows = self._process_single_day_dryrun(
+            #     code,
+            #     page_date,
+            #     time
+            # )
             month_rows.extend(day_rows)
 
         return month_rows
@@ -119,8 +125,8 @@ class AirportScraper:
 
         # --- open calendar and click day ---
         self.loader._reset_row_tracker()
-
-        print("   👉 Clicking calendar day...")
+# 
+        # print("   👉 Clicking calendar day...")
         if not self.calendar.resolve_target_date(page_date):
             print("   ⏭️ skip date (cannot select)")
             return []
@@ -140,7 +146,7 @@ class AirportScraper:
         print("   🏁 Exit ensure_all_rows_loaded")
 
         self.loader.wait_list_stable()
-        print("   ✅ List stable")
+        # print("   ✅ List stable")
 
         after_rows = self._get_row_count()
 
@@ -148,13 +154,15 @@ class AirportScraper:
 
         print("   🔍 Start parse_arrivals")
 
+        page_date_label = self._get_page_date_label()
+
         day_rows = self.parser.parse_arrivals(
             code,
-            page_date.isoformat(),
+            page_date_label,
             snapshot
         )
 
-        print("   ✅ parse_arrivals finished")
+        # print("   ✅ parse_arrivals finished")
 
         scraped = len(day_rows)
         print(f"   📌 Parsed rows: {scraped}")
@@ -182,6 +190,15 @@ class AirportScraper:
             "li.ff-li-list.deparr"
         ).count()
 
+    def _get_page_date_label(self):
+
+        container = self.page.locator(
+            "a.select-date"
+        ).locator("xpath=..")
+
+        return container.inner_text().split("Select date")[0].strip()
+
+    
 # =========================
 # SCRAPE
 # =========================

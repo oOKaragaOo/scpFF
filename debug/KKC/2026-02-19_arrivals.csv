@@ -1,0 +1,20 @@
+date,day_name,airport,direction,time,flight,airline,duration,time_range,distance,aircraft,seats,codeshare,meals,uid,airline_source,page_date_verified,scraped_at
+19/2/2026,Thursday,KKC,arrival,07:55,TG40,Thai Airways,1h 0m,06:55 - 07:55,"236 miles, 380 km",Airbus A320,156,TK 8488,Meal (none specific),260219_TG40_06550755,text,True,2026-02-14T16:17:27.580948
+19/2/2026,Thursday,KKC,arrival,08:10,VZ210,Vietjet Thailand,1h 5m,07:05 - 08:10,"236 miles, 380 km",Airbus A320,180,,Meal (none specific),260219_VZ210_07050810,text,True,2026-02-14T16:17:27.892081
+19/2/2026,Thursday,KKC,arrival,08:40,FD3250,Thai AirAsia,1h 15m,07:25 - 08:40,"229 miles, 368 km",Airbus A321neo,236,,Meal (none specific),260219_FD3250_07250840,text,True,2026-02-14T16:17:28.232052
+19/2/2026,Thursday,KKC,arrival,09:10,SL642,Thai Lion Air,1h 10m,08:00 - 09:10,"229 miles, 368 km",Boeing 737-800 Passenger,167,,Meal (none specific),260219_SL642_08000910,text,True,2026-02-14T16:17:28.576854
+19/2/2026,Thursday,KKC,arrival,11:05,FD5502,Thai AirAsia,1h 5m,10:00 - 11:05,"299 miles, 481 km",Airbus A320,180,,Meal (none specific),260219_FD5502_10001105,text,True,2026-02-14T16:17:28.880435
+19/2/2026,Thursday,KKC,arrival,11:25,TG42,Thai Airways,1h 0m,10:25 - 11:25,"236 miles, 380 km",Airbus A320,156,TK 9261,Meal (none specific),260219_TG42_10251125,text,True,2026-02-14T16:17:29.206879
+19/2/2026,Thursday,KKC,arrival,11:50,FD3248,Thai AirAsia,1h 5m,10:45 - 11:50,"229 miles, 368 km",Airbus A320,180,,Meal (none specific),260219_FD3248_10451150,text,True,2026-02-14T16:17:29.546679
+19/2/2026,Thursday,KKC,arrival,12:00,SL644,Thai Lion Air,1h 0m,11:00 - 12:00,"229 miles, 368 km",Boeing 737-800 Passenger,167,,Meal (none specific),260219_SL644_11001200,text,True,2026-02-14T16:17:29.854758
+19/2/2026,Thursday,KKC,arrival,12:30,FD4501,Thai AirAsia,1h 20m,11:10 - 12:30,"236 miles, 380 km",Airbus A320,180,,Meal (none specific),260219_FD4501_11101230,text,True,2026-02-14T16:17:30.177625
+19/2/2026,Thursday,KKC,arrival,13:30,FD3254,Thai AirAsia,1h 10m,12:20 - 13:30,"229 miles, 368 km",Airbus A321neo,236,,Meal (none specific),260219_FD3254_12201330,text,True,2026-02-14T16:17:30.492972
+19/2/2026,Thursday,KKC,arrival,15:10,TG44,Thai Airways,1h 0m,14:10 - 15:10,"236 miles, 380 km",Airbus A320,156,GF 6344 /MH 5868 /TK 9262,Meal (none specific),260219_TG44_14101510,text,True,2026-02-14T16:17:30.831520
+19/2/2026,Thursday,KKC,arrival,15:50,FD3260,Thai AirAsia,1h 5m,14:45 - 15:50,"229 miles, 368 km",Airbus A320,180,,Meal (none specific),260219_FD3260_14451550,text,True,2026-02-14T16:17:31.159240
+19/2/2026,Thursday,KKC,arrival,16:30,FD5504,Thai AirAsia,1h 0m,15:30 - 16:30,"299 miles, 481 km",Airbus A320,180,,Meal (none specific),260219_FD5504_15301630,text,True,2026-02-14T16:17:31.410545
+19/2/2026,Thursday,KKC,arrival,18:30,VZ214,Vietjet Thailand,1h 5m,17:25 - 18:30,"236 miles, 380 km",Airbus A320,180,,Meal (none specific),260219_VZ214_17251830,text,True,2026-02-14T16:17:31.684818
+19/2/2026,Thursday,KKC,arrival,18:50,FD3256,Thai AirAsia,1h 5m,17:45 - 18:50,"229 miles, 368 km",Airbus A320,180,,Meal (none specific),260219_FD3256_17451850,text,True,2026-02-14T16:17:31.945936
+19/2/2026,Thursday,KKC,arrival,19:20,SL648,Thai Lion Air,1h 5m,18:15 - 19:20,"229 miles, 368 km",Boeing 737-800 Passenger,167,,Meal (none specific),260219_SL648_18151920,text,True,2026-02-14T16:17:32.255979
+19/2/2026,Thursday,KKC,arrival,20:00,FD3252,Thai AirAsia,1h 5m,18:55 - 20:00,"229 miles, 368 km",Airbus A320,180,,Meal (none specific),260219_FD3252_18552000,text,True,2026-02-14T16:17:32.557934
+19/2/2026,Thursday,KKC,arrival,20:20,FD4503,Thai AirAsia,1h 10m,19:10 - 20:20,"236 miles, 380 km",Airbus A320,180,,Meal (none specific),260219_FD4503_19102020,text,True,2026-02-14T16:17:32.833444
+19/2/2026,Thursday,KKC,arrival,20:40,TG46,Thai Airways,1h 0m,19:40 - 20:40,"236 miles, 380 km",Airbus A320,156,MH 5869 /TK 9263,Meal (none specific),260219_TG46_19402040,text,True,2026-02-14T16:17:33.159325

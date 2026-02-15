@@ -22,8 +22,13 @@ class PageGuardService:
 
             const idleAd = document.getElementById('ff-idle-ad');
             if (idleAd) {
+
                 const closeBtn = idleAd.querySelector('.ad-container-close');
                 if (closeBtn) closeBtn.click();
+
+                // ⭐ force hide กันค้าง
+                idleAd.style.display = 'none';
+                idleAd.remove();
             }
 
             const adSelectors = [
@@ -60,12 +65,18 @@ class PageGuardService:
 
     def _overlay_detected(self):
         return self.page.evaluate("""
-        () => !!(
-            document.querySelector('#ff-idle-ad') ||
-            document.querySelector('.ff-footer') ||
-            document.body.style.overflow === 'hidden'
-        )
+        () => {
+            const ad = document.querySelector('#ff-idle-ad');
+            const adVisible =
+                ad && getComputedStyle(ad).display !== 'none';
+
+            return !!(
+                adVisible ||
+                document.body.style.overflow === 'hidden'
+            );
+        }
         """)
+
 
     def block_ads(self, route):
         url = route.request.url

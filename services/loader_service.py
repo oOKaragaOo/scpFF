@@ -7,6 +7,7 @@ class LoaderService:
     def __init__(self, page):
         self.page = page
 
+
     # =========================
     # PRIVATE HELPERS
     # =========================
@@ -47,26 +48,76 @@ class LoaderService:
         except:
             return False
 
+    #old def _click_show_more(self):
+    #     button = self.page.locator("#show-more-routes")
+
+    #     try:
+    #         with self.page.expect_response(
+    #             lambda r: (
+    #                 "entityType=arrivals" in r.url and
+    #                 "take=" in r.url and
+    #                 r.status == 200
+    #             ),
+    #             timeout=30000
+    #         ):
+    #             button.first.click(force=True)
+
+    #         # print("      👉 Clicked show more (XHR detected)")
+    #         return True
+
+    #     except:
+    #         print("      ❌ Click failed or no XHR")
+    #         return False
+
     def _click_show_more(self):
-        button = self.page.locator("#show-more-routes")
 
-        try:
-            with self.page.expect_response(
-                lambda r: (
-                    "entityType=arrivals" in r.url and
-                    "take=" in r.url and
-                    r.status == 200
-                ),
-                timeout=30000
-            ):
-                button.first.click(force=True)
+        buttons = self.page.locator("#show-more-routes")
 
-            # print("      👉 Clicked show more (XHR detected)")
-            return True
+        count = buttons.count()
+        # print(f"      🧪 show more buttons: {count}")
 
-        except:
-            print("      ❌ Click failed or no XHR")
+        target = None
+
+        for i in range(count):
+            b = buttons.nth(i)
+
+            visible = b.is_visible()
+            enabled = b.is_enabled()
+
+            # print(f"      🧪 btn[{i}] visible={visible} enabled={enabled}")
+
+            if visible and enabled and target is None:
+                target = b
+
+        if not target:
+            print("      ❌ No usable show more button")
             return False
+
+        for attempt in range(2):   # ⭐ ลองได้ 2 รอบ
+
+            try:
+                with self.page.expect_response(
+                    lambda r: (
+                        "entityType=arrivals" in r.url and
+                        "take=" in r.url and
+                        r.status == 200
+                    ),
+                    timeout=30000
+                ):
+                    target.click(force=True)
+
+                return True
+
+            except:
+                if attempt == 0:
+                    self.page.wait_for_timeout(300)
+                    continue
+
+                print("      ❌ Click failed or no XHR")
+                return False
+
+
+    
 
     def _wait_dom_settle(self):
         self.page.wait_for_timeout(800)
@@ -121,7 +172,7 @@ class LoaderService:
             }"""
         )
 
-    def ensure_all_rows_loaded(self):
+    def ensure_all_rows_loaded(self, guard=None):
 
         expected = self.get_expected_rows()
         print("      🎯 Expected rows:", expected)
@@ -136,6 +187,9 @@ class LoaderService:
             colour="#26bdeb",
             ncols=150
         ) as pbar:
+            
+            if guard:
+                guard.ensure_page_clean()
 
             while True:
 
@@ -164,6 +218,9 @@ class LoaderService:
                 click_count += 1
 
                 self._wait_dom_settle()
+
+                if guard:
+                    guard.ensure_page_clean()
 
         print(
             "      🟢 Final row count:",
