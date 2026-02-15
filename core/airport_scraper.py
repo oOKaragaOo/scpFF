@@ -126,7 +126,7 @@ class AirportScraper:
         # --- open calendar and click day ---
         self.loader._reset_row_tracker()
 # 
-        # print("   👉 Clicking calendar day...")
+        print("   👉 Clicking calendar day...")
         if not self.calendar.resolve_target_date(page_date):
             print("   ⏭️ skip date (cannot select)")
             return []
@@ -146,7 +146,7 @@ class AirportScraper:
         print("   🏁 Exit ensure_all_rows_loaded")
 
         self.loader.wait_list_stable()
-        # print("   ✅ List stable")
+        print("   ✅ List stable")
 
         after_rows = self._get_row_count()
 
