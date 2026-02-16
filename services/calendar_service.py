@@ -1,12 +1,16 @@
 class DeterministicCalendarService:
-    def __init__(self, page):
+
+    def __init__(self, page, guard):
         self.page = page
+        self.guard = guard
+        
 
 # =========================
 # PUBLIC
 # =========================
 
     def open_calendar(self):
+        
         self._wait_overlay_clear()
 
         if self._is_calendar_open():
@@ -22,41 +26,51 @@ class DeterministicCalendarService:
         self._click_open_button()
         self._wait_calendar_open()
 
-    def goto_month_year(self, year, month):
+    # def goto_month_year(self, year, month):
 
-        self.open_calendar()
+    #     self.open_calendar()
 
-        self._set_year(year)
-        self._set_month(month)
+    #     self._set_year(year)
+    #     self._set_month(month)
 
-        self._wait_month_change_settle()
+    #     self._wait_month_change_settle()
 
-        return True
+    #     return True
 
     def resolve_target_date(self, target_date):
 
+        self.guard.ensure_page_clean()
         target_label = self._format_day_label(target_date)
 
-        print(f"📅 resolve_target_date → {target_label}")
+        print(f"\ntarget in 📅 : {target_label}")
 
         # STEP 1 — ensure calendar open
         self.open_calendar()
+        self.goto_month_year(target_date.year, target_date.month)
+        self._wait_month_stable()
+        self._wait_calendar_grid_ready()
+
 
         # STEP 2 — try current grid
         day = self._get_day_locator(target_label)
 
         if day.count() > 0:
-
+            self._wait_day_ready(day)
             day_class = day.first.get_attribute("class") or ""
             # print(f"📦 current grid class = {day_class}")
 
             if not self._is_disabled(day):
 
                 # print("✅ normal grid click")
+
+                self._wait_calendar_grid_ready()
+                self._wait_day_ready(day)
                 day.first.click()
+                self.page.wait_for_timeout(100)
+
 
                 result = self._verify_selected(target_label)
-                print(f"🎯 verify selected = {result}")
+                # print(f"🎯 verify selected = {result}")
 
                 return result
 
@@ -67,6 +81,64 @@ class DeterministicCalendarService:
 
         # FALLBACK
         return self._fallback_prev_month(target_label)
+
+    # tqdm def resolve_target_date(self, target_date):
+
+    #     self.guard.ensure_page_clean()
+    #     target_label = self._format_day_label(target_date)
+
+    #     # STEP 1 — ensure calendar open
+    #     self.open_calendar()
+    #     self.goto_month_year(target_date.year, target_date.month)
+    #     self._wait_month_stable()
+    #     self._wait_calendar_grid_ready()
+
+    #     # STEP 2 — try current grid
+    #     day = self._get_day_locator(target_label)
+
+    #     if day.count() > 0:
+
+    #         self._wait_day_ready(day)
+
+    #         if not self._is_disabled(day):
+
+    #             self._wait_calendar_grid_ready()
+    #             self._wait_day_ready(day)
+
+    #             day.first.click()
+    #             self.page.wait_for_timeout(100)
+
+    #             return self._verify_selected(target_label)
+
+    #     # FALLBACK
+    #     return self._fallback_prev_month(target_label)
+
+
+    def goto_month_year(self, year, month):
+
+        self.open_calendar()
+
+        # target ต้อง fix
+        target = (year, month)
+
+        for _ in range(12):  # safety limit
+
+            current_month, current_year = self._read_current_month_year()
+
+            if (current_year, current_month) == target:
+                break
+
+            if (current_year, current_month) < target:
+                self.page.locator(".flatpickr-next-month").first.click()
+            else:
+                self.page.locator(".flatpickr-prev-month").first.click()
+
+            self.page.wait_for_timeout(250)
+
+        self._wait_month_stable()
+
+        return True
+
 
 # =========================
 # MAIN STATE
@@ -137,6 +209,9 @@ class DeterministicCalendarService:
         # SUCCESS
         # =========================
         print("✅ fallback click")
+
+        self._wait_calendar_grid_ready()
+        self._wait_day_ready(day)
         day.first.click()
 
         # print("🎯 fallback accepted (skip verify block)")
@@ -145,6 +220,79 @@ class DeterministicCalendarService:
 # =========================
 # VALIDATION / HELPERS 
 # =========================
+    def warmup_calendar(self, start_date):
+
+        print("🔥 Calendar warmup")
+
+        try:
+            # กัน popup/overlay ค้าง
+            self.guard.ensure_page_clean()
+
+            self.open_calendar()
+
+            # render เดือนแรกของ range
+            self.goto_month_year(start_date.year, start_date.month)
+
+            # รอ grid complete
+            self._wait_calendar_grid_ready()
+
+            # ให้ interactive state stabilize
+            self.page.wait_for_timeout(200)
+
+        finally:
+            try:
+                self.close_calendar()
+            except:
+                pass
+
+    def _wait_calendar_grid_ready(self):
+
+        for _ in range(8):   # ~800ms max
+            days = self.page.locator(
+                ".flatpickr-calendar.open .flatpickr-day"
+            ).count()
+
+            # เดือนปกติควรมี ~35-42 cells
+            if days >= 35:
+                return
+
+            self.page.wait_for_timeout(100)
+
+    def _wait_day_ready(self, day_locator):
+
+        for _ in range(5):   # ~500ms max
+            if day_locator.count() == 0:
+                break
+
+            cls = day_locator.first.get_attribute("class") or ""
+
+            if "flatpickr-disabled" not in cls:
+                return
+
+            self.page.wait_for_timeout(100)
+
+    def _wait_month_stable(self):
+
+        m1 = self._read_current_month_year()
+        self.page.wait_for_timeout(150)
+        m2 = self._read_current_month_year()
+
+        if m1 != m2:
+            self.page.wait_for_timeout(300)
+
+    def _read_current_month_year(self):
+        month_select = self.page.locator(
+            ".flatpickr-calendar.open select.flatpickr-monthDropdown-months"
+        )
+        year_input = self.page.locator(
+            ".flatpickr-calendar.open input.cur-year"
+        )
+
+        month = int(month_select.input_value()) + 1
+        year = int(year_input.input_value())
+
+        return month, year
+
     def _click_day(self, locator):
         locator.first.click(force=True)
 

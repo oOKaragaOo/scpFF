@@ -1,23 +1,31 @@
-from datetime import timedelta
+from datetime import timedelta , datetime
 # from services.calendar_service import CalendarService
 from services.calendar_service import DeterministicCalendarService
 from services.loader_service import LoaderService
 from services.parser_service import ParserService
 from services.pageGuard_service import PageGuardService
 from utils.exporter import export_day_debug
-from datetime import datetime
-
+from tqdm import tqdm
 
 class AirportScraper:
 
     def __init__(self, page):
         self.page = page
-        # self.calendar = CalendarService(page)
-        self.calendar = DeterministicCalendarService(page)
+
         self.loader = LoaderService(page)
         self.guard = PageGuardService(page)
-        self.parser = ParserService(page,self.loader,self.guard)
 
+        # ⭐ ต้องส่ง guard เข้าไป
+        self.calendar = DeterministicCalendarService(
+            page,
+            self.guard
+        )
+
+        self.parser = ParserService(
+            page,
+            self.loader,
+            self.guard
+        )
 
 
 # =========================
@@ -79,7 +87,7 @@ class AirportScraper:
 
         month_rows = []
 
-        print(f"\n🗓 Processing month: {current_month.strftime('%Y-%m')}")
+        print(f"Processing month: {current_month.strftime('%Y-%m')}")
         
         
         self._prepare_month(year, month)
@@ -94,7 +102,7 @@ class AirportScraper:
             if page_date < start_date or page_date > end_date:
                 continue
 
-            print(f"\n📅 {page_date}")
+            # print(f"\n📅 {page_date}")
 
             day_rows = self._process_single_day(
                 code,
@@ -110,43 +118,123 @@ class AirportScraper:
 
         return month_rows
 
+    # def scrape_current_month(self, code, current_month, start_date, end_date):
+
+    #     from datetime import date
+    #     import time
+    #     from tqdm import tqdm
+
+    #     year = current_month.year
+    #     month = current_month.month
+
+    #     month_rows = []
+
+    #     print(f"Processing month: {current_month.strftime('%Y-%m')}")
+
+    #     self._prepare_month(year, month)
+
+    #     pbar = tqdm(
+    #         range(1, 32),
+    #         desc="",
+    #         total=31,
+    #         bar_format="{desc}",   # ไม่มี loading bar
+    #         ncols=120
+    #     )
+
+    #     for day in pbar:
+
+    #         try:
+    #             page_date = date(year, month, day)
+    #         except:
+    #             break
+
+    #         if page_date < start_date or page_date > end_date:
+    #             continue
+
+    #         date_str = page_date.strftime("%Y-%m-%d")
+
+    #         # ⏳ default
+    #         pbar.set_postfix_str(f"📅 {date_str} ⏳")
+
+    #         # resolve ก่อน
+    #         ok = self.calendar.resolve_target_date(page_date)
+
+    #         if not ok:
+    #             pbar.set_postfix_str(f"📅 {date_str} ❌")
+    #             continue
+
+    #         # ✅ update ทันที
+    #         pbar.set_postfix_str(f"📅 {date_str} ✅")
+
+    #         # ---------------------------------
+    #         # process day
+    #         # ---------------------------------
+    #         day_rows = self._process_single_day(
+    #             code,
+    #             page_date,
+    #             time
+    #         )
+
+    #         # ---------------------------------
+    #         # status update
+    #         # ---------------------------------
+    #         if day_rows is None:
+    #             # calendar resolve fail
+    #             pbar.set_description_str(f"📅 {date_str} ❌")
+    #             continue
+
+    #         pbar.set_postfix_str(f"📅 {date_str} ✅")
+
+    #         month_rows.extend(day_rows)
+
+    #     pbar.close()
+
+    #     return month_rows
+
     def _prepare_month(self, year, month):
 
         self.page.keyboard.press("Escape")
         self.page.wait_for_timeout(200)
 
         self.loader._reset_row_tracker()
-        print("   📂 Calendar opened")
+        # print("   📂 Calendar opened")
 
         self.calendar.goto_month_year(year, month)
-        print(f"   📆 Switched to {year}-{month:02d}")
+        # print(f"   📆 Switched to {year}-{month:02d}")
 
     def _process_single_day(self, code, page_date, time_module):
 
         # --- open calendar and click day ---
         self.loader._reset_row_tracker()
 # 
-        print("   👉 Clicking calendar day...")
+        # print("   👉 Clicking calendar day...")
         if not self.calendar.resolve_target_date(page_date):
             print("   ⏭️ skip date (cannot select)")
             return []
 
+        # tqdm
+        # if not date_already_resolved:
+        #     if not self.calendar.resolve_target_date(page_date):
+        #         return None
+
+
+
         # --- wait overlay ---
         self.loader.wait_overlay_clear()
-        print("   ✅ Overlay cleared")
+        # print("   ✅ Overlay cleared")
 
         self.page.wait_for_timeout(800)
 
         before_rows = self._get_row_count()
-        print(f"   📦 Rows : {before_rows}")
+        # print(f"   📦 Rows : {before_rows}")
 
         # --- load full list ---
-        print("   🚀 Enter ensure_all_rows_loaded")
+        # print("   🚀 Enter ensure_all_rows_loaded")
         self.loader.ensure_all_rows_loaded()
         print("   🏁 Exit ensure_all_rows_loaded")
 
         self.loader.wait_list_stable()
-        print("   ✅ List stable")
+        # print("   ✅ List stable")
 
         after_rows = self._get_row_count()
 
@@ -165,7 +253,7 @@ class AirportScraper:
         # print("   ✅ parse_arrivals finished")
 
         scraped = len(day_rows)
-        print(f"   📌 Parsed rows: {scraped}")
+        # print(f"   📌 Parsed rows: {scraped}")
 
         export_day_debug(
             day_rows,
@@ -206,7 +294,7 @@ class AirportScraper:
     def scrape_airport(self, code, start_date, end_date):
 
         self._open_airport_page(code)
-
+        self.calendar.warmup_calendar(start_date)
         all_rows = []
         current_month = start_date.replace(day=1)
 
@@ -232,7 +320,7 @@ class AirportScraper:
         # --- test only: no scraping ---
         self.loader._reset_row_tracker()
 
-        print("   👉 Clicking calendar day...")
+        # print("   👉 Clicking calendar day...")
         # time.sleep(2)
         if not self.calendar.resolve_target_date(page_date):
             print("   ⏭️ skip date (cannot select)")

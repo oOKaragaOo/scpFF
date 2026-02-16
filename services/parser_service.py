@@ -17,19 +17,23 @@ class ParserService:
 
         snapshot_flights = set(snapshot_flights)
         rows = []
-                
 
         self.guard.ensure_vue_ready(self.loader)
 
-
         elements = self._snapshot_elements()
 
-        for el in tqdm(elements,
-               desc="Row runing : ",
-               ascii=("_", "▄"),
-               colour="#83f77e",
-               unit="flight",
-               ncols=120):
+        footer_kill_count = 0
+
+        pbar = tqdm(
+            elements,
+            desc="   Row runing : ",
+            ascii=("_", "▄"),
+            colour="#83f77e",
+            unit="flight",
+            ncols=150
+        )
+
+        for el in pbar:
 
             try:
                 row_data = self._parse_single_element(
@@ -37,22 +41,29 @@ class ParserService:
                     arrival_airport,
                     current_date
                 )
+
+                # ⭐ update safe handle ทุกครั้งที่ success
+                self.safe_handle = el
+
                 if row_data:
                     rows.append(row_data)
 
-            except Exception as e:
-                try:
-                    f = el.locator(".deparr_flight").inner_text()
-                except:
-                    f = "UNKNOWN"
-                    print(f"   ❌ Parse fail: {f} | {e}")
-                self._close_popup()
+                pbar.set_postfix_str(
+                    f"Footer Kill : {footer_kill_count}"
+                )
+
+            except Exception:
+
+                revived = self.recover_from_footer_only()
+                if revived:
+                    footer_kill_count += 1
+
+                pbar.set_postfix_str(
+                    f"Footer Kill : {footer_kill_count}"
+                )
+
+                # self._close_popup()
                 continue
-
-
-
-        parsed_set = {r["flight"] for r in rows}
-        # print(f"   📊 Parsed unique flights: {len(parsed_set)}")
 
         rows = self.recover_missing_flights(
             arrival_airport,
@@ -61,6 +72,9 @@ class ParserService:
             rows
         )
 
+        # ⭐ summary ต่อวัน
+        # print(f"   ☠️ Footer Kill Total: {footer_kill_count}")
+        self._close_popup()
         return rows
 
     # =========================
@@ -84,6 +98,9 @@ class ParserService:
         btn = el.query_selector(".flightsfrom-list-money")
         self.page.evaluate("(e) => e.click()", btn)
 
+        self.page.wait_for_timeout(100)
+        if self.page.locator(".uk-grid").count() <= 2:
+            raise Exception("footer_only_detected")
         popup = self._open_popup()
         if self.safe_handle is None:
             self.safe_handle = el
@@ -113,7 +130,7 @@ class ParserService:
 
         row["uid"] = uid
 
-        self._close_popup()
+        # self._close_popup()
 
         return row
 
@@ -149,7 +166,13 @@ class ParserService:
         }
 
     def _close_popup(self):
-        self.page.keyboard.press("Escape")
+        try:
+            btn = self.page.locator("#ff-day-infobox .ff-day-close")  # เปลี่ยน selector ตามจริง
+            if btn.count():
+                btn.first.click(force=True)
+        except:
+            pass
+
         self.page.wait_for_timeout(120)
 
     # =========================
@@ -218,29 +241,35 @@ class ParserService:
     ):
 
         parsed_set = {r["flight"] for r in parsed_rows}
-        missing = set(snapshot_flights) - parsed_set
+        missing = list(set(snapshot_flights) - parsed_set)
 
         if not missing:
             return parsed_rows
 
-        print(f"   🔎 Recovery pass → {len(missing)} flights missing")
+        recovered_count = 0
 
         self.loader.ensure_all_rows_loaded()
         self.loader.wait_list_stable()
 
-        for flight_code in missing:
+        pbar = tqdm(
+            missing,
+            desc="     Recovery : ",
+            ascii=("_", "▄"),
+            colour="#f7d983",
+            unit="flight",
+            ncols=150
+        )
+
+        for flight_code in pbar:
 
             try:
-
                 self.recover_from_footer_only()
-
                 self.guard.ensure_vue_ready(self.loader)
 
                 row = self._find_row_by_flight_code(flight_code)
                 if row is None:
                     continue
 
-                # LIST ONLY
                 row_data = {
                     "airport": arrival_airport,
                     "direction": "arrival",
@@ -272,92 +301,65 @@ class ParserService:
                 )
 
                 parsed_rows.append(row_data)
+                recovered_count += 1
 
             except Exception:
                 continue
 
-        # =====================================================
-        # FINAL CHECK → click missing flights for logging only
-        # =====================================================
-        print("   🧪 Final click check")
+            # ⭐ summary realtime (line เดียว)
+            pbar.set_postfix_str(
+                f"Recovered: {recovered_count}/{len(missing)} | Total: {len(parsed_rows)}"
+            )
 
-        for flight_code in missing:
-
-            try:
-                self.recover_from_footer_only()
-
-                row = self._find_row_by_flight_code(flight_code)
-                if row is None:
-                    print(f"   ⚠️ {flight_code} not found")
-                    continue
-
-                btn = row.locator(".flightsfrom-list-money")
-
-                if btn.count():
-                    btn.click(force=True)
-                    print(f"   🟢 Click OK: {flight_code}")
-
-                    self._close_popup()
-
-            except Exception as e:
-                print(f"   🔴 Click fail: {flight_code} | {e}")
-
-                try:
-                    self._close_popup()
-                except:
-                    pass
-
-        print(f"   ✅ After recovery → {len(parsed_rows)} rows")
+        # ----------------------------
+        # SUMMARY
+        # ----------------------------
+        print(
+            f"   ✅ Recovery done | "
+            f"Recovered: {recovered_count}/{len(missing)} | "
+            f"Final rows: {len(parsed_rows)}"
+        )
+        self._close_popup()
         return parsed_rows
-
-# =========================
-# Footer-only Recovery (use parser timeout behavior)
-# =========================
 
 # =========================
 # Footer-only Recovery
 # =========================
+
     def recover_from_footer_only(self):
 
         try:
             grid = self.page.locator(".uk-grid").count()
             rows = self.page.locator("li.ff-li-list.deparr").count()
 
+            # หน้าไม่พัง
             if grid > 2 and rows > 0:
                 return False
 
-            print("   💀 Footer-only detected → revive click")
-
-            # ---------------------------------
-            # ใช้ SAFE HANDLE
-            # ---------------------------------
             if not self.safe_handle:
-                print("   ⚠️ No safe handle")
                 return False
 
             btn = self.safe_handle.query_selector(".flightsfrom-list-money")
+
+            # soft revive click
             self.page.evaluate("""
-                (e) => {
-                    e.dispatchEvent(new MouseEvent('click', {
-                        bubbles: true,
-                        cancelable: true,
-                        view: window
-                    }));
-                }
-                """, btn)
+            (e) => {
+                e.dispatchEvent(new MouseEvent('click', {
+                    bubbles: true,
+                    cancelable: true,
+                    view: window
+                }));
+            }
+            """, btn)
 
             self.page.wait_for_timeout(300)
 
             grid_after = self.page.locator(".uk-grid").count()
             rows_after = self.page.locator("li.ff-li-list.deparr").count()
 
-            print(f"   🔎 AFTER REVIVE  | grid={grid_after} rows={rows_after}")
-
             if grid_after > 2 and rows_after > 0:
-                print("   ♻️ Back to list")
                 return True
 
-            print("   ⚠️ Still footer-only")
             return False
 
         except Exception:

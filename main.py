@@ -4,8 +4,8 @@ from core.airport_scraper import AirportScraper
 import pandas as pd
 import time
 program_start = time.time()
-START_DATE = date(2026, 3, 21)
-END_DATE   = date(2026, 3, 21)
+START_DATE = date(2026, 10, 1)
+END_DATE   = date(2026, 10, 25)
 
 airports_df = pd.read_csv("data/reference/world_airports_city.csv")
 codes = airports_df["airport_code"].dropna().unique().tolist()

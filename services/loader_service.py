@@ -185,7 +185,7 @@ class LoaderService:
             ascii=("_", "▄"),
             unit="row",
             colour="#26bdeb",
-            ncols=150
+            ncols=140
         ) as pbar:
             
             if guard:
@@ -222,7 +222,7 @@ class LoaderService:
                 if guard:
                     guard.ensure_page_clean()
 
-        print(
-            "      🟢 Final row count:",
-            self._get_current_row_count()
-        )
+        # print(
+        #     "      🟢 Final row count:",
+        #     self._get_current_row_count()
+        # )
