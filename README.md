@@ -43,9 +43,8 @@ python -m pip install --upgrade pip
 ## 📦 Install libraries
 
 ```bash
-
 pip install -r requirements.txt
-
+playwright install
 ```
 
 ---
@@ -58,7 +57,7 @@ pip install -r requirements.txt
 
 ```python
 countries = [
-    "Dallas"
+    "Thailand"
 ]
 ```
 
@@ -93,26 +92,134 @@ python main.py
 
 ---
 
-## 📤 Export (สรุปสั้น)
+## 📤 Export (วิธีใช้งาน)
 
-Flow:
+ระบบจะ export อัตโนมัติระหว่าง scrape โดยใช้ `exporter.py`
 
-1. ดึง flight list
-2. เปิด popup เก็บ detail
-3. parse → rows
-4. export เป็น CSV แยกตามเดือน
+### 📂 โครงสร้างไฟล์ output
 
-ข้อมูลหลักที่ export:
+```
+export/
+ └── <AIRPORT_CODE>/
+      └── YYYY-MM.csv
+```
 
-* airport
-* flight
-* airline
-* date / time
-* duration
-* aircraft
-* distance
-* seats
-* uid
+ตัวอย่าง:
+
+```
+export/BKK/2026-03.csv
+```
+
+### ⚙️ วิธีการ export (สรุป)
+
+1. scraper ดึงข้อมูลรายวัน
+2. parse flight + popup detail
+3. รวม rows รายเดือน
+4. append ลง CSV อัตโนมัติ
+
+ฟังก์ชันหลักที่ใช้:
+
+```python
+append_month_rows(rows, code, month_key)
+```
+
+* append ข้อมูลเพิ่ม (ไม่ overwrite)
+* สร้าง folder/file ให้อัตโนมัติ
+
+### 🧾 Column หลักในไฟล์
+
+* date / day_name
+* airport / direction
+* flight / airline
+* time / duration
+* aircraft / distance / seats
+* uid (unique id)
+* scraped_at
+
+### 🧪 Debug export (optional)
+
+ใน `exporter.py`
+
+```python
+ENABLE_DAILY_DEBUG = True
+```
+
+* True  → export debug รายวัน/รายสัปดาห์
+* False → export เฉพาะไฟล์หลัก
+
+---
+
+## 🧭 วิธีอ่าน Log (สั้น ๆ)
+
+### 🔹 Progress bar (tqdm)
+
+ตัวอย่าง:
+
+```
+Row runing :  35%|███▌ ... | Footer Kill : 2
+```
+
+ความหมาย:
+
+* Row running → จำนวน flight ที่ parse ไปแล้ว
+* Footer Kill → จำนวนครั้งที่ข้อมูล Airline บนหน้าเว็ปหายแล้ว Airline กลับมา
+* Recovery → จำนวน flight ที่กู้คืนได้
+
+### 🔹 Log สำคัญที่ควรดู
+
+* `Snapshot unique flights` → จำนวน flight ที่ detect จากหน้าเว็บ
+* `Start parse (arrival/departure)` → เริ่ม parse จริง
+* `Appended ... rows` → export สำเร็จ
+* `WEEK DEBUG PICK` → debug file ที่ถูกเลือก export
+
+ถ้าเลข flight น้อยผิดปกติ → เช็ค calendar หรือ popup render ก่อน
+
+---
+
+## 🐞 ข้อแนะนำเมื่อเจอบัคของ tqdm
+
+อาการที่เจอบ่อย:
+
+* progress bar ค้าง
+* log ขึ้นทับกัน
+* bar ไม่ปิดเมื่อ error
+
+วิธีแก้เร็ว:
+
+1️⃣ ปิด tqdm ชั่วคราวเพื่อ debug
+
+```python
+pbar = tqdm(..., disable=True)
+```
+
+2️⃣ อย่าใช้ `print()` รัว ๆ ขณะ tqdm ทำงาน
+ใช้:
+
+```python
+pbar.set_postfix_str("message")
+```
+
+แทน
+
+3️⃣ ถ้า bar เพี้ยนหลัง exception
+ให้แน่ใจว่ามี:
+
+```python
+pbar.close()
+```
+
+(หรือให้ loop จบปกติ)
+
+4️⃣ ถ้า run บนบาง terminal แล้วกระตุก
+ลองลด:
+
+```python
+ncols=120
+```
+
+หรือลองเอา `colour` ออก
+
+💡 Tip: tqdm เป็นแค่ UI ไม่เกี่ยวกับ logic scrape — ถ้ามีบัค parsing ให้ปิด tqdm ก่อนเพื่อ isolate ปัญหา
 
 ---
 
