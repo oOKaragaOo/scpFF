@@ -202,76 +202,6 @@ class AirportScraper:
         self.calendar.goto_month_year(year, month)
         # print(f"   📆 Switched to {year}-{month:02d}")
 
-    def _process_single_day(self, code, page_date, time_module):
-
-        # --- open calendar and click day ---
-        self.loader._reset_row_tracker()
-# 
-        # print("   👉 Clicking calendar day...")
-        if not self.calendar.resolve_target_date(page_date):
-            print("   ⏭️ skip date (cannot select)")
-            return []
-
-        # tqdm
-        # if not date_already_resolved:
-        #     if not self.calendar.resolve_target_date(page_date):
-        #         return None
-
-
-
-        # --- wait overlay ---
-        self.loader.wait_overlay_clear()
-        # print("   ✅ Overlay cleared")
-
-        self.page.wait_for_timeout(800)
-
-        before_rows = self._get_row_count()
-        # print(f"   📦 Rows : {before_rows}")
-
-        # --- load full list ---
-        # print("   🚀 Enter ensure_all_rows_loaded")
-        self.loader.ensure_all_rows_loaded()
-        print("   🏁 Exit ensure_all_rows_loaded")
-
-        self.loader.wait_list_stable()
-        # print("   ✅ List stable")
-
-        after_rows = self._get_row_count()
-
-        snapshot = self.snapshot_flights()
-
-        print("   🔍 Start parse_arrivals")
-
-        page_date_label = self._get_page_date_label()
-
-        day_rows = self.parser.parse_arrivals(
-            code,
-            page_date_label,
-            snapshot
-        )
-
-        # print("   ✅ parse_arrivals finished")
-
-        scraped = len(day_rows)
-        # print(f"   📌 Parsed rows: {scraped}")
-
-        export_day_debug(
-            day_rows,
-            code,
-            page_date.isoformat(),
-            "arrivals"
-        )
-
-        # --- safety reset ---
-        reloaded = self.reset_if_large_dataset(after_rows)
-
-        if reloaded:
-            print("   ⏭ Skipping to next day after reload")
-            return []
-
-        time_module.sleep(1.2)
-
-        return day_rows
 
     def _get_row_count(self):
         return self.page.locator(
@@ -285,6 +215,238 @@ class AirportScraper:
         ).locator("xpath=..")
 
         return container.inner_text().split("Select date")[0].strip()
+
+
+
+    def _process_single_day(self, code, page_date, time_module):
+
+        # =========================
+        # OPEN DAY (เดิมทั้งหมด)
+        # =========================
+        self.loader._reset_row_tracker()
+
+        if not self.calendar.resolve_target_date(page_date):
+            print("   ⏭️ skip date (cannot select)")
+            return []
+
+        self.loader.wait_overlay_clear()
+
+        self.page.wait_for_timeout(800)
+
+        before_rows = self._get_row_count()
+
+        page_date_label = self._get_page_date_label()
+
+        # =========================
+        # PASS : ARRIVAL (เดิม)
+        # =========================
+        print("   ▶ PASS: ARRIVAL")
+
+        day_rows = self._run_direction_pass(
+            code,
+            page_date_label,
+            direction="arrival"
+        )
+
+        after_rows = self._get_row_count()
+
+        export_day_debug(
+            day_rows,
+            code,
+            page_date.isoformat(),
+            "arrivals"
+        )
+
+        # =========================
+        # SAFETY RESET (เดิม)
+        # =========================
+        reloaded = self.reset_if_large_dataset(after_rows)
+
+        if reloaded:
+            print("   ⏭ Skipping to next day after reload")
+            return []
+
+        time_module.sleep(1.2)
+
+        return day_rows
+
+    #Dept frist def _process_single_day(self, code, page_date, time_module):
+
+    #     # =========================
+    #     # OPEN DAY (เดิมทั้งหมด)
+    #     # =========================
+    #     self.loader._reset_row_tracker()
+
+    #     if not self.calendar.resolve_target_date(page_date):
+    #         print("   ⏭️ skip date (cannot select)")
+    #         return []
+
+    #     self.loader.wait_overlay_clear()
+
+    #     self.page.wait_for_timeout(800)
+
+    #     before_rows = self._get_row_count()
+
+    #     page_date_label = self._get_page_date_label()
+
+    #     # =========================
+    #     # PASS 1 : DEPARTURE
+    #     # =========================
+    #     print("   ▶ PASS: DEPARTURE")
+
+    #     dep_rows = self._run_direction_pass(
+    #         code,
+    #         page_date_label,
+    #         direction="departure"
+    #     )
+
+    #     # =========================
+    #     # SWITCH TAB
+    #     # =========================
+    #     self._switch_direction_tab("arrival")
+
+    #     # =========================
+    #     # PASS 2 : ARRIVAL
+    #     # =========================
+    #     print("   ▶ PASS: ARRIVAL")
+
+    #     arr_rows = self._run_direction_pass(
+    #         code,
+    #         page_date_label,
+    #         direction="arrival"
+    #     )
+
+    #     # =========================
+    #     # CONCAT RESULT
+    #     # =========================
+    #     day_rows = dep_rows + arr_rows
+
+    #     after_rows = self._get_row_count()
+
+    #     export_day_debug(
+    #         day_rows,
+    #         code,
+    #         page_date.isoformat(),
+    #         "arrivals"   # ยังใช้เดิมก่อน (no behavior change)
+    #     )
+
+    #     # =========================
+    #     # SAFETY RESET (เดิม)
+    #     # =========================
+    #     reloaded = self.reset_if_large_dataset(after_rows)
+
+    #     if reloaded:
+    #         print("   ⏭ Skipping to next day after reload")
+    #         return []
+
+    #     time_module.sleep(1.2)
+
+    #     return day_rows
+
+    #Single def _process_single_day(self, code, page_date, time_module):
+
+    #     # --- open calendar and click day ---
+    #     self.loader._reset_row_tracker()
+
+    #     if not self.calendar.resolve_target_date(page_date):
+    #         print("   ⏭️ skip date (cannot select)")
+    #         return []
+
+    #     # --- wait overlay ---
+    #     self.loader.wait_overlay_clear()
+
+    #     self.page.wait_for_timeout(800)
+
+    #     before_rows = self._get_row_count()
+
+    #     page_date_label = self._get_page_date_label()
+
+    #     # =========================
+    #     # PASS (เดิม 100%)
+    #     # =========================
+    #     day_rows = self._run_direction_pass(
+    #         code,
+    #         page_date_label,
+    #         direction="arrival"
+    #     )
+
+    #     after_rows = self._get_row_count()
+
+    #     export_day_debug(
+    #         day_rows,
+    #         code,
+    #         page_date.isoformat(),
+    #         "arrivals"
+    #     )
+
+    #     # --- safety reset ---
+    #     reloaded = self.reset_if_large_dataset(after_rows)
+
+    #     if reloaded:
+    #         print("   ⏭ Skipping to next day after reload")
+    #         return []
+
+    #     time_module.sleep(1.2)
+
+    #     return day_rows
+
+    def _switch_direction_tab(self, target):
+
+        # --- cleanup before switch ---
+        self.parser._close_popup()
+        self.parser.safe_handle = None
+        self.loader._reset_row_tracker()
+
+        # --- capture signature before switch ---
+        before = self.page.locator(
+            "li.ff-li-list.deparr .deparr_flight"
+        ).first.inner_text()
+
+        # --- click tab (ใส่ selector จริงทีหลัง) ---
+        if target == "arrival":
+            self.page.locator("YOUR_ARRIVAL_TAB_SELECTOR").click(force=True)
+        else:
+            self.page.locator("YOUR_DEPARTURE_TAB_SELECTOR").click(force=True)
+
+        # --- wait until content changed ---
+        self.page.wait_for_function(
+            """(oldText) => {
+                const el = document.querySelector(
+                    "li.ff-li-list.deparr .deparr_flight"
+                );
+                return el && el.innerText !== oldText;
+            }""",
+            before
+        )
+
+        self.loader.wait_list_stable()
+
+    def _run_direction_pass(
+        self,
+        code,
+        page_date_label,
+        direction
+    ):
+
+        self.loader.ensure_all_rows_loaded()
+        print("   🏁 Exit ensure_all_rows_loaded")
+
+        self.loader.wait_list_stable()
+
+        snapshot = self.snapshot_flights()
+
+        # ⭐ เปลี่ยน log เท่านั้น
+        print(f"   🔍 Start parse ({direction})")
+
+        rows = self.parser.parse_list(
+            code,
+            page_date_label,
+            snapshot,
+            direction=direction
+        )
+
+
+        return rows
 
     
 # =========================

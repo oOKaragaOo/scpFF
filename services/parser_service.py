@@ -364,3 +364,26 @@ class ParserService:
 
         except Exception:
             return False
+
+# =========================
+# Refactoring
+# =========================
+
+    def parse_list(
+        self,
+        arrival_airport,
+        current_date,
+        snapshot_flights,
+        direction="arrival"
+    ):
+        """
+        Temporary wrapper for refactor phase.
+        Keeps old behavior unchanged.
+        """
+
+        # ❗ยังใช้ logic เดิมทั้งหมด
+        return self.parse_arrivals(
+            arrival_airport,
+            current_date,
+            snapshot_flights
+        )
