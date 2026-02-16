@@ -26,17 +26,6 @@ class DeterministicCalendarService:
         self._click_open_button()
         self._wait_calendar_open()
 
-    # def goto_month_year(self, year, month):
-
-    #     self.open_calendar()
-
-    #     self._set_year(year)
-    #     self._set_month(month)
-
-    #     self._wait_month_change_settle()
-
-    #     return True
-
     def resolve_target_date(self, target_date):
 
         self.guard.ensure_page_clean()
@@ -44,33 +33,56 @@ class DeterministicCalendarService:
 
         print(f"\ntarget in 📅 : {target_label}")
 
+        # =========================
         # STEP 1 — ensure calendar open
+        # =========================
         self.open_calendar()
         self.goto_month_year(target_date.year, target_date.month)
         self._wait_month_stable()
         self._wait_calendar_grid_ready()
 
-
+        # =========================
         # STEP 2 — try current grid
+        # =========================
         day = self._get_day_locator(target_label)
 
         if day.count() > 0:
+
             self._wait_day_ready(day)
-            day_class = day.first.get_attribute("class") or ""
-            # print(f"📦 current grid class = {day_class}")
 
             if not self._is_disabled(day):
 
-                # print("✅ normal grid click")
-
                 self._wait_calendar_grid_ready()
                 self._wait_day_ready(day)
+
+                # =========================
+                # DEBUG LOG (NEW)
+                # =========================
+                # print(f"📅 DEBUG day count: {day.count()}")
+
+                # for i in range(day.count()):
+                #     d = day.nth(i)
+
+                #     try:
+                #         visible = d.is_visible()
+                #         cls = d.get_attribute("class")
+                #         text = d.inner_text()
+
+                #         print(
+                #             f"   [{i}] visible={visible} | "
+                #             f"text='{text}' | class='{cls}'"
+                #         )
+
+                #     except Exception as e:
+                #         print(f"   [{i}] ERROR: {e}")
+
+                # =========================
+                # CLICK (เดิม)
+                # =========================
                 day.first.click()
                 self.page.wait_for_timeout(100)
 
-
                 result = self._verify_selected(target_label)
-                # print(f"🎯 verify selected = {result}")
 
                 return result
 
@@ -79,40 +91,7 @@ class DeterministicCalendarService:
         else:
             print("⚠️ day not found → fallback")
 
-        # FALLBACK
         return self._fallback_prev_month(target_label)
-
-    # tqdm def resolve_target_date(self, target_date):
-
-    #     self.guard.ensure_page_clean()
-    #     target_label = self._format_day_label(target_date)
-
-    #     # STEP 1 — ensure calendar open
-    #     self.open_calendar()
-    #     self.goto_month_year(target_date.year, target_date.month)
-    #     self._wait_month_stable()
-    #     self._wait_calendar_grid_ready()
-
-    #     # STEP 2 — try current grid
-    #     day = self._get_day_locator(target_label)
-
-    #     if day.count() > 0:
-
-    #         self._wait_day_ready(day)
-
-    #         if not self._is_disabled(day):
-
-    #             self._wait_calendar_grid_ready()
-    #             self._wait_day_ready(day)
-
-    #             day.first.click()
-    #             self.page.wait_for_timeout(100)
-
-    #             return self._verify_selected(target_label)
-
-    #     # FALLBACK
-    #     return self._fallback_prev_month(target_label)
-
 
     def goto_month_year(self, year, month):
 
@@ -157,6 +136,7 @@ class DeterministicCalendarService:
 
         # print("⬅️ click prev month (ONCE)")
         prev_btn.first.click()
+        self.page.wait_for_timeout(750)
 
         try:
             self.page.wait_for_selector(
@@ -349,25 +329,53 @@ class DeterministicCalendarService:
 
     def _get_day_locator(self, label):
         return self.page.locator(
-            f".flatpickr-day[aria-label='{label}']"
+            f".flatpickr-day[aria-label='{label}']:visible"
         )
 
+
     def _is_disabled(self, locator):
+
+        if locator.count() == 0:
+            # print("🧪 _is_disabled: locator empty")
+            return True
+
         cls = locator.first.get_attribute("class") or ""
-        return "disabled" in cls
+
+        # print(f"🧪 _is_disabled class = '{cls}'")
+
+        result = "disabled" in cls
+
+        # print(f"🧪 _is_disabled result = {result}")
+
+        return result
 
     def _has_class(self, locator, class_name):
         cls = locator.first.get_attribute("class") or ""
         return class_name in cls
 
     def _verify_selected(self, label):
-        selected = self.page.locator(".flatpickr-day.selected")
 
-        if selected.count() != 1:
+        selected = self.page.locator(".flatpickr-day.selected")
+        count = selected.count()
+
+        if count == 0:
             return False
 
-        selected_label = selected.first.get_attribute("aria-label")
-        return selected_label == label
+        # check all selected (shadow-safe)
+        for i in range(count):
+            s = selected.nth(i)
+
+            try:
+                aria = s.get_attribute("aria-label")
+
+                # match by aria-label only
+                if aria == label:
+                    return True
+
+            except Exception:
+                pass
+
+        return False
 
 
 

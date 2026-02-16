@@ -1,2 +1,0 @@
-date,day_name,airport,direction,time,flight,airline,duration,time_range,distance,aircraft,seats,codeshare,meals,uid,airline_source,page_date_verified,scraped_at
-"Sunday, 15 February, 2026",Sunday,DSY,arrival,15:25,K6150,Air Cambodia,0h 50m,14:35 - 15:25,"119 miles, 191 km",ATR 72,70,,Meal (none specific),260215_K6150_14351525,text,True,2026-02-14T14:13:13.343971

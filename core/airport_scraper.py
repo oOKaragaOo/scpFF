@@ -1,12 +1,14 @@
-from datetime import timedelta , datetime
+from datetime import timedelta , datetime , date
 # from services.calendar_service import CalendarService
 from services.calendar_service import DeterministicCalendarService
 from services.loader_service import LoaderService
 from services.parser_service import ParserService
 from services.pageGuard_service import PageGuardService
-from utils.exporter import export_day_debug
-from tqdm import tqdm
-
+from utils.exporter import (
+    export_week_debug_pick,
+    append_month_rows,
+    export_day_debug
+)
 class AirportScraper:
 
     def __init__(self, page):
@@ -31,6 +33,35 @@ class AirportScraper:
 # =========================
 # PRIVATE HELPERS
 # =========================
+
+    def _get_sorting_value(self):
+        """
+        ดึงค่า sorting จาก URL
+        เช่น arrival-time / departure-time
+        """
+        from urllib.parse import urlparse, parse_qs
+
+        url = self.page.url
+        qs = parse_qs(urlparse(url).query)
+
+        sorting = qs.get("sorting", [""])[0]
+        return sorting
+
+    # def _get_current_entity_type(self):
+    #     """
+    #     ใช้ URL เป็น source of truth
+    #     """
+    #     url = self.page.url
+
+    #     if "entityType=departures" in url:
+    #         return "departure"
+
+    #     if "entityType=arrivals" in url:
+    #         return "arrival"
+
+    #     return None
+        
+
     def _format_date(self, date_text):
         dt = datetime.strptime(date_text, "%A, %d %B, %Y")
         return f"{dt.day}/{dt.month}/{dt.year}"
@@ -79,8 +110,8 @@ class AirportScraper:
 
     def scrape_current_month(self, code, current_month, start_date, end_date):
 
-        from datetime import date
-        import time
+        from datetime import timedelta
+        from utils.exporter import append_month_rows
 
         year = current_month.year
         month = current_month.month
@@ -88,108 +119,64 @@ class AirportScraper:
         month_rows = []
 
         print(f"Processing month: {current_month.strftime('%Y-%m')}")
-        
-        
+
         self._prepare_month(year, month)
 
-        for day in range(1, 32):
+        # =========================
+        # BUILD DAY LIST (SAFE)
+        # =========================
+        days = []
 
-            try:
-                page_date = date(year, month, day)
-            except:
+        cursor = start_date
+
+        while cursor <= end_date:
+
+            # keep only target month
+            if cursor.year == year and cursor.month == month:
+                days.append(cursor)
+
+            cursor += timedelta(days=1)
+
+        # =========================
+        # WEEKLY BATCH LOOP
+        # =========================
+        idx = 0
+
+        while idx < len(days):
+
+            week_days = days[idx: idx + 7]
+
+            if not week_days:
                 break
 
-            if page_date < start_date or page_date > end_date:
-                continue
-
-            # print(f"\n📅 {page_date}")
-
-            day_rows = self._process_single_day(
-                code,
-                page_date,
-                time
+            print(
+                f"\n📦 WEEK BLOCK: "
+                f"{week_days[0]} → {week_days[-1]}"
             )
-            # day_rows = self._process_single_day_dryrun(
-            #     code,
-            #     page_date,
-            #     time
-            # )
-            month_rows.extend(day_rows)
+
+            week_rows = self._process_week_block(
+                code,
+                week_days
+            )
+
+            month_rows.extend(week_rows)
+
+            idx += 7
+
+        # =========================
+        # EXPORT MONTH (FINAL)
+        # =========================
+        if month_rows:
+
+            month_key = current_month.strftime("%Y-%m")
+
+            append_month_rows(
+                month_rows,
+                code,
+                month_key
+            )
 
         return month_rows
-
-    # def scrape_current_month(self, code, current_month, start_date, end_date):
-
-    #     from datetime import date
-    #     import time
-    #     from tqdm import tqdm
-
-    #     year = current_month.year
-    #     month = current_month.month
-
-    #     month_rows = []
-
-    #     print(f"Processing month: {current_month.strftime('%Y-%m')}")
-
-    #     self._prepare_month(year, month)
-
-    #     pbar = tqdm(
-    #         range(1, 32),
-    #         desc="",
-    #         total=31,
-    #         bar_format="{desc}",   # ไม่มี loading bar
-    #         ncols=120
-    #     )
-
-    #     for day in pbar:
-
-    #         try:
-    #             page_date = date(year, month, day)
-    #         except:
-    #             break
-
-    #         if page_date < start_date or page_date > end_date:
-    #             continue
-
-    #         date_str = page_date.strftime("%Y-%m-%d")
-
-    #         # ⏳ default
-    #         pbar.set_postfix_str(f"📅 {date_str} ⏳")
-
-    #         # resolve ก่อน
-    #         ok = self.calendar.resolve_target_date(page_date)
-
-    #         if not ok:
-    #             pbar.set_postfix_str(f"📅 {date_str} ❌")
-    #             continue
-
-    #         # ✅ update ทันที
-    #         pbar.set_postfix_str(f"📅 {date_str} ✅")
-
-    #         # ---------------------------------
-    #         # process day
-    #         # ---------------------------------
-    #         day_rows = self._process_single_day(
-    #             code,
-    #             page_date,
-    #             time
-    #         )
-
-    #         # ---------------------------------
-    #         # status update
-    #         # ---------------------------------
-    #         if day_rows is None:
-    #             # calendar resolve fail
-    #             pbar.set_description_str(f"📅 {date_str} ❌")
-    #             continue
-
-    #         pbar.set_postfix_str(f"📅 {date_str} ✅")
-
-    #         month_rows.extend(day_rows)
-
-    #     pbar.close()
-
-    #     return month_rows
 
     def _prepare_month(self, year, month):
 
@@ -201,7 +188,6 @@ class AirportScraper:
 
         self.calendar.goto_month_year(year, month)
         # print(f"   📆 Switched to {year}-{month:02d}")
-
 
     def _get_row_count(self):
         return self.page.locator(
@@ -218,7 +204,7 @@ class AirportScraper:
 
 
 
-    def _process_single_day(self, code, page_date, time_module):
+    # def _process_single_day(self, code, page_date, time_module):
 
         # =========================
         # OPEN DAY (เดิมทั้งหมด)
@@ -270,156 +256,179 @@ class AirportScraper:
 
         return day_rows
 
-    #Dept frist def _process_single_day(self, code, page_date, time_module):
+    def _process_single_day(self, code, page_date, time_module):
+
+        self.loader._reset_row_tracker()
+
+        if not self.calendar.resolve_target_date(page_date):
+            print("   ⏭️ skip date (cannot select)")
+            return []
+
+        self.loader.wait_overlay_clear()
+
+        page_date_label = self._get_page_date_label()
+
+        print("   ▶ PASS: ARRIVAL")
+
+        rows = self._run_direction_pass(
+            code,
+            page_date_label,
+            direction="arrival"
+        )
+
+        return rows
+
+    # Debug def _switch_direction_tab(self, target):
+
+    #     current_sort = self._get_sorting_value()
+    #     print(f"\n🔄 SWITCH TAB -> {target}")
+    #     print(f"   🧭 CURRENT TAB = {current_sort}")
+
+        
+    #     if target == "departure" and current_sort == "departure-time":
+    #         print("   ⚡ already on departure (skip switch)")
+    #         return
+
+    #     if target == "arrival" and current_sort == "arrival-time":
+    #         print("   ⚡ already on arrival (skip switch)")
+    #         return
 
     #     # =========================
-    #     # OPEN DAY (เดิมทั้งหมด)
+    #     # STEP 0 : CLEANUP
     #     # =========================
+    #     print("   🧹 cleanup popup + parser state")
+    #     self.parser._close_popup()
+    #     self.parser.safe_handle = None
+
+    #     print("   ♻️ reset row tracker")
     #     self.loader._reset_row_tracker()
 
-    #     if not self.calendar.resolve_target_date(page_date):
-    #         print("   ⏭️ skip date (cannot select)")
-    #         return []
+    #     # =========================
+    #     # STEP 1 : CAPTURE STATE BEFORE
+    #     # =========================
+    #     before_sorting = self._get_sorting_value()
+    #     print(f"   🧭 sorting before: {before_sorting}")
 
-    #     self.loader.wait_overlay_clear()
-
-    #     self.page.wait_for_timeout(800)
-
-    #     before_rows = self._get_row_count()
-
-    #     page_date_label = self._get_page_date_label()
+    #     target_text = "Arrivals" if target == "arrival" else "Departures"
 
     #     # =========================
-    #     # PASS 1 : DEPARTURE
+    #     # STEP 2 : GET TAB ELEMENT
     #     # =========================
-    #     print("   ▶ PASS: DEPARTURE")
+    #     tab = self.page.locator(
+    #         f"div.shortcut-button:has(a:has-text('{target_text}'))"
+    #     )
 
-    #     dep_rows = self._run_direction_pass(
-    #         code,
-    #         page_date_label,
-    #         direction="departure"
+    #     if tab.count() == 0:
+    #         raise Exception(f"❌ Tab not found -> {target}")
+
+    #     # =========================
+    #     # STEP 3 : CLICK TAB
+    #     # =========================
+    #     print("   🎯 clicking tab...")
+    #     tab.first.click()
+
+    #     # =========================
+    #     # STEP 4 : WAIT ACTIVE TAB
+    #     # =========================
+    #     print("   ⏳ waiting active tab...")
+
+    #     self.page.wait_for_function(
+    #         """
+    #         (targetText) => {
+    #             const active =
+    #                 document.querySelector('.shortcut-button.active');
+
+    #             if (!active) return false;
+
+    #             return active.innerText
+    #                 .trim()
+    #                 .includes(targetText);
+    #         }
+    #         """,
+    #         arg=target_text,  
+    #         timeout=0
+    #     )
+
+    #     # print("   ✅ active tab switched")
+
+    #     # =========================
+    #     # STEP 5 : WAIT SORTING CHANGE
+    #     # =========================
+    #     print("   ⏳ waiting sorting change...")
+
+    #     self.page.wait_for_function(
+    #         """
+    #         (oldSorting) => {
+    #             const url = new URL(window.location.href);
+    #             const current =
+    #                 url.searchParams.get("sorting") || "";
+
+    #             return current !== oldSorting;
+    #         }
+    #         """,
+    #         arg=before_sorting,  
+    #         timeout=0
+    #     )
+
+    #     after_sorting = self._get_sorting_value()
+
+    #     print(
+    #         f"   🔁 sort changed: "
+    #         f"{before_sorting} -> {after_sorting}"
     #     )
 
     #     # =========================
-    #     # SWITCH TAB
+    #     # STEP 6 : WAIT LIST STABLE
     #     # =========================
-    #     self._switch_direction_tab("arrival")
+    #     print("   ⏳ waiting list stable...")
+    #     self.loader.wait_list_stable()
 
-    #     # =========================
-    #     # PASS 2 : ARRIVAL
-    #     # =========================
-    #     print("   ▶ PASS: ARRIVAL")
-
-    #     arr_rows = self._run_direction_pass(
-    #         code,
-    #         page_date_label,
-    #         direction="arrival"
-    #     )
-
-    #     # =========================
-    #     # CONCAT RESULT
-    #     # =========================
-    #     day_rows = dep_rows + arr_rows
-
-    #     after_rows = self._get_row_count()
-
-    #     export_day_debug(
-    #         day_rows,
-    #         code,
-    #         page_date.isoformat(),
-    #         "arrivals"   # ยังใช้เดิมก่อน (no behavior change)
-    #     )
-
-    #     # =========================
-    #     # SAFETY RESET (เดิม)
-    #     # =========================
-    #     reloaded = self.reset_if_large_dataset(after_rows)
-
-    #     if reloaded:
-    #         print("   ⏭ Skipping to next day after reload")
-    #         return []
-
-    #     time_module.sleep(1.2)
-
-    #     return day_rows
-
-    #Single def _process_single_day(self, code, page_date, time_module):
-
-    #     # --- open calendar and click day ---
-    #     self.loader._reset_row_tracker()
-
-    #     if not self.calendar.resolve_target_date(page_date):
-    #         print("   ⏭️ skip date (cannot select)")
-    #         return []
-
-    #     # --- wait overlay ---
-    #     self.loader.wait_overlay_clear()
-
-    #     self.page.wait_for_timeout(800)
-
-    #     before_rows = self._get_row_count()
-
-    #     page_date_label = self._get_page_date_label()
-
-    #     # =========================
-    #     # PASS (เดิม 100%)
-    #     # =========================
-    #     day_rows = self._run_direction_pass(
-    #         code,
-    #         page_date_label,
-    #         direction="arrival"
-    #     )
-
-    #     after_rows = self._get_row_count()
-
-    #     export_day_debug(
-    #         day_rows,
-    #         code,
-    #         page_date.isoformat(),
-    #         "arrivals"
-    #     )
-
-    #     # --- safety reset ---
-    #     reloaded = self.reset_if_large_dataset(after_rows)
-
-    #     if reloaded:
-    #         print("   ⏭ Skipping to next day after reload")
-    #         return []
-
-    #     time_module.sleep(1.2)
-
-    #     return day_rows
+    #     print("   🏁 TAB SWITCH DONE")
 
     def _switch_direction_tab(self, target):
 
-        # --- cleanup before switch ---
+        print(f"\n🔄 SWITCH TAB -> {target}")
+
+        current_sort = self._get_sorting_value()
+
+        if target == "departure" and current_sort == "departure-time":
+            print("   ⚡ already on departure (skip)")
+            return
+
+        if target == "arrival" and current_sort == "arrival-time":
+            print("   ⚡ already on arrival (skip)")
+            return
+
+        before_sort = current_sort
+
+        # --- logic switch เดิม ---
         self.parser._close_popup()
         self.parser.safe_handle = None
         self.loader._reset_row_tracker()
 
-        # --- capture signature before switch ---
-        before = self.page.locator(
-            "li.ff-li-list.deparr .deparr_flight"
-        ).first.inner_text()
+        tab = self.page.locator(
+            f"div.shortcut-button:has(a:has-text('{ 'Arrivals' if target=='arrival' else 'Departures'}'))"
+        )
+        tab.first.click()
 
-        # --- click tab (ใส่ selector จริงทีหลัง) ---
-        if target == "arrival":
-            self.page.locator("YOUR_ARRIVAL_TAB_SELECTOR").click(force=True)
-        else:
-            self.page.locator("YOUR_DEPARTURE_TAB_SELECTOR").click(force=True)
-
-        # --- wait until content changed ---
         self.page.wait_for_function(
-            """(oldText) => {
-                const el = document.querySelector(
-                    "li.ff-li-list.deparr .deparr_flight"
-                );
-                return el && el.innerText !== oldText;
-            }""",
-            before
+            """
+            (oldSorting) => {
+                const url = new URL(window.location.href);
+                return (url.searchParams.get("sorting") || "") !== oldSorting;
+            }
+            """,
+            arg=before_sort,
+            timeout=0
         )
 
+        after_sort = self._get_sorting_value()
+
+        print(f"   🔁 tab switched: {before_sort} → {after_sort}")
+
         self.loader.wait_list_stable()
+
+        print("   🏁 TAB SWITCH DONE")
 
     def _run_direction_pass(
         self,
@@ -448,7 +457,144 @@ class AirportScraper:
 
         return rows
 
-    
+    def _process_week_block(
+        self,
+        code,
+        days_in_week,
+        run_arrival=True,
+        run_departure=True,
+        auto_restore=True,
+        restore_to="arrival"
+    ):
+        """
+        Process one weekly batch (mode-based).
+
+        MODE EXAMPLES
+        ───────────────────────────────
+        1) ARRIVAL ONLY
+        run_arrival=True
+        run_departure=False
+        auto_restore=False
+
+        2) DEPARTURE ONLY
+        run_arrival=False
+        run_departure=True
+        auto_restore=False
+
+        3) FULL MODE (production)
+        run_arrival=True
+        run_departure=True
+        auto_restore=True
+        restore_to="arrival"
+
+        4) FULL MODE (stay on departure)
+        restore_to="departure"
+        """
+
+        # from exporter import export_week_debug_pick
+
+        week_rows = []
+
+        # -------------------------
+        # WEEK DEBUG PICK (1 file)
+        # -------------------------
+        week_debug_pick = {
+            "day": None,
+            "rows": None,
+            "kill": -1
+        }
+
+        # =========================
+        # ARRIVAL PASS
+        # =========================
+        if run_arrival:
+
+            print("📦 WEEK PASS: ARRIVAL")
+
+            for day in days_in_week:
+
+                rows = self._process_single_day(
+                    code,
+                    day,
+                    __import__("time")
+                )
+
+                week_rows.extend(rows)
+
+                kill_count = getattr(
+                    self.parser,
+                    "footer_kill_count",
+                    0
+                )
+
+                if kill_count >= week_debug_pick["kill"]:
+                    week_debug_pick = {
+                        "day": day,
+                        "rows": rows,
+                        "kill": kill_count
+                    }
+
+        # =========================
+        # DEPARTURE PASS
+        # =========================
+        if run_departure:
+
+            print("🔄 switch -> departure")
+            self._switch_direction_tab("departure")
+
+            print("📦 WEEK PASS: DEPARTURE")
+            self.calendar.goto_month_year(
+                days_in_week[0].year,
+                days_in_week[0].month)
+            for day in days_in_week:
+
+                self.loader._reset_row_tracker()
+
+                if not self.calendar.resolve_target_date(day):
+                    continue
+
+                self.loader.wait_overlay_clear()
+
+                page_date_label = self._get_page_date_label()
+
+                rows = self._run_direction_pass(
+                    code,
+                    page_date_label,
+                    direction="departure"
+                )
+
+                week_rows.extend(rows)
+
+                kill_count = getattr(
+                    self.parser,
+                    "footer_kill_count",
+                    0
+                )
+
+                if kill_count >= week_debug_pick["kill"]:
+                    week_debug_pick = {
+                        "day": day,
+                        "rows": rows,
+                        "kill": kill_count
+                    }
+
+        # =========================
+        # OPTIONAL RESTORE
+        # =========================
+        if auto_restore:
+            print(f"🔄 restore -> {restore_to}")
+            self._switch_direction_tab(restore_to)
+
+        # =========================
+        # EXPORT WEEK DEBUG
+        # =========================
+        export_week_debug_pick(
+            week_debug_pick,
+            code
+        )
+
+        return week_rows
+
 # =========================
 # SCRAPE
 # =========================
