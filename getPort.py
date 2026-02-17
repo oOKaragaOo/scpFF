@@ -108,7 +108,7 @@ with sync_playwright() as p:
 
     browser.close()
 
-with open("world_airports_city.csv", "w", newline="", encoding="utf-8") as f:
+with open("data/reference/world_airports_city.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerow([
         "country",

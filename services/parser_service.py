@@ -13,7 +13,13 @@ class ParserService:
     # Main Parse
     # =========================
 
-    def parse_arrivals(self, arrival_airport, current_date, snapshot_flights):
+    def parse_arrivals(
+    self,
+    arrival_airport,
+    current_date,
+    snapshot_flights,
+    direction="arrival"
+):  
 
         snapshot_flights = set(snapshot_flights)
         rows = []
@@ -37,10 +43,11 @@ class ParserService:
 
             try:
                 row_data = self._parse_single_element(
-                    el,
-                    arrival_airport,
-                    current_date
-                )
+                                el,
+                                arrival_airport,
+                                current_date,
+                                direction
+                            )
 
                 # ⭐ update safe handle ทุกครั้งที่ success
                 self.safe_handle = el
@@ -91,14 +98,20 @@ class ParserService:
 
         return elements
 
-    def _parse_single_element(self, el, arrival_airport, current_date):
+    def _parse_single_element(
+    self,
+    el,
+    arrival_airport,
+    current_date,
+    direction="arrival"
+):
 
         self.guard.ensure_page_clean()
 
         btn = el.query_selector(".flightsfrom-list-money")
         self.page.evaluate("(e) => e.click()", btn)
 
-        self.page.wait_for_timeout(100)
+        # self.page.wait_for_timeout(100)
         if self.page.locator(".uk-grid").count() <= 2:
             raise Exception("footer_only_detected")
         popup = self._open_popup()
@@ -106,14 +119,14 @@ class ParserService:
             self.safe_handle = el
         row = {
             "airport": arrival_airport,
-            "direction": "arrival",
+            "direction": direction,
             "date": self._format_date(current_date),
             "day_name": current_date.split(",")[0],
             "time": el.query_selector(".deparr_time div").inner_text(),
             "flight": el.query_selector(".deparr_flight").inner_text(),
             "airline": el.query_selector(".deparr_airline_name").inner_text(),
             "duration": el.query_selector(".deparr_duration").inner_text(),
-
+            
             # meta
             "airline_source": "text",
             "page_date_verified": True,
@@ -173,7 +186,7 @@ class ParserService:
         except:
             pass
 
-        self.page.wait_for_timeout(120)
+        # self.page.wait_for_timeout(120)
 
     # =========================
     # Recovery
@@ -385,5 +398,7 @@ class ParserService:
         return self.parse_arrivals(
             arrival_airport,
             current_date,
-            snapshot_flights
+            snapshot_flights,
+            direction=direction
         )
+

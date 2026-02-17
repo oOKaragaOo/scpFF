@@ -48,53 +48,33 @@ class LoaderService:
         except:
             return False
 
-    #old def _click_show_more(self):
-    #     button = self.page.locator("#show-more-routes")
 
-    #     try:
-    #         with self.page.expect_response(
-    #             lambda r: (
-    #                 "entityType=arrivals" in r.url and
-    #                 "take=" in r.url and
-    #                 r.status == 200
-    #             ),
-    #             timeout=30000
-    #         ):
-    #             button.first.click(force=True)
-
-    #         # print("      👉 Clicked show more (XHR detected)")
-    #         return True
-
-    #     except:
-    #         print("      ❌ Click failed or no XHR")
-    #         return False
-
+    # =========================
+    # FIXED SHOW MORE CLICK
+    # =========================
     def _click_show_more(self):
 
         buttons = self.page.locator("#show-more-routes")
-
         count = buttons.count()
-        # print(f"      🧪 show more buttons: {count}")
 
         target = None
 
         for i in range(count):
             b = buttons.nth(i)
 
-            visible = b.is_visible()
-            enabled = b.is_enabled()
-
-            # print(f"      🧪 btn[{i}] visible={visible} enabled={enabled}")
-
-            if visible and enabled and target is None:
+            if b.is_visible() and b.is_enabled():
                 target = b
+                break
 
         if not target:
             print("      ❌ No usable show more button")
             return False
 
-        for attempt in range(2):   # ⭐ ลองได้ 2 รอบ
+        before_rows = self._get_current_row_count()
+        xhr_detected = False
 
+        try:
+            # ===== TRY XHR (OPTIONAL SIGNAL) =====
             try:
                 with self.page.expect_response(
                     lambda r: (
@@ -102,25 +82,40 @@ class LoaderService:
                         "take=" in r.url and
                         r.status == 200
                     ),
-                    timeout=30000
+                    timeout=5000
                 ):
                     target.click(force=True)
 
-                return True
+                xhr_detected = True
 
             except:
-                if attempt == 0:
-                    self.page.wait_for_timeout(300)
-                    continue
+                # ไม่มี XHR ก็ยังถือว่าอาจ success
+                target.click(force=True)
 
-                print("      ❌ Click failed or no XHR")
-                return False
+            # ===== REAL SUCCESS CHECK (ROW CHANGE) =====
+            for _ in range(20):   # ~2 sec
+                after_rows = self._get_current_row_count()
 
+                if after_rows > before_rows:
+                    return True
 
-    
+                self.page.wait_for_timeout(100)
+
+            # rows ไม่เพิ่ม แต่มี XHR → ยังถือว่าผ่าน
+            if xhr_detected:
+                return True
+
+            print("      ⚠️ click but no new rows")
+            return False
+
+        except:
+            print("      ❌ click failed")
+            return False
+
 
     def _wait_dom_settle(self):
         self.page.wait_for_timeout(800)
+
 
     # =========================
     # PUBLIC
@@ -187,7 +182,7 @@ class LoaderService:
             colour="#26bdeb",
             ncols=140
         ) as pbar:
-            
+
             if guard:
                 guard.ensure_page_clean()
 
@@ -195,13 +190,11 @@ class LoaderService:
 
                 current = self._get_current_row_count()
 
-                # update progress
                 pbar.n = current
                 pbar.set_postfix({"showmore click": click_count})
                 pbar.refresh()
 
                 if self._is_fully_loaded(current, expected):
-                    # print("      ✅ All rows loaded.")
                     break
 
                 if not self._has_show_more_button():
@@ -221,8 +214,3 @@ class LoaderService:
 
                 if guard:
                     guard.ensure_page_clean()
-
-        # print(
-        #     "      🟢 Final row count:",
-        #     self._get_current_row_count()
-        # )

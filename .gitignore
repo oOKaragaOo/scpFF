@@ -5,4 +5,8 @@ profile/
 trass/
 chrome_profile/
 debug/*/
-
+export/*/
+utils/__pycache__/
+ffBotV1.zip
+.vscode/
+profile_test/

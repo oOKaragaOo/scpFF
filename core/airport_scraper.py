@@ -180,7 +180,7 @@ class AirportScraper:
 
     def _prepare_month(self, year, month):
 
-        self.page.keyboard.press("Escape")
+        # self.page.keyboard.press("Escape")
         self.page.wait_for_timeout(200)
 
         self.loader._reset_row_tracker()
@@ -202,59 +202,6 @@ class AirportScraper:
 
         return container.inner_text().split("Select date")[0].strip()
 
-
-
-    # def _process_single_day(self, code, page_date, time_module):
-
-        # =========================
-        # OPEN DAY (เดิมทั้งหมด)
-        # =========================
-        self.loader._reset_row_tracker()
-
-        if not self.calendar.resolve_target_date(page_date):
-            print("   ⏭️ skip date (cannot select)")
-            return []
-
-        self.loader.wait_overlay_clear()
-
-        self.page.wait_for_timeout(800)
-
-        before_rows = self._get_row_count()
-
-        page_date_label = self._get_page_date_label()
-
-        # =========================
-        # PASS : ARRIVAL (เดิม)
-        # =========================
-        print("   ▶ PASS: ARRIVAL")
-
-        day_rows = self._run_direction_pass(
-            code,
-            page_date_label,
-            direction="arrival"
-        )
-
-        after_rows = self._get_row_count()
-
-        export_day_debug(
-            day_rows,
-            code,
-            page_date.isoformat(),
-            "arrivals"
-        )
-
-        # =========================
-        # SAFETY RESET (เดิม)
-        # =========================
-        reloaded = self.reset_if_large_dataset(after_rows)
-
-        if reloaded:
-            print("   ⏭ Skipping to next day after reload")
-            return []
-
-        time_module.sleep(1.2)
-
-        return day_rows
 
     def _process_single_day(self, code, page_date, time_module):
 
