@@ -192,29 +192,6 @@ class AirportScraper:
         return container.inner_text().split("Select date")[0].strip()
 
 
-    # def _process_single_day(self, code, page_date, time_module):
-
-    #     self.loader._reset_row_tracker()
-
-    #     if not self.calendar.resolve_target_date(page_date):
-    #         print("   ⏭️ skip date (cannot select)")
-    #         return []
-
-    #     # self.loader.wait_overlay_clear()
-    #     self.loader.wait_overlay_then_rows()
-
-    #     page_date_label = self._get_page_date_label()
-
-    #     print("   ▶ PASS: ARRIVAL")
-
-    #     rows = self._run_direction_pass(
-    #         code,
-    #         page_date_label,
-    #         direction="arrival"
-    #     )
-
-    #     return rows
-
     def _run_day_pass(
         self,
         code,
@@ -297,6 +274,50 @@ class AirportScraper:
                 })
 
 
+    # def _switch_direction_tab(self, target):
+
+    #     print(f"\n🔄 SWITCH TAB -> {target}")
+
+    #     current_sort = self._get_sorting_value()
+
+    #     if target == "departure" and current_sort == "departure-time":
+    #         print("   ⚡ already on departure (skip)")
+    #         return
+
+    #     if target == "arrival" and current_sort == "arrival-time":
+    #         print("   ⚡ already on arrival (skip)")
+    #         return
+
+    #     before_sort = current_sort
+
+    #     # --- logic switch เดิม ---
+    #     self.parser._close_popup()
+    #     self.parser.safe_handle = None
+    #     self.loader._reset_row_tracker()
+
+    #     tab = self.page.locator(
+    #         f"div.shortcut-button:has(a:has-text('{ 'Arrivals' if target=='arrival' else 'Departures'}'))"
+    #     )
+    #     tab.first.click()
+
+    #     self.page.wait_for_function(
+    #         """
+    #         (oldSorting) => {
+    #             const url = new URL(window.location.href);
+    #             return (url.searchParams.get("sorting") || "") !== oldSorting;
+    #         }
+    #         """,
+    #         arg=before_sort,
+    #         timeout=0
+    #     )
+
+    #     after_sort = self._get_sorting_value()
+
+    #     print(f"   🔁 tab switched: {before_sort} → {after_sort}")
+
+    #     self.loader.wait_list_stable()
+
+    #     print("   🏁 TAB SWITCH DONE")
 
     def _switch_direction_tab(self, target):
 
@@ -341,7 +362,13 @@ class AirportScraper:
 
         self.loader.wait_list_stable()
 
+        # =========================
+        # NEW: calendar state changed
+        # =========================
+        self.calendar._resolve_used = False
+
         print("   🏁 TAB SWITCH DONE")
+
 
     def _run_day_pass(
         self,
@@ -370,6 +397,33 @@ class AirportScraper:
 
         return rows
 
+    def _run_direction_pass(
+        self,
+        code,
+        page_date_label,
+        direction
+    ):
+
+        self.loader.ensure_all_rows_loaded()
+        print("   🏁 Exit ensure_all_rows_loaded")
+
+        self.loader.wait_list_stable()
+
+        snapshot = self.snapshot_flights()
+
+        # ⭐ เปลี่ยน log เท่านั้น
+        print(f"   🔍 Start parse ({direction})")
+
+        rows = self.parser.parse_list(
+            code,
+            page_date_label,
+            snapshot,
+            direction=direction
+        )
+
+
+        return rows
+
 
     def _process_week_block(
         self,
@@ -379,15 +433,14 @@ class AirportScraper:
     ):
         """
         Process one weekly batch using project settings.
-
-        settings example:
-        {
-            "arrival_parser_enabled": True,
-            "departure_parser_enabled": True,
-            "auto_restore_tab": True,
-            "debug_week_export": True,
-        }
         """
+
+        # -------------------------
+        # DEBUG (ชั่วคราว)
+        # -------------------------
+        print("\n🧪 WEEK DEBUG")
+        print("   len(days_in_week):", len(days_in_week))
+        print("   days:", days_in_week)
 
         # =========================
         # SMART WEEK CHECK
@@ -397,14 +450,19 @@ class AirportScraper:
             days_in_week[0].month
         )
 
-        if not self.calendar.week_has_selectable_day(days_in_week):
-            print("⏭️ WEEK EMPTY → skip (no tab switch)")
-            return []
+        # ⭐ single-day week bypass
+        if len(days_in_week) == 1:
+            print("🟡 single-day week → bypass week scan")
+
+        else:
+            if not self.calendar.week_has_selectable_day(days_in_week):
+                print("⏭️ WEEK EMPTY → skip (no tab switch)")
+                return []
 
         week_rows = []
 
         # -------------------------
-        # WEEK DEBUG PICK (1 file)
+        # WEEK DEBUG PICK
         # -------------------------
         week_debug_pick = {
             "day": None,
@@ -499,154 +557,6 @@ class AirportScraper:
         return week_rows
 
 
-    # def _process_week_block(
-    #     self,
-    #     code,
-    #     days_in_week,
-    #     run_arrival=True,
-    #     run_departure=True,
-    #     auto_restore=True,
-    #     restore_to="arrival"
-    # ):
-    #     """
-    #     Process one weekly batch (mode-based).
-
-    #     MODE EXAMPLES
-    #     ───────────────────────────────
-    #     1) ARRIVAL ONLY
-    #     run_arrival=True
-    #     run_departure=False
-    #     auto_restore=False
-
-    #     2) DEPARTURE ONLY
-    #     run_arrival=False
-    #     run_departure=True
-    #     auto_restore=False
-
-    #     3) FULL MODE (production)
-    #     run_arrival=True
-    #     run_departure=True
-    #     auto_restore=True
-    #     restore_to="arrival"
-
-    #     4) FULL MODE (stay on departure)
-    #     restore_to="departure"
-    #     """
-
-    #     # =========================
-    #     # SMART WEEK CHECK
-    #     # =========================
-    #     self.calendar.goto_month_year(
-    #         days_in_week[0].year,
-    #         days_in_week[0].month
-    #     )
-
-    #     if not self.calendar.week_has_selectable_day(days_in_week):
-    #         print("⏭️ WEEK EMPTY → skip (no tab switch)")
-    #         return []
-
-
-    #     week_rows = []
-
-    #     # -------------------------
-    #     # WEEK DEBUG PICK (1 file)
-    #     # -------------------------
-    #     week_debug_pick = {
-    #         "day": None,
-    #         "rows": None,
-    #         "kill": -1
-    #     }
-
-    #     # =========================
-    #     # ARRIVAL PASS
-    #     # =========================
-    #     if run_arrival:
-
-    #         print("📦 WEEK PASS: ARRIVAL")
-
-    #         for day in days_in_week:
-
-    #             rows = self._process_single_day(
-    #                 code,
-    #                 day,
-    #                 __import__("time")
-    #             )
-
-    #             week_rows.extend(rows)
-
-    #             kill_count = getattr(
-    #                 self.parser,
-    #                 "footer_kill_count",
-    #                 0
-    #             )
-
-    #             if kill_count >= week_debug_pick["kill"]:
-    #                 week_debug_pick = {
-    #                     "day": day,
-    #                     "rows": rows,
-    #                     "kill": kill_count
-    #                 }
-
-    #     # =========================
-    #     # DEPARTURE PASS
-    #     # =========================
-    #     if run_departure:
-
-    #         print("🔄 switch -> departure")
-    #         self._switch_direction_tab("departure")
-
-    #         print("📦 WEEK PASS: DEPARTURE")
-    #         self.calendar.goto_month_year(
-    #             days_in_week[0].year,
-    #             days_in_week[0].month)
-    #         for day in days_in_week:
-
-    #             self.loader._reset_row_tracker()
-
-    #             if not self.calendar.resolve_target_date(day):
-    #                 continue
-
-    #             self.loader.wait_overlay_clear()
-
-    #             page_date_label = self._get_page_date_label()
-
-    #             rows = self._run_direction_pass(
-    #                 code,
-    #                 page_date_label,
-    #                 direction="departure"
-    #             )
-
-    #             week_rows.extend(rows)
-
-    #             kill_count = getattr(
-    #                 self.parser,
-    #                 "footer_kill_count",
-    #                 0
-    #             )
-
-    #             if kill_count >= week_debug_pick["kill"]:
-    #                 week_debug_pick = {
-    #                     "day": day,
-    #                     "rows": rows,
-    #                     "kill": kill_count
-    #                 }
-
-    #     # =========================
-    #     # OPTIONAL RESTORE
-    #     # =========================
-    #     if auto_restore:
-    #         print(f"🔄 restore -> {restore_to}")
-    #         self._switch_direction_tab(restore_to)
-
-    #     # =========================
-    #     # EXPORT WEEK DEBUG
-    #     # =========================
-    #     export_week_debug_pick(
-    #         week_debug_pick,
-    #         code
-    #     )
-
-    #     return week_rows
 
 # =========================
 # SCRAPE
