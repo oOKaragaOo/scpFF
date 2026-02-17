@@ -211,8 +211,9 @@ class AirportScraper:
             print("   ⏭️ skip date (cannot select)")
             return []
 
-        self.loader.wait_overlay_clear()
-
+        # self.loader.wait_overlay_clear()
+        self.loader.wait_overlay_then_rows()
+        
         page_date_label = self._get_page_date_label()
 
         print("   ▶ PASS: ARRIVAL")

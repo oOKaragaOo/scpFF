@@ -112,7 +112,6 @@ class LoaderService:
             print("      ❌ click failed")
             return False
 
-
     def _wait_dom_settle(self):
         self.page.wait_for_timeout(800)
 
@@ -122,6 +121,10 @@ class LoaderService:
     # =========================
 
     def wait_overlay_clear(self):
+
+        # =========================
+        # STEP 1 — wait overlay disappear
+        # =========================
         try:
             self.page.wait_for_selector(
                 ".pageload-background",
@@ -129,7 +132,23 @@ class LoaderService:
                 timeout=15000
             )
         except:
+            # overlay บางเคสหายเองแบบไม่ trigger
             pass
+
+        # =========================
+        # STEP 2 — PHASE LOCK
+        # wait rows appear after overlay
+        # =========================
+        for _ in range(50):   # ~5s max
+            rows = self._get_current_row_count()
+
+            if rows > 0:
+                return True
+
+            self.page.wait_for_timeout(100)
+
+        print("⚠️ overlay gone but rows still empty")
+        return False
 
     def get_expected_rows(self):
         text = self.page.locator("#foundText").inner_text()
@@ -214,3 +233,20 @@ class LoaderService:
 
                 if guard:
                     guard.ensure_page_clean()
+
+    def wait_overlay_then_rows(self):
+
+        # STEP 1 — รอ overlay หาย
+        self.wait_overlay_clear()
+
+        # STEP 2 — lock รอ rows มาอย่างน้อย 1 ตัว
+        for _ in range(50):   # ~5s
+            rows = self._get_current_row_count()
+
+            if rows > 0:
+                return True
+
+            self.page.wait_for_timeout(100)
+
+        print("      ⚠️ overlay gone but rows still empty")
+        return False
