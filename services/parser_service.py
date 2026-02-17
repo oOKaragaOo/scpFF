@@ -76,7 +76,8 @@ class ParserService:
             arrival_airport,
             current_date,
             snapshot_flights,
-            rows
+            rows,
+            direction=direction
         )
 
         # ⭐ summary ต่อวัน
@@ -250,7 +251,8 @@ class ParserService:
         arrival_airport,
         current_date,
         snapshot_flights,
-        parsed_rows
+        parsed_rows,
+        direction="arrival" 
     ):
 
         parsed_set = {r["flight"] for r in parsed_rows}
@@ -285,7 +287,7 @@ class ParserService:
 
                 row_data = {
                     "airport": arrival_airport,
-                    "direction": "arrival",
+                    "direction": direction,
                     "date": self._format_date(current_date),
                     "day_name": current_date.split(",")[0],
 
