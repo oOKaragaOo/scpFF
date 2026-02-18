@@ -3,23 +3,29 @@ import time
 from datetime import datetime 
 class ParserService:
 
-    def __init__(self, page, loader,guard):
+    def __init__(self, page, loader, guard, settings=None):
         self.page = page
         self.loader = loader
         self.guard = guard
         self.safe_handle = None
-    
+
+        self.settings = settings or {}
+        self.recovery_enabled = self.settings.get(
+            "recovery_enabled",
+            True
+        )
+
     # =========================
     # Main Parse
     # =========================
 
     def parse_arrivals(
-    self,
-    arrival_airport,
-    current_date,
-    snapshot_flights,
-    direction="arrival"
-):  
+        self,
+        arrival_airport,
+        current_date,
+        snapshot_flights,
+        direction="arrival"
+    ):
 
         snapshot_flights = set(snapshot_flights)
         rows = []
@@ -39,15 +45,18 @@ class ParserService:
             ncols=150
         )
 
+        # =========================
+        # MAIN PARSE LOOP
+        # =========================
         for el in pbar:
 
             try:
                 row_data = self._parse_single_element(
-                                el,
-                                arrival_airport,
-                                current_date,
-                                direction
-                            )
+                    el,
+                    arrival_airport,
+                    current_date,
+                    direction
+                )
 
                 # ⭐ update safe handle ทุกครั้งที่ success
                 self.safe_handle = el
@@ -69,21 +78,30 @@ class ParserService:
                     f"Footer Kill : {footer_kill_count}"
                 )
 
-                # self._close_popup()
                 continue
 
-        rows = self.recover_missing_flights(
-            arrival_airport,
-            current_date,
-            snapshot_flights,
-            rows,
-            direction=direction
-        )
+        # =========================
+        # POST-PARSE RECOVERY
+        # =========================
+        if self.recovery_enabled:
+            rows = self.recover_missing_flights(
+                arrival_airport,
+                current_date,
+                snapshot_flights,
+                rows,
+                direction=direction
+            )
+        else:
+            # keep state stabilize
+            self.loader.ensure_all_rows_loaded()
+            self.loader.wait_list_stable()
 
-        # ⭐ summary ต่อวัน
-        # print(f"   ☠️ Footer Kill Total: {footer_kill_count}")
+        # =========================
+        # FINALIZE
+        # =========================
         self._close_popup()
         return rows
+
 
     # =========================
     # Snapshot
@@ -252,7 +270,7 @@ class ParserService:
         current_date,
         snapshot_flights,
         parsed_rows,
-        direction="arrival" 
+        direction="arrival"
     ):
 
         parsed_set = {r["flight"] for r in parsed_rows}
@@ -272,7 +290,9 @@ class ParserService:
             ascii=("_", "▄"),
             colour="#f7d983",
             unit="flight",
-            ncols=150
+            ncols=150,
+            leave=False,   # ⭐ fix log เอ๋อ
+            position=1     # ⭐ อยู่คนละบรรทัดกับ Row running
         )
 
         for flight_code in pbar:
@@ -321,25 +341,18 @@ class ParserService:
             except Exception:
                 continue
 
-            # ⭐ summary realtime (line เดียว)
             pbar.set_postfix_str(
                 f"Recovered: {recovered_count}/{len(missing)} | Total: {len(parsed_rows)}"
             )
 
-        # ----------------------------
-        # SUMMARY
-        # ----------------------------
         print(
             f"   ✅ Recovery done | "
             f"Recovered: {recovered_count}/{len(missing)} | "
             f"Final rows: {len(parsed_rows)}"
         )
+
         self._close_popup()
         return parsed_rows
-
-# =========================
-# Footer-only Recovery
-# =========================
 
     def recover_from_footer_only(self):
 

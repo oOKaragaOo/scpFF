@@ -10,26 +10,67 @@ class DeterministicCalendarService:
 # PUBLIC
 # =========================
 
+
+    # def open_calendar(self):
+
+    #     if self._is_calendar_open(debug=True):
+    #         print("📅 calendar already open")
+    #         return True
+
+    #     print("📅 opening calendar...")
+
+    #     for i in range(3):
+
+    #         self.guard.ensure_page_clean()
+    #         self._click_open_button()
+
+    #         for _ in range(20):
+    #             if self._is_calendar_open(debug=True):
+    #                 print(f"✅ calendar opened (try {i+1})")
+    #                 return True
+
+    #             self.page.wait_for_timeout(100)
+
+    #     print("❌ calendar open failed")
+    #     return False
+
     def open_calendar(self):
 
         # ถ้าเปิดอยู่แล้ว
         if self._is_calendar_open():
             return True
 
-        # ลองเปิดหลายครั้ง
+        # -------------------------
+        # NORMAL TRY
+        # -------------------------
         for _ in range(3):
 
             self.guard.ensure_page_clean()
 
-            # click open button
             self._click_open_button()
 
-            # รอให้ calendar โผล่จริง
             for _ in range(20):
                 if self._is_calendar_open():
                     return True
 
                 self.page.wait_for_timeout(100)
+
+        # -------------------------
+        # FALLBACK (NEW)
+        # -------------------------
+        print("⚠️ calendar open failed -> try tab activation")
+
+        self._force_tab_activation_cycle()
+
+        # retry once after tab switch
+        for _ in range(20):
+            self._click_open_button()
+
+            if self._is_calendar_open():
+                print("✅ calendar opened after tab refresh")
+                return True
+
+            self.page.wait_for_timeout(100)
 
         print("❌ calendar open failed")
         return False
@@ -63,6 +104,7 @@ class DeterministicCalendarService:
                 print("⚠️ read month failed:", e)
                 return False
 
+            # target reached
             if (current_year, current_month) == target:
                 break
 
@@ -82,12 +124,22 @@ class DeterministicCalendarService:
                 print("❌ month button not visible")
                 return False
 
+            # =========================
+            # click month
+            # =========================
             btn.first.click()
 
-            # รอ transition จบ
-            self._wait_single_open_calendar()
+            # ⭐ IMPORTANT FIX
+            # ต้อง stable ก่อนถึงไปต่อ
+            if not self._wait_single_open_calendar():
+                print("⚠️ calendar not stabilized -> abort")
+                return False
+
             self._wait_calendar_grid_ready()
 
+        # =========================
+        # final stabilization
+        # =========================
         self._wait_month_stable()
 
         return True
@@ -346,6 +398,11 @@ class DeterministicCalendarService:
         # -------------------------
         prev_btn.first.click()
 
+        # ⭐ FIX: calendar อาจปิดระหว่าง transition
+        if not self.ensure_calendar_open():
+            print("⚠️ resolve: calendar closed")
+            return False
+
         self._wait_calendar_grid_ready()
 
         day = self.page.locator(
@@ -424,53 +481,84 @@ class DeterministicCalendarService:
 
     #         self.page.wait_for_timeout(100)
 
+    # def _wait_calendar_grid_ready(self):
+
+    #     self.page.wait_for_function(
+    #         """
+    #         () => {
+
+    #             // -------------------------
+    #             // STATE เดิม
+    #             // -------------------------
+    #             const cal = Array.from(
+    #                 document.querySelectorAll('.flatpickr-calendar.open')
+    #             ).find(c => c.offsetParent !== null);
+
+    #             if (!cal) return false;             // not visible
+
+    #             // -------------------------
+    #             // SIGNAL 1
+    #             // inner opacity ready
+    #             // -------------------------
+    #             const inner = cal.querySelector(
+    #                 '.flatpickr-innerContainer'
+    #             );
+
+    #             if (!inner) return false;
+
+    #             const opacity = parseFloat(
+    #                 window.getComputedStyle(inner).opacity
+    #             );
+
+    #             if (opacity < 0.99) return false;
+
+    #             // -------------------------
+    #             // SIGNAL 2
+    #             // day grid ready
+    #             // -------------------------
+    #             const days = cal.querySelectorAll(
+    #                 '.dayContainer .flatpickr-day'
+    #             );
+
+    #             if (days.length < 35) return false;
+
+    #             return true;
+    #         }
+    #         """,
+    #         timeout=3000
+    #     )
+
     def _wait_calendar_grid_ready(self):
+
+        print("🧪 wait_calendar_grid_ready START")
+
+        # ⭐ รอ calendar กลับมาก่อน
+        self.page.wait_for_selector(
+            ".flatpickr-calendar.open",
+            timeout=3000
+        )
 
         self.page.wait_for_function(
             """
             () => {
+                const cal = Array.from(
+                    document.querySelectorAll('.flatpickr-calendar.open')
+                ).find(c => c.offsetParent !== null);
 
-                // -------------------------
-                // STATE เดิม
-                // -------------------------
-                const cal = document.querySelector(
-                    '.flatpickr-calendar.open'
-                );
                 if (!cal) return false;
 
-                if (cal.offsetParent === null) return false; // not visible
-
-                // -------------------------
-                // SIGNAL 1
-                // inner opacity ready
-                // -------------------------
-                const inner = cal.querySelector(
-                    '.flatpickr-innerContainer'
-                );
-
-                if (!inner) return false;
-
-                const opacity = parseFloat(
-                    window.getComputedStyle(inner).opacity
-                );
-
-                if (opacity < 0.99) return false;
-
-                // -------------------------
-                // SIGNAL 2
-                // day grid ready
-                // -------------------------
                 const days = cal.querySelectorAll(
                     '.dayContainer .flatpickr-day'
                 );
 
-                if (days.length < 35) return false;
-
-                return true;
+                return days.length >= 35;
             }
             """,
             timeout=3000
         )
+
+        print("🧪 wait_calendar_grid_ready END")
+
 
     def _wait_day_ready(self, day_locator):
 
@@ -570,13 +658,30 @@ class DeterministicCalendarService:
             pass
 
     def _is_calendar_open(self, debug=False):
-        cal = self.page.locator(".flatpickr-calendar.open:visible")
-        count = cal.count()
+
+        cal = self.page.locator(
+            ".flatpickr-calendar.open:visible"
+        )
+
+        if cal.count() != 1:
+            return False
+
+        try:
+            # ⭐ check interactive readiness
+            days = cal.first.locator(
+                ".dayContainer .flatpickr-day"
+            ).count()
+
+            if days < 35:
+                return False
+
+        except:
+            return False
 
         if debug:
-            print(f"📅 open visible calendars = {count}")
+            print(f"📅 calendar ready (days={days})")
 
-        return count == 1
+        return True
 
     def _click_open_button(self):
 
@@ -657,11 +762,8 @@ class DeterministicCalendarService:
 
     def _wait_single_open_calendar(self, target_label=None):
 
-        for _ in range(30):   # ~3s max
+        for _ in range(30):
 
-            # =========================
-            # ต้องมี open + visible แค่ 1 ตัว
-            # =========================
             cals = self.page.locator(
                 ".flatpickr-calendar.open:visible"
             )
@@ -672,24 +774,18 @@ class DeterministicCalendarService:
 
             cal = cals.first
 
-            # =========================
-            # OPTIONAL:
-            # ถ้า specify target_label
-            # ต้องรอจน day โผล่จริง
-            # =========================
             if target_label:
-
                 day = cal.locator(
                     f".flatpickr-day[aria-label='{target_label}']"
                 )
-
                 if day.count() == 0:
                     self.page.wait_for_timeout(100)
                     continue
 
-            return
+            return True   # ⭐ SUCCESS
 
-        print("⚠️ calendar not stabilized (continue)")
+        print("⚠️ calendar not stabilized")
+        return False      # ⭐ FAIL จริง
 
     def ensure_calendar_open(self):
 
@@ -729,30 +825,6 @@ class DeterministicCalendarService:
         }
         """)
 
-    # def week_has_selectable_day(self, week_days):
-
-    #     # ⭐ สำคัญ: ใช้ gate เดียวกับทุกที่
-    #     self._wait_calendar_grid_ready()
-
-    #     for d in week_days:
-
-    #         label = self._format_day_label(d)
-
-    #         day = self.page.locator(
-    #             ".flatpickr-calendar.open:visible "
-    #             f".flatpickr-day[aria-label='{label}']"
-    #         )
-
-    #         if day.count() == 0:
-    #             continue
-
-    #         cls = day.first.get_attribute("class") or ""
-
-    #         # usable day
-    #         if "flatpickr-disabled" not in cls:
-    #             return True
-
-    #     return False
 
     def week_has_selectable_day(self, week_days):
 
@@ -834,3 +906,27 @@ class DeterministicCalendarService:
         day.first.click()
 
         return True
+
+    def _force_tab_activation_cycle(self):
+        """
+        fallback only when calendar open failed
+        """
+
+        try:
+            print("🔄 force tab activation (fallback)")
+
+            dep = self.page.locator(
+                "div.shortcut-button:has(a:has-text('Departures'))"
+            )
+            arr = self.page.locator(
+                "div.shortcut-button:has(a:has-text('Arrivals'))"
+            )
+
+            dep.first.click()
+            self.page.wait_for_timeout(200)
+
+            arr.first.click()
+            self.page.wait_for_timeout(200)
+
+        except Exception:
+            print("⚠️ tab activation failed")

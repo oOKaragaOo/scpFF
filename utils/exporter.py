@@ -56,23 +56,13 @@ def _build_dataframe(rows):
     return df.reindex(columns=existing)
 
 
-# ==================================================
-# MAIN EXPORT (MONTHLY APPEND)
-# ==================================================
-
-def append_month_rows(rows, code, month_key):
+def _append_csv(rows, full_path):
     """
-    Export monthly CSV (append mode)
-    path: export/<CODE>/YYYY-MM.csv
+    core append logic
     """
 
     if not rows:
         return
-
-    folder = os.path.join(EXPORT_ROOT, code)
-    _ensure_folder(folder)
-
-    full_path = os.path.join(folder, f"{month_key}.csv")
 
     df = _build_dataframe(rows)
 
@@ -86,6 +76,75 @@ def append_month_rows(rows, code, month_key):
     )
 
     print(f"📦 Appended {len(df)} rows -> {full_path}")
+
+
+# ==================================================
+# MAIN EXPORT
+# ==================================================
+
+def append_day_rows(rows, code, date_key):
+    """
+    path: export/<CODE>/daily/YYYY-MM-DD.csv
+    """
+
+    if not rows:
+        return
+
+    folder = os.path.join(EXPORT_ROOT, code, "daily")
+    _ensure_folder(folder)
+
+    full_path = os.path.join(folder, f"{date_key}.csv")
+
+    _append_csv(rows, full_path)
+
+
+def append_week_rows(rows, code, week_key):
+    """
+    path: export/<CODE>/weekly/YYYY-Wxx.csv
+    """
+
+    if not rows:
+        return
+
+    folder = os.path.join(EXPORT_ROOT, code, "weekly")
+    _ensure_folder(folder)
+
+    full_path = os.path.join(folder, f"{week_key}.csv")
+
+    _append_csv(rows, full_path)
+
+
+def append_month_rows(rows, code, month_key):
+    """
+    path: export/<CODE>/YYYY-MM.csv
+    (ของเดิม — ยังใช้งานได้เหมือนเดิม)
+    """
+
+    if not rows:
+        return
+
+    folder = os.path.join(EXPORT_ROOT, code)
+    _ensure_folder(folder)
+
+    full_path = os.path.join(folder, f"{month_key}.csv")
+
+    _append_csv(rows, full_path)
+
+
+def append_year_rows(rows, code, year_key):
+    """
+    path: export/<CODE>/yearly/YYYY.csv
+    """
+
+    if not rows:
+        return
+
+    folder = os.path.join(EXPORT_ROOT, code, "yearly")
+    _ensure_folder(folder)
+
+    full_path = os.path.join(folder, f"{year_key}.csv")
+
+    _append_csv(rows, full_path)
 
 
 # ==================================================
@@ -125,14 +184,21 @@ def export_week_debug_pick(debug_pick, code):
     Export 1 debug file per week
     """
 
-    if not debug_pick or not debug_pick.get("rows"):
+    # กัน None / empty
+    if not debug_pick:
         return
 
-    day = debug_pick["day"]
+    rows = debug_pick.get("rows")
+    day = debug_pick.get("day")
+
+    if not rows or day is None:
+        return
+
+    # ⭐ SAFE READ
     kill = debug_pick.get("kill", 0)
 
     export_day_debug(
-        debug_pick["rows"],
+        rows,
         code,
         day.isoformat(),
         mode=f"week_debug_k{kill}"

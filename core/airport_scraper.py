@@ -27,7 +27,8 @@ class AirportScraper:
         self.parser = ParserService(
             page,
             self.loader,
-            self.guard
+            self.guard,
+            settings=SCRAPER_SETTINGS
         )
 
 
@@ -47,7 +48,6 @@ class AirportScraper:
 
         sorting = qs.get("sorting", [""])[0]
         return sorting
-
 
     def _format_date(self, date_text):
         dt = datetime.strptime(date_text, "%A, %d %B, %Y")
@@ -174,10 +174,11 @@ class AirportScraper:
 
         self.loader._reset_row_tracker()
         # print("   📂 Calendar opened")
+        print(f"🧪 PREPARE MONTH {year}-{month:02d}")
 
         self.calendar.goto_month_year(year, month)
         # print(f"   📆 Switched to {year}-{month:02d}")
-
+        
     def _get_row_count(self):
         return self.page.locator(
             "li.ff-li-list.deparr"
@@ -190,7 +191,6 @@ class AirportScraper:
         ).locator("xpath=..")
 
         return container.inner_text().split("Select date")[0].strip()
-
 
     def _run_day_pass(
         self,
@@ -235,12 +235,12 @@ class AirportScraper:
 
             kill_count = getattr(self.parser, "footer_kill_count", 0)
 
-            if kill_count >= week_debug_pick["kill"]:
-                week_debug_pick.update({
-                    "day": day,
-                    "rows": rows,
-                    "kill": kill_count
-                })
+        if kill_count >= week_debug_pick["arrival"].get("kill", 0):
+            week_debug_pick["arrival"] = {
+                "day": day,
+                "rows": rows,
+                "kill": kill_count
+            }
 
     def _run_departure_loop(self, code, days_in_week, week_rows, week_debug_pick):
 
@@ -266,58 +266,12 @@ class AirportScraper:
 
             kill_count = getattr(self.parser, "footer_kill_count", 0)
 
-            if kill_count >= week_debug_pick["kill"]:
-                week_debug_pick.update({
-                    "day": day,
-                    "rows": rows,
-                    "kill": kill_count
-                })
-
-
-    # def _switch_direction_tab(self, target):
-
-    #     print(f"\n🔄 SWITCH TAB -> {target}")
-
-    #     current_sort = self._get_sorting_value()
-
-    #     if target == "departure" and current_sort == "departure-time":
-    #         print("   ⚡ already on departure (skip)")
-    #         return
-
-    #     if target == "arrival" and current_sort == "arrival-time":
-    #         print("   ⚡ already on arrival (skip)")
-    #         return
-
-    #     before_sort = current_sort
-
-    #     # --- logic switch เดิม ---
-    #     self.parser._close_popup()
-    #     self.parser.safe_handle = None
-    #     self.loader._reset_row_tracker()
-
-    #     tab = self.page.locator(
-    #         f"div.shortcut-button:has(a:has-text('{ 'Arrivals' if target=='arrival' else 'Departures'}'))"
-    #     )
-    #     tab.first.click()
-
-    #     self.page.wait_for_function(
-    #         """
-    #         (oldSorting) => {
-    #             const url = new URL(window.location.href);
-    #             return (url.searchParams.get("sorting") || "") !== oldSorting;
-    #         }
-    #         """,
-    #         arg=before_sort,
-    #         timeout=0
-    #     )
-
-    #     after_sort = self._get_sorting_value()
-
-    #     print(f"   🔁 tab switched: {before_sort} → {after_sort}")
-
-    #     self.loader.wait_list_stable()
-
-    #     print("   🏁 TAB SWITCH DONE")
+        if kill_count >= week_debug_pick["arrival"].get("kill", 0):
+            week_debug_pick["departure"] = {
+                "day": day,
+                "rows": rows,
+                "kill": kill_count
+            }
 
     def _switch_direction_tab(self, target):
 
@@ -368,7 +322,6 @@ class AirportScraper:
         self.calendar._resolve_used = False
 
         print("   🏁 TAB SWITCH DONE")
-
 
     def _run_day_pass(
         self,
@@ -424,7 +377,6 @@ class AirportScraper:
 
         return rows
 
-
     def _process_week_block(
         self,
         code,
@@ -465,10 +417,19 @@ class AirportScraper:
         # WEEK DEBUG PICK
         # -------------------------
         week_debug_pick = {
-            "day": None,
-            "rows": None,
-            "kill": -1
+            "arrival": {
+                "day": None,
+                "rows": None,
+                "kill": 0
+            },
+            "departure": {
+                "day": None,
+                "rows": None,
+                "kill": 0
+            }
         }
+
+
 
         # =========================
         # ARRIVAL PASS
@@ -493,12 +454,13 @@ class AirportScraper:
                     0
                 )
 
-                if kill_count >= week_debug_pick["kill"]:
-                    week_debug_pick = {
+                if kill_count >= week_debug_pick["arrival"].get("kill", 0):
+                    week_debug_pick["departure"] = {
                         "day": day,
                         "rows": rows,
                         "kill": kill_count
                     }
+
 
         # =========================
         # DEPARTURE PASS
@@ -531,12 +493,13 @@ class AirportScraper:
                     0
                 )
 
-                if kill_count >= week_debug_pick["kill"]:
-                    week_debug_pick = {
-                        "day": day,
-                        "rows": rows,
-                        "kill": kill_count
-                    }
+        if kill_count >= week_debug_pick["arrival"].get("kill", 0):
+            week_debug_pick["arrival"] = {
+                "day": day,
+                "rows": rows,
+                "kill": kill_count
+            }
+
 
         # =========================
         # OPTIONAL RESTORE
@@ -549,14 +512,19 @@ class AirportScraper:
         # EXPORT WEEK DEBUG
         # =========================
         if settings.get("debug_week_export", True):
+
             export_week_debug_pick(
-                week_debug_pick,
+                week_debug_pick["arrival"],
                 code
             )
 
+            export_week_debug_pick(
+                week_debug_pick["departure"],
+                code
+            )
+
+
         return week_rows
-
-
 
 # =========================
 # SCRAPE
@@ -565,6 +533,7 @@ class AirportScraper:
     def scrape_airport(self, code, start_date, end_date):
 
         self._open_airport_page(code)
+
         self.calendar.warmup_calendar(start_date)
         all_rows = []
         current_month = start_date.replace(day=1)
