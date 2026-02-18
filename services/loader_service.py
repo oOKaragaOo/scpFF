@@ -186,10 +186,10 @@ class LoaderService:
             }"""
         )
 
-    def ensure_all_rows_loaded(self, guard=None):
+    def ensure_all_rows_loaded(self, guard=None , silent=False):
 
         expected = self.get_expected_rows()
-        print("      🎯 Expected rows:", expected)
+        print("Expected rows : ", expected)
 
         click_count = 0
 

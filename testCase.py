@@ -1,26 +1,3 @@
-# """
-# TastScript.py
-
-# Mini test runner for flight scraper scenarios.
-
-# Purpose
-# -------
-# - Inject START_DATE / END_DATE for each test case
-# - Rewrite world_airports_city.csv per case
-# - Run main-like flow with AirportScraper
-# - Useful for regression testing calendar + reload behavior
-
-# How to run
-# ----------
-# python TastScript.py
-
-# Notes
-# -----
-# - This is an integration-style test (not pure unit test)
-# - It uses real Playwright browser + real website
-# - Designed for quick reproducible scenario testing
-# """
-
 from datetime import date
 from pathlib import Path
 import time
@@ -28,6 +5,7 @@ import pandas as pd
 from playwright.sync_api import sync_playwright
 
 from core.airport_scraper import AirportScraper
+from settings import SCRAPER_SETTINGS
 
 
 # =========================================================
@@ -42,58 +20,90 @@ CSV_PATH = Path("data/reference/world_airports_city.csv")
 # =========================================================
 
 TEST_CASES = [
+
     {
-        "name": "ย้อนหลัง + ข้ามหลายวัน (DSY)",
-        "start": date(2026, 2, 27),
-        "end": date(2026, 3, 2),
+        "name": "export year mode (JHB)",
+        "start": date(2026, 12, 10),
+        "end": date(2027, 1, 10),
+        "export_mode": "year",
         "rows": [
             {
-                "country": "cambodia",
-                "city": "Krong Khemara Phoumin",
-                "airport_name": "Dara Sakor Intl",
-                "airport_code": "DSY",
+                "country": "malaysia",
+                "city": "Johor Bahru",
+                "airport_name": "Sultan Ismail Intl",
+                "airport_code": "JHB",
             }
         ],
     },
+
     {
-        "name": "target อยู่ grid เดือนก่อนหน้า (UTH)",
+        "name": "export month mode (JHB)",
+        "start": date(2026, 2, 20),
+        "end": date(2026, 3, 10),
+        "export_mode": "month",
+        "rows": [
+            {
+                "country": "malaysia",
+                "city": "Johor Bahru",
+                "airport_name": "Sultan Ismail Intl",
+                "airport_code": "JHB",
+            }
+        ],
+    },
+
+    # =========================================
+    # NEW — Weekly 2 airline (2 airport)
+    # =========================================
+    {
+        "name": "weekly 2 airline (BKI + JHB)",
         "start": date(2026, 3, 1),
-        "end": date(2026, 3, 2),
-        "rows": [
-            {
-                "country": "Thailand",
-                "city": "Udon Thani",
-                "airport_name": "Udon Thani",
-                "airport_code": "UTH",
-            }
-        ],
-    },
-    {
-        "name": "boundary month repeat (DSY)",
-        "start": date(2026, 2, 2),
-        "end": date(2026, 3, 2),
-        "rows": [
-            {
-                "country": "cambodia",
-                "city": "Krong Khemara Phoumin",
-                "airport_name": "Dara Sakor Intl",
-                "airport_code": "DSY",
-            }
-        ],
-    },
-    {
-        "name": "mini long run (+/-100 rows behavior) (BKI)",
-        "start": date(2026, 2, 25),
-        "end": date(2026, 3, 2),
+        "end": date(2026, 3, 20),
+        "export_mode": "week",
         "rows": [
             {
                 "country": "malaysia",
                 "city": "Kota Kinabalu",
-                "airport_name": "Kota Kinabalu",
+                "airport_name": "Kota Kinabalu Intl",
                 "airport_code": "BKI",
+            },
+            {
+                "country": "malaysia",
+                "city": "Johor Bahru",
+                "airport_name": "Sultan Ismail Intl",
+                "airport_code": "JHB",
             }
         ],
     },
+
+    # =========================================
+    # NEW — Daily 3 airline
+    # =========================================
+    {
+        "name": "daily 3 airline (BKI + JHB + KUL)",
+        "start": date(2026, 3, 1),
+        "end": date(2026, 3, 5),
+        "export_mode": "day",
+        "rows": [
+            {
+                "country": "malaysia",
+                "city": "Kota Kinabalu",
+                "airport_name": "Kota Kinabalu Intl",
+                "airport_code": "BKI",
+            },
+            {
+                "country": "malaysia",
+                "city": "Johor Bahru",
+                "airport_name": "Sultan Ismail Intl",
+                "airport_code": "JHB",
+            },
+            {
+                "country": "malaysia",
+                "city": "Kuala Lumpur",
+                "airport_name": "Kuala Lumpur Intl",
+                "airport_code": "KUL",
+            }
+        ],
+    }
 ]
 
 
@@ -102,19 +112,25 @@ TEST_CASES = [
 # =========================================================
 
 def write_airport_csv(rows):
-    # """Overwrite world_airports_city.csv for each test case."""
     CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
     df = pd.DataFrame(rows)
     df.to_csv(CSV_PATH, index=False)
 
 
 def run_case(case):
-    # """Run one scenario using the same logic as main.py."""
 
     print("" + "=" * 70)
     print(f"🧪 TEST CASE: {case['name']}")
     print(f"📅 RANGE: {case['start']} -> {case['end']}")
     print("=" * 70)
+
+    # ⭐ set export mode per case
+    SCRAPER_SETTINGS["export_mode"] = case.get(
+        "export_mode",
+        "month"
+    )
+
+    print(f"📦 EXPORT MODE: {SCRAPER_SETTINGS['export_mode']}")
 
     # inject csv
     write_airport_csv(case["rows"])
@@ -126,7 +142,6 @@ def run_case(case):
     start_time = time.time()
     case_failed = False
 
-    # ⭐ browser restart every case (isolated session)
     with sync_playwright() as p:
 
         ctx = p.chromium.launch_persistent_context(
@@ -153,9 +168,11 @@ def run_case(case):
                 case_failed = True
                 print("❌ ERROR:", e)
 
-                # ⭐ auto screenshot on failure
                 try:
-                    Path("Debug/screenshots").mkdir(parents=True, exist_ok=True)
+                    Path("Debug/screenshots").mkdir(
+                        parents=True,
+                        exist_ok=True
+                    )
                     shot_name = case["name"].replace(" ", "_")
                     page.screenshot(
                         path=f"Debug/screenshots/{shot_name}.png",
@@ -165,12 +182,10 @@ def run_case(case):
                 except Exception as ss_err:
                     print("⚠️ screenshot fail:", ss_err)
 
-                # break current case immediately
                 break
 
             time.sleep(2)
 
-        # ⭐ ensure browser closed before next case
         ctx.close()
 
     elapsed = time.time() - start_time

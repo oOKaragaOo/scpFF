@@ -32,7 +32,7 @@ def load_all_cities(page, max_round=40):
         last = count
 #------ Input search
 countries = [
-    "Dallas"
+    "malaysia"
 ]
 
 rows = set()

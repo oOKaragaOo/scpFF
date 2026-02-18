@@ -42,7 +42,7 @@ class ParserService:
             ascii=("_", "▄"),
             colour="#83f77e",
             unit="flight",
-            ncols=150
+            ncols=120
         )
 
         # =========================
@@ -290,7 +290,7 @@ class ParserService:
             ascii=("_", "▄"),
             colour="#f7d983",
             unit="flight",
-            ncols=150,
+            ncols=50,
             leave=False,   # ⭐ fix log เอ๋อ
             position=1     # ⭐ อยู่คนละบรรทัดกับ Row running
         )
@@ -346,7 +346,7 @@ class ParserService:
             )
 
         print(
-            f"   ✅ Recovery done | "
+            f"   \n✅ Recovery done | "
             f"Recovered: {recovered_count}/{len(missing)} | "
             f"Final rows: {len(parsed_rows)}"
         )

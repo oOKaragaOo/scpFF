@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+from datetime import timedelta
 
 # ==================================================
 # CONFIG
@@ -197,11 +198,16 @@ def export_week_debug_pick(debug_pick, code):
     # ⭐ SAFE READ
     kill = debug_pick.get("kill", 0)
 
+    week_start = day - timedelta(days=day.weekday())
+
+    file_key = f"{week_start.isoformat()}_to_{day.isoformat()}"
+
     export_day_debug(
         rows,
         code,
-        day.isoformat(),
+        file_key,
         mode=f"week_debug_k{kill}"
     )
+
 
     print(f"🏆 WEEK DEBUG PICK: {day} (kill={kill})")

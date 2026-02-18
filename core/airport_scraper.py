@@ -6,9 +6,11 @@ from services.parser_service import ParserService
 from services.pageGuard_service import PageGuardService
 from settings import SCRAPER_SETTINGS
 from utils.exporter import (
-    export_week_debug_pick,
+    append_day_rows,
+    append_week_rows,
     append_month_rows,
-    export_day_debug
+    append_year_rows,
+    export_week_debug_pick,
 )
 class AirportScraper:
 
@@ -51,7 +53,7 @@ class AirportScraper:
 
     def _format_date(self, date_text):
         dt = datetime.strptime(date_text, "%A, %d %B, %Y")
-        return f"{dt.day}/{dt.month}/{dt.year}"
+        return dt.strftime("%Y-%m-%d")
 
     def snapshot_flights(self):
 
@@ -105,7 +107,7 @@ class AirportScraper:
 
         month_rows = []
 
-        print(f"Processing month: {current_month.strftime('%Y-%m')}")
+        # print(f"Processing month: {current_month.strftime('%Y-%m')}")
 
         self._prepare_month(year, month)
 
@@ -156,14 +158,8 @@ class AirportScraper:
         # EXPORT MONTH (FINAL)
         # =========================
         if month_rows:
+            self._export_by_mode(code, month_rows, current_month)
 
-            month_key = current_month.strftime("%Y-%m")
-
-            append_month_rows(
-                month_rows,
-                code,
-                month_key
-            )
 
         return month_rows
 
@@ -174,7 +170,7 @@ class AirportScraper:
 
         self.loader._reset_row_tracker()
         # print("   📂 Calendar opened")
-        print(f"🧪 PREPARE MONTH {year}-{month:02d}")
+        # print(f"🧪 PREPARE MONTH {year}-{month:02d}")
 
         self.calendar.goto_month_year(year, month)
         # print(f"   📆 Switched to {year}-{month:02d}")
@@ -192,36 +188,9 @@ class AirportScraper:
 
         return container.inner_text().split("Select date")[0].strip()
 
-    def _run_day_pass(
-        self,
-        code,
-        page_date,
-        direction="arrival"
-    ):
-
-        self.loader._reset_row_tracker()
-
-        if not self.calendar.resolve_target_date(page_date):
-            print("   ⏭️ skip date (cannot select)")
-            return []
-
-        self.loader.wait_overlay_then_rows()
-
-        page_date_label = self._get_page_date_label()
-
-        print(f"   ▶ PASS: {direction.upper()}")
-
-        rows = self._run_direction_pass(
-            code,
-            page_date_label,
-            direction=direction
-        )
-
-        return rows
-
     def _run_arrival_loop(self, code, days_in_week, week_rows, week_debug_pick):
 
-        print("📦 WEEK PASS: ARRIVAL")
+        # print("📦 WEEK PASS: ARRIVAL")
 
         for day in days_in_week:
 
@@ -247,7 +216,7 @@ class AirportScraper:
         print("🔄 switch -> departure")
         self._switch_direction_tab("departure")
 
-        print("📦 WEEK PASS: DEPARTURE")
+        # print("📦 WEEK PASS: DEPARTURE")
 
         self.calendar.goto_month_year(
             days_in_week[0].year,
@@ -312,7 +281,7 @@ class AirportScraper:
 
         after_sort = self._get_sorting_value()
 
-        print(f"   🔁 tab switched: {before_sort} → {after_sort}")
+        # print(f"   🔁 tab switched: {before_sort} → {after_sort}")
 
         self.loader.wait_list_stable()
 
@@ -321,7 +290,7 @@ class AirportScraper:
         # =========================
         self.calendar._resolve_used = False
 
-        print("   🏁 TAB SWITCH DONE")
+        # print("   🏁 TAB SWITCH DONE")
 
     def _run_day_pass(
         self,
@@ -340,7 +309,9 @@ class AirportScraper:
 
         page_date_label = self._get_page_date_label()
 
-        print(f"   ▶ PASS: {direction.upper()}")
+        mode = SCRAPER_SETTINGS.get("export_mode", "month")
+
+        print(f"   ▶ : {direction.upper()}  : Tab  |  🏍️_. EXPORT MODE : {mode.upper()}")
 
         rows = self._run_direction_pass(
             code,
@@ -358,7 +329,7 @@ class AirportScraper:
     ):
 
         self.loader.ensure_all_rows_loaded()
-        print("   🏁 Exit ensure_all_rows_loaded")
+        # print("   🏁 Exit ensure_all_rows_loaded")
 
         self.loader.wait_list_stable()
 
@@ -388,11 +359,11 @@ class AirportScraper:
         """
 
         # -------------------------
-        # DEBUG (ชั่วคราว)
+        # DEBUG 
         # -------------------------
-        print("\n🧪 WEEK DEBUG")
-        print("   len(days_in_week):", len(days_in_week))
-        print("   days:", days_in_week)
+        # print("\n🧪 WEEK DEBUG")
+        # print("   len(days_in_week):", len(days_in_week))
+        # print("   days:", days_in_week)
 
         # =========================
         # SMART WEEK CHECK
@@ -412,11 +383,16 @@ class AirportScraper:
                 return []
 
         week_rows = []
-
+        week_debug_combined = {
+            "day": None,
+            "rows": [],
+            "kill": 0
+        }
         # -------------------------
         # WEEK DEBUG PICK
         # -------------------------
         week_debug_pick = {
+            
             "arrival": {
                 "day": None,
                 "rows": None,
@@ -436,7 +412,7 @@ class AirportScraper:
         # =========================
         if settings["arrival_parser_enabled"]:
 
-            print("📦 WEEK PASS: ARRIVAL")
+            # print("📦 WEEK PASS: ARRIVAL")
 
             for day in days_in_week:
 
@@ -454,8 +430,16 @@ class AirportScraper:
                     0
                 )
 
+                # ⭐ NEW: รวม debug
+                week_debug_combined["rows"].extend(rows)
+
+                if kill_count >= week_debug_combined["kill"]:
+                    week_debug_combined["kill"] = kill_count
+                    week_debug_combined["day"] = day
+
+                # (ถ้ายังอยากเก็บ debug_pick เดิมไว้)
                 if kill_count >= week_debug_pick["arrival"].get("kill", 0):
-                    week_debug_pick["departure"] = {
+                    week_debug_pick["arrival"] = {
                         "day": day,
                         "rows": rows,
                         "kill": kill_count
@@ -467,10 +451,9 @@ class AirportScraper:
         # =========================
         if settings["departure_parser_enabled"]:
 
-            print("🔄 switch -> departure")
             self._switch_direction_tab("departure")
 
-            print("📦 WEEK PASS: DEPARTURE")
+            # print("📦 WEEK PASS: DEPARTURE")
 
             self.calendar.goto_month_year(
                 days_in_week[0].year,
@@ -493,19 +476,27 @@ class AirportScraper:
                     0
                 )
 
-        if kill_count >= week_debug_pick["arrival"].get("kill", 0):
-            week_debug_pick["arrival"] = {
-                "day": day,
-                "rows": rows,
-                "kill": kill_count
-            }
+                # ⭐ NEW: รวม debug
+                week_debug_combined["rows"].extend(rows)
+
+                if kill_count >= week_debug_combined["kill"]:
+                    week_debug_combined["kill"] = kill_count
+                    week_debug_combined["day"] = day
+
+                # (ถ้ายังอยากเก็บ debug_pick เดิมไว้)
+                if kill_count >= week_debug_pick["departure"].get("kill", 0):
+                    week_debug_pick["departure"] = {
+                        "day": day,
+                        "rows": rows,
+                        "kill": kill_count
+                    }
 
 
         # =========================
         # OPTIONAL RESTORE
         # =========================
         if settings.get("auto_restore_tab", True):
-            print("🔄 restore -> arrival")
+            # print("🔄 restore -> arrival")
             self._switch_direction_tab("arrival")
 
         # =========================
@@ -514,17 +505,46 @@ class AirportScraper:
         if settings.get("debug_week_export", True):
 
             export_week_debug_pick(
-                week_debug_pick["arrival"],
+                week_debug_combined,
                 code
             )
-
-            export_week_debug_pick(
-                week_debug_pick["departure"],
-                code
-            )
-
 
         return week_rows
+
+    def _export_by_mode(self, code, rows, current_month):
+        """
+        Route export based on SCRAPER_SETTINGS["export_mode"]
+        """
+
+        if not rows:
+            return
+
+        mode = SCRAPER_SETTINGS.get("export_mode", "month")
+
+        if mode == "day":
+
+            by_day = {}
+            for r in rows:
+                d = r.get("date")
+                by_day.setdefault(d, []).append(r)
+
+            for d, day_rows in by_day.items():
+                append_day_rows(day_rows, code, d)
+
+        elif mode == "week":
+
+            week_key = current_month.strftime("%Y-W%U")
+            append_week_rows(rows, code, week_key)
+
+        elif mode == "year":
+
+            year_key = str(current_month.year)
+            append_year_rows(rows, code, year_key)
+
+        else:  # month default
+
+            month_key = current_month.strftime("%Y-%m")
+            append_month_rows(rows, code, month_key)
 
 # =========================
 # SCRAPE
@@ -533,7 +553,8 @@ class AirportScraper:
     def scrape_airport(self, code, start_date, end_date):
 
         self._open_airport_page(code)
-
+        mode = SCRAPER_SETTINGS.get("export_mode", "month")
+        print(f"\n🏍️_. EXPORT MODE : {mode.upper()}")
         self.calendar.warmup_calendar(start_date)
         all_rows = []
         current_month = start_date.replace(day=1)

@@ -58,7 +58,7 @@ class DeterministicCalendarService:
         # ensure calendar open
         # =========================
         if not self.open_calendar():
-            print("⚠️ calendar not open → abort month switch")
+            # print("⚠️ calendar not open → abort month switch")
             return False
 
         for _ in range(12):  # safety loop
@@ -104,7 +104,7 @@ class DeterministicCalendarService:
             btn.first.click()
 
             if not self._wait_single_open_calendar():
-                print("⚠️ calendar not stabilized -> abort")
+                # print("⚠️ calendar not stabilized -> abort")
                 return False
 
             self._wait_calendar_grid_ready()
@@ -167,7 +167,7 @@ class DeterministicCalendarService:
 
             return self._verify_selected(target_label)
 
-        print("⚠️ disabled → resolve_day_selection")
+        # print("⚠️ disabled → resolve_day_selection")
 
         return self.resolve_day_selection(target_label)
 
@@ -222,7 +222,7 @@ class DeterministicCalendarService:
 
         day.first.click()
 
-        print("✅ resolve success")
+        # print("✅ resolve success")
         return True
 
 
@@ -256,7 +256,7 @@ class DeterministicCalendarService:
 
     def _wait_calendar_grid_ready(self):
 
-        print("🧪 wait_calendar_grid_ready START")
+        # print("🧪 wait_calendar_grid_ready START")
 
         # ⭐ รอ calendar กลับมาก่อน
         self.page.wait_for_selector(
@@ -283,7 +283,7 @@ class DeterministicCalendarService:
             timeout=3000
         )
 
-        print("🧪 wait_calendar_grid_ready END")
+        # print("🧪 wait_calendar_grid_ready END")
 
 
     def _wait_day_ready(self, day_locator):
@@ -318,7 +318,7 @@ class DeterministicCalendarService:
         )
 
         if cal.count() == 0:
-            print("⚠️ calendar not open → retry open")
+            # print("⚠️ calendar not open → retry open")
 
             self.open_calendar()
 
@@ -510,7 +510,7 @@ class DeterministicCalendarService:
 
             return True   # ⭐ SUCCESS
 
-        print("⚠️ calendar not stabilized")
+        # print("⚠️ calendar not stabilized")
         return False      # ⭐ FAIL จริง
 
     def ensure_calendar_open(self):
@@ -519,7 +519,7 @@ class DeterministicCalendarService:
         if self._is_calendar_open():
             return True
 
-        print("⚠️ calendar not open → retry open")
+        # print("⚠️ calendar not open → retry open")
 
         # ลองเปิดใหม่
         self.open_calendar()
@@ -625,7 +625,7 @@ class DeterministicCalendarService:
         cls = day.first.get_attribute("class") or ""
 
         if "flatpickr-disabled" in cls:
-            print("❌ phase2 disabled → skip")
+            # print("❌ phase2 disabled → skip")
             return False
 
         print("✅ fallback phase2 click")
@@ -639,7 +639,7 @@ class DeterministicCalendarService:
         """
 
         try:
-            print("🔄 force tab activation (fallback)")
+            # print("🔄 force tab activation (fallback)")
 
             dep = self.page.locator(
                 "div.shortcut-button:has(a:has-text('Departures'))"
