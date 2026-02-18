@@ -10,33 +10,8 @@ class DeterministicCalendarService:
 # PUBLIC
 # =========================
 
-
-    # def open_calendar(self):
-
-    #     if self._is_calendar_open(debug=True):
-    #         print("📅 calendar already open")
-    #         return True
-
-    #     print("📅 opening calendar...")
-
-    #     for i in range(3):
-
-    #         self.guard.ensure_page_clean()
-    #         self._click_open_button()
-
-    #         for _ in range(20):
-    #             if self._is_calendar_open(debug=True):
-    #                 print(f"✅ calendar opened (try {i+1})")
-    #                 return True
-
-    #             self.page.wait_for_timeout(100)
-
-    #     print("❌ calendar open failed")
-    #     return False
-
     def open_calendar(self):
 
-        # ถ้าเปิดอยู่แล้ว
         if self._is_calendar_open():
             return True
 
@@ -74,7 +49,6 @@ class DeterministicCalendarService:
 
         print("❌ calendar open failed")
         return False
-
 
     def goto_month_year(self, year, month):
 
@@ -129,8 +103,6 @@ class DeterministicCalendarService:
             # =========================
             btn.first.click()
 
-            # ⭐ IMPORTANT FIX
-            # ต้อง stable ก่อนถึงไปต่อ
             if not self._wait_single_open_calendar():
                 print("⚠️ calendar not stabilized -> abort")
                 return False
@@ -195,187 +167,10 @@ class DeterministicCalendarService:
 
             return self._verify_selected(target_label)
 
-        # =========================
-        # DISABLED → RESOLVE (สำคัญ)
-        # =========================
         print("⚠️ disabled → resolve_day_selection")
 
         return self.resolve_day_selection(target_label)
 
-    # def resolve_target_date(self, target_date):
-
-    #     self.guard.ensure_page_clean()
-    #     target_label = self._format_day_label(target_date)
-
-    #     print(f"\ntarget in 📅 : {target_label}")
-
-    #     # =========================
-    #     # RESET (per day)
-    #     # =========================
-    #     self._fallback_used = False
-
-    #     # =========================
-    #     # STEP 1 — ensure calendar open
-    #     # =========================
-    #     self.open_calendar()
-
-
-
-    #     self.goto_month_year(
-    #         target_date.year,
-    #         target_date.month
-    #     )
-
-
-
-    #     self._wait_month_stable()
-    #     self._wait_calendar_grid_ready()
-
-
-    #     # =========================
-    #     # Debug
-    #     # =========================
-
-    #     self._wait_month_stable()
-    #     self._wait_calendar_grid_ready()
-    #     # self._wait_day_grid_ready
-
-    #     # =========================
-    #     # STEP 2 — locate target day
-    #     # =========================
-    #     day = self.page.locator(
-    #         ".flatpickr-calendar.open:visible "
-    #         f".flatpickr-day[aria-label='{target_label}']"
-    #     )
-
-    #     need_fallback = False
-
-    #     # ---------- NOT FOUND ----------
-    #     if day.count() == 0:
-    #         print("⚠️ day not found → skip")
-    #         return False
-
-    #     # ---------- READ CLASS ----------
-    #     cls = day.first.get_attribute("class") or ""
-
-    #     # =========================
-    #     # FALLBACK ONLY CASE
-    #     # prevMonthDay + disabled
-    #     # =========================
-    #     if (
-    #         "prevMonthDay" in cls and
-    #         "flatpickr-disabled" in cls
-    #     ):
-    #         print("⚠️ prevMonthDay disabled → fallback")
-    #         need_fallback = True
-
-    #     # =========================
-    #     # NORMAL DISABLED DAY
-    #     # (NO FALLBACK)
-    #     # =========================
-    #     elif "flatpickr-disabled" in cls:
-    #         print("⏭️ disabled normal day → skip (no fallback)")
-    #         return False
-
-    #     # =========================
-    #     # STEP 3 — normal click
-    #     # =========================
-    #     if not need_fallback:
-
-    #         self._wait_day_ready(day)
-    #         self._wait_calendar_grid_ready()
-    #         # self._wait_day_grid_ready()
-    #         day.first.click()
-
-    #         return self._verify_selected(target_label)
-
-    #     # =========================
-    #     # STEP 4 — FALLBACK (ONCE)
-    #     # =========================
-    #     if self._fallback_used:
-    #         print("⚠️ fallback already used → skip day")
-    #         return False
-
-    #     self._fallback_used = True
-
-    #     result = self.resolve_day_selection(target_label)
-
-    #     if not result:
-    #         print("⚠️ fallback failed → skip day")
-    #         return False
-
-    #     return True
-
-
-    # def resolve_day_selection(self, target_label):
-
-    #     print("\n🟡 FALLBACK START")
-    #     print(f"   target label = {target_label}")
-
-    #     self.guard.ensure_page_clean()
-
-    #     # =========================
-    #     # snapshot current month
-    #     # =========================
-    #     old_month, old_year = self._read_current_month_year()
-
-    #     prev_btn = self.page.locator(
-    #         ".flatpickr-calendar.open:visible .flatpickr-prev-month"
-    #     )
-
-    #     if prev_btn.count() == 0:
-    #         print("❌ no prev button")
-    #         print("🟡 FALLBACK END (FAIL)\n")
-    #         return False
-
-    #     # =========================
-    #     # go previous month
-    #     # =========================
-    #     print("   ⬅️ click prev month")
-    #     prev_btn.first.click()
-
-    #     # wait month changed จริง
-    #     for _ in range(20):
-    #         m, y = self._read_current_month_year()
-    #         if (m, y) != (old_month, old_year):
-    #             break
-    #         self.page.wait_for_timeout(100)
-
-    #     self._wait_single_open_calendar()
-    #     self._wait_calendar_grid_ready()
-
-    #     # =========================
-    #     # find ONLY nextMonthDay
-    #     # =========================
-    #     day = self.page.locator(
-    #         ".flatpickr-calendar.open:visible "
-    #         f".flatpickr-day.nextMonthDay[aria-label='{target_label}']"
-    #     )
-
-    #     print(f"   day locator count = {day.count()}")
-
-    #     if day.count() == 0:
-    #         print("❌ no nextMonthDay -> SKIP")
-    #         print("🟡 FALLBACK END (FAIL)\n")
-    #         return False
-
-    #     cls = day.first.get_attribute("class") or ""
-
-    #     if "disabled" in cls:
-    #         print("❌ nextMonthDay disabled -> SKIP")
-    #         print("🟡 FALLBACK END (FAIL)\n")
-    #         return False
-
-    #     # =========================
-    #     # SUCCESS
-    #     # =========================
-    #     print("✅ fallback click nextMonthDay")
-
-    #     self._wait_day_ready(day)
-    #     day.first.click()
-
-    #     print("🟢 FALLBACK END (SUCCESS)\n")
-    #     return True
 
     def resolve_day_selection(self, target_label):
 
@@ -398,7 +193,6 @@ class DeterministicCalendarService:
         # -------------------------
         prev_btn.first.click()
 
-        # ⭐ FIX: calendar อาจปิดระหว่าง transition
         if not self.ensure_calendar_open():
             print("⚠️ resolve: calendar closed")
             return False
@@ -442,7 +236,7 @@ class DeterministicCalendarService:
         try:
             # กัน popup/overlay ค้าง
             self.guard.ensure_page_clean()
-
+            self._force_tab_activation_cycle()
             self.open_calendar()
 
             # render เดือนแรกของ range
@@ -459,74 +253,6 @@ class DeterministicCalendarService:
                 self.close_calendar()
             except:
                 pass
-
-    # def _wait_calendar_grid_ready(self):
-
-    #     for _ in range(20):
-
-    #         # ต้องมี open calendar แค่ 1 ตัว
-    #         cals = self.page.locator(".flatpickr-calendar.open")
-
-    #         if cals.count() != 1:
-    #             self.page.wait_for_timeout(100)
-    #             continue
-
-    #         # ใช้เฉพาะ calendar ที่ visible
-    #         days = self.page.locator(
-    #             ".flatpickr-calendar.open:visible .flatpickr-day"
-    #         ).count()
-
-    #         if days >= 35:
-    #             return
-
-    #         self.page.wait_for_timeout(100)
-
-    # def _wait_calendar_grid_ready(self):
-
-    #     self.page.wait_for_function(
-    #         """
-    #         () => {
-
-    #             // -------------------------
-    #             // STATE เดิม
-    #             // -------------------------
-    #             const cal = Array.from(
-    #                 document.querySelectorAll('.flatpickr-calendar.open')
-    #             ).find(c => c.offsetParent !== null);
-
-    #             if (!cal) return false;             // not visible
-
-    #             // -------------------------
-    #             // SIGNAL 1
-    #             // inner opacity ready
-    #             // -------------------------
-    #             const inner = cal.querySelector(
-    #                 '.flatpickr-innerContainer'
-    #             );
-
-    #             if (!inner) return false;
-
-    #             const opacity = parseFloat(
-    #                 window.getComputedStyle(inner).opacity
-    #             );
-
-    #             if (opacity < 0.99) return false;
-
-    #             // -------------------------
-    #             // SIGNAL 2
-    #             // day grid ready
-    #             // -------------------------
-    #             const days = cal.querySelectorAll(
-    #                 '.dayContainer .flatpickr-day'
-    #             );
-
-    #             if (days.length < 35) return false;
-
-    #             return true;
-    #         }
-    #         """,
-    #         timeout=3000
-    #     )
 
     def _wait_calendar_grid_ready(self):
 
