@@ -92,6 +92,121 @@ python main.py
 
 ---
 
+## ⚙️ Settings (วิธีใช้งาน)
+
+ไฟล์ตั้งค่าอยู่ที่:
+
+```
+settings.py
+```
+
+ตัวอย่าง:
+
+```python
+SCRAPER_SETTINGS = {
+
+    # -------------------------
+    # PARSER
+    # -------------------------
+    "arrival_parser_enabled": True,
+    "departure_parser_enabled": True,
+
+    # -------------------------
+    # RECOVERY                     จะทำงานเมื่อเกิด footer only หรือ กด detail แล้วเว็ปข้อมูลหาย 
+    # -------------------------    RECOVERY จะเอา flight ที่ ถูกข้ามเพราะ footer only เอามาไล่ดูในส่วนที่ข้ามเพื่อพยายามเก็บรายละเอียด
+    "recovery_enabled": True,      ปิดใช้งานได้โดยการเปลี่ยนเป็น False หากทำให้ใช้เวลานานกว่าปกติ 
+    
+    # -------------------------
+    # TAB CONTROL
+    # -------------------------
+    "auto_restore_tab": True,
+
+    # -------------------------
+    # EXPORT
+    # -------------------------
+    "export_enabled": True,
+    "debug_export_enabled": True,
+
+    # day | week | month | year
+    "export_mode": "month",
+
+    # -------------------------
+    # DEBUG
+    # -------------------------
+    "debug_week_export": True,
+}
+```
+
+### 🔹 Parser Settings
+
+| Setting                    | ความหมาย                        |
+| -------------------------- | ------------------------------- |
+| `arrival_parser_enabled`   | เปิด/ปิด scrape ฝั่ง Arrivals   |
+| `departure_parser_enabled` | เปิด/ปิด scrape ฝั่ง Departures |
+
+---
+
+### 🔹 Recovery
+
+| Setting            | ความหมาย                                                 |
+| ------------------ | -------------------------------------------------------- |
+| `recovery_enabled` | เปิด/ปิด missing-flight recovery (ทำงานหลัง parse เสร็จ) |
+
+> ⚠️ Footer recovery ยังคงทำงานเสมอเพื่อรักษา state ของหน้าเว็บ
+
+---
+
+### 🔹 Tab Control
+
+| Setting            | ความหมาย                                      |
+| ------------------ | --------------------------------------------- |
+| `auto_restore_tab` | หลังจบ departure จะสลับกลับ arrival อัตโนมัติ |
+
+---
+
+### 🔹 Export
+
+| Setting                | ความหมาย                                           |
+| ---------------------- | -------------------------------------------------- |
+| `export_enabled`       | เปิด/ปิด export CSV หลัก                           |
+| `debug_export_enabled` | เปิด/ปิด debug export                              |
+| `export_mode`          | เลือกระดับ export (`day`, `week`, `month`, `year`) |
+
+---
+
+### 🔹 Debug Export
+
+| Setting             | ความหมาย                     |
+| ------------------- | ---------------------------- |
+| `debug_week_export` | export debug pick รายสัปดาห์ |
+
+Debug export จะถูกแยกเป็น:
+
+```
+arrival
+departure
+```
+
+---
+
+### 🧪 Recommended Modes
+
+**Fast test mode**
+
+```python
+"recovery_enabled": False
+"debug_export_enabled": False
+```
+
+**Long run (stable mode)**
+
+```python
+"recovery_enabled": True
+"auto_restore_tab": True
+```
+
+---
+
 ## 📤 Export (วิธีใช้งาน)
 
 ระบบจะ export อัตโนมัติระหว่าง scrape โดยใช้ `exporter.py`
@@ -214,7 +329,7 @@ pbar.close()
 ลองลด:
 
 ```python
-ncols=120
+ncols=40
 ```
 
 หรือลองเอา `colour` ออก
@@ -226,10 +341,12 @@ ncols=120
 ## 🚀 Quick Start (สั้นสุด)
 
 ```bash
+
 python -m venv venv
 # activate venv
 pip install -r requirements.txt
 playwright install
 python getPort.py
 python main.py
+
 ```
