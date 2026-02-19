@@ -52,64 +52,66 @@ class LoaderService:
     # =========================
     # FIXED SHOW MORE CLICK
     # =========================
+
     def _click_show_more(self):
+
+        import time
 
         buttons = self.page.locator("#show-more-routes")
         count = buttons.count()
 
+        # print(f"      🔎 show-more buttons found = {count}")
+
         target = None
 
         for i in range(count):
-            b = buttons.nth(i)
+            btn = buttons.nth(i)
+            visible = btn.is_visible()
+            enabled = btn.is_enabled()
 
-            if b.is_visible() and b.is_enabled():
-                target = b
+            # print(f"      ▶ btn[{i}] visible={visible} enabled={enabled}")
+
+            if visible and enabled:
+                target = btn
                 break
 
         if not target:
             print("      ❌ No usable show more button")
             return False
 
-        before_rows = self._get_current_row_count()
-        xhr_detected = False
+        before = self._get_current_row_count()
+        # print(f"      📊 before_rows = {before}")
 
         try:
-            # ===== TRY XHR (OPTIONAL SIGNAL) =====
-            try:
-                with self.page.expect_response(
-                    lambda r: (
-                        "entityType=arrivals" in r.url and
-                        "take=" in r.url and
-                        r.status == 200
-                    ),
-                    timeout=5000
-                ):
-                    target.click(force=True)
+            start = time.time()
 
-                xhr_detected = True
+            target.click(force=True)
+            # print("      🖱 clicked")
 
-            except:
-                # ไม่มี XHR ก็ยังถือว่าอาจ success
-                target.click(force=True)
+            # =========================
+            # Reactive growth wait
+            # =========================
+            self.page.wait_for_function(
+                """
+                (prev) => {
+                    return document.querySelectorAll(
+                        "li.ff-li-list.deparr"
+                    ).length > prev;
+                }
+                """,
+                arg=before,
+                timeout=5000
+            )
 
-            # ===== REAL SUCCESS CHECK (ROW CHANGE) =====
-            for _ in range(20):   # ~2 sec
-                after_rows = self._get_current_row_count()
+            # after = self._get_current_row_count()
+            # delta = round(time.time() - start, 3)
 
-                if after_rows > before_rows:
-                    return True
+            # print(f"      ⏱ growth detected in {delta}s | rows={after}")
 
-                self.page.wait_for_timeout(100)
+            return True
 
-            # rows ไม่เพิ่ม แต่มี XHR → ยังถือว่าผ่าน
-            if xhr_detected:
-                return True
-
-            print("      ⚠️ click but no new rows")
-            return False
-
-        except:
-            print("      ❌ click failed")
+        except Exception as e:
+            print(f"      ⚠️ no growth within timeout | {e}")
             return False
 
     def _wait_dom_settle(self):
@@ -122,33 +124,22 @@ class LoaderService:
 
     def wait_overlay_clear(self):
 
-        # =========================
-        # STEP 1 — wait overlay disappear
-        # =========================
+        import time
+        t0 = time.perf_counter()
+
         try:
             self.page.wait_for_selector(
                 ".pageload-background",
                 state="detached",
-                timeout=15000
+                timeout=5000
             )
         except:
-            # overlay บางเคสหายเองแบบไม่ trigger
             pass
 
-        # =========================
-        # STEP 2 — PHASE LOCK
-        # wait rows appear after overlay
-        # =========================
-        for _ in range(50):   # ~5s max
-            rows = self._get_current_row_count()
+        dt = time.perf_counter() - t0
+        print(f"      ⏱ overlay wait: {dt:.2f}s")
 
-            if rows > 0:
-                return True
-
-            self.page.wait_for_timeout(100)
-
-        print("⚠️ overlay gone but rows still empty")
-        return False
+        return True
 
     def get_expected_rows(self):
         text = self.page.locator("#foundText").inner_text()
@@ -156,6 +147,11 @@ class LoaderService:
         return int(match.group(1)) if match else 0
 
     def wait_list_stable(self):
+
+        # ⭐ ถ้า empty result → ไม่ต้องรอ row
+        if self._is_empty_result():
+            print("      🟢 wait_list_stable skipped (empty)")
+            return True        
 
         self.page.wait_for_selector(
             "li.ff-li-list.deparr"
@@ -186,12 +182,22 @@ class LoaderService:
             }"""
         )
 
-    def ensure_all_rows_loaded(self, guard=None , silent=False):
+    def ensure_all_rows_loaded(self, guard=None):
 
         expected = self.get_expected_rows()
-        print("Expected rows : ", expected)
+
+        if self._is_empty_result() or expected == 0:
+            return
+
+        try:
+            self.wait_overlay_clear()
+        except:
+            pass
 
         click_count = 0
+        max_click = 50          # safety hard limit
+        stagnant_round = 0
+        last_count = -1
 
         with tqdm(
             total=expected,
@@ -210,18 +216,35 @@ class LoaderService:
                 current = self._get_current_row_count()
 
                 pbar.n = current
-                pbar.set_postfix({"showmore click": click_count})
+                pbar.set_postfix({"click": click_count})
                 pbar.refresh()
 
+                # ✅ fully loaded
                 if self._is_fully_loaded(current, expected):
                     break
 
+                # ✅ no more button
                 if not self._has_show_more_button():
-                    print("      ❌ No more show more button")
+                    break
+
+                # ✅ stagnant detection
+                if current == last_count:
+                    stagnant_round += 1
+                else:
+                    stagnant_round = 0
+
+                if stagnant_round >= 9:
+                    print("      ⚠️ row count stagnant — break")
+                    break
+
+                last_count = current
+
+                # ✅ max click guard
+                if click_count >= max_click:
+                    print("      ⚠️ max click reached — break")
                     break
 
                 if not self._wait_button_enabled():
-                    print("      ⚠️ Button not ready")
                     break
 
                 if not self._click_show_more():
@@ -236,17 +259,71 @@ class LoaderService:
 
     def wait_overlay_then_rows(self):
 
-        # STEP 1 — รอ overlay หาย
+        # STEP 1 — wait overlay disappear
         self.wait_overlay_clear()
 
-        # STEP 2 — lock รอ rows มาอย่างน้อย 1 ตัว
-        for _ in range(50):   # ~5s
-            rows = self._get_current_row_count()
+        # STEP 2 — check EMPTY SIGNAL ก่อน
+        empty_msg = self.page.locator(
+            "div:has-text('Your search did not find any')"
+        )
 
-            if rows > 0:
-                return True
+        if empty_msg.count() > 0:
+            print("      🟢 empty result detected (no flights)")
+            return True
 
-            self.page.wait_for_timeout(100)
+        # STEP 3 — รอ rows แบบ reactive
+        try:
+            self.page.wait_for_function(
+                """
+                () => {
+                    return document.querySelectorAll(
+                        "li.ff-li-list.deparr"
+                    ).length > 0;
+                }
+                """,
+                timeout=5000
+            )
+            return True
 
-        print("      ⚠️ overlay gone but rows still empty")
-        return False
+        except:
+            print("      ⚠️ overlay gone but no rows and no empty message")
+            return False
+
+    def _is_empty_result(self):
+
+        try:
+            return self.page.evaluate("""
+            () => {
+                const text = document.body.innerText || "";
+                const emptyDeparture =
+                    text.includes("did not find any departures");
+                const emptyArrival =
+                    text.includes("did not find any arrivals");
+
+                const rows =
+                    document.querySelectorAll(
+                        "li.ff-li-list.deparr"
+                    ).length;
+
+                return (emptyDeparture || emptyArrival) && rows === 0;
+            }
+            """)
+        except:
+            return False
+
+    def _debug_empty_result(self):
+        locator = self.page.locator("text=Your search did not find")
+
+        count = locator.count()
+        visible = False
+
+        if count > 0:
+            try:
+                visible = locator.first.is_visible()
+            except:
+                pass
+
+        print(f"      🔎 EMPTY DEBUG → count={count} | visible={visible}")
+        html = self.page.content()
+        print("EMPTY TEXT FOUND?" , "Your search did not find" in html)
+        

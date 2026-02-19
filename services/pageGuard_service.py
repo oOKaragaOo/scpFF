@@ -117,13 +117,41 @@ class PageGuardService:
         """)
 
     def wait_vue_stable(self, timeout=5000):
-        self.page.wait_for_function(
-            """() => {
-                const rows = document.querySelectorAll('li.ff-li-list.deparr');
-                return rows && rows.length > 0;
-            }""",
-            timeout=timeout
-        )
+
+        print("      🧩 wait_vue_stable: waiting rows OR empty")
+
+        try:
+            self.page.wait_for_function(
+                """
+                () => {
+                    const rows = document.querySelectorAll(
+                        'li.ff-li-list.deparr'
+                    ).length;
+
+                    const empty = document.body.innerText.includes(
+                        "did not find any"
+                    );
+
+                    return rows > 0 || empty;
+                }
+                """,
+                timeout=timeout
+            )
+
+            # debug state หลัง wait ผ่าน
+            row_count = self.page.evaluate(
+                "document.querySelectorAll('li.ff-li-list.deparr').length"
+            )
+
+            empty_flag = self.page.evaluate(
+                "document.body.innerText.includes('did not find any')"
+            )
+
+            print(f"      ✅ vue stable | rows={row_count} | empty={empty_flag}")
+
+        except Exception as e:
+            print("      ❌ wait_vue_stable timeout")
+            raise e
 
     def ensure_vue_ready(self, loader):
         self.page.keyboard.press("Escape")
@@ -132,7 +160,6 @@ class PageGuardService:
             self.wait_vue_stable()
 
         loader.wait_list_stable()
-
 
     # =========================
     # PUBLIC

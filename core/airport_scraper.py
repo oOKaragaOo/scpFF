@@ -1,5 +1,6 @@
 from datetime import timedelta , datetime , date
 import pandas as pd
+import time
 from services.calendar_service import DeterministicCalendarService
 from services.loader_service import LoaderService
 from services.parser_service import ParserService
@@ -248,7 +249,7 @@ class AirportScraper:
             }
 
     def _switch_direction_tab(self, target):
-
+        print("   👉 before switch")
         print(f"\n🔄 SWITCH TAB -> {target}")
 
         current_sort = self._get_sorting_value()
@@ -262,6 +263,7 @@ class AirportScraper:
             return
 
         before_sort = current_sort
+        
 
         # --- logic switch เดิม ---
         self.parser._close_popup()
@@ -272,7 +274,7 @@ class AirportScraper:
             f"div.shortcut-button:has(a:has-text('{ 'Arrivals' if target=='arrival' else 'Departures'}'))"
         )
         tab.first.click()
-
+        
         self.page.wait_for_function(
             """
             (oldSorting) => {
@@ -286,16 +288,18 @@ class AirportScraper:
 
         after_sort = self._get_sorting_value()
 
-        # print(f"   🔁 tab switched: {before_sort} → {after_sort}")
+        print(f"   🔁 tab switched: {before_sort} → {after_sort}")
 
         self.loader.wait_list_stable()
-
+        print("   👉 after switch")
         # =========================
         # NEW: calendar state changed
         # =========================
         self.calendar._resolve_used = False
 
         # print("   🏁 TAB SWITCH DONE")
+
+# 
 
     def _run_day_pass(
         self,
@@ -304,18 +308,31 @@ class AirportScraper:
         direction="arrival"
     ):
 
+        # t0 = time.perf_counter()
+
         self.loader._reset_row_tracker()
 
         if not self.calendar.resolve_target_date(page_date):
             print("   ⏭️ skip date (cannot select)")
             return []
 
+        t0 = time.perf_counter()
+
+        self.loader.wait_overlay_clear()
+        t_overlay = time.perf_counter()
+
+        if self.loader._is_empty_result():
+            dt = time.perf_counter() - t0
+            print(f"      🟢 empty day done | {dt:.2f}s")
+            return []
+
         self.loader.wait_overlay_then_rows()
+        t_rows = time.perf_counter()
+
 
         page_date_label = self._get_page_date_label()
 
         mode = SCRAPER_SETTINGS.get("export_mode", "month")
-
         print(f"   ▶ : {direction.upper()}  : Tab  |  🏍️_. EXPORT MODE : {mode.upper()}")
 
         rows = self._run_direction_pass(
@@ -323,6 +340,11 @@ class AirportScraper:
             page_date_label,
             direction=direction
         )
+
+        dt = time.perf_counter() - t0
+        print(f"      ⏱ overlay: {t_overlay - t0:.2f}s")
+        print(f"      ⏱ rows: {t_rows - t_overlay:.2f}s")
+
 
         return rows
 
@@ -333,14 +355,21 @@ class AirportScraper:
         direction
     ):
 
+        # ✅ รอ overlay อย่างเดียว
+        self.loader.wait_overlay_clear()
+
+        # ✅ ถ้า tab นี้ empty → จบเลย
+        if self.loader._is_empty_result():
+            print(f"      ⏭️ skip parse ({direction} empty)")
+            return []
+
+        # ✅ ค่อยโหลด rows
         self.loader.ensure_all_rows_loaded()
-        # print("   🏁 Exit ensure_all_rows_loaded")
 
         self.loader.wait_list_stable()
 
         snapshot = self.snapshot_flights()
 
-        # ⭐ เปลี่ยน log เท่านั้น
         print(f"   🔍 Start parse ({direction})")
 
         rows = self.parser.parse_list(
@@ -349,7 +378,6 @@ class AirportScraper:
             snapshot,
             direction=direction
         )
-
 
         return rows
 
