@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from datetime import timedelta
+from datetime import timedelta , datetime
 
 # ==================================================
 # CONFIG
@@ -36,7 +36,6 @@ COLUMN_ORDER = [
     "scraped_at"
 ]
 
-
 # ==================================================
 # INTERNAL HELPERS
 # ==================================================
@@ -45,17 +44,14 @@ def set_daily_debug(enabled: bool):
     global ENABLE_DAILY_DEBUG
     ENABLE_DAILY_DEBUG = enabled
 
-
 def _ensure_folder(path):
     os.makedirs(path, exist_ok=True)
-
 
 def _build_dataframe(rows):
     df = pd.DataFrame(rows)
 
     existing = [c for c in COLUMN_ORDER if c in df.columns]
     return df.reindex(columns=existing)
-
 
 def _append_csv(rows, full_path):
     """
@@ -78,72 +74,65 @@ def _append_csv(rows, full_path):
 
     print(f"📦 Appended {len(df)} rows -> {full_path}")
 
-
 # ==================================================
 # MAIN EXPORT
 # ==================================================
 
-def append_day_rows(rows, code, date_key):
-    """
-    path: export/<CODE>/daily/YYYY-MM-DD.csv
-    """
+def append_day_rows(rows, country, code, date_key):
 
     if not rows:
         return
 
-    folder = os.path.join(EXPORT_ROOT, code, "daily")
+    # 🔥 sanitize date
+    safe_date = datetime.strptime(date_key, "%Y-%m-%d").strftime("%Y-%m-%d")
+
+    # base path เดิม
+    base_folder = _build_base_path("day", country, code)
+
+    # 🔥 เพิ่ม subfolder
+    folder = os.path.join(base_folder, "flightsfrom_output")
     _ensure_folder(folder)
 
-    full_path = os.path.join(folder, f"{date_key}.csv")
+    # 🔥 เปลี่ยนชื่อไฟล์
+    file_name = f"flightsfrom_{code}_{safe_date}.csv"
+
+    full_path = os.path.join(folder, file_name)
 
     _append_csv(rows, full_path)
 
-
-def append_week_rows(rows, code, week_key):
-    """
-    path: export/<CODE>/weekly/YYYY-Wxx.csv
-    """
+def append_week_rows(rows, country, code, week_key):
 
     if not rows:
         return
 
-    folder = os.path.join(EXPORT_ROOT, code, "weekly")
-    _ensure_folder(folder)
+    folder = _build_base_path("week", country, code)
 
-    full_path = os.path.join(folder, f"{week_key}.csv")
+    file_name = f"flightsfrom_output_{week_key}.csv"
+    full_path = os.path.join(folder, file_name)
 
     _append_csv(rows, full_path)
 
-
-def append_month_rows(rows, code, month_key):
-    """
-    path: export/<CODE>/YYYY-MM.csv
-    (ของเดิม — ยังใช้งานได้เหมือนเดิม)
-    """
+def append_month_rows(rows, country, code, month_key):
 
     if not rows:
         return
 
-    folder = os.path.join(EXPORT_ROOT, code)
-    _ensure_folder(folder)
+    folder = _build_base_path("month", country, code)
 
-    full_path = os.path.join(folder, f"{month_key}.csv")
+    file_name = f"flightsfrom_output_{month_key}.csv"
+    full_path = os.path.join(folder, file_name)
 
     _append_csv(rows, full_path)
 
-
-def append_year_rows(rows, code, year_key):
-    """
-    path: export/<CODE>/yearly/YYYY.csv
-    """
+def append_year_rows(rows, country, code, year_key):
 
     if not rows:
         return
 
-    folder = os.path.join(EXPORT_ROOT, code, "yearly")
-    _ensure_folder(folder)
+    folder = _build_base_path("year", country, code)
 
-    full_path = os.path.join(folder, f"{year_key}.csv")
+    file_name = f"flightsfrom_output_{year_key}.csv"
+    full_path = os.path.join(folder, file_name)
 
     _append_csv(rows, full_path)
 
@@ -174,7 +163,6 @@ def export_day_debug(day_rows, code, date_str, mode="arrivals"):
     df.to_csv(full_path, index=False)
 
     print(f"🐞 Debug export -> {full_path}")
-
 
 # ==================================================
 # WEEK DEBUG PICK
@@ -211,3 +199,14 @@ def export_week_debug_pick(debug_pick, code):
 
 
     print(f"🏆 WEEK DEBUG PICK: {day} (kill={kill})")
+
+def _build_base_path(mode, country, code):
+    """
+    Build path:
+    export/{mode}/{country}/{code}
+    """
+
+    folder = os.path.join(EXPORT_ROOT, mode, country, code)
+    _ensure_folder(folder)
+
+    return folder

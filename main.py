@@ -9,7 +9,7 @@ import time
 program_start = time.time()
 
 START_DATE = date(2026, 2, 20)
-END_DATE   = date(2026, 2, 27)
+END_DATE   = date(2026, 2, 20)
 
 airports_df = pd.read_csv("data/reference/world_airports_city.csv")
 codes = airports_df["airport_code"].dropna().unique().tolist()

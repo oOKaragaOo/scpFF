@@ -1,5 +1,5 @@
 from datetime import timedelta , datetime , date
-# from services.calendar_service import CalendarService
+import pandas as pd
 from services.calendar_service import DeterministicCalendarService
 from services.loader_service import LoaderService
 from services.parser_service import ParserService
@@ -32,6 +32,11 @@ class AirportScraper:
             self.guard,
             settings=SCRAPER_SETTINGS
         )
+        df = pd.read_csv("data/reference/world_airports_city.csv")
+        self.airport_map = {
+            row["airport_code"]: row["country"]
+            for _, row in df.iterrows()
+        }        
 
 
 # =========================
@@ -512,39 +517,80 @@ class AirportScraper:
         return week_rows
 
     def _export_by_mode(self, code, rows, current_month):
-        """
-        Route export based on SCRAPER_SETTINGS["export_mode"]
-        """
 
         if not rows:
             return
 
         mode = SCRAPER_SETTINGS.get("export_mode", "month")
+        country = self._get_country_from_code(code)
 
+        # =========================
+        # DAY MODE
+        # =========================
         if mode == "day":
 
             by_day = {}
+
             for r in rows:
                 d = r.get("date")
+                if not d:
+                    continue
+
                 by_day.setdefault(d, []).append(r)
 
             for d, day_rows in by_day.items():
-                append_day_rows(day_rows, code, d)
 
+                # 🔥 format ป้องกัน /
+                safe_date = datetime.strptime(d, "%d/%m/%Y").strftime("%Y-%m-%d")
+
+                append_day_rows(
+                    day_rows,
+                    country,
+                    code,
+                    safe_date
+                )
+
+        # =========================
+        # WEEK MODE
+        # =========================
         elif mode == "week":
 
             week_key = current_month.strftime("%Y-W%U")
-            append_week_rows(rows, code, week_key)
 
+            append_week_rows(
+                rows,
+                country,
+                code,
+                week_key
+            )
+
+        # =========================
+        # YEAR MODE
+        # =========================
         elif mode == "year":
 
             year_key = str(current_month.year)
-            append_year_rows(rows, code, year_key)
 
-        else:  # month default
+            append_year_rows(
+                rows,
+                country,
+                code,
+                year_key
+            )
+
+        # =========================
+        # MONTH MODE
+        # =========================
+        else:
 
             month_key = current_month.strftime("%Y-%m")
-            append_month_rows(rows, code, month_key)
+
+            append_month_rows(
+                rows,
+                country,
+                code,
+                month_key
+            )
 
 # =========================
 # SCRAPE
@@ -590,3 +636,5 @@ class AirportScraper:
         print("   🧪 DRY RUN: click success (no scraping)")
         return []
 
+    def _get_country_from_code(self, code):
+        return self.airport_map.get(code, "Unknown")
