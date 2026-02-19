@@ -124,8 +124,8 @@ class LoaderService:
 
     def wait_overlay_clear(self):
 
-        import time
-        t0 = time.perf_counter()
+        # import time
+        # t0 = time.perf_counter()
 
         try:
             self.page.wait_for_selector(
@@ -136,8 +136,8 @@ class LoaderService:
         except:
             pass
 
-        dt = time.perf_counter() - t0
-        print(f"      ⏱ overlay wait: {dt:.2f}s")
+        # dt = time.perf_counter() - t0
+        # print(f"      ⏱ overlay wait: {dt:.2f}s")
 
         return True
 

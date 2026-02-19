@@ -20,8 +20,7 @@ class AirportScraper:
 
         self.loader = LoaderService(page)
         self.guard = PageGuardService(page)
-
-        # ⭐ ต้องส่ง guard เข้าไป
+        self.export_mode = SCRAPER_SETTINGS.get("export_mode", "day")
         self.calendar = DeterministicCalendarService(
             page,
             self.guard
@@ -33,6 +32,7 @@ class AirportScraper:
             self.guard,
             settings=SCRAPER_SETTINGS
         )
+
         df = pd.read_csv("data/reference/world_airports_city.csv")
         self.airport_map = {
             row["airport_code"]: row["country"]
@@ -299,15 +299,12 @@ class AirportScraper:
 
         # print("   🏁 TAB SWITCH DONE")
 
-# 
-
     def _run_day_pass(
         self,
         code,
         page_date,
         direction="arrival"
     ):
-
         # t0 = time.perf_counter()
 
         self.loader._reset_row_tracker()
@@ -341,6 +338,19 @@ class AirportScraper:
             direction=direction
         )
 
+        if self.export_mode == "day" and rows:
+            # from exporter import append_day_rows
+
+            date_key = self._format_date(page_date_label)
+
+            country = self.airport_map.get(code, "UNKNOWN")
+
+            append_day_rows(
+                rows,
+                country,
+                code,
+                date_key
+            )
         # dt = time.perf_counter() - t0
         # print(f"      ⏱ overlay: {t_overlay - t0:.2f}s")
         # print(f"      ⏱ rows: {t_rows - t_overlay:.2f}s")
