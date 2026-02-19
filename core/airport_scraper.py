@@ -322,8 +322,8 @@ class AirportScraper:
         # t_overlay = time.perf_counter()
 
         if self.loader._is_empty_result():
-            dt = time.perf_counter() - t0
-            print(f"      🟢 empty day done | {dt:.2f}s")
+            # dt = time.perf_counter() - t0
+            print(f"      🟢 empty day done ")
             return []
 
         self.loader.wait_overlay_then_rows()

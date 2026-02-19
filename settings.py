@@ -14,7 +14,7 @@ SCRAPER_SETTINGS = {
     # RECOVERY
     # =========================
     # missing-flight recovery (post-parse)
-    "recovery_enabled": True,
+    "recovery_enabled": False,
 
     # =========================
     # TAB CONTROL
