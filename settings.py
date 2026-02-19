@@ -34,6 +34,6 @@ SCRAPER_SETTINGS = {
 
     # export mode:
     # "day" | "week" | "month" | "year"
-    "export_mode": "year",
+    "export_mode": "day",
 
 }
