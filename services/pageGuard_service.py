@@ -118,7 +118,7 @@ class PageGuardService:
 
     def wait_vue_stable(self, timeout=5000):
 
-        print("      🧩 wait_vue_stable: waiting rows OR empty")
+        # print("      🧩 wait_vue_stable: waiting rows OR empty")
 
         try:
             self.page.wait_for_function(
@@ -139,15 +139,15 @@ class PageGuardService:
             )
 
             # debug state หลัง wait ผ่าน
-            row_count = self.page.evaluate(
-                "document.querySelectorAll('li.ff-li-list.deparr').length"
-            )
+            # row_count = self.page.evaluate(
+            #     "document.querySelectorAll('li.ff-li-list.deparr').length"
+            # )
 
-            empty_flag = self.page.evaluate(
-                "document.body.innerText.includes('did not find any')"
-            )
+            # empty_flag = self.page.evaluate(
+            #     "document.body.innerText.includes('did not find any')"
+            # )
 
-            print(f"      ✅ vue stable | rows={row_count} | empty={empty_flag}")
+            # print(f"      ✅ vue stable | rows={row_count} | empty={empty_flag}")
 
         except Exception as e:
             print("      ❌ wait_vue_stable timeout")

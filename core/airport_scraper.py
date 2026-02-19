@@ -249,7 +249,7 @@ class AirportScraper:
             }
 
     def _switch_direction_tab(self, target):
-        print("   👉 before switch")
+        # print("   👉 before switch")
         print(f"\n🔄 SWITCH TAB -> {target}")
 
         current_sort = self._get_sorting_value()
@@ -288,10 +288,10 @@ class AirportScraper:
 
         after_sort = self._get_sorting_value()
 
-        print(f"   🔁 tab switched: {before_sort} → {after_sort}")
+        # print(f"   🔁 tab switched: {before_sort} → {after_sort}")
 
         self.loader.wait_list_stable()
-        print("   👉 after switch")
+        # print("   👉 after switch")
         # =========================
         # NEW: calendar state changed
         # =========================
@@ -316,10 +316,10 @@ class AirportScraper:
             print("   ⏭️ skip date (cannot select)")
             return []
 
-        t0 = time.perf_counter()
+        # t0 = time.perf_counter()
 
         self.loader.wait_overlay_clear()
-        t_overlay = time.perf_counter()
+        # t_overlay = time.perf_counter()
 
         if self.loader._is_empty_result():
             dt = time.perf_counter() - t0
@@ -327,7 +327,7 @@ class AirportScraper:
             return []
 
         self.loader.wait_overlay_then_rows()
-        t_rows = time.perf_counter()
+        # t_rows = time.perf_counter()
 
 
         page_date_label = self._get_page_date_label()
@@ -341,9 +341,9 @@ class AirportScraper:
             direction=direction
         )
 
-        dt = time.perf_counter() - t0
-        print(f"      ⏱ overlay: {t_overlay - t0:.2f}s")
-        print(f"      ⏱ rows: {t_rows - t_overlay:.2f}s")
+        # dt = time.perf_counter() - t0
+        # print(f"      ⏱ overlay: {t_overlay - t0:.2f}s")
+        # print(f"      ⏱ rows: {t_rows - t_overlay:.2f}s")
 
 
         return rows

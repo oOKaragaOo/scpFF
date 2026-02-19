@@ -118,34 +118,63 @@ class ParserService:
         return elements
 
     def _parse_single_element(
-    self,
-    el,
-    arrival_airport,
-    current_date,
-    direction="arrival"
-):
+        self,
+        el,
+        arrival_airport,
+        current_date,
+        direction="arrival"
+    ):
 
         self.guard.ensure_page_clean()
 
         btn = el.query_selector(".flightsfrom-list-money")
         self.page.evaluate("(e) => e.click()", btn)
 
-        # self.page.wait_for_timeout(100)
         if self.page.locator(".uk-grid").count() <= 2:
             raise Exception("footer_only_detected")
+
         popup = self._open_popup()
+
         if self.safe_handle is None:
             self.safe_handle = el
+
+        # =========================
+        # DESTINATION EXTRACTION
+        # =========================
+        dest_code = ""
+        dest_city = ""
+
+        try:
+            span = el.query_selector(".deparr_country a span")
+            if span:
+                full_text = span.inner_text().strip()
+                parts = full_text.split()
+                if parts:
+                    dest_code = parts[0]
+
+            strong = el.query_selector(".deparr_country strong")
+            if strong:
+                dest_city = strong.inner_text().strip()
+
+        except:
+            pass
+
+        destination = f"{dest_code} - {dest_city}".strip(" -")
+
+        # =========================
+        # BUILD ROW
+        # =========================
         row = {
             "airport": arrival_airport,
             "direction": direction,
             "date": self._format_date(current_date),
             "day_name": current_date.split(",")[0],
             "time": el.query_selector(".deparr_time div").inner_text(),
+            "destination": destination,  # 👈 เพิ่มตรงนี้
             "flight": el.query_selector(".deparr_flight").inner_text(),
             "airline": el.query_selector(".deparr_airline_name").inner_text(),
             "duration": el.query_selector(".deparr_duration").inner_text(),
-            
+
             # meta
             "airline_source": "text",
             "page_date_verified": True,
@@ -162,10 +191,7 @@ class ParserService:
 
         row["uid"] = uid
 
-        # self._close_popup()
-
         return row
-
     # =========================
     # Popup Control
     # =========================
