@@ -32,7 +32,7 @@ class AirportScraper:
             self.guard,
             settings=SCRAPER_SETTINGS
         )
-
+        self.processed_days = 0
         df = pd.read_csv("data/reference/world_airports_city.csv")
         self.airport_map = {
             row["airport_code"]: row["country"]
@@ -163,7 +163,7 @@ class AirportScraper:
         # =========================
         # EXPORT MONTH (FINAL)
         # =========================
-        if month_rows:
+        if month_rows and self.export_mode != "day":
             self._export_by_mode(code, month_rows, current_month)
 
 

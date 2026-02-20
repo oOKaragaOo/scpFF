@@ -112,6 +112,7 @@ class LoaderService:
 
         except Exception as e:
             print(f"      ⚠️ no growth within timeout | {e}")
+            self.ensure_all_rows_loaded()
             return False
 
     def _wait_dom_settle(self):

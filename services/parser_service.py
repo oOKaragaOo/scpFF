@@ -71,14 +71,47 @@ class ParserService:
             except Exception:
 
                 revived = self.recover_from_footer_only()
-                if revived:
-                    footer_kill_count += 1
 
-                pbar.set_postfix_str(
-                    f"Footer Kill : {footer_kill_count}"
-                )
+                try:
+                    
+                    basic_row = {
+                        "airport": arrival_airport,
+                        "direction": direction,
+                        "date": self._format_date(current_date),
+                        "day_name": current_date.split(",")[0],
+                        "time": el.query_selector(".deparr_time div").inner_text(),
+                        "flight": el.query_selector(".deparr_flight").inner_text(),
+                        "airline": el.query_selector(".deparr_airline_name").inner_text(),
+                        "duration": el.query_selector(".deparr_duration").inner_text(),
+                        "airline_source": "no detail",
+                        "page_date_verified": True,
+                        "scraped_at": datetime.utcnow().isoformat(),
+                        "time_range": "",
+                        "distance": "",
+                        "aircraft": "",
+                        "seats": "",
+                        "codeshare": "",
+                        "meals": ""
+                    }
+
+                    rows.append(basic_row)
+                    if revived:
+                        footer_kill_count += 1
+
+                    pbar.set_postfix_str(
+                        f"Footer Kill : {footer_kill_count}"
+                    )                    
+
+                except:
+                    pass
 
                 continue
+
+
+
+
+
+                
 
         # =========================
         # POST-PARSE RECOVERY
@@ -93,7 +126,7 @@ class ParserService:
             )
         else:
             # keep state stabilize
-            self.loader.ensure_all_rows_loaded()
+            # self.loader.ensure_all_rows_loaded()
             self.loader.wait_list_stable()
 
         # =========================

@@ -33,7 +33,11 @@ SCRAPER_SETTINGS = {
     "debug_export_enabled": True,
 
     # export mode:
-    # "day" | "week" | "month" | "year"
+    # "day" 
+    # >> Unstable ----> | "week" | "month" | "year" ----< Unstable <<
     "export_mode": "day",
+
+    "restart_enabled": True,
+    "restart_every_days": 1,
 
 }
