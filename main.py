@@ -11,8 +11,8 @@ from settings import SCRAPER_SETTINGS
 
 program_start = time.time()
 
-START_DATE = date(2026, 2, 24)
-END_DATE   = date(2026, 2, 26)
+START_DATE = date(2026, 3, 24)
+END_DATE   = date(2026, 3, 25)
 
 airports_df = pd.read_csv("data/reference/world_airports_city.csv")
 codes = airports_df["airport_code"].dropna().unique().tolist()

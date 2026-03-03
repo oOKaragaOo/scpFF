@@ -9,6 +9,9 @@ SCRAPER_SETTINGS = {
     # =========================
     "arrival_parser_enabled": True,
     "departure_parser_enabled": True,
+    # when False the popup click/details extraction will be skipped
+    # leaving related fields blank. other row data remains unchanged.
+    "popup_scrape_enabled": True,
 
     # =========================
     # RECOVERY

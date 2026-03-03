@@ -35,6 +35,22 @@ TEST_CASES = [
             }
         ],
     },
+    # example case where popup scraping is disabled
+    {
+        "name": "disable popup scrape (JHB)",
+        "start": date(2026, 3, 1),
+        "end": date(2026, 3, 3),
+        "export_mode": "day",
+        "popup_scrape_enabled": False,
+        "rows": [
+            {
+                "country": "malaysia",
+                "city": "Johor Bahru",
+                "airport_name": "Sultan Ismail Intl",
+                "airport_code": "JHB",
+            }
+        ],
+    },
 
     {
         "name": "export month mode (JHB)",
@@ -128,6 +144,11 @@ def run_case(case):
     SCRAPER_SETTINGS["export_mode"] = case.get(
         "export_mode",
         "month"
+    )
+    # ⭐ popup scraping toggle (default True)
+    SCRAPER_SETTINGS["popup_scrape_enabled"] = case.get(
+        "popup_scrape_enabled",
+        True
     )
 
     print(f"📦 EXPORT MODE: {SCRAPER_SETTINGS['export_mode']}")

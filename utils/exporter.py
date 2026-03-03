@@ -11,6 +11,10 @@ ENABLE_DAILY_DEBUG = True
 EXPORT_ROOT = "export"
 DEBUG_ROOT = "Debug"
 
+# Track which day files have been first-exported in this session
+# Format: (country, code, date_key) → marks the first export for that day
+_DAILY_EXPORTS_SEEN = set()
+
 COLUMN_ORDER = [
     "date",
     "day_name",
@@ -44,6 +48,27 @@ def set_daily_debug(enabled: bool):
     global ENABLE_DAILY_DEBUG
     ENABLE_DAILY_DEBUG = enabled
 
+def reset_daily_export_tracker():
+    """
+    Clear the tracking set for a new scraping session.
+    Call this at the start of each airport scrape.
+    """
+    global _DAILY_EXPORTS_SEEN
+    _DAILY_EXPORTS_SEEN.clear()
+
+def _is_first_export_for_day(country, code, date_key):
+    """
+    Check if this is the first export for a specific day.
+    If yes, mark it as seen and return True (use write mode).
+    If no, return False (use append mode).
+    """
+    global _DAILY_EXPORTS_SEEN
+    key = (country, code, date_key)
+    if key not in _DAILY_EXPORTS_SEEN:
+        _DAILY_EXPORTS_SEEN.add(key)
+        return True  # first export → override file
+    return False  # subsequent export → append
+
 def _ensure_folder(path):
     os.makedirs(path, exist_ok=True)
 
@@ -53,9 +78,10 @@ def _build_dataframe(rows):
     existing = [c for c in COLUMN_ORDER if c in df.columns]
     return df.reindex(columns=existing)
 
-def _append_csv(rows, full_path):
+def _append_csv(rows, full_path, mode="a"):
     """
-    core append logic
+    core append/write logic
+    mode="a" for append, mode="w" for write (override)
     """
 
     if not rows:
@@ -64,15 +90,17 @@ def _append_csv(rows, full_path):
     df = _build_dataframe(rows)
 
     file_exists = os.path.exists(full_path)
+    header_needed = (mode == "w") or (not file_exists)
 
     df.to_csv(
         full_path,
-        mode="a",
-        header=not file_exists,
+        mode=mode,
+        header=header_needed,
         index=False
     )
 
-    print(f"📦 Appended {len(df)} rows -> {full_path}")
+    action = "Wrote" if mode == "w" else "Appended"
+    print(f"📦 {action} {len(df)} rows -> {full_path}")
 
 # ==================================================
 # MAIN EXPORT
@@ -98,7 +126,13 @@ def append_day_rows(rows, country, code, date_key):
 
     full_path = os.path.join(folder, file_name)
 
-    _append_csv(rows, full_path)
+    # ⭐ check if first export for this day
+    if _is_first_export_for_day(country, code, date_key):
+        # first export → override mode
+        _append_csv(rows, full_path, mode="w")
+    else:
+        # subsequent export → append mode
+        _append_csv(rows, full_path, mode="a")
 
 def append_week_rows(rows, country, code, week_key):
 

@@ -12,6 +12,7 @@ from utils.exporter import (
     append_month_rows,
     append_year_rows,
     export_week_debug_pick,
+    reset_daily_export_tracker,
 )
 class AirportScraper:
 
@@ -637,6 +638,7 @@ class AirportScraper:
     def scrape_airport(self, code, start_date, end_date):
 
         self._open_airport_page(code)
+        reset_daily_export_tracker()
         mode = SCRAPER_SETTINGS.get("export_mode", "month")
         print(f"\n🏍️_. EXPORT MODE : {mode.upper()}")
         self.calendar.warmup_calendar(start_date)

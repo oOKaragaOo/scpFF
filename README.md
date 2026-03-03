@@ -139,10 +139,11 @@ SCRAPER_SETTINGS = {
 
 ### 🔹 Parser Settings
 
-| Setting                    | ความหมาย                        |
-| -------------------------- | ------------------------------- |
-| `arrival_parser_enabled`   | เปิด/ปิด scrape ฝั่ง Arrivals   |
-| `departure_parser_enabled` | เปิด/ปิด scrape ฝั่ง Departures |
+| Setting                    | ความหมาย                                        |
+| -------------------------- | ----------------------------------------------- |
+| `arrival_parser_enabled`   | เปิด/ปิด scrape ฝั่ง Arrivals                   |
+| `departure_parser_enabled` | เปิด/ปิด scrape ฝั่ง Departures                 |
+| `popup_scrape_enabled`     | เมื่อ False จะไม่กดดู popup และจะเว้นค่ารายละเอียด (time_range, distance, ฯลฯ) |
 
 ---
 

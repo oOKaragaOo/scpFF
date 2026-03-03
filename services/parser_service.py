@@ -14,6 +14,11 @@ class ParserService:
             "recovery_enabled",
             True
         )
+        # new flag controlling whether the popup is scraped
+        self.popup_scrape_enabled = self.settings.get(
+            "popup_scrape_enabled",
+            True
+        )
 
     # =========================
     # Main Parse
@@ -160,39 +165,49 @@ class ParserService:
 
         self.guard.ensure_page_clean()
 
-        btn = el.query_selector(".flightsfrom-list-money")
-        self.page.evaluate("(e) => e.click()", btn)
+        # =========================
+        # OPTIONAL POPUP CLICK (may be skipped by setting)
+        # =========================
+        popup = None
+        if self.popup_scrape_enabled:
+            btn = el.query_selector(".flightsfrom-list-money")
+            self.page.evaluate("(e) => e.click()", btn)
 
-        if self.page.locator(".uk-grid").count() <= 2:
-            raise Exception("footer_only_detected")
+            if self.page.locator(".uk-grid").count() <= 2:
+                raise Exception("footer_only_detected")
 
-        popup = self._open_popup()
+            popup = self._open_popup()
 
         if self.safe_handle is None:
             self.safe_handle = el
 
         # =========================
-        # DESTINATION EXTRACTION
+        # EXTRACT BASIC ROW DATA IN A SINGLE ROUND‑TRIP
         # =========================
-        dest_code = ""
-        dest_city = ""
+        info = el.evaluate(r"""
+        e => {                                    
+            const text = sel => {                  
+                const el = e.querySelector(sel);   
+                return el ? el.innerText.trim() : "";
+            };
+            const destSpan = e.querySelector('.deparr_country a span');
+            const destCode = destSpan ? destSpan.innerText.trim().split(' ')[0] : "";
+            const destCityEl = e.querySelector('.deparr_country strong');
+            const destCity = destCityEl ? destCityEl.innerText.trim() : "";
 
-        try:
-            span = el.query_selector(".deparr_country a span")
-            if span:
-                full_text = span.inner_text().strip()
-                parts = full_text.split()
-                if parts:
-                    dest_code = parts[0]
+            return {
+                time: text('.deparr_time div'),
+                flight: text('.deparr_flight'),
+                airline: text('.deparr_airline_name'),
+                duration: text('.deparr_duration'),
+                dest_code: destCode,
+                dest_city: destCity
+            };
+        }
+        """
+        )
 
-            strong = el.query_selector(".deparr_country strong")
-            if strong:
-                dest_city = strong.inner_text().strip()
-
-        except:
-            pass
-
-        destination = f"{dest_code} - {dest_city}".strip(" -")
+        destination = f"{info['dest_code']} - {info['dest_city']}".strip(" -")
 
         # =========================
         # BUILD ROW
@@ -202,11 +217,11 @@ class ParserService:
             "direction": direction,
             "date": self._format_date(current_date),
             "day_name": current_date.split(",")[0],
-            "time": el.query_selector(".deparr_time div").inner_text(),
-            "destination": destination,  # 👈 เพิ่มตรงนี้
-            "flight": el.query_selector(".deparr_flight").inner_text(),
-            "airline": el.query_selector(".deparr_airline_name").inner_text(),
-            "duration": el.query_selector(".deparr_duration").inner_text(),
+            "time": info["time"],
+            "destination": destination,
+            "flight": info["flight"],
+            "airline": info["airline"],
+            "duration": info["duration"],
 
             # meta
             "airline_source": "text",
@@ -214,7 +229,17 @@ class ParserService:
             "scraped_at": datetime.utcnow().isoformat()
         }
 
-        row.update(self._extract_popup_data(popup))
+        # merge popup details if scraping enabled
+        if self.popup_scrape_enabled and popup is not None:
+            row.update(self._extract_popup_data(popup))
+        else:
+            # ensure keys exist but are blank
+            row["time_range"] = ""
+            row["distance"] = ""
+            row["aircraft"] = ""
+            row["seats"] = ""
+            row["codeshare"] = ""
+            row["meals"] = ""
 
         uid = self._make_uid(
             current_date,
@@ -223,6 +248,10 @@ class ParserService:
         )
 
         row["uid"] = uid
+
+        # close popup if opened
+        if popup is not None:
+            self._close_popup()
 
         return row
     # =========================
@@ -237,24 +266,33 @@ class ParserService:
         return self.page.locator("#ff-day-infobox")
 
     def _extract_popup_data(self, popup):
-
-        def get_val(label):
-            el = popup.locator(
-                f"div.ff-font-s.uk-flex:has(div.ff-font-strong:text-is('{label}')) div.uk-text-right"
-            )
-            return el.inner_text() if el.count() else None
-
-        time_range_el = popup.locator("div.ff-font-m.ff-font-bold").first
-        time_range = time_range_el.inner_text() if time_range_el.count() else None
-
-        return {
-            "time_range": time_range,
-            "distance": get_val("Distance"),
-            "aircraft": get_val("Aircraft"),
-            "seats": get_val("Seats"),
-            "codeshare": get_val("Codeshare"),
-            "meals": get_val("Meals"),
+        # gather all desired values with a single evaluation call
+        data = popup.evaluate(r"""
+        p => {                              
+            const getVal = label => {        
+                const items = p.querySelectorAll('div.ff-font-s.uk-flex');
+                for (const it of items) {
+                    const lbl = it.querySelector('div.ff-font-strong');
+                    const val = it.querySelector('div.uk-text-right');
+                    if (lbl && lbl.innerText.trim() === label) {
+                        return val ? val.innerText : null;
+                    }
+                }
+                return null;
+            };
+            const trEl = p.querySelector('div.ff-font-m.ff-font-bold');
+            return {
+                time_range: trEl ? trEl.innerText : null,
+                distance: getVal('Distance'),
+                aircraft: getVal('Aircraft'),
+                seats: getVal('Seats'),
+                codeshare: getVal('Codeshare'),
+                meals: getVal('Meals')
+            };
         }
+        """
+        )
+        return data
 
     def _close_popup(self):
         try:
