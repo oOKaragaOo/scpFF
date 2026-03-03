@@ -14,6 +14,7 @@ from utils.exporter import (
     export_week_debug_pick,
     reset_daily_export_tracker,
 )
+from utils.validator import runcheck_and_report
 class AirportScraper:
 
     def __init__(self, page):
@@ -306,6 +307,11 @@ class AirportScraper:
         page_date,
         direction="arrival"
     ):
+        # start-of-day: clear accumulators when direction is arrival
+        if direction == "arrival":
+            self._day_expected_arrival = 0
+            self._day_expected_departure = 0
+
         # t0 = time.perf_counter()
 
         self.loader._reset_row_tracker()
@@ -333,25 +339,59 @@ class AirportScraper:
         mode = SCRAPER_SETTINGS.get("export_mode", "month")
         print(f"   ▶ : {direction.upper()}  : Tab  |  🏍️_. EXPORT MODE : {mode.upper()}")
 
-        rows = self._run_direction_pass(
+        rows, expected_info = self._run_direction_pass(
             code,
             page_date_label,
             direction=direction
         )
 
+        # normalize expected info (support int or dict)
+        if isinstance(expected_info, dict):
+            expected_count = int(expected_info.get("count", 0))
+            expected_scope = expected_info.get("scope", "unknown")
+        else:
+            expected_count = int(expected_info or 0)
+            expected_scope = "unknown"
+
+        # accumulate expected counts
+        if not hasattr(self, '_day_expected_arrival'):
+            self._day_expected_arrival = 0
+        if not hasattr(self, '_day_expected_departure'):
+            self._day_expected_departure = 0
+
+        if direction == "arrival":
+            # arrival page returns arrival count directly
+            self._day_expected_arrival = expected_count or 0
+        else:
+            # Use the page-provided departure value directly (do not derive by subtraction)
+            self._day_expected_departure = expected_count or 0
+
+        total_expected = self._day_expected_arrival + self._day_expected_departure
+
         if self.export_mode == "day" and rows:
-            # from exporter import append_day_rows
-
             date_key = self._format_date(page_date_label)
-
             country = self.airport_map.get(code, "UNKNOWN")
 
-            append_day_rows(
+            csv_path, first = append_day_rows(
                 rows,
                 country,
                 code,
-                date_key
+                date_key,
+                expected_count=total_expected,
+                expected_arrival=self._day_expected_arrival,
+                expected_departure=self._day_expected_departure
             )
+
+            # run post-export report only on append
+            if (
+                SCRAPER_SETTINGS.get("post_export_report_enabled")
+                and csv_path
+                and not first
+            ):
+                try:
+                    runcheck_and_report(csv_path, expected_count=total_expected)
+                except Exception:
+                    pass
         # dt = time.perf_counter() - t0
         # print(f"      ⏱ overlay: {t_overlay - t0:.2f}s")
         # print(f"      ⏱ rows: {t_rows - t_overlay:.2f}s")
@@ -372,12 +412,34 @@ class AirportScraper:
         # ✅ ถ้า tab นี้ empty → จบเลย
         if self.loader._is_empty_result():
             print(f"      ⏭️ skip parse ({direction} empty)")
-            return []
+            return [], {"count": 0, "scope": "unknown"}
 
         # ✅ ค่อยโหลด rows
         self.loader.ensure_all_rows_loaded()
 
         self.loader.wait_list_stable()
+
+        # grab expected count from page text (arrivals or departures)
+        try:
+            expected_info = self.loader.get_expected_rows()
+            if isinstance(expected_info, dict):
+                expected = int(expected_info.get("count", 0))
+                scope = expected_info.get("scope", "unknown")
+            else:
+                expected = int(expected_info or 0)
+                scope = "unknown"
+            expected = {"count": expected, "scope": scope}
+        except:
+            expected = {"count": 0, "scope": "unknown"}
+
+        # if the reported number disagrees with the number of elements we have
+        # actually loaded, prefer the actual count. log a warning for diagnostics.
+        actual = self.loader._get_current_row_count()
+        if actual != expected.get("count", 0):
+            print(
+                f"   ⚠ expected mismatch ({scope}): page {expected.get('count')} vs DOM {actual}, using DOM" \
+            )
+            expected = {"count": actual, "scope": scope}
 
         snapshot = self.snapshot_flights()
 
@@ -390,7 +452,7 @@ class AirportScraper:
             direction=direction
         )
 
-        return rows
+        return rows, expected
 
     def _process_week_block(
         self,

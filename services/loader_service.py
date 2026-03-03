@@ -145,7 +145,19 @@ class LoaderService:
     def get_expected_rows(self):
         text = self.page.locator("#foundText").inner_text()
         match = re.search(r"Found\s+(\d+)", text)
-        return int(match.group(1)) if match else 0
+        count = int(match.group(1)) if match else 0
+
+        lower = (text or "").lower()
+        if 'departure' in lower or 'departures' in lower:
+            scope = 'departures'
+        elif 'arrival' in lower or 'arrivals' in lower:
+            scope = 'arrivals'
+        elif 'flight' in lower or 'flights' in lower:
+            scope = 'flights'
+        else:
+            scope = 'unknown'
+
+        return {"count": count, "scope": scope, "raw": text}
 
     def wait_list_stable(self):
 
@@ -185,7 +197,13 @@ class LoaderService:
 
     def ensure_all_rows_loaded(self, guard=None):
 
-        expected = self.get_expected_rows()
+        expected_info = self.get_expected_rows()
+
+        # support older return (int) or new dict {count, scope}
+        if isinstance(expected_info, dict):
+            expected = int(expected_info.get("count", 0))
+        else:
+            expected = int(expected_info or 0)
 
         if self._is_empty_result() or expected == 0:
             return

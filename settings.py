@@ -10,7 +10,7 @@ SCRAPER_SETTINGS = {
     "arrival_parser_enabled": True,
     "departure_parser_enabled": True,
     # when False the popup click/details extraction will be skipped
-    # leaving related fields blank. other row data remains unchanged.
+    # leaving related fields blank, other row data remains unchanged.
     "popup_scrape_enabled": True,
 
     # =========================
@@ -42,5 +42,11 @@ SCRAPER_SETTINGS = {
 
     "restart_enabled": True,
     "restart_every_days": 1,
+
+    # =========================
+    # POST-EXPORT REPORT
+    # =========================
+    # when True run a read-only validator after each day export
+    "post_export_report_enabled": False,
 
 }
