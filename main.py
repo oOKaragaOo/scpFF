@@ -1,55 +1,121 @@
-from datetime import date
+import argparse
+import json
+import os
+import time
+import traceback
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from datetime import date, datetime
+
+import pandas as pd
 from playwright.sync_api import sync_playwright
+
 from core.airport_scraper import AirportScraper
 from core.SoundNotifier import SoundNotifier
-import pandas as pd
-import time
-
-# 🔥 IMPORT SETTINGS (ปรับ path ให้ตรงของคุณ)
-from settings import SCRAPER_SETTINGS
 
 
-program_start = time.time()
-
-START_DATE = date(2026, 3, 24)
-END_DATE   = date(2026, 3, 25)
-
-airports_df = pd.read_csv("data/reference/world_airports_city.csv")
-codes = airports_df["airport_code"].dropna().unique().tolist()
-
-all_rows = []
-
-# =========================
-# INIT NOTIFIER
-# =========================
-notifier = SoundNotifier()
-
-# =========================
-# RESTART SETTINGS
-# =========================
-RESTART_ENABLED = SCRAPER_SETTINGS.get("restart_enabled", False)
-RESTART_EVERY = SCRAPER_SETTINGS.get("restart_every_days", 180)
-
-global_day_counter = 0
+DEFAULT_START_DATE = date(2026, 3, 24)
+DEFAULT_END_DATE = date(2026, 3, 25)
+DEFAULT_WORKERS = 3
+DEFAULT_RETRIES = 2
+STATE_DIR = os.path.join("export", "_run_state")
 
 
-# =========================
-# MAIN PROCESS
-# =========================
-try:
+def _parse_date(value):
+    return datetime.strptime(value, "%Y-%m-%d").date()
 
-    with sync_playwright() as p:
 
-        for i, code in enumerate(codes, 1):
+def _utc_now_iso():
+    return datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
 
-            print(f"\n[{i}/{len(codes)}] {code}")
 
-            # =========================
-            # OPEN BROWSER PER AIRPORT
-            # =========================
+def _ensure_state_dir():
+    os.makedirs(STATE_DIR, exist_ok=True)
+
+
+def _state_file_path(run_id):
+    return os.path.join(STATE_DIR, f"{run_id}.json")
+
+
+def _save_state(path, state):
+    tmp_path = path + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2, ensure_ascii=False)
+    os.replace(tmp_path, path)
+
+
+def _load_state(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _find_latest_state_file():
+    if not os.path.isdir(STATE_DIR):
+        return None
+
+    files = [
+        os.path.join(STATE_DIR, name)
+        for name in os.listdir(STATE_DIR)
+        if name.endswith(".json")
+    ]
+    if not files:
+        return None
+    return max(files, key=os.path.getmtime)
+
+
+def _build_codes(codes_arg):
+    if codes_arg:
+        return [c.strip().upper() for c in codes_arg.split(",") if c.strip()]
+
+    airports_df = pd.read_csv("data/reference/world_airports_city.csv")
+    return airports_df["airport_code"].dropna().str.upper().unique().tolist()
+
+
+def _build_run_id():
+    return datetime.utcnow().strftime("run_%Y%m%dT%H%M%SZ")
+
+
+def _init_state(run_id, args, codes):
+    jobs = {}
+    for code in codes:
+        jobs[code] = {
+            "status": "pending",
+            "attempts": 0,
+            "rows": 0,
+            "last_error": None,
+            "updated_at": _utc_now_iso()
+        }
+    return {
+        "run_id": run_id,
+        "created_at": _utc_now_iso(),
+        "updated_at": _utc_now_iso(),
+        "args": {
+            "start": args.start.isoformat(),
+            "end": args.end.isoformat(),
+            "workers": args.workers,
+            "retries": args.retries,
+            "headless": args.headless
+        },
+        "jobs": jobs
+    }
+
+
+def _worker_scrape_job(run_id, code, start_iso, end_iso, headless, attempt):
+    start_d = _parse_date(start_iso)
+    end_d = _parse_date(end_iso)
+    pid = os.getpid()
+    worker_id = f"W{pid}"
+    prefix = f"[{run_id}][{worker_id}][{code}]"
+    profile_dir = os.path.join("profile_workers", f"{code}_{pid}_a{attempt}")
+    os.makedirs(profile_dir, exist_ok=True)
+
+    print(f"{prefix} start attempt={attempt} range={start_iso}->{end_iso}")
+    t0 = time.time()
+
+    try:
+        with sync_playwright() as p:
             ctx = p.chromium.launch_persistent_context(
-                "profile",
-                headless=False,
+                profile_dir,
+                headless=headless,
                 args=["--disable-blink-features=AutomationControlled"]
             )
 
@@ -57,41 +123,220 @@ try:
             scraper = AirportScraper(page)
 
             try:
-                rows = scraper.scrape_airport(
-                    code,
-                    START_DATE,
-                    END_DATE
-                )
-
-                all_rows.extend(rows)
-
-            except Exception as e:
-                print(" ERROR:", e)
-
+                rows = scraper.scrape_airport(code, start_d, end_d)
             finally:
-                print(f"🔄 Closing browser for airport: {code}")
                 ctx.close()
 
-            time.sleep(2)
+        elapsed = round(time.time() - t0, 2)
+        row_count = len(rows)
+        print(f"{prefix} success rows={row_count} elapsed={elapsed}s")
+        return {
+            "success": True,
+            "code": code,
+            "rows": row_count,
+            "attempt": attempt,
+            "elapsed_sec": elapsed,
+            "error": None,
+            "traceback": None
+        }
 
-    notifier.success()
+    except Exception as e:
+        elapsed = round(time.time() - t0, 2)
+        tb = traceback.format_exc(limit=20)
+        print(f"{prefix} failed attempt={attempt} elapsed={elapsed}s err={e}")
+        return {
+            "success": False,
+            "code": code,
+            "rows": 0,
+            "attempt": attempt,
+            "elapsed_sec": elapsed,
+            "error": str(e),
+            "traceback": tb
+        }
 
-except Exception as e:
-    print("❌ Fatal Crash:", e)
+
+def _submit_job(pool, future_map, run_id, args, code, attempt):
+    fut = pool.submit(
+        _worker_scrape_job,
+        run_id,
+        code,
+        args.start.isoformat(),
+        args.end.isoformat(),
+        args.headless,
+        attempt
+    )
+    future_map[fut] = {"code": code, "attempt": attempt}
+
+
+def _should_run_job(job_state):
+    return job_state.get("status") != "success"
+
+
+def _build_parser():
+    parser = argparse.ArgumentParser(
+        description="Parallel flightsfrom scraper (airport-level workers)"
+    )
+    parser.add_argument("--codes", type=str, default=None, help="CSV airport codes, ex: MYY,KUL,BKK")
+    parser.add_argument("--start", type=_parse_date, default=DEFAULT_START_DATE, help="YYYY-MM-DD")
+    parser.add_argument("--end", type=_parse_date, default=DEFAULT_END_DATE, help="YYYY-MM-DD")
+    parser.add_argument("--workers", type=int, default=DEFAULT_WORKERS)
+    parser.add_argument("--retries", type=int, default=DEFAULT_RETRIES)
+    parser.add_argument("--headless", action="store_true", help="Run Playwright in headless mode")
+    parser.add_argument("--resume", action="store_true", help="Resume from previous run state")
+    parser.add_argument("--run-id", type=str, default=None, help="Run id to resume")
+    return parser
+
+
+def main():
+    parser = _build_parser()
+    args = parser.parse_args()
+
+    if args.end < args.start:
+        raise ValueError("end date must be >= start date")
+    if args.workers < 1:
+        raise ValueError("workers must be >= 1")
+    if args.retries < 0:
+        raise ValueError("retries must be >= 0")
+
+    all_codes = _build_codes(args.codes)
+    if not all_codes:
+        raise ValueError("no airport codes found")
+
+    _ensure_state_dir()
+
+    if args.resume:
+        if args.run_id:
+            state_path = _state_file_path(args.run_id)
+            if not os.path.exists(state_path):
+                raise FileNotFoundError(f"state file not found for run-id: {args.run_id}")
+        else:
+            state_path = _find_latest_state_file()
+            if state_path is None:
+                raise FileNotFoundError("no state file found to resume")
+
+        state = _load_state(state_path)
+        run_id = state["run_id"]
+        print(f"[{run_id}] resume from state: {state_path}")
+
+        # keep only requested codes if --codes specified
+        selected_codes = all_codes
+        for code in selected_codes:
+            if code not in state["jobs"]:
+                state["jobs"][code] = {
+                    "status": "pending",
+                    "attempts": 0,
+                    "rows": 0,
+                    "last_error": None,
+                    "updated_at": _utc_now_iso()
+                }
+    else:
+        run_id = args.run_id or _build_run_id()
+        state_path = _state_file_path(run_id)
+        state = _init_state(run_id, args, all_codes)
+        _save_state(state_path, state)
+        print(f"[{run_id}] new run state: {state_path}")
+
+    codes_to_run = [code for code in all_codes if _should_run_job(state["jobs"].get(code, {}))]
+    if not codes_to_run:
+        print(f"[{run_id}] no pending jobs (all success)")
+        return 0
+
+    total_jobs = len(codes_to_run)
+    max_attempts = args.retries + 1
+    backoff = [5, 15]
+    start_ts = time.time()
+
+    print(
+        f"[{run_id}] jobs={total_jobs} workers={args.workers} "
+        f"range={args.start.isoformat()}->{args.end.isoformat()} retries={args.retries}"
+    )
+
+    notifier = SoundNotifier()
+    success_count = 0
+    failed_count = 0
+    future_map = {}
+
+    with ProcessPoolExecutor(max_workers=args.workers) as pool:
+        for code in codes_to_run:
+            job = state["jobs"][code]
+            attempt = int(job.get("attempts", 0)) + 1
+            job["status"] = "running"
+            job["attempts"] = attempt
+            job["updated_at"] = _utc_now_iso()
+            _submit_job(pool, future_map, run_id, args, code, attempt)
+
+        state["updated_at"] = _utc_now_iso()
+        _save_state(state_path, state)
+
+        while future_map:
+            done_future = next(as_completed(future_map))
+            meta = future_map.pop(done_future)
+            code = meta["code"]
+
+            result = done_future.result()
+            job = state["jobs"][code]
+            job["updated_at"] = _utc_now_iso()
+
+            if result["success"]:
+                job["status"] = "success"
+                job["rows"] = int(result.get("rows", 0))
+                job["last_error"] = None
+                success_count += 1
+                print(
+                    f"[{run_id}][{code}] success "
+                    f"attempt={result['attempt']} rows={result['rows']}"
+                )
+            else:
+                attempt = int(result.get("attempt", job.get("attempts", 1)))
+                err = result.get("error") or "unknown error"
+                tb = result.get("traceback") or ""
+                job["last_error"] = {
+                    "message": err,
+                    "traceback": tb[:4000],
+                    "at": _utc_now_iso()
+                }
+
+                if attempt < max_attempts:
+                    wait_sec = backoff[min(attempt - 1, len(backoff) - 1)]
+                    job["status"] = "pending"
+                    job["attempts"] = attempt + 1
+                    print(
+                        f"[{run_id}][{code}] retry scheduled "
+                        f"attempt={attempt + 1}/{max_attempts} after={wait_sec}s"
+                    )
+                    state["updated_at"] = _utc_now_iso()
+                    _save_state(state_path, state)
+                    time.sleep(wait_sec)
+
+                    job["status"] = "running"
+                    job["updated_at"] = _utc_now_iso()
+                    _submit_job(pool, future_map, run_id, args, code, attempt + 1)
+                else:
+                    job["status"] = "failed"
+                    failed_count += 1
+                    print(
+                        f"[{run_id}][{code}] failed "
+                        f"attempts={attempt}/{max_attempts} err={err}"
+                    )
+
+            state["updated_at"] = _utc_now_iso()
+            _save_state(state_path, state)
+
+    elapsed = int(time.time() - start_ts)
+    mins = elapsed // 60
+    secs = elapsed % 60
+    print(
+        f"\n[{run_id}] summary success={success_count} failed={failed_count} "
+        f"total={total_jobs} runtime={mins}m{secs}s state={state_path}"
+    )
+
+    if failed_count == 0:
+        notifier.success()
+        return 0
+
     notifier.error()
-    raise
-    print("❌ Fatal Crash:", e)
-    notifier.error()
-    raise
+    return 1
 
 
-# =========================
-# RUNTIME
-# =========================
-program_end = time.time()
-elapsed = program_end - program_start
-
-mins = int(elapsed // 60)
-secs = int(elapsed % 60)
-
-print(f"\n⏱ Runtime: {mins}m {secs}s")
+if __name__ == "__main__":
+    raise SystemExit(main())

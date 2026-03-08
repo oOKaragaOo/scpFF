@@ -351,3 +351,42 @@ python getPort.py
 python main.py
 
 ```
+
+---
+
+## Parallel Run (Airport-Level Workers)
+
+`main.py` now supports parallel execution by airport code.
+
+- `1 worker = 1 airport job`
+- If airport count is greater than `--workers`, remaining jobs wait in queue
+- A finished worker immediately takes the next airport
+
+### Example: run specific airport codes in parallel
+
+```bash
+python main.py --codes MYY,KUL,BPN --start 2026-03-24 --end 2026-03-25 --workers 3
+```
+
+### Example: use airport list from CSV (default source)
+
+```bash
+python main.py --start 2026-03-24 --end 2026-03-25 --workers 3
+```
+
+### Resume previous run
+
+```bash
+python main.py --resume
+```
+
+### Resume by run id
+
+```bash
+python main.py --resume --run-id run_20260308T055129Z
+```
+
+### Notes
+
+- Default behavior without `--codes` is loading airport codes from `data/reference/world_airports_city.csv`
+- Run states are saved under `export/_run_state/`
