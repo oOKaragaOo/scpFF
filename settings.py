@@ -27,13 +27,13 @@ SCRAPER_SETTINGS = {
     # =========================
     # DEBUG
     # =========================
-    "debug_week_export": True,
+    "debug_week_export": False,
 
     # =========================
     # EXPORT
     # =========================
     "export_enabled": True,
-    "debug_export_enabled": True,
+    "debug_export_enabled": False,
 
     # export mode:
     # "day" 
@@ -48,12 +48,14 @@ SCRAPER_SETTINGS = {
     # =========================
     # when True run a read-only validator after each day export
     "post_export_report_enabled": False,
+    "validate_meta_export_enabled": False,
+
 
     # =========================
     # PROFILE CLEANUP
     # =========================
     # Safety toggle for manual profile cleanup command.
     # When False, `python main.py --cleanup-profiles` will be blocked.
-    "allow_profile_cleanup": False,
+    "allow_profile_cleanup": True,
 
 }

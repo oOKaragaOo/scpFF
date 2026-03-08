@@ -1,11 +1,12 @@
 import argparse
 import json
 import os
+import re
 import shutil
 import time
 import traceback
 from concurrent.futures import ProcessPoolExecutor, as_completed
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 
 import pandas as pd
 from playwright.sync_api import sync_playwright
@@ -28,7 +29,7 @@ def _parse_date(value):
 
 
 def _utc_now_iso():
-    return datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 def _ensure_state_dir():
@@ -65,16 +66,47 @@ def _find_latest_state_file():
     return max(files, key=os.path.getmtime)
 
 
-def _build_codes(codes_arg):
-    if codes_arg:
-        return [c.strip().upper() for c in codes_arg.split(",") if c.strip()]
+def _resolve_airport_csv_path():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    candidates = [
+        os.path.join(base_dir, "data", "reference", "world_airports_city.csv"),
+        os.path.join(base_dir, "..", "data", "reference", "world_airports_city.csv"),
+        os.path.join("data", "reference", "world_airports_city.csv"),
+        os.path.join("..", "data", "reference", "world_airports_city.csv"),
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    raise FileNotFoundError(
+        "world_airports_city.csv not found. tried: "
+        + ", ".join(candidates)
+    )
 
-    airports_df = pd.read_csv("data/reference/world_airports_city.csv")
-    return airports_df["airport_code"].dropna().str.upper().unique().tolist()
+
+def _build_codes(codes_arg):
+    def normalize_codes(values):
+        seen = set()
+        result = []
+        for raw in values:
+            code = str(raw).strip().upper()
+            if not code or code in {"NAN", "NONE", "NULL"}:
+                continue
+            if not re.fullmatch(r"[A-Z]{3}", code):
+                continue
+            if code not in seen:
+                seen.add(code)
+                result.append(code)
+        return result
+
+    if codes_arg:
+        return normalize_codes(codes_arg.split(","))
+
+    airports_df = pd.read_csv(_resolve_airport_csv_path())
+    return normalize_codes(airports_df["airport_code"].tolist())
 
 
 def _build_run_id():
-    return datetime.utcnow().strftime("run_%Y%m%dT%H%M%SZ")
+    return datetime.now(timezone.utc).strftime("run_%Y%m%dT%H%M%SZ")
 
 
 def _cleanup_profiles(profile_root):
@@ -124,7 +156,7 @@ def _init_state(run_id, args, codes):
     }
 
 
-def _worker_scrape_job(run_id, code, start_iso, end_iso, headless, attempt):
+def _worker_scrape_job(run_id, code, start_iso, end_iso, headless, attempt, disable_tqdm):
     start_d = _parse_date(start_iso)
     end_d = _parse_date(end_iso)
     pid = os.getpid()
@@ -132,6 +164,7 @@ def _worker_scrape_job(run_id, code, start_iso, end_iso, headless, attempt):
     prefix = f"[{run_id}][{worker_id}][{code}]"
     profile_dir = os.path.join("profile_workers", f"{code}_{pid}_a{attempt}")
     os.makedirs(profile_dir, exist_ok=True)
+    os.environ["SCRAPER_DISABLE_TQDM"] = "1" if disable_tqdm else "0"
 
     print(f"{prefix} start attempt={attempt} range={start_iso}->{end_iso}")
     t0 = time.time()
@@ -188,7 +221,8 @@ def _submit_job(pool, future_map, run_id, args, code, attempt):
         args.start.isoformat(),
         args.end.isoformat(),
         args.headless,
-        attempt
+        attempt,
+        args.workers > 1
     )
     future_map[fut] = {"code": code, "attempt": attempt}
 

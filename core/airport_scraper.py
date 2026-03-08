@@ -1,4 +1,5 @@
 from datetime import timedelta , datetime , date
+import os
 import pandas as pd
 import time
 from services.calendar_service import DeterministicCalendarService
@@ -35,7 +36,7 @@ class AirportScraper:
             settings=SCRAPER_SETTINGS
         )
         self.processed_days = 0
-        df = pd.read_csv("data/reference/world_airports_city.csv")
+        df = pd.read_csv(self._resolve_airport_csv_path())
         self.airport_map = {
             row["airport_code"]: row["country"]
             for _, row in df.iterrows()
@@ -58,6 +59,22 @@ class AirportScraper:
 
         sorting = qs.get("sorting", [""])[0]
         return sorting
+
+    def _resolve_airport_csv_path(self):
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        candidates = [
+            os.path.join(base_dir, "data", "reference", "world_airports_city.csv"),
+            os.path.join(base_dir, "..", "data", "reference", "world_airports_city.csv"),
+            os.path.join("data", "reference", "world_airports_city.csv"),
+            os.path.join("..", "data", "reference", "world_airports_city.csv"),
+        ]
+        for path in candidates:
+            if os.path.exists(path):
+                return path
+        raise FileNotFoundError(
+            "world_airports_city.csv not found. tried: "
+            + ", ".join(candidates)
+        )
 
     def _format_date(self, date_text):
         dt = datetime.strptime(date_text, "%A, %d %B, %Y")

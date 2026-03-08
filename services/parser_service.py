@@ -1,6 +1,7 @@
 from tqdm import tqdm
 import time
 from datetime import datetime 
+import os
 class ParserService:
 
     def __init__(self, page, loader, guard, settings=None):
@@ -40,6 +41,7 @@ class ParserService:
         elements = self._snapshot_elements()
 
         footer_kill_count = 0
+        disable_tqdm = os.getenv("SCRAPER_DISABLE_TQDM", "0") == "1"
 
         pbar = tqdm(
             elements,
@@ -47,7 +49,8 @@ class ParserService:
             ascii=("_", "▄"),
             colour="#83f77e",
             unit="flight",
-            ncols=120
+            ncols=120,
+            disable=disable_tqdm
         )
 
         # =========================
@@ -389,7 +392,8 @@ class ParserService:
             unit="flight",
             ncols=50,
             leave=False,   # ⭐ fix log เอ๋อ
-            position=1     # ⭐ อยู่คนละบรรทัดกับ Row running
+            position=1,     # ⭐ อยู่คนละบรรทัดกับ Row running
+            disable=disable_tqdm
         )
 
         for flight_code in pbar:

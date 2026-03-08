@@ -1,5 +1,6 @@
 import re
 from tqdm import tqdm
+import os
 
 
 class LoaderService:
@@ -224,7 +225,8 @@ class LoaderService:
             ascii=("_", "▄"),
             unit="row",
             colour="#26bdeb",
-            ncols=140
+            ncols=140,
+            disable=(os.getenv("SCRAPER_DISABLE_TQDM", "0") == "1")
         ) as pbar:
 
             if guard:

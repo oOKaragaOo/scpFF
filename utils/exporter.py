@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 from datetime import timedelta , datetime
+from settings import SCRAPER_SETTINGS
 
 # ==================================================
 # CONFIG
@@ -127,32 +128,33 @@ def append_day_rows(rows, country, code, date_key, expected_count=None, expected
     full_path = os.path.join(folder, file_name)
 
     # write metadata (atomic) into a dedicated meta subfolder
-    try:
-        meta = {}
-        # If both arrival+departure provided, derive total from them (prefer explicit parts)
-        if expected_arrival is not None and expected_departure is not None:
-            meta["expected_arrival"] = int(expected_arrival)
-            meta["expected_departure"] = int(expected_departure)
-            meta["expected_rows"] = int(expected_arrival) + int(expected_departure)
-        else:
-            if expected_count is not None:
-                meta["expected_rows"] = int(expected_count)
-            if expected_arrival is not None:
+    if SCRAPER_SETTINGS.get("validate_meta_export_enabled", True):
+        try:
+            meta = {}
+            # If both arrival+departure provided, derive total from them (prefer explicit parts)
+            if expected_arrival is not None and expected_departure is not None:
                 meta["expected_arrival"] = int(expected_arrival)
-            if expected_departure is not None:
                 meta["expected_departure"] = int(expected_departure)
-        meta["generated_at"] = datetime.utcnow().isoformat()
-        meta_folder = os.path.join(folder, "meta")
-        _ensure_folder(meta_folder)
-        meta_path = os.path.join(meta_folder, f"flightsfrom_{code}_{safe_date}.json")
-        tmp_meta = meta_path + ".tmp"
-        with open(tmp_meta, "w", encoding="utf-8") as f:
-            import json
-            json.dump(meta, f)
-        os.replace(tmp_meta, meta_path)
-    except Exception:
-        # fail silently on metadata write
-        pass
+                meta["expected_rows"] = int(expected_arrival) + int(expected_departure)
+            else:
+                if expected_count is not None:
+                    meta["expected_rows"] = int(expected_count)
+                if expected_arrival is not None:
+                    meta["expected_arrival"] = int(expected_arrival)
+                if expected_departure is not None:
+                    meta["expected_departure"] = int(expected_departure)
+            meta["generated_at"] = datetime.utcnow().isoformat()
+            meta_folder = os.path.join(folder, "meta")
+            _ensure_folder(meta_folder)
+            meta_path = os.path.join(meta_folder, f"flightsfrom_{code}_{safe_date}.json")
+            tmp_meta = meta_path + ".tmp"
+            with open(tmp_meta, "w", encoding="utf-8") as f:
+                import json
+                json.dump(meta, f)
+            os.replace(tmp_meta, meta_path)
+        except Exception:
+            # fail silently on metadata write
+            pass
 
     # ⭐ check if first export for this day
     first = _is_first_export_for_day(country, code, date_key)
