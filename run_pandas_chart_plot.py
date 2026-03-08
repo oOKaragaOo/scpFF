@@ -83,7 +83,7 @@ def plot_all_airports_one_page(pivots):
         rows=len(codes),
         cols=1,
         shared_xaxes=False,
-        vertical_spacing=0.04,
+        vertical_spacing=0.09,
         subplot_titles=[f"สถิติเที่ยวบินรายวัน ({c})" for c in codes],
     )
 
@@ -125,7 +125,7 @@ def plot_all_airports_one_page(pivots):
 
     fig.update_layout(
         title="สถิติเที่ยวบินรายวัน (ทุกสนามบิน)",
-        height=max(500, 300 * len(codes)),
+        height=max(600, 380 * len(codes)),
         hovermode="x unified",
     )
     fig.show()
