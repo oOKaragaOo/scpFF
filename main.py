@@ -247,6 +247,26 @@ def _build_parser():
     return parser
 
 
+def _maybe_generate_chart():
+    if not SCRAPER_SETTINGS.get("chart_export_enabled", False):
+        return
+
+    pattern = SCRAPER_SETTINGS.get(
+        "chart_export_pattern",
+        "export/day/**/flightsfrom_output/flightsfrom_*.csv",
+    )
+    threshold = int(SCRAPER_SETTINGS.get("chart_export_threshold", 100))
+
+    try:
+        from run_pandas_chart_plot import generate_charts
+        print(f"[chart] generating charts with pattern={pattern} threshold={threshold}")
+        ok = generate_charts(pattern=pattern, threshold=threshold)
+        if not ok:
+            print("[chart] no chart generated")
+    except Exception as e:
+        print(f"[chart] generate failed: {e}")
+
+
 def main():
     parser = _build_parser()
     args = parser.parse_args()
@@ -400,6 +420,7 @@ def main():
         f"\n[{run_id}] summary success={success_count} failed={failed_count} "
         f"total={total_jobs} runtime={mins}m{secs}s state={state_path}"
     )
+    _maybe_generate_chart()
 
     if failed_count == 0:
         notifier.success()

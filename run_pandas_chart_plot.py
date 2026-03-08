@@ -1,9 +1,7 @@
 import argparse
 import glob
-import os
 
 import pandas as pd
-import plotly.express as px
 import plotly.io as pio
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
@@ -133,6 +131,62 @@ def plot_all_airports_one_page(pivots):
     fig.show()
 
 
+def generate_charts(
+    pattern="export/day/**/flightsfrom_output/flightsfrom_*.csv",
+    airport=None,
+    threshold=100,
+):
+    files = _find_csv_files(pattern)
+    if not files:
+        print(f"No CSV files found with pattern: {pattern}")
+        return False
+
+    print(f"Found {len(files)} CSV files")
+    df = _read_all_csv(files)
+    if df.empty:
+        print("No readable CSV data")
+        return False
+
+    df = _normalize(df)
+    required = {"airport", "direction", "date_key"}
+    if not required.issubset(set(df.columns)):
+        print(f"Missing required columns. Need: {sorted(required)}")
+        print(f"Current columns: {list(df.columns)}")
+        return False
+
+    if airport:
+        df = df[df["airport"] == airport.strip().upper()]
+        if df.empty:
+            print(f"No rows found for airport: {airport}")
+            return False
+
+    airports = sorted(df["airport"].dropna().unique().tolist())
+    print(f"Airports to plot: {len(airports)}")
+
+    pivots = {}
+    for code in airports:
+        dfx = df[df["airport"] == code].copy()
+        pivot = build_daily_pivot(dfx)
+
+        if pivot.empty:
+            print(f"[skip] {code}: no daily data")
+            continue
+        pivots[code] = pivot
+
+        print(f"\n=== {code} ===")
+        total_days, damaged_days, ratio = calc_damage_ratio(pivot, threshold=threshold)
+        print(f"จำนวนวันทั้งหมด: {total_days}")
+        print(f"จำนวนวันที่ Dept. - Arriv. ห่างกันเกิน {threshold}: {damaged_days}")
+        print(f"คิดเป็น {ratio:.2f}% ของข้อมูลทั้งหมด")
+
+    if not pivots:
+        print("No pivots to plot")
+        return False
+
+    plot_all_airports_one_page(pivots)
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser(description="Plot daily flight charts by airport")
     parser.add_argument(
@@ -152,55 +206,11 @@ def main():
         help="Threshold for damage ratio based on abs(departure-arrival)",
     )
     args = parser.parse_args()
-
-    files = _find_csv_files(args.pattern)
-    if not files:
-        print(f"No CSV files found with pattern: {args.pattern}")
-        return
-
-    print(f"Found {len(files)} CSV files")
-    df = _read_all_csv(files)
-    if df.empty:
-        print("No readable CSV data")
-        return
-
-    df = _normalize(df)
-    required = {"airport", "direction", "date_key"}
-    if not required.issubset(set(df.columns)):
-        print(f"Missing required columns. Need: {sorted(required)}")
-        print(f"Current columns: {list(df.columns)}")
-        return
-
-    if args.airport:
-        df = df[df["airport"] == args.airport.strip().upper()]
-        if df.empty:
-            print(f"No rows found for airport: {args.airport}")
-            return
-
-    airports = sorted(df["airport"].dropna().unique().tolist())
-    print(f"Airports to plot: {len(airports)}")
-
-    pivots = {}
-    for code in airports:
-        dfx = df[df["airport"] == code].copy()
-        pivot = build_daily_pivot(dfx)
-
-        if pivot.empty:
-            print(f"[skip] {code}: no daily data")
-            continue
-        pivots[code] = pivot
-
-        print(f"\n=== {code} ===")
-        total_days, damaged_days, ratio = calc_damage_ratio(pivot, threshold=args.threshold)
-        print(f"จำนวนวันทั้งหมด: {total_days}")
-        print(f"จำนวนวันที่ Dept. - Arriv. ห่างกันเกิน {args.threshold}: {damaged_days}")
-        print(f"คิดเป็น {ratio:.2f}% ของข้อมูลทั้งหมด")
-
-    if not pivots:
-        print("No pivots to plot")
-        return
-
-    plot_all_airports_one_page(pivots)
+    generate_charts(
+        pattern=args.pattern,
+        airport=args.airport,
+        threshold=args.threshold,
+    )
 
 
 if __name__ == "__main__":
