@@ -404,3 +404,30 @@ Then run:
 ```bash
 python main.py --cleanup-profiles
 ```
+
+---
+
+## Auto Chart After Run
+
+`main.py` can generate Plotly charts automatically after scraping completes.
+
+### Enable in settings
+
+```python
+"chart_export_enabled": True,
+"chart_export_threshold": 60,
+"chart_export_charts_per_page": 12,
+"chart_export_pattern": "export/day/**/flightsfrom_output/flightsfrom_*.csv",
+```
+
+### Behavior
+
+- Chart scope is limited to airport codes that succeeded in the current `run_id`
+- No extra chart files are written to disk (display only via Plotly viewer)
+- If many airports exist, charts are split into pages using `chart_export_charts_per_page`
+
+### Run standalone chart script (optional)
+
+```bash
+python run_pandas_chart_plot.py --charts-per-page 12 --threshold 60
+```

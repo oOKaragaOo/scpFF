@@ -247,7 +247,7 @@ def _build_parser():
     return parser
 
 
-def _maybe_generate_chart():
+def _maybe_generate_chart(run_id, airport_codes):
     if not SCRAPER_SETTINGS.get("chart_export_enabled", False):
         return
 
@@ -256,11 +256,26 @@ def _maybe_generate_chart():
         "export/day/**/flightsfrom_output/flightsfrom_*.csv",
     )
     threshold = int(SCRAPER_SETTINGS.get("chart_export_threshold", 100))
+    charts_per_page = int(SCRAPER_SETTINGS.get("chart_export_charts_per_page", 12))
 
     try:
         from run_pandas_chart_plot import generate_charts
-        print(f"[chart] generating charts with pattern={pattern} threshold={threshold}")
-        ok = generate_charts(pattern=pattern, threshold=threshold)
+        scoped_codes = sorted({c.strip().upper() for c in airport_codes if str(c).strip()})
+        if not scoped_codes:
+            print(f"[chart] skip: no success airports in run {run_id}")
+            return
+        print(
+            f"[chart] generating charts run_id={run_id} "
+            f"airports={len(scoped_codes)} threshold={threshold} "
+            f"per_page={charts_per_page}"
+        )
+        ok = generate_charts(
+            pattern=pattern,
+            threshold=threshold,
+            airport_codes=scoped_codes,
+            run_id=run_id,
+            charts_per_page=charts_per_page,
+        )
         if not ok:
             print("[chart] no chart generated")
     except Exception as e:
@@ -416,11 +431,16 @@ def main():
     elapsed = int(time.time() - start_ts)
     mins = elapsed // 60
     secs = elapsed % 60
+    success_airports = [
+        code for code, job in state["jobs"].items()
+        if code in codes_to_run and job.get("status") == "success"
+    ]
+
     print(
         f"\n[{run_id}] summary success={success_count} failed={failed_count} "
         f"total={total_jobs} runtime={mins}m{secs}s state={state_path}"
     )
-    _maybe_generate_chart()
+    _maybe_generate_chart(run_id, success_airports)
 
     if failed_count == 0:
         notifier.success()

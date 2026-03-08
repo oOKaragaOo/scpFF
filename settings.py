@@ -32,6 +32,8 @@ SCRAPER_SETTINGS = {
     "chart_export_enabled": True,
     # Threshold used by damage ratio: abs(departure - arrival) > threshold
     "chart_export_threshold": 60,
+    # Split chart output into pages to avoid a huge single figure.
+    "chart_export_charts_per_page": 12,
     # Pattern used by chart generator to load day CSV files.
     "chart_export_pattern": "export/day/**/flightsfrom_output/flightsfrom_*.csv",
 

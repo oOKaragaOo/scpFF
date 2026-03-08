@@ -131,10 +131,28 @@ def plot_all_airports_one_page(pivots):
     fig.show()
 
 
+def plot_all_airports_paginated(pivots, charts_per_page=12):
+    codes = list(pivots.keys())
+    if charts_per_page <= 0:
+        charts_per_page = 12
+
+    total_pages = (len(codes) + charts_per_page - 1) // charts_per_page
+    for page_idx in range(total_pages):
+        start = page_idx * charts_per_page
+        end = start + charts_per_page
+        page_codes = codes[start:end]
+        page_pivots = {c: pivots[c] for c in page_codes}
+        print(f"[chart] page {page_idx + 1}/{total_pages} airports={len(page_codes)}")
+        plot_all_airports_one_page(page_pivots)
+
+
 def generate_charts(
     pattern="export/day/**/flightsfrom_output/flightsfrom_*.csv",
     airport=None,
     threshold=100,
+    airport_codes=None,
+    run_id=None,
+    charts_per_page=12,
 ):
     files = _find_csv_files(pattern)
     if not files:
@@ -160,8 +178,17 @@ def generate_charts(
             print(f"No rows found for airport: {airport}")
             return False
 
+    if airport_codes:
+        wanted = {c.strip().upper() for c in airport_codes if str(c).strip()}
+        df = df[df["airport"].isin(wanted)]
+        if df.empty:
+            print(f"No rows found for run airports: {sorted(wanted)}")
+            return False
+
     airports = sorted(df["airport"].dropna().unique().tolist())
     print(f"Airports to plot: {len(airports)}")
+    if run_id:
+        print(f"Run scope: {run_id}")
 
     pivots = {}
     for code in airports:
@@ -183,7 +210,8 @@ def generate_charts(
         print("No pivots to plot")
         return False
 
-    plot_all_airports_one_page(pivots)
+    plot_all_airports_paginated(pivots, charts_per_page=charts_per_page)
+    pivots.clear()
     return True
 
 
@@ -205,11 +233,18 @@ def main():
         default=100,
         help="Threshold for damage ratio based on abs(departure-arrival)",
     )
+    parser.add_argument(
+        "--charts-per-page",
+        type=int,
+        default=12,
+        help="Number of airport charts per page",
+    )
     args = parser.parse_args()
     generate_charts(
         pattern=args.pattern,
         airport=args.airport,
         threshold=args.threshold,
+        charts_per_page=args.charts_per_page,
     )
 
 
