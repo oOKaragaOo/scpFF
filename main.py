@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import shutil
 import time
 import traceback
 from concurrent.futures import ProcessPoolExecutor, as_completed
@@ -11,6 +12,7 @@ from playwright.sync_api import sync_playwright
 
 from core.airport_scraper import AirportScraper
 from core.SoundNotifier import SoundNotifier
+from settings import SCRAPER_SETTINGS
 
 
 DEFAULT_START_DATE = date(2026, 3, 24)
@@ -18,6 +20,7 @@ DEFAULT_END_DATE = date(2026, 3, 25)
 DEFAULT_WORKERS = 3
 DEFAULT_RETRIES = 2
 STATE_DIR = os.path.join("export", "_run_state")
+PROFILE_ROOT = "profile_workers"
 
 
 def _parse_date(value):
@@ -72,6 +75,28 @@ def _build_codes(codes_arg):
 
 def _build_run_id():
     return datetime.utcnow().strftime("run_%Y%m%dT%H%M%SZ")
+
+
+def _cleanup_profiles(profile_root):
+    if not os.path.exists(profile_root):
+        print(f"[cleanup] profile root not found: {profile_root}")
+        return 0
+
+    if not os.path.isdir(profile_root):
+        raise ValueError(f"profile root is not a directory: {profile_root}")
+
+    removed = 0
+    for name in os.listdir(profile_root):
+        target = os.path.join(profile_root, name)
+        if os.path.isdir(target):
+            shutil.rmtree(target, ignore_errors=False)
+            removed += 1
+        elif os.path.isfile(target):
+            os.remove(target)
+            removed += 1
+
+    print(f"[cleanup] removed {removed} item(s) from {profile_root}")
+    return removed
 
 
 def _init_state(run_id, args, codes):
@@ -184,6 +209,7 @@ def _build_parser():
     parser.add_argument("--headless", action="store_true", help="Run Playwright in headless mode")
     parser.add_argument("--resume", action="store_true", help="Resume from previous run state")
     parser.add_argument("--run-id", type=str, default=None, help="Run id to resume")
+    parser.add_argument("--cleanup-profiles", action="store_true", help="Delete all items in profile_workers then exit")
     return parser
 
 
@@ -197,6 +223,17 @@ def main():
         raise ValueError("workers must be >= 1")
     if args.retries < 0:
         raise ValueError("retries must be >= 0")
+
+    if args.cleanup_profiles:
+        allow_cleanup = bool(SCRAPER_SETTINGS.get("allow_profile_cleanup", False))
+        if not allow_cleanup:
+            print(
+                "[cleanup] blocked by settings: "
+                "set SCRAPER_SETTINGS['allow_profile_cleanup'] = True first"
+            )
+            return 2
+        _cleanup_profiles(PROFILE_ROOT)
+        return 0
 
     all_codes = _build_codes(args.codes)
     if not all_codes:

@@ -390,3 +390,17 @@ python main.py --resume --run-id run_20260308T055129Z
 
 - Default behavior without `--codes` is loading airport codes from `data/reference/world_airports_city.csv`
 - Run states are saved under `export/_run_state/`
+
+### Manual cleanup profile workers
+
+Enable cleanup toggle in `settings.py` first:
+
+```python
+"allow_profile_cleanup": True
+```
+
+Then run:
+
+```bash
+python main.py --cleanup-profiles
+```

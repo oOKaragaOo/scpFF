@@ -49,4 +49,11 @@ SCRAPER_SETTINGS = {
     # when True run a read-only validator after each day export
     "post_export_report_enabled": False,
 
+    # =========================
+    # PROFILE CLEANUP
+    # =========================
+    # Safety toggle for manual profile cleanup command.
+    # When False, `python main.py --cleanup-profiles` will be blocked.
+    "allow_profile_cleanup": False,
+
 }
