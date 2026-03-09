@@ -13,6 +13,41 @@ DEPARTURE_COLOR = "#1f77b4"
 ARRIVAL_COLOR = "#ff7f0e"
 
 
+def _resolve_airport_csv_path():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    candidates = [
+        os.path.join(base_dir, "data", "reference", "world_airports_city.csv"),
+        os.path.join(base_dir, "..", "data", "reference", "world_airports_city.csv"),
+        os.path.join("data", "reference", "world_airports_city.csv"),
+        os.path.join("..", "data", "reference", "world_airports_city.csv"),
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    raise FileNotFoundError(
+        "world_airports_city.csv not found. tried: "
+        + ", ".join(candidates)
+    )
+
+
+def _build_codes_from_countries(countries_arg):
+    """Build airport codes from country names"""
+    if not countries_arg:
+        return None
+    
+    countries = [c.strip().title() for c in countries_arg.split(",") if c.strip()]
+    if not countries:
+        return None
+    
+    airports_df = pd.read_csv(_resolve_airport_csv_path())
+    # Filter by countries and get unique airport codes
+    filtered_df = airports_df[airports_df["country"].isin(countries)]
+    codes = filtered_df["airport_code"].dropna().unique().tolist()
+    
+    print(f"[filter] Found {len(codes)} airports in countries: {', '.join(countries)}")
+    return codes
+
+
 def _find_csv_files(pattern, airport_codes=None):
     all_files = glob.glob(pattern, recursive=True)
     csv_files = [f for f in all_files if f.lower().endswith(".csv")]
@@ -124,6 +159,11 @@ def plot_all_airports_one_page(pivots, pdf_path=None, show_in_browser=True):
         dep = pivot["departure"].tolist()
         arr = pivot["arrival"].tolist()
 
+        # คำนวณ range สำหรับ padding
+        all_values = dep + arr
+        y_min = max(0, min(all_values) - 1)  # ล่าง -1 แต่ไม่ต่ำกว่า 0
+        y_max = max(all_values) + 1  # บน +1
+
         fig.add_trace(
             go.Scatter(
                 x=x,
@@ -152,13 +192,21 @@ def plot_all_airports_one_page(pivots, pdf_path=None, show_in_browser=True):
             row=row_idx,
             col=1,
         )
-        fig.update_yaxes(title_text="จำนวนเที่ยวบิน", row=row_idx, col=1)
+        fig.update_yaxes(
+            title_text="จำนวนเที่ยวบิน", 
+            row=row_idx, 
+            col=1, 
+            tickformat=".0f", 
+            dtick=1,
+            range=[y_min, y_max]
+        )
 
     # เพิ่ม height และ margin ให้เหมาะสมกับจำนวน charts
-    height = max(600, 420 * num_charts)
+    height = max(400, 300 * num_charts)  # ลดความสูงลง
     fig.update_layout(
         title="สถิติเที่ยวบินรายวัน (ทุกสนามบิน)",
         height=height,
+        width=1200,  # เพิ่มความกว้างให้เต็ม page
         hovermode="x unified",
         margin=dict(l=50, r=50, t=80, b=50),
     )
@@ -201,6 +249,7 @@ def generate_charts(
     airport=None,
     threshold=100,
     airport_codes=None,
+    countries=None,
     run_id=None,
     charts_per_page=12,
     export_pdf=False,
@@ -209,6 +258,8 @@ def generate_charts(
     codes_to_filter = airport_codes
     if not codes_to_filter and airport:
         codes_to_filter = [airport]
+    if not codes_to_filter and countries:
+        codes_to_filter = _build_codes_from_countries(countries)
     
     # Find CSV files, filtering by airport codes if specified
     files = _find_csv_files(pattern, airport_codes=codes_to_filter)
@@ -286,6 +337,62 @@ def generate_charts(
     return True
 
 
+def _get_available_countries():
+    """Get list of available countries from reference file"""
+    try:
+        airports_df = pd.read_csv(_resolve_airport_csv_path())
+        countries = sorted(airports_df["country"].dropna().unique().tolist())
+        return countries
+    except Exception as e:
+        print(f"[warning] Could not load countries: {e}")
+        return []
+
+
+def _interactive_country_selection():
+    """Interactive prompt to select countries"""
+    countries = _get_available_countries()
+    if not countries:
+        print("No countries found in reference file")
+        return None
+    
+    print("\nAvailable countries:")
+    for i, country in enumerate(countries, 1):
+        print(f"{i:2d}. {country}")
+    
+    print("\nOptions:")
+    print("  - Enter numbers (comma-separated): 1,3,5")
+    print("  - Enter 'all' for all countries")
+    print("  - Enter country names directly: Malaysia,Thailand")
+    print("  - Press Enter to skip (plot all)")
+    
+    while True:
+        try:
+            choice = input("\nSelect countries: ").strip()
+            if not choice:
+                return None  # Plot all
+            
+            if choice.lower() == 'all':
+                return ','.join(countries)
+            
+            # Try parsing as numbers
+            if choice.replace(',', '').replace(' ', '').isdigit():
+                indices = [int(x.strip()) - 1 for x in choice.split(',') if x.strip()]
+                selected = [countries[i] for i in indices if 0 <= i < len(countries)]
+                if selected:
+                    return ','.join(selected)
+            
+            # Try as country names
+            input_countries = [c.strip().title() for c in choice.split(',') if c.strip()]
+            valid_countries = [c for c in input_countries if c in countries]
+            if valid_countries:
+                return ','.join(valid_countries)
+            
+            print("Invalid selection. Please try again.")
+            
+        except (ValueError, IndexError):
+            print("Invalid input. Please try again.")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Plot daily flight charts by airport")
     parser.add_argument(
@@ -297,6 +404,11 @@ def main():
         "--airport",
         default=None,
         help="Optional airport code filter, ex: BKK",
+    )
+    parser.add_argument(
+        "--country",
+        default=None,
+        help="Optional country filter, ex: Malaysia,Thailand (comma-separated)",
     )
     parser.add_argument(
         "--threshold",
@@ -316,9 +428,17 @@ def main():
         help="Export charts to PDF instead of rendering in browser",
     )
     args = parser.parse_args()
+    
+    # Interactive country selection when exporting PDF without country specified
+    countries = args.country
+    if args.export_pdf and not countries and not args.airport:
+        print("PDF export mode: Select countries to plot")
+        countries = _interactive_country_selection()
+    
     generate_charts(
         pattern=args.pattern,
         airport=args.airport,
+        countries=countries,
         threshold=args.threshold,
         charts_per_page=args.charts_per_page,
         export_pdf=args.export_pdf,
