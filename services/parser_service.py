@@ -312,7 +312,7 @@ class ParserService:
     # =========================
     def _format_date(self, date_text):
         dt = datetime.strptime(date_text, "%A, %d %B, %Y")
-        return f"{dt.day}/{dt.month}/{dt.year}"
+        return dt.strftime("%Y-%m-%d")
 
     def _compact_time_range(self, time_text):
         return (

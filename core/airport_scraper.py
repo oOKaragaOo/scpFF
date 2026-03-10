@@ -658,8 +658,11 @@ class AirportScraper:
 
             for d, day_rows in by_day.items():
 
-                # 🔥 format ป้องกัน /
-                safe_date = datetime.strptime(d, "%d/%m/%Y").strftime("%Y-%m-%d")
+                # sanitize date (support legacy d/m/Y and current Y-m-d)
+                try:
+                    safe_date = datetime.strptime(d, "%Y-%m-%d").strftime("%Y-%m-%d")
+                except ValueError:
+                    safe_date = datetime.strptime(d, "%d/%m/%Y").strftime("%Y-%m-%d")
 
                 append_day_rows(
                     day_rows,
