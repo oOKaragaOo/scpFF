@@ -1,21 +1,12 @@
 country,city,airport_name,airport_code
-Fiji,Cicia Island,Cicia,ICI
-Fiji,Kadavu Island,Kandavu,KDV
-Fiji,Koro Island,Koro Island,KXF
-Fiji,Labasa,Labasa,LBS
-Fiji,Lakeba Island,Lakeba,LKB
-Fiji,Nadi,Nadi,NAN
-Fiji,Rotuma Island,Rotuma Island,RTA
-Fiji,Savusavu,Savusavu,SVU
-Fiji,Suva,Nausori,SUV
-Fiji,Taveuni Island,Matei,TVU
-French Polynesia,Arutua,Arutua,AXR
-French Polynesia,Fare,Fare,HUH
-French Polynesia,Hao,Hao Island,HOI
-French Polynesia,Makemo,Makemo,MKP
-French Polynesia,Nuku Hiva,Nuku Hiva,NHV
-French Polynesia,Papeete,Faaa,PPT
-French Polynesia,Raiatea,Raiatea,RFP
-French Polynesia,Temae,Temae,MOZ
-French Polynesia,Tiputa,Rangiroa,RGI
-French Polynesia,Vaitape,Motu-Mute,BOB
+fiji,Cicia,Cicia,ICI
+fiji,Koro Island,Koro Island,KXF
+fiji,Labasa,Labasa,LBS
+fiji,Lakeba Island,Lakeba Island,LKB
+fiji,Nadi,Nadi,NAN
+fiji,Nausori,Nausori,SUV
+fiji,Rotuma Island,Rotuma Island,RTA
+fiji,Savusavu,Savusavu,SVU
+fiji,Taveuni,Taveuni,TVU
+fiji,Vanuabalavu,Vanuabalavu,VBV
+fiji,Vunisea,Vunisea,KDV
