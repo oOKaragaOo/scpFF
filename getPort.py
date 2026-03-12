@@ -5,18 +5,35 @@ import random
 from urllib.parse import quote
 import argparse
 
-def parse_countries(value):
+def parse_countries(tokens):
     parts = []
-    for chunk in value.split(","):
-        name = chunk.strip()
-        if name:
-            parts.append(name)
+    current = []
+    for token in tokens:
+        pieces = token.split(",")
+        for i, piece in enumerate(pieces):
+            if i == 0:
+                if piece:
+                    current.append(piece)
+            else:
+                name = " ".join(current).strip()
+                if name:
+                    parts.append(name)
+                current = []
+                if piece:
+                    current.append(piece)
+    name = " ".join(current).strip()
+    if name:
+        parts.append(name)
     return parts
+
+def slugify_country(name):
+    return "-".join(name.strip().split())
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--country",
         required=True,
+        nargs="+",
         help="Comma-separated country list, e.g. thailand, usa"
     )
     args = parser.parse_args()
@@ -37,7 +54,7 @@ def main():
         for country in countries:
             print("SCRAP:", country)
 
-            country_slug = quote(country.strip())
+            country_slug = quote(slugify_country(country))
             page.goto(f"https://www.flightsfrom.com/{country_slug}", timeout=60000)
             page.wait_for_selector(".box-airport-item", timeout=30000)
 
