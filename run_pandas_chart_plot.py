@@ -197,7 +197,7 @@ def plot_all_airports_one_page(pivots, pdf_path=None, show_in_browser=True):
             row=row_idx, 
             col=1, 
             tickformat=".0f", 
-            dtick=1,
+            dtick= max(1, (y_max - y_min) // 5),  # ปรับ dtick ตาม range
             range=[y_min, y_max]
         )
 
