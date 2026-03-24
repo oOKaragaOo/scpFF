@@ -1,0 +1,862 @@
+continent,country,city,airport_name,airport_code
+North America,Canada,Abbotsford,Abbotsford,YXX
+North America,Canada,Akulivik,Akulivik,AKV
+North America,Canada,Anahim Lake,Anahim Lake,YAA
+North America,Canada,Angling Lake,Angling Lake,YAX
+North America,Canada,Arctic Bay,Arctic Bay,YAB
+North America,Canada,Arviat,Arviat,YEK
+North America,Canada,Attawapiskat,Attawapiskat,YAT
+North America,Canada,Aupaluk,Aupaluk,YPJ
+North America,Canada,Bagotville,Bagotville,YBG
+North America,Canada,Baie Comeau,Baie Comeau,YBC
+North America,Canada,Baker Lake,Baker Lake,YBK
+North America,Canada,Bathurst,Bathurst,ZBF
+North America,Canada,Bearskin Lake,Bearskin Lake,XBE
+North America,Canada,Bella Bella,Bella Bella,ZEL
+North America,Canada,Bella Coola,Bella Coola,QBC
+North America,Canada,Big Trout,Big Trout,YTL
+North America,Canada,Blanc Sablon,Blanc Sablon,YBX
+North America,Canada,Bonaventure,Bonaventure,YVB
+North America,Canada,Brandon Muni,Brandon Muni,YBR
+North America,Canada,Calgary,Calgary,YYC
+North America,Canada,Cambridge Bay,Cambridge Bay,YCB
+North America,Canada,Campbell River,Campbell River,YBL
+North America,Canada,Campbell River Sea Plane Base,Campbell River Sea Plane Base,YHH
+North America,Canada,Cape Dorset,Cape Dorset,YTE
+North America,Canada,Castlegar,Castlegar,YCG
+North America,Canada,Cat Lake,Cat Lake,YAC
+North America,Canada,Chapais,Chapais,YMT
+North America,Canada,Charlottetown,Charlottetown,YYG
+North America,Canada,Chesterfield Inlet,Chesterfield Inlet,YCS
+North America,Canada,Chevery,Chevery,YHR
+North America,Canada,Chisasibi,Chisasibi,YKU
+North America,Canada,Churchill,Churchill,YYQ
+North America,Canada,Churchill Falls,Churchill Falls,ZUM
+North America,Canada,City Centre,City Centre,YTZ
+North America,Canada,Clyde River,Clyde River,YCY
+North America,Canada,Colville Lake,Colville Lake,YCK
+North America,Canada,Comox,Comox,YQQ
+North America,Canada,Cranbrook,Cranbrook,YXC
+North America,Canada,Dawson City,Dawson City,YDA
+North America,Canada,Deer Lake,Deer Lake,YDF
+North America,Canada,Deer Lake,Deer Lake,YVZ
+North America,Canada,Deline,Deline,YWJ
+North America,Canada,East Main,East Main,ZEM
+North America,Canada,Edmonton,Edmonton,YEG
+North America,Canada,Fairmont Hot Springs,Fairmont Hot Springs,YZS
+North America,Canada,Flin Flon,Flin Flon,YFO
+North America,Canada,Fond-Du-Lac,Fond-Du-Lac,ZFD
+North America,Canada,Fort Albany,Fort Albany,YFA
+North America,Canada,Fort Chipewyan,Fort Chipewyan,YPY
+North America,Canada,Fort Good Hope,Fort Good Hope,YGH
+North America,Canada,Fort Hope,Fort Hope,YFH
+North America,Canada,Fort Mcmurray,Fort Mcmurray,YMM
+North America,Canada,Fort Nelson,Fort Nelson,YYE
+North America,Canada,Fort Severn,Fort Severn,YER
+North America,Canada,Fort Simpson,Fort Simpson,YFS
+North America,Canada,Fort Smith,Fort Smith,YSM
+North America,Canada,Fort St John,Fort St John,YXJ
+North America,Canada,Freddie Carmichael,Freddie Carmichael,LAK
+North America,Canada,Fredericton,Fredericton,YFC
+North America,Canada,Gander,Gander,YQX
+North America,Canada,Ganges Seaplane Base,Ganges Seaplane Base,YGG
+North America,Canada,Gaspe,Gaspe,YGP
+North America,Canada,Gatineau,Gatineau,YND
+North America,Canada,Gethsemani,Gethsemani,ZGS
+North America,Canada,Gillam,Gillam,YGX
+North America,Canada,Gjoa Haven,Gjoa Haven,YHK
+North America,Canada,Goose Bay,Goose Bay,YYR
+North America,Canada,Grande Prairie,Grande Prairie,YQU
+North America,Canada,Greater Moncton,Greater Moncton,YQM
+North America,Canada,Green Lake Sea Plane Base,Green Lake Sea Plane Base,YWS
+North America,Canada,Grise Fiord,Grise Fiord,YGZ
+North America,Canada,Halifax,Halifax,YHZ
+North America,Canada,Hall Beach,Hall Beach,YUX
+North America,Canada,Hamilton,Hamilton,YHM
+North America,Canada,Havre Saint-Pierre,Havre Saint-Pierre,YGV
+North America,Canada,Hay River,Hay River,YHY
+North America,Canada,High Level,High Level,YOJ
+North America,Canada,Holman,Holman,YHI
+North America,Canada,Hopedale,Hopedale,YHO
+North America,Canada,Igloolik,Igloolik,YGT
+North America,Canada,Iles De La Madeleine,Iles De La Madeleine,YGR
+North America,Canada,Inukjuak,Inukjuak,YPH
+North America,Canada,Inuvik Mike Zubko,Inuvik Mike Zubko,YEV
+North America,Canada,Iqaluit,Iqaluit,YFB
+North America,Canada,Ivujivik,Ivujivik,YIK
+North America,Canada,Kamloops,Kamloops,YKA
+North America,Canada,Kangiqsualujjuaq,Kangiqsualujjuaq,XGR
+North America,Canada,Kangiqsujuaq,Kangiqsujuaq,YWB
+North America,Canada,Kangirsuk,Kangirsuk,YKG
+North America,Canada,Kasabonika,Kasabonika,XKS
+North America,Canada,Kaschechewan,Kaschechewan,ZKE
+North America,Canada,Keewaywin,Keewaywin,KEW
+North America,Canada,Kelowna,Kelowna,YLW
+North America,Canada,Kimmirut,Kimmirut,YLC
+North America,Canada,Kingfisher Lake,Kingfisher Lake,KIF
+North America,Canada,Kingston Train Station,Kingston Train Station,XEG
+North America,Canada,Kugaaruk,Kugaaruk,YBB
+North America,Canada,Kugluktuk,Kugluktuk,YCO
+North America,Canada,Kuujjuaq,Kuujjuaq,YVP
+North America,Canada,Kuujjuarapik,Kuujjuarapik,YGW
+North America,Canada,La Grande,La Grande,YGL
+North America,Canada,La Ronge,La Ronge,YVC
+North America,Canada,La Tabatiere,La Tabatiere,ZLT
+North America,Canada,Lansdowne House,Lansdowne House,YLH
+North America,Canada,Lethbridge,Lethbridge,YQL
+North America,Canada,London,London,YXU
+North America,Canada,Lutselk'e,Lutselk'e,YSG
+North America,Canada,Makkovik,Makkovik,YMN
+North America,Canada,Masset,Masset,ZMT
+North America,Canada,Medicine Hat,Medicine Hat,YXH
+North America,Canada,Mont Joli,Mont Joli,YYY
+North America,Canada,Moosonee,Moosonee,YMO
+North America,Canada,Muskrat Dam,Muskrat Dam,MSA
+North America,Canada,Nain,Nain,YDP
+North America,Canada,Nanaimo,Nanaimo,YCD
+North America,Canada,Nanaimo Harbour Water,Nanaimo Harbour Water,ZNA
+North America,Canada,Natashquan,Natashquan,YNA
+North America,Canada,Natuashish,Natuashish,YNP
+North America,Canada,Nemiscau,Nemiscau,YNS
+North America,Canada,Norman Wells,Norman Wells,YVQ
+North America,Canada,North Bay,North Bay,YYB
+North America,Canada,North Spirit Lake,North Spirit Lake,YNO
+North America,Canada,Ogoki,Ogoki,YOG
+North America,Canada,Old Crow,Old Crow,YOC
+North America,Canada,Ottawa Macdonald Cartier,Ottawa Macdonald Cartier,YOW
+North America,Canada,Pakuashipi,Pakuashipi,YIF
+North America,Canada,Pangnirtung,Pangnirtung,YXP
+North America,Canada,Pearson,Pearson,YYZ
+North America,Canada,Peawanuck,Peawanuck,YPO
+North America,Canada,Penticton,Penticton,YYF
+North America,Canada,Pickle Lake,Pickle Lake,YPL
+North America,Canada,Pierre Elliott Trudeau,Pierre Elliott Trudeau,YUL
+North America,Canada,Pikangikum,Pikangikum,YPM
+North America,Canada,Pond Inlet,Pond Inlet,YIO
+North America,Canada,Poplar Hill,Poplar Hill,YHP
+North America,Canada,Port Hardy,Port Hardy,YZT
+North America,Canada,Port Menier,Port Menier,YPN
+North America,Canada,Postville,Postville,YSO
+North America,Canada,Powell Lake,Powell Lake,WPL
+North America,Canada,Powell River,Powell River,YPW
+North America,Canada,Prince Albert Glass Field,Prince Albert Glass Field,YPA
+North America,Canada,Prince George,Prince George,YXS
+North America,Canada,Prince Rupert,Prince Rupert,YPR
+North America,Canada,Puvirnituq,Puvirnituq,YPX
+North America,Canada,Qikiqtarjuaq,Qikiqtarjuaq,YVM
+North America,Canada,Quaqtaq,Quaqtaq,YQC
+North America,Canada,Quebec Jean Lesage,Quebec Jean Lesage,YQB
+North America,Canada,Quesnel,Quesnel,YQZ
+North America,Canada,Rae Lakes,Rae Lakes,YRA
+North America,Canada,Rankin Inlet,Rankin Inlet,YRT
+North America,Canada,Red Lake,Red Lake,YRL
+North America,Canada,Regina,Regina,YQR
+North America,Canada,Repulse Bay,Repulse Bay,YUT
+North America,Canada,Resolute Bay,Resolute Bay,YRB
+North America,Canada,Rigolet,Rigolet,YRG
+North America,Canada,Round Lake (Weagamow Lake),Round Lake (Weagamow Lake),ZRJ
+North America,Canada,Rouyn Noranda,Rouyn Noranda,YUY
+North America,Canada,Sachigo Lake,Sachigo Lake,ZPB
+North America,Canada,Saint John,Saint John,YSJ
+North America,Canada,Salluit,Salluit,YZG
+North America,Canada,Sandspit,Sandspit,YZP
+North America,Canada,Sandy Lake,Sandy Lake,ZSJ
+North America,Canada,Sanikiluaq,Sanikiluaq,YSK
+North America,Canada,Saskatoon J G Diefenbaker,Saskatoon J G Diefenbaker,YXE
+North America,Canada,Sault Ste Marie,Sault Ste Marie,YAM
+North America,Canada,Schefferville,Schefferville,YKL
+North America,Canada,Sechelt,Sechelt,YHS
+North America,Canada,Sept Iles,Sept Iles,YZV
+North America,Canada,Sioux Lookout,Sioux Lookout,YXL
+North America,Canada,Smithers,Smithers,YYD
+North America,Canada,Snare Lake,Snare Lake,YFJ
+North America,Canada,St Anthony,St Anthony,YAY
+North America,Canada,St Hubert,St Hubert,YHU
+North America,Canada,St Johns,St Johns,YYT
+North America,Canada,Stony Rapids,Stony Rapids,YSF
+North America,Canada,Sudbury,Sudbury,YSB
+North America,Canada,Summer Beaver,Summer Beaver,SUR
+North America,Canada,Sydney,Sydney,YQY
+North America,Canada,Taloyoak,Taloyoak,YYH
+North America,Canada,Tasiujuaq,Tasiujuaq,YTQ
+North America,Canada,Terrace,Terrace,YXT
+North America,Canada,Tete-a-La Baleine,Tete-a-La Baleine,ZTB
+North America,Canada,The Pas,The Pas,YQD
+North America,Canada,Thompson,Thompson,YTH
+North America,Canada,Thunder Bay,Thunder Bay,YQT
+North America,Canada,Timmins,Timmins,YTS
+North America,Canada,Tofino,Tofino,YAZ
+North America,Canada,Tofino Harbour Sea Plane Base,Tofino Harbour Sea Plane Base,YTP
+North America,Canada,Trail,Trail,YZZ
+North America,Canada,Train Station,Train Station,XDS
+North America,Canada,Train Station,Train Station,XEF
+North America,Canada,Tulita,Tulita,ZFN
+North America,Canada,Umiujag,Umiujag,YUD
+North America,Canada,Uranium City,Uranium City,YBE
+North America,Canada,Val D Or,Val D Or,YVO
+North America,Canada,Vancouver,Vancouver,YVR
+North America,Canada,Vancouver Coal Harbour,Vancouver Coal Harbour,CXH
+North America,Canada,Victoria,Victoria,YYJ
+North America,Canada,Victoria Inner Harbour,Victoria Inner Harbour,YWH
+North America,Canada,Wabush,Wabush,YWK
+North America,Canada,Waskaganish,Waskaganish,YKQ
+North America,Canada,Waterloo Rgnl,Waterloo Rgnl,YKF
+North America,Canada,Webequie,Webequie,YWP
+North America,Canada,Wemindji,Wemindji,YNC
+North America,Canada,Whale Cove,Whale Cove,YXN
+North America,Canada,Whitehorse,Whitehorse,YXY
+North America,Canada,Williams Lake,Williams Lake,YWL
+North America,Canada,Windsor,Windsor,YQG
+North America,Canada,Winnipeg,Winnipeg,YWG
+North America,Canada,Wollaston Lake,Wollaston Lake,ZWL
+North America,Canada,Wunnummin Lake,Wunnummin Lake,WNN
+North America,Canada,Yellowknife,Yellowknife,YZF
+North America,Mexico,,,TJX
+North America,Mexico,Abraham Gonzalez,Abraham Gonzalez,CJS
+North America,Mexico,C P A Carlos Rovirosa,C P A Carlos Rovirosa,VSA
+North America,Mexico,Cancun,Cancun,CUN
+North America,Mexico,Chetumal,Chetumal,CTM
+North America,Mexico,Ciudad Del Carmen,Ciudad Del Carmen,CME
+North America,Mexico,Ciudad Obregon,Ciudad Obregon,CEN
+North America,Mexico,Ciudad Victoria,Ciudad Victoria,CVM
+North America,Mexico,Colima,Colima,CLQ
+North America,Mexico,Cozumel,Cozumel,CZM
+North America,Mexico,Culiacan,Culiacan,CUL
+North America,Mexico,Durango,Durango,DGO
+North America,Mexico,Federal,Federal,LMM
+North America,Mexico,Felipe Angeles,Felipe Angeles,NLU
+North America,Mexico,Felipe Carrillo Puerto,Felipe Carrillo Puerto,TQO
+North America,Mexico,Francisco Sarabia,Francisco Sarabia,TGZ
+North America,Mexico,Gen Fierro Villalobos,Gen Fierro Villalobos,CUU
+North America,Mexico,General Abelardo L Rodriguez,General Abelardo L Rodriguez,TIJ
+North America,Mexico,General Francisco J Mujica,General Francisco J Mujica,MLM
+North America,Mexico,General Francisco Javier Mina,General Francisco Javier Mina,TAM
+North America,Mexico,General Ignacio P Garcia,General Ignacio P Garcia,HMO
+North America,Mexico,General Juan N Alvarez,General Juan N Alvarez,ACA
+North America,Mexico,General Lucio Blanco,General Lucio Blanco,REX
+North America,Mexico,General Manuel Marquez De Leon,General Manuel Marquez De Leon,LAP
+North America,Mexico,General Rafael Buelna,General Rafael Buelna,MZT
+North America,Mexico,General Rodolfo Sanchez Taboada,General Rodolfo Sanchez Taboada,MXL
+North America,Mexico,General Servando Canales,General Servando Canales,MAM
+North America,Mexico,Guadalajara,Guadalajara,GDL
+North America,Mexico,Guanajuato,Guanajuato,BJX
+North America,Mexico,Hermanos Serdan,Hermanos Serdan,PBC
+North America,Mexico,Huatulco,Huatulco,HUX
+North America,Mexico,Ingeniero Alberto Acuna Ongay,Ingeniero Alberto Acuna Ongay,CPE
+North America,Mexico,Ingeniero F Espinoza Gutierrez,Ingeniero F Espinoza Gutierrez,QRO
+North America,Mexico,Ixtapa Zihuatanejo,Ixtapa Zihuatanejo,ZIH
+North America,Mexico,Ixtepec,Ixtepec,IZT
+North America,Mexico,Jesus Teran,Jesus Teran,AGU
+North America,Mexico,La Calera,La Calera,ZCL
+North America,Mexico,Licenciado Adolfo Lopez Mateos,Licenciado Adolfo Lopez Mateos,TLC
+North America,Mexico,Licenciado Gustavo Diaz Ordaz,Licenciado Gustavo Diaz Ordaz,PVR
+North America,Mexico,Licenciado Manuel Crecencio Rejon,Licenciado Manuel Crecencio Rejon,MID
+North America,Mexico,Licenciado Y Gen Ignacio Lopez Rayon,Licenciado Y Gen Ignacio Lopez Rayon,UPN
+North America,Mexico,Loreto,Loreto,LTO
+North America,Mexico,Los Cabos,Los Cabos,SJD
+North America,Mexico,Mexico City,Mexico City,MEX
+North America,Mexico,Minatitlan,Minatitlan,MTT
+North America,Mexico,Monterrey,Monterrey,MTY
+North America,Mexico,Palenque,Palenque,PQM
+North America,Mexico,Piedras Negras,Piedras Negras,PDS
+North America,Mexico,Plan De Guadalupe,Plan De Guadalupe,SLW
+North America,Mexico,Playa De Oro,Playa De Oro,ZLO
+North America,Mexico,Ponciano Arriaga,Ponciano Arriaga,SLP
+North America,Mexico,Puerto Escondido,Puerto Escondido,PXM
+North America,Mexico,Quetzalcoatl,Quetzalcoatl,NLD
+North America,Mexico,Tapachula,Tapachula,TAP
+North America,Mexico,Tepic,Tepic,TPQ
+North America,Mexico,Torreon,Torreon,TRC
+North America,Mexico,Veracruz,Veracruz,VER
+North America,Mexico,Xoxocotlan,Xoxocotlan,OAX
+North America,St Pierre and Miquelon,Saint Pierre,Saint Pierre,FSP
+North America,USA,Aberdeen Regional,Aberdeen Regional,ABR
+North America,USA,Abilene Rgnl,Abilene Rgnl,ABI
+North America,USA,Abraham Lincoln Capital,Abraham Lincoln Capital,SPI
+North America,USA,Adak Island,Adak Island,ADK
+North America,USA,Adams Fld,Adams Fld,LIT
+North America,USA,Adirondack Regional,Adirondack Regional,SLK
+North America,USA,Akhiok,Akhiok,AKK
+North America,USA,Akron Canton Regional,Akron Canton Regional,CAK
+North America,USA,Akuton,Akuton,KQA
+North America,USA,Alakanuk,Alakanuk,AUK
+North America,USA,Albany,Albany,ALB
+North America,USA,Albuquerque Sunport,Albuquerque Sunport,ABQ
+North America,USA,Alexandria,Alexandria,AEX
+North America,USA,Allakaket,Allakaket,AET
+North America,USA,Alliance Municipal,Alliance Municipal,AIA
+North America,USA,Alpena County Regional,Alpena County Regional,APN
+North America,USA,Altoona Blair Co,Altoona Blair Co,AOO
+North America,USA,Amarillo,Amarillo,AMA
+North America,USA,Ambler,Ambler,ABL
+North America,USA,Anaktuvuk Pass,Anaktuvuk Pass,AKP
+North America,USA,Angel Fire,Angel Fire,AXX
+North America,USA,Angoon,Angoon,AGN
+North America,USA,Aniak,Aniak,ANI
+North America,USA,Anvik,Anvik,ANV
+North America,USA,Appleton,Appleton,ATW
+North America,USA,Arcata,Arcata,ACV
+North America,USA,Arctic Village,Arctic Village,ARC
+North America,USA,Arnold Palmer Regional,Arnold Palmer Regional,LBE
+North America,USA,Asheville Regional,Asheville Regional,AVL
+North America,USA,Aspen Pitkin County Sardy Field,Aspen Pitkin County Sardy Field,ASE
+North America,USA,Atka,Atka,AKB
+North America,USA,Atlantic City,Atlantic City,ACY
+North America,USA,Atqasuk Edward Burnell Sr Memorial,Atqasuk Edward Burnell Sr Memorial,ATK
+North America,USA,Augusta,Augusta,AGS
+North America,USA,Augusta State,Augusta State,AUG
+North America,USA,Austin Straubel,Austin Straubel,GRB
+North America,USA,Austin-Bergstrom,Austin-Bergstrom,AUS
+North America,USA,Baltimore Washington,Baltimore Washington,BWI
+North America,USA,Bangor,Bangor,BGR
+North America,USA,Barkley Regional,Barkley Regional,PAH
+North America,USA,Barnstable Muni Boardman Polando Fld,Barnstable Muni Boardman Polando Fld,HYA
+North America,USA,Barter Island,Barter Island,BTI
+North America,USA,Basin,Basin,XWA
+North America,USA,Baton Rouge Metro Ryan Fld,Baton Rouge Metro Ryan Fld,BTR
+North America,USA,Bellingham,Bellingham,BLI
+North America,USA,Bemidji Regional,Bemidji Regional,BJI
+North America,USA,Bert Mooney,Bert Mooney,BTM
+North America,USA,Bethel,Bethel,BET
+North America,USA,Bettles,Bettles,BTT
+North America,USA,Billings Logan,Billings Logan,BIL
+North America,USA,Birch Creek,Birch Creek,KBC
+North America,USA,Birmingham,Birmingham,BHM
+North America,USA,Bishop,Bishop,FNT
+North America,USA,Bismarck Municipal,Bismarck Municipal,BIS
+North America,USA,Bob Baker Memorial,Bob Baker Memorial,IAN
+North America,USA,Boeing Fld King Co,Boeing Fld King Co,BFI
+North America,USA,Boise Air Terminal,Boise Air Terminal,BOI
+North America,USA,Boone Co,Boone Co,HRO
+North America,USA,Boston Logan,Boston Logan,BOS
+North America,USA,Boulder City Municipal,Boulder City Municipal,BLD
+North America,USA,Bradford Regional,Bradford Regional,BFD
+North America,USA,Bradley,Bradley,BDL
+North America,USA,Brainerd Lakes Rgnl,Brainerd Lakes Rgnl,BRD
+North America,USA,Brevig Mission,Brevig Mission,KTS
+North America,USA,Brownsville South Padre Island,Brownsville South Padre Island,BRO
+North America,USA,Brunswick Golden Isles,Brunswick Golden Isles,BQK
+North America,USA,Buckland,Buckland,BKC
+North America,USA,Buffalo Niagara,Buffalo Niagara,BUF
+North America,USA,Burbank Glendale Pasadena,Burbank Glendale Pasadena,BUR
+North America,USA,Burlington,Burlington,BTV
+North America,USA,Canyonlands Field,Canyonlands Field,CNY
+North America,USA,Cape Girardeau Regional,Cape Girardeau Regional,CGI
+North America,USA,Cape Lisburne,Cape Lisburne,LUR
+North America,USA,Capital City,Capital City,LAN
+North America,USA,Cavern City Air Terminal,Cavern City Air Terminal,CNM
+North America,USA,Cedar City Rgnl,Cedar City Rgnl,CDC
+North America,USA,Cedar Rapids,Cedar Rapids,CID
+North America,USA,Central Illinois Rgnl,Central Illinois Rgnl,BMI
+North America,USA,Central Nebraska Regional,Central Nebraska Regional,GRI
+North America,USA,Chadron Municipal,Chadron Municipal,CDR
+North America,USA,Chalkyitsik,Chalkyitsik,CIK
+North America,USA,Champaign,Champaign,CMI
+North America,USA,Charles M Schulz Sonoma Co,Charles M Schulz Sonoma Co,STS
+North America,USA,Charleston Afb,Charleston Afb,CHS
+North America,USA,Charlotte County-Punta Gorda,Charlotte County-Punta Gorda,PGD
+North America,USA,Charlotte Douglas,Charlotte Douglas,CLT
+North America,USA,Charlottesville,Charlottesville,CHO
+North America,USA,Chefornak Sea Plane Base,Chefornak Sea Plane Base,CYF
+North America,USA,Cherry Capital,Cherry Capital,TVC
+North America,USA,Chevak,Chevak,VAK
+North America,USA,Cheyenne,Cheyenne,CYS
+North America,USA,Chicago Midway,Chicago Midway,MDW
+North America,USA,Chicago O Hare,Chicago O Hare,ORD
+North America,USA,Chicago Rockford,Chicago Rockford,RFD
+North America,USA,Chicken,Chicken,CKX
+North America,USA,Chippewa Valley Regional,Chippewa Valley Regional,EAU
+North America,USA,Chisana,Chisana,CZN
+North America,USA,Chisholm Hibbing,Chisholm Hibbing,HIB
+North America,USA,Chuathbaluk,Chuathbaluk,CHU
+North America,USA,Cincinnati Northern Kentucky,Cincinnati Northern Kentucky,CVG
+North America,USA,City Of Colorado Springs Muni,City Of Colorado Springs Muni,COS
+North America,USA,Clarks Point,Clarks Point,CLP
+North America,USA,Cleveland Hopkins,Cleveland Hopkins,CLE
+North America,USA,Clovis Muni,Clovis Muni,CVN
+North America,USA,Coffman Cove,Coffman Cove,KCC
+North America,USA,Cold Bay,Cold Bay,CDB
+North America,USA,Columbia Metropolitan,Columbia Metropolitan,CAE
+North America,USA,Columbia Rgnl,Columbia Rgnl,COU
+North America,USA,Columbus,Columbus,GTR
+North America,USA,Columbus Metropolitan,Columbus Metropolitan,CSG
+North America,USA,Concord Regional,Concord Regional,USA
+North America,USA,Corpus Christi,Corpus Christi,CRP
+North America,USA,Cortez Muni,Cortez Muni,CEZ
+North America,USA,Craig,Craig,CGA
+North America,USA,Craven Co Rgnl,Craven Co Rgnl,EWN
+North America,USA,Crooked Creek,Crooked Creek,CKD
+North America,USA,Dallas Fort Worth,Dallas Fort Worth,DFW
+North America,USA,Dallas Love Fld,Dallas Love Fld,DAL
+North America,USA,Dane Co Rgnl Truax Fld,Dane Co Rgnl Truax Fld,MSN
+North America,USA,Dawson Community,Dawson Community,GDV
+North America,USA,Daytona Beach,Daytona Beach,DAB
+North America,USA,Deadhorse,Deadhorse,SCC
+North America,USA,Decatur,Decatur,DEC
+North America,USA,Deering,Deering,DRG
+North America,USA,Del Norte County,Del Norte County,CEC
+North America,USA,Delta County,Delta County,ESC
+North America,USA,Denver,Denver,DEN
+North America,USA,Des Moines,Des Moines,DSM
+North America,USA,Detroit Metropolitan,Detroit Metropolitan,DTW
+North America,USA,Devils Lake Regional,Devils Lake Regional,DVL
+North America,USA,Dickinson Regional,Dickinson Regional,DIK
+North America,USA,Dillingham,Dillingham,DLG
+North America,USA,Dodge City Regional,Dodge City Regional,DDC
+North America,USA,Dothan Rgnl,Dothan Rgnl,DHN
+North America,USA,DuBois Regional,DuBois Regional,DUJ
+North America,USA,Dubuque,Dubuque,DBQ
+North America,USA,Duluth,Duluth,DLH
+North America,USA,Durango La Plata Co,Durango La Plata Co,DRO
+North America,USA,Eagle,Eagle,EAA
+North America,USA,Eagle Co Rgnl,Eagle Co Rgnl,EGE
+North America,USA,East Texas Rgnl,East Texas Rgnl,GGG
+North America,USA,Eastern Oregon Regional,Eastern Oregon Regional,PDT
+North America,USA,Eastern Sierra Regional,Eastern Sierra Regional,BIH
+North America,USA,Easterwood Fld,Easterwood Fld,CLL
+North America,USA,Edna Bay,Edna Bay,EDA
+North America,USA,Edward G Pitka Sr,Edward G Pitka Sr,GAL
+North America,USA,Eek,Eek,EEK
+North America,USA,Egegik,Egegik,EGX
+North America,USA,Eglin Afb,Eglin Afb,VPS
+North America,USA,El Paso,El Paso,ELP
+North America,USA,Elfin Cove,Elfin Cove,ELV
+North America,USA,Elim,Elim,ELI
+North America,USA,Elko Regional,Elko Regional,EKO
+North America,USA,Elmira Corning Rgnl,Elmira Corning Rgnl,ELM
+North America,USA,Emmonak,Emmonak,EMK
+North America,USA,Eppley Afld,Eppley Afld,OMA
+North America,USA,Erie Tom Ridge Fld,Erie Tom Ridge Fld,ERI
+North America,USA,Ernest A Love Fld,Ernest A Love Fld,PRC
+North America,USA,Evansville Regional,Evansville Regional,EVV
+North America,USA,Fairbanks,Fairbanks,FAI
+North America,USA,Falls,Falls,INL
+North America,USA,False Pass,False Pass,KFP
+North America,USA,Fayetteville Regional Grannis Field,Fayetteville Regional Grannis Field,FAY
+North America,USA,Flagstaff Pulliam,Flagstaff Pulliam,FLG
+North America,USA,Florence,Florence,FLO
+North America,USA,Ford,Ford,IMT
+North America,USA,Fort Dodge Rgnl,Fort Dodge Rgnl,FOD
+North America,USA,Fort Lauderdale Hollywood,Fort Lauderdale Hollywood,FLL
+North America,USA,Fort Leonard Wood,Fort Leonard Wood,TBN
+North America,USA,Fort Smith Rgnl,Fort Smith Rgnl,FSM
+North America,USA,Fort Wayne,Fort Wayne,FWA
+North America,USA,Fort Yukon,Fort Yukon,FYU
+North America,USA,Four Corners Rgnl,Four Corners Rgnl,FMN
+North America,USA,Fresno Yosemite,Fresno Yosemite,FAT
+North America,USA,Friday Harbor,Friday Harbor,FRD
+North America,USA,Friedman Mem,Friedman Mem,SUN
+North America,USA,Gainesville Rgnl,Gainesville Rgnl,GNV
+North America,USA,Gallatin Field,Gallatin Field,BZN
+North America,USA,Gallup Muni,Gallup Muni,GUP
+North America,USA,Gambell,Gambell,GAM
+North America,USA,Garden City Rgnl,Garden City Rgnl,GCK
+North America,USA,General Mitchell,General Mitchell,MKE
+North America,USA,George Bush Intcntl Houston,George Bush Intcntl Houston,IAH
+North America,USA,Gerald R Ford,Gerald R Ford,GRR
+North America,USA,Gillette-Campbell County,Gillette-Campbell County,GCC
+North America,USA,Glacier Park,Glacier Park,FCA
+North America,USA,Gogebic Iron County,Gogebic Iron County,IWD
+North America,USA,Golovin,Golovin,GLV
+North America,USA,Grand Canyon Park,Grand Canyon Park,GCN
+North America,USA,Grand Canyon West,Grand Canyon West,GCW
+North America,USA,Grand Forks,Grand Forks,GFK
+North America,USA,Grand Junction Regional,Grand Junction Regional,GJT
+North America,USA,Grant County,Grant County,SVC
+North America,USA,Grayling,Grayling,KGX
+North America,USA,Great Falls,Great Falls,GTF
+North America,USA,Greater Binghamton Edwin A Link Fld,Greater Binghamton Edwin A Link Fld,BGM
+North America,USA,Greater Rochester,Greater Rochester,ROC
+North America,USA,Greenbrier Valley,Greenbrier Valley,LWB
+North America,USA,Greenville-Spartanburg,Greenville-Spartanburg,GSP
+North America,USA,Gulfport-Biloxi,Gulfport-Biloxi,GPT
+North America,USA,Gunnison - Crested Butte,Gunnison - Crested Butte,GUC
+North America,USA,Gustavus,Gustavus,GST
+North America,USA,Hagerstown Regional Richard A Henson Field,Hagerstown Regional Richard A Henson Field,HGR
+North America,USA,Haines,Haines,HNS
+North America,USA,Hana,Hana,HNM
+North America,USA,Hancock County - Bar Harbor,Hancock County - Bar Harbor,BHB
+North America,USA,Hardy-Anders,Hardy-Anders,HEZ
+North America,USA,Harrisburg,Harrisburg,MDT
+North America,USA,Harrison Marion Regional,Harrison Marion Regional,CKB
+North America,USA,Harry Reid,Harry Reid,LAS
+North America,USA,Hartsfield–Jackson Atlanta,Hartsfield–Jackson Atlanta,ATL
+North America,USA,Havre City Co,Havre City Co,HVR
+North America,USA,Hays Regional,Hays Regional,HYS
+North America,USA,Healy River,Healy River,HKB
+North America,USA,Hector,Hector,FAR
+North America,USA,Helena Rgnl,Helena Rgnl,HLN
+North America,USA,Hilo,Hilo,ITO
+North America,USA,Hilton Head,Hilton Head,HHH
+North America,USA,Hollis,Hollis,HYL
+North America,USA,Holy Cross,Holy Cross,HCR
+North America,USA,Homer,Homer,HOM
+North America,USA,Honolulu,Honolulu,HNL
+North America,USA,Hoolehua,Hoolehua,MKK
+North America,USA,Hoonah,Hoonah,HNH
+North America,USA,Hooper Bay,Hooper Bay,HPB
+North America,USA,Houghton County Memorial,Houghton County Memorial,CMX
+North America,USA,Hughes,Hughes,HUS
+North America,USA,Huntsville -Carl T Jones Field,Huntsville -Carl T Jones Field,HSV
+North America,USA,Huslia,Huslia,HSL
+North America,USA,Hydaburg Sea Plane Base,Hydaburg Sea Plane Base,HYG
+North America,USA,Idaho Falls Rgnl,Idaho Falls Rgnl,IDA
+North America,USA,Iliamna,Iliamna,ILI
+North America,USA,Imperial Co,Imperial Co,IPL
+North America,USA,Indianapolis,Indianapolis,IND
+North America,USA,Ithaca Tompkins Regional,Ithaca Tompkins Regional,ITH
+North America,USA,Jack Edwards,Jack Edwards,GUF
+North America,USA,Jack Northrop Fld Hawthorne Muni,Jack Northrop Fld Hawthorne Muni,HHR
+North America,USA,Jackson,Jackson,JAN
+North America,USA,Jackson Hole,Jackson Hole,JAC
+North America,USA,Jacksonville,Jacksonville,JAX
+North America,USA,Jacksonville,Jacksonville,OAJ
+North America,USA,Jacqueline Cochran Regional,Jacqueline Cochran Regional,TRM
+North America,USA,James M Cox Dayton,James M Cox Dayton,DAY
+North America,USA,Jamestown Regional,Jamestown Regional,JMS
+North America,USA,John F Kennedy,John F Kennedy,JFK
+North America,USA,John Murtha Johnstown-Cambria County,John Murtha Johnstown-Cambria County,JST
+North America,USA,John Wayne Arpt Orange Co,John Wayne Arpt Orange Co,SNA
+North America,USA,Jonesboro Muni,Jonesboro Muni,JBR
+North America,USA,Joplin Rgnl,Joplin Rgnl,JLN
+North America,USA,Juneau,Juneau,JNU
+North America,USA,Kahului,Kahului,OGG
+North America,USA,Kake Sea Plane Base,Kake Sea Plane Base,KAE
+North America,USA,Kakhonak,Kakhonak,KNK
+North America,USA,Kalamazoo,Kalamazoo,AZO
+North America,USA,Kalaupapa,Kalaupapa,LUP
+North America,USA,Kalskag,Kalskag,KLG
+North America,USA,Kaltag,Kaltag,KAL
+North America,USA,Kamuela,Kamuela,MUE
+North America,USA,Kansas City,Kansas City,MCI
+North America,USA,Kapalua,Kapalua,JHM
+North America,USA,Karuluk,Karuluk,KYK
+North America,USA,Kasaan,Kasaan,KXA
+North America,USA,Kearney Municipal,Kearney Municipal,EAR
+North America,USA,Kenai Muni,Kenai Muni,ENA
+North America,USA,Ketchikan,Ketchikan,KTN
+North America,USA,Ketchikan Harbor Sea Plane Base,Ketchikan Harbor Sea Plane Base,WFB
+North America,USA,Key Field,Key Field,MEI
+North America,USA,Key West,Key West,EYW
+North America,USA,King Cove,King Cove,KVC
+North America,USA,King Salmon,King Salmon,AKN
+North America,USA,Kipnuk Sea Plane Base,Kipnuk Sea Plane Base,KPN
+North America,USA,Kirksville Regional,Kirksville Regional,IRK
+North America,USA,Kivalina,Kivalina,KVL
+North America,USA,Klawock,Klawock,KLW
+North America,USA,Knox County Regional,Knox County Regional,RKD
+North America,USA,Kobuk,Kobuk,OBU
+North America,USA,Kodiak,Kodiak,ADQ
+North America,USA,Kona,Kona,KOA
+North America,USA,Kongiganak,Kongiganak,KKH
+North America,USA,Kotlik,Kotlik,KOT
+North America,USA,Koyuk Alfred Adams,Koyuk Alfred Adams,KKA
+North America,USA,Koyukuk,Koyukuk,KYU
+North America,USA,Kwigillingok,Kwigillingok,KWK
+North America,USA,LM Clayton,LM Clayton,OLF
+North America,USA,La Crosse,La Crosse,LSE
+North America,USA,La Guardia,La Guardia,LGA
+North America,USA,Lafayette Rgnl,Lafayette Rgnl,LFT
+North America,USA,Lake Charles Rgnl,Lake Charles Rgnl,LCH
+North America,USA,Lake Minchumina,Lake Minchumina,LMA
+North America,USA,Lake Union Sea Plane Base,Lake Union Sea Plane Base,LKE
+North America,USA,Lakeland Linder Regional,Lakeland Linder Regional,LAL
+North America,USA,Lanai City,Lanai City,LNY
+North America,USA,Lancaster,Lancaster,LNS
+North America,USA,Laramie Regional,Laramie Regional,LAR
+North America,USA,Laredo,Laredo,LRD
+North America,USA,Larsen Bay,Larsen Bay,KLN
+North America,USA,Las Cruces,Las Cruces,LRU
+North America,USA,Laurel,Laurel,PIB
+North America,USA,Lawton-Fort Sill Regional,Lawton-Fort Sill Regional,LAW
+North America,USA,Lea Co Rgnl,Lea Co Rgnl,HOB
+North America,USA,Lebanon Municipal,Lebanon Municipal,LEB
+North America,USA,Lehigh Valley,Lehigh Valley,ABE
+North America,USA,Levelock,Levelock,KLL
+North America,USA,Lewiston Nez Perce Co,Lewiston Nez Perce Co,LWS
+North America,USA,Lexington,Lexington,LEX
+North America,USA,Liberal Muni,Liberal Muni,LBL
+North America,USA,Lihue,Lihue,LIH
+North America,USA,Lincoln Muni,Lincoln Muni,LNK
+North America,USA,Long Beach,Long Beach,LGB
+North America,USA,Long Island Mac Arthur,Long Island Mac Arthur,ISP
+North America,USA,Lopez Island,Lopez Island,LPS
+North America,USA,Los Angeles,Los Angeles,LAX
+North America,USA,Louis Armstrong New Orleans,Louis Armstrong New Orleans,MSY
+North America,USA,Louisville,Louisville,SDF
+North America,USA,Lovell Fld,Lovell Fld,CHA
+North America,USA,Lubbock,Lubbock,LBB
+North America,USA,Lynchburg Regional Preston Glenn Field,Lynchburg Regional Preston Glenn Field,LYH
+North America,USA,Magic Valley Regional,Magic Valley Regional,TWF
+North America,USA,Mahlon Sweet Fld,Mahlon Sweet Fld,EUG
+North America,USA,Mammoth Yosemite,Mammoth Yosemite,MMH
+North America,USA,Manchester,Manchester,MHT
+North America,USA,Manhattan Reigonal,Manhattan Reigonal,MHK
+North America,USA,Manistee County-Blacker,Manistee County-Blacker,MBL
+North America,USA,Manokotak,Manokotak,KMO
+North America,USA,Martha's Vineyard,Martha's Vineyard,MVY
+North America,USA,Mason City Municipal,Mason City Municipal,MCW
+North America,USA,Massena Richards Fld,Massena Richards Fld,MSS
+North America,USA,Mbs,Mbs,MBS
+North America,USA,Mc Allen Miller,Mc Allen Miller,MFE
+North America,USA,Mc Cook,Mc Cook,MCK
+North America,USA,Mc Ghee Tyson,Mc Ghee Tyson,TYS
+North America,USA,Mc Kellar Sipes Rgnl,Mc Kellar Sipes Rgnl,MKL
+North America,USA,McClellan-Palomar,McClellan-Palomar,CLD
+North America,USA,Meadows Fld,Meadows Fld,BFL
+North America,USA,Mekoryuk,Mekoryuk,MYU
+North America,USA,Melbourne,Melbourne,MLB
+North America,USA,Memorial Field,Memorial Field,HOT
+North America,USA,Memphis,Memphis,MEM
+North America,USA,Merced Municipal,Merced Municipal,MCE
+North America,USA,Metlakatla,Metlakatla,MTM
+North America,USA,Metropolitan Oakland,Metropolitan Oakland,OAK
+North America,USA,Meyers Chuck,Meyers Chuck,WMK
+North America,USA,Miami,Miami,MIA
+North America,USA,Mid Delta Regional,Mid Delta Regional,GLH
+North America,USA,Mid-Ohio Valley Regional,Mid-Ohio Valley Regional,PKB
+North America,USA,Middle Georgia Rgnl,Middle Georgia Rgnl,MCN
+North America,USA,Midland,Midland,MAF
+North America,USA,Minneapolis St Paul,Minneapolis St Paul,MSP
+North America,USA,Minot,Minot,MOT
+North America,USA,Missoula,Missoula,MSO
+North America,USA,Mobile Rgnl,Mobile Rgnl,MOB
+North America,USA,Monroe Rgnl,Monroe Rgnl,MLU
+North America,USA,Monterey Peninsula,Monterey Peninsula,MRY
+North America,USA,Montgomery Regional,Montgomery Regional,MGM
+North America,USA,Montrose,Montrose,MTJ
+North America,USA,Morgantown Muni Walter L Bill Hart Fld,Morgantown Muni Walter L Bill Hart Fld,MGW
+North America,USA,Mudhole Smith,Mudhole Smith,CDV
+North America,USA,Muskegon County,Muskegon County,MKG
+North America,USA,Myrtle Beach,Myrtle Beach,MYR
+North America,USA,NW Arkansas Regional,NW Arkansas Regional,XNA
+North America,USA,Nantucket Mem,Nantucket Mem,ACK
+North America,USA,Nashville,Nashville,BNA
+North America,USA,Natrona Co,Natrona Co,CPR
+North America,USA,Naukiti,Naukiti,NKI
+North America,USA,Nelson Lagoon,Nelson Lagoon,NLG
+North America,USA,New Bedford Regional,New Bedford Regional,EWB
+North America,USA,New Castle Co,New Castle Co,ILG
+North America,USA,New Stuyahok,New Stuyahok,KNW
+North America,USA,Newark Liberty,Newark Liberty,EWR
+North America,USA,Newport News Williamsburg,Newport News Williamsburg,PHF
+North America,USA,Niagara Falls,Niagara Falls,IAG
+North America,USA,Nikolski Air Station,Nikolski Air Station,IKO
+North America,USA,Noatak,Noatak,WTK
+North America,USA,Nome,Nome,OME
+North America,USA,Nondalton,Nondalton,NNL
+North America,USA,Norfolk,Norfolk,ORF
+North America,USA,Norman Y Mineta San Jose,Norman Y Mineta San Jose,SJC
+North America,USA,North Platte Regional Lee Bird Field,North Platte Regional Lee Bird Field,LBF
+North America,USA,Northern Maine Rgnl At Presque Isle,Northern Maine Rgnl At Presque Isle,PQI
+North America,USA,Northway,Northway,ORT
+North America,USA,Northwest Alabama Regional,Northwest Alabama Regional,MSL
+North America,USA,Norwood Memorial,Norwood Memorial,OWD
+North America,USA,Nuiqsut,Nuiqsut,NUI
+North America,USA,Nulato,Nulato,NUL
+North America,USA,Ogden Municipal,Ogden Municipal,OGD
+North America,USA,Ogdensburg,Ogdensburg,OGS
+North America,USA,Old Harbor,Old Harbor,OLH
+North America,USA,Ontario,Ontario,ONT
+North America,USA,Orcas Island,Orcas Island,ESD
+North America,USA,Orlando,Orlando,MCO
+North America,USA,Orlando Sanford,Orlando Sanford,SFB
+North America,USA,Ouzinkie Sea Plane Base,Ouzinkie Sea Plane Base,KOZ
+North America,USA,Owensboro Daviess County,Owensboro Daviess County,OWB
+North America,USA,Page Municipal,Page Municipal,PGA
+North America,USA,Palm Beach,Palm Beach,PBI
+North America,USA,Palm Springs,Palm Springs,PSP
+North America,USA,Panama City-NW Florida Bea.,Panama City-NW Florida Bea.,ECP
+North America,USA,Pangborn Field,Pangborn Field,EAT
+North America,USA,Pease Air Force Base,Pease Air Force Base,PSM
+North America,USA,Pedro Bay,Pedro Bay,PDB
+North America,USA,Pelican,Pelican,PEC
+North America,USA,Pellston Regional of Emmet County,Pellston Regional of Emmet County,PLN
+North America,USA,Pensacola Rgnl,Pensacola Rgnl,PNS
+North America,USA,Peoria Regional,Peoria Regional,PIA
+North America,USA,Petersburg James A. Johnson,Petersburg James A. Johnson,PSG
+North America,USA,Philadelphia,Philadelphia,PHL
+North America,USA,Philadelphia 30th St Station,Philadelphia 30th St Station,ZFV
+North America,USA,Phoenix Sky Harbor,Phoenix Sky Harbor,PHX
+North America,USA,Phoenix–Mesa Gateway,Phoenix–Mesa Gateway,AZA
+North America,USA,Piedmont Triad,Piedmont Triad,GSO
+North America,USA,Pierre Regional,Pierre Regional,PIR
+North America,USA,Pilot Station,Pilot Station,PQS
+North America,USA,Pitt-Greenville,Pitt-Greenville,PGV
+North America,USA,Pittsburgh,Pittsburgh,PIT
+North America,USA,Plattsburgh,Plattsburgh,PBG
+North America,USA,Pocatello Regional,Pocatello Regional,PIH
+North America,USA,Point Baker,Point Baker,KPB
+North America,USA,Point Hope,Point Hope,PHO
+North America,USA,Point Lay Lrrs,Point Lay Lrrs,PIZ
+North America,USA,Port Alsworth,Port Alsworth,PTA
+North America,USA,Port Columbus,Port Columbus,CMH
+North America,USA,Port Lions,Port Lions,ORI
+North America,USA,Port Protection,Port Protection,PPV
+North America,USA,Portland,Portland,PDX
+North America,USA,Portland Jetport,Portland Jetport,PWM
+North America,USA,Provincetown Muni,Provincetown Muni,PVC
+North America,USA,Provo Municipal,Provo Municipal,PVU
+North America,USA,Pueblo,Pueblo,PUB
+North America,USA,Pullman-Moscow Rgnl,Pullman-Moscow Rgnl,PUW
+North America,USA,Purude University,Purude University,LAF
+North America,USA,Quad City,Quad City,MLI
+North America,USA,Quincy Regional Baldwin Field,Quincy Regional Baldwin Field,UIN
+North America,USA,Quinhagak,Quinhagak,KWN
+North America,USA,Raleigh County Memorial,Raleigh County Memorial,BKW
+North America,USA,Raleigh–Durham,Raleigh–Durham,RDU
+North America,USA,Ralph M Calhoun,Ralph M Calhoun,TAL
+North America,USA,Ralph Wien Mem,Ralph Wien Mem,OTZ
+North America,USA,Rapid City Regional,Rapid City Regional,RAP
+North America,USA,Red Devil,Red Devil,RDV
+North America,USA,Redding Muni,Redding Muni,RDD
+North America,USA,Redmond,Redmond,RDM
+North America,USA,Reno Tahoe,Reno Tahoe,RNO
+North America,USA,Rhinelander Oneida County,Rhinelander Oneida County,RHI
+North America,USA,Richmond,Richmond,RIC
+North America,USA,Rickenbacker,Rickenbacker,LCK
+North America,USA,Riverton,Riverton,RIW
+North America,USA,Roanoke,Roanoke,ROA
+North America,USA,Robert Curtis Memorial,Robert Curtis Memorial,ORV
+North America,USA,Robert Gray Aaf,Robert Gray Aaf,GRK
+North America,USA,Rochester,Rochester,RST
+North America,USA,Rock Springs Sweetwater County,Rock Springs Sweetwater County,RKS
+North America,USA,Rogue Valley Medford,Rogue Valley Medford,MFR
+North America,USA,Ronald Reagan Washington,Ronald Reagan Washington,DCA
+North America,USA,Roswell Industrial Air Center,Roswell Industrial Air Center,ROW
+North America,USA,Ruby,Ruby,RBY
+North America,USA,Russian Mission,Russian Mission,RSH
+North America,USA,Rutland State,Rutland State,RUT
+North America,USA,Sacramento,Sacramento,SMF
+North America,USA,Saint Cloud Regional,Saint Cloud Regional,STC
+North America,USA,Saint George Island,Saint George Island,STG
+North America,USA,Saint Louis,Saint Louis,STL
+North America,USA,Saint Mary's,Saint Mary's,KSM
+North America,USA,Saint Michael,Saint Michael,SMK
+North America,USA,Saint Paul Island,Saint Paul Island,SNP
+North America,USA,Salina Municipal,Salina Municipal,SLN
+North America,USA,Salisbury Ocean City Wicomico Rgnl,Salisbury Ocean City Wicomico Rgnl,SBY
+North America,USA,Salt Lake City,Salt Lake City,SLC
+North America,USA,San Angelo Rgnl Mathis Fld,San Angelo Rgnl Mathis Fld,SJT
+North America,USA,San Antonio,San Antonio,SAT
+North America,USA,San Bernardino,San Bernardino,SBD
+North America,USA,San Diego,San Diego,SAN
+North America,USA,San Francisco,San Francisco,SFO
+North America,USA,San Luis County Regional,San Luis County Regional,SBP
+North America,USA,San Luis Valley Regional,San Luis Valley Regional,ALS
+North America,USA,Sand Point,Sand Point,SDP
+North America,USA,Santa Barbara Muni,Santa Barbara Muni,SBA
+North America,USA,Santa Fe Muni,Santa Fe Muni,SAF
+North America,USA,Santa Maria Pub Cpt G Allan Hancock,Santa Maria Pub Cpt G Allan Hancock,SMX
+North America,USA,Sarasota Bradenton,Sarasota Bradenton,SRQ
+North America,USA,Sault Ste Marie,Sault Ste Marie,CIU
+North America,USA,Savannah Hilton Head,Savannah Hilton Head,SAV
+North America,USA,Savoonga,Savoonga,SVA
+North America,USA,Sawyer,Sawyer,MQT
+North America,USA,Scammon Bay Sea Plane Base,Scammon Bay Sea Plane Base,SCM
+North America,USA,Scott Afb Midamerica,Scott Afb Midamerica,BLV
+North America,USA,Searcy Field,Searcy Field,SWO
+North America,USA,Seattle Tacoma,Seattle Tacoma,SEA
+North America,USA,Selawik,Selawik,WLK
+North America,USA,Shageluk,Shageluk,SHX
+North America,USA,Shaktoolik,Shaktoolik,SKK
+North America,USA,Sheldon Point,Sheldon Point,SXP
+North America,USA,Shenandoah Valley Regional,Shenandoah Valley Regional,SHD
+North America,USA,Sheppard Afb Wichita Falls Muni,Sheppard Afb Wichita Falls Muni,SPS
+North America,USA,Sheridan County,Sheridan County,SHR
+North America,USA,Shishmaref,Shishmaref,SHH
+North America,USA,Show Low Regional,Show Low Regional,SOW
+North America,USA,Shreveport Rgnl,Shreveport Rgnl,SHV
+North America,USA,Shungnak,Shungnak,SHG
+North America,USA,Sidney-Richland Municipal,Sidney-Richland Municipal,SDY
+North America,USA,Sioux Falls,Sioux Falls,FSD
+North America,USA,Sioux Gateway Col Bud Day Fld,Sioux Gateway Col Bud Day Fld,SUX
+North America,USA,Sitka,Sitka,SIT
+North America,USA,Skagway,Skagway,SGY
+North America,USA,Sleetmute,Sleetmute,SLQ
+North America,USA,Snohomish Co,Snohomish Co,PAE
+North America,USA,South Arkansas Rgnl At Goodwin Fld,South Arkansas Rgnl At Goodwin Fld,ELD
+North America,USA,South Bend Rgnl,South Bend Rgnl,SBN
+North America,USA,South Naknek,South Naknek,WSN
+North America,USA,Southeast Iowa Regional,Southeast Iowa Regional,BRL
+North America,USA,Southeast Texas Rgnl,Southeast Texas Rgnl,BPT
+North America,USA,Southwest Florida,Southwest Florida,RSW
+North America,USA,Southwest Georgia Regional,Southwest Georgia Regional,ABY
+North America,USA,Southwest Oregon Regional,Southwest Oregon Regional,OTH
+North America,USA,Spokane,Spokane,GEG
+North America,USA,Springfield Branson Natl,Springfield Branson Natl,SGF
+North America,USA,St George Muni,St George Muni,SGU
+North America,USA,St. Pete–Clearwater,St. Pete–Clearwater,PIE
+North America,USA,State College/University Park,State College/University Park,SCE
+North America,USA,Stebbins,Stebbins,WBB
+North America,USA,Stevens Point/Wausau,Stevens Point/Wausau,CWA
+North America,USA,Stewart,Stewart,SWF
+North America,USA,Stockton Metropolitan,Stockton Metropolitan,SCK
+North America,USA,Stony River 2,Stony River 2,SRV
+North America,USA,Syracuse Hancock,Syracuse Hancock,SYR
+North America,USA,Tallahassee Rgnl,Tallahassee Rgnl,TLH
+North America,USA,Tampa,Tampa,TPA
+North America,USA,Taos,Taos,TSM
+North America,USA,Ted Stevens Anchorage,Ted Stevens Anchorage,ANC
+North America,USA,Teller,Teller,TLA
+North America,USA,Telluride,Telluride,TEX
+North America,USA,Tenakee Springs,Tenakee Springs,TKE
+North America,USA,Teterboro,Teterboro,TEB
+North America,USA,Texarkana Rgnl Webb Fld,Texarkana Rgnl Webb Fld,TXK
+North America,USA,Theodore Francis Green State,Theodore Francis Green State,PVD
+North America,USA,Thief River Falls,Thief River Falls,TVF
+North America,USA,Thorne Bay,Thorne Bay,KTB
+North America,USA,Tin City Lrrs,Tin City Lrrs,TNC
+North America,USA,Tok,Tok,TKJ
+North America,USA,Toksook Bay,Toksook Bay,OOK
+North America,USA,Toledo,Toledo,TOL
+North America,USA,Trenton Mercer,Trenton Mercer,TTN
+North America,USA,Tri Cities,Tri Cities,PSC
+North America,USA,Tri State Milton J Ferguson Field,Tri State Milton J Ferguson Field,HTS
+North America,USA,Tri-Cities Regional,Tri-Cities Regional,TRI
+North America,USA,Tucson,Tucson,TUS
+North America,USA,Tulsa,Tulsa,TUL
+North America,USA,Tuntutuliak,Tuntutuliak,WTL
+North America,USA,Tupelo Regional,Tupelo Regional,TUP
+North America,USA,Tweed-New Haven,Tweed-New Haven,HVN
+North America,USA,Tyler Pounds Rgnl,Tyler Pounds Rgnl,TYR
+North America,USA,Unalakleet,Unalakleet,UNK
+North America,USA,Unalaska,Unalaska,DUT
+North America,USA,Valdosta Regional,Valdosta Regional,VLD
+North America,USA,Valley,Valley,HRL
+North America,USA,Van Nuys,Van Nuys,VNY
+North America,USA,Venetie,Venetie,VEE
+North America,USA,Vernal Regional,Vernal Regional,VEL
+North America,USA,Vero Beach Muni,Vero Beach Muni,VRB
+North America,USA,Victoria Regional,Victoria Regional,VCT
+North America,USA,Waco Rgnl,Waco Rgnl,ACT
+North America,USA,Wainwright,Wainwright,AIN
+North America,USA,Wales,Wales,WAA
+North America,USA,Walla Walla Regional,Walla Walla Regional,ALW
+North America,USA,Washington Dulles,Washington Dulles,IAD
+North America,USA,Waterloo Regional,Waterloo Regional,ALO
+North America,USA,Watertown,Watertown,ART
+North America,USA,Watertown Regional,Watertown Regional,ATY
+North America,USA,Westchester Co,Westchester Co,HPN
+North America,USA,Western Nebraska Regional,Western Nebraska Regional,BFF
+North America,USA,Whale Pass,Whale Pass,WWP
+North America,USA,White Mountain,White Mountain,WMO
+North America,USA,Wichita Mid Continent,Wichita Mid Continent,ICT
+North America,USA,Wiley Post Will Rogers Mem,Wiley Post Will Rogers Mem,BRW
+North America,USA,Wilkes Barre Scranton,Wilkes Barre Scranton,AVP
+North America,USA,Will Rogers World,Will Rogers World,OKC
+North America,USA,William P. Hobby,William P. Hobby,HOU
+North America,USA,Williamson Country Regional,Williamson Country Regional,MWA
+North America,USA,Williamsport Rgnl,Williamsport Rgnl,IPT
+North America,USA,Wilmington,Wilmington,ILM
+North America,USA,Witham Field,Witham Field,SUA
+North America,USA,Wokal Field Glasgow,Wokal Field Glasgow,GGW
+North America,USA,Worcester Regional,Worcester Regional,ORH
+North America,USA,Wrangell,Wrangell,WRG
+North America,USA,Yakima Air Terminal McAllister Field,Yakima Air Terminal McAllister Field,YKM
+North America,USA,Yakutat,Yakutat,YAK
+North America,USA,Yampa Valley,Yampa Valley,HDN
+North America,USA,Yeager,Yeager,CRW
+North America,USA,Yellowstone,Yellowstone,WYS
+North America,USA,Yellowstone Rgnl,Yellowstone Rgnl,COD
+North America,USA,Yuma Mcas Yuma,Yuma Mcas Yuma,YUM

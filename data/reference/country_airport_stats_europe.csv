@@ -1,0 +1,804 @@
+continent,country,city,airport_name,airport_code
+Europe,Aland,Mariehamn,Mariehamn,MHQ
+Europe,Albania,Tirana Nënë Tereza,Tirana Nënë Tereza,TIA
+Europe,Albania,Vlora airport,Vlora airport,VLO
+Europe,Armenia,Leninakan,Leninakan,LWN
+Europe,Armenia,Zvartnots,Zvartnots,EVN
+Europe,Austria,Graz Mil/Civ,Graz Mil/Civ,GRZ
+Europe,Austria,Horsching (Aus - Afb),Horsching (Aus - Afb),LNZ
+Europe,Austria,Innsbruck,Innsbruck,INN
+Europe,Austria,Klagenfurt(Aus-Afb),Klagenfurt(Aus-Afb),KLU
+Europe,Austria,Salzburg,Salzburg,SZG
+Europe,Austria,Vienna,Vienna,VIE
+Europe,Azerbaijan,Ganja,Ganja,GNJ
+Europe,Azerbaijan,Gyandzha,Gyandzha,KVD
+Europe,Azerbaijan,Heydar Aliyev,Heydar Aliyev,GYD
+Europe,Azerbaijan,Nakhichevan,Nakhichevan,NAJ
+Europe,Belarus,Brest,Brest,BQT
+Europe,Belarus,Gomel,Gomel,GME
+Europe,Belarus,Minsk,Minsk,MSQ
+Europe,Belarus,Mogilev,Mogilev,MVQ
+Europe,Belgium,Brussels,Brussels,BRU
+Europe,Belgium,Brussels Gare du Midi,Brussels Gare du Midi,ZYR
+Europe,Belgium,Brussels South Charleroi,Brussels South Charleroi,CRL
+Europe,Belgium,Deurne,Deurne,ANR
+Europe,Belgium,Oostende,Oostende,OST
+Europe,Bosnia and Herzegovina,Banja Luka,Banja Luka,BNX
+Europe,Bosnia and Herzegovina,Mostar,Mostar,OMO
+Europe,Bosnia and Herzegovina,Sarajevo,Sarajevo,SJJ
+Europe,Bosnia and Herzegovina,Tuzla,Tuzla,TZL
+Europe,Bulgaria,Burgas,Burgas,BOJ
+Europe,Bulgaria,Plovdiv,Plovdiv,PDV
+Europe,Bulgaria,Sofia,Sofia,SOF
+Europe,Bulgaria,Varna,Varna,VAR
+Europe,Croatia,Bol,Bol,BWK
+Europe,Croatia,Dubrovnik,Dubrovnik,DBV
+Europe,Croatia,Osijek,Osijek,OSI
+Europe,Croatia,Pula,Pula,PUY
+Europe,Croatia,Rijeka,Rijeka,RJK
+Europe,Croatia,Split,Split,SPU
+Europe,Croatia,Zadar,Zadar,ZAD
+Europe,Croatia,Zagreb,Zagreb,ZAG
+Europe,Croatia,Zhongchuan,Zhongchuan,ZGC
+Europe,Cyprus,Ercan,Ercan,ECN
+Europe,Cyprus,Larnaca,Larnaca,LCA
+Europe,Cyprus,Paphos,Paphos,PFO
+Europe,Czech Republic,Mosnov,Mosnov,OSR
+Europe,Czech Republic,Pardubice,Pardubice,PED
+Europe,Czech Republic,Turany,Turany,BRQ
+Europe,Czech Republic,Václav Havel Prague,Václav Havel Prague,PRG
+Europe,Denmark,Aalborg,Aalborg,AAL
+Europe,Denmark,Aarhus,Aarhus,AAR
+Europe,Denmark,Billund,Billund,BLL
+Europe,Denmark,Bornholm Ronne,Bornholm Ronne,RNN
+Europe,Denmark,Copenhagen,Copenhagen,CPH
+Europe,Denmark,Esbjerg,Esbjerg,EBJ
+Europe,Denmark,Karup,Karup,KRP
+Europe,Denmark,Sonderborg,Sonderborg,SGD
+Europe,Estonia,Kardla,Kardla,KDL
+Europe,Estonia,Kuressaare,Kuressaare,URE
+Europe,Estonia,Tallinn,Tallinn,TLL
+Europe,Estonia,Tartu,Tartu,TAY
+Europe,Faroe Islands,Vagar,Vagar,FAE
+Europe,Finland,Helsinki,Helsinki,HEL
+Europe,Finland,Ivalo,Ivalo,IVL
+Europe,Finland,Joensuu,Joensuu,JOE
+Europe,Finland,Jyvaskyla,Jyvaskyla,JYV
+Europe,Finland,Kajaani,Kajaani,KAJ
+Europe,Finland,Kemi Tornio,Kemi Tornio,KEM
+Europe,Finland,Kittila,Kittila,KTT
+Europe,Finland,Kruunupyy,Kruunupyy,KOK
+Europe,Finland,Kuopio,Kuopio,KUO
+Europe,Finland,Kuusamo,Kuusamo,KAO
+Europe,Finland,Oulu,Oulu,OUL
+Europe,Finland,Pori,Pori,POR
+Europe,Finland,Rovaniemi,Rovaniemi,RVN
+Europe,Finland,Savonlinna,Savonlinna,SVL
+Europe,Finland,Tampere Pirkkala,Tampere Pirkkala,TMP
+Europe,Finland,Turku,Turku,TKU
+Europe,Finland,Vaasa,Vaasa,VAA
+Europe,France,Aix Les Bains,Aix Les Bains,CMF
+Europe,France,Aurillac,Aurillac,AUR
+Europe,France,Beauvais–Tillé,Beauvais–Tillé,BVA
+Europe,France,Bellegarde,Bellegarde,LIG
+Europe,France,Biard,Biard,PIS
+Europe,France,Biarritz,Biarritz,BIQ
+Europe,France,Bordeaux–Mérignac,Bordeaux–Mérignac,BOD
+Europe,France,Campo Dell Oro,Campo Dell Oro,AJA
+Europe,France,Carpiquet,Carpiquet,CFR
+Europe,France,Chalons Vatry,Chalons Vatry,XCR
+Europe,France,Charles De Gaulle,Charles De Gaulle,CDG
+Europe,France,Clermont-ferrand,Clermont-ferrand,CFE
+Europe,France,Cote D Azur,Cote D Azur,NCE
+Europe,France,Entzheim,Entzheim,SXB
+Europe,France,Euro Basel Mulhouse Freiburg,Euro Basel Mulhouse Freiburg,BSL
+Europe,France,Figari,Figari,FSC
+Europe,France,Gare de Strasbourg,Gare de Strasbourg,XWG
+Europe,France,Garons,Garons,FNI
+Europe,France,Guipavas,Guipavas,BES
+Europe,France,Hyeres,Hyeres,TLN
+Europe,France,Lann Bihoue,Lann Bihoue,LRT
+Europe,France,Lesquin,Lesquin,LIL
+Europe,France,Lherm,Lherm,LRH
+Europe,France,Lille,Lille,XDB
+Europe,France,Loudes,Loudes,LPY
+Europe,France,Lourdes,Lourdes,LDE
+Europe,France,Lyon Part-Dieu Railway,Lyon Part-Dieu Railway,XYD
+Europe,France,Lyon–Saint-Exupéry,Lyon–Saint-Exupéry,LYS
+Europe,France,Marcillac,Marcillac,RDZ
+Europe,France,Marseille Provence,Marseille Provence,MRS
+Europe,France,Mazamet,Mazamet,DCM
+Europe,France,Mediterranee,Mediterranee,MPL
+Europe,France,Metz Nancy Lorraine,Metz Nancy Lorraine,ETZ
+Europe,France,Montoir,Montoir,SNR
+Europe,France,Nantes,Nantes,NTE
+Europe,France,Orly,Orly,ORY
+Europe,France,Ouessant,Ouessant,OUI
+Europe,France,Pau Pyrenees,Pau Pyrenees,PUF
+Europe,France,Poretta,Poretta,BIA
+Europe,France,Rivesaltes,Rivesaltes,PGF
+Europe,France,Roumaniere,Roumaniere,EGC
+Europe,France,Saint Catherine,Saint Catherine,CLY
+Europe,France,Saint Geoirs,Saint Geoirs,GNB
+Europe,France,Saint-Pierre-des-Corps,Saint-Pierre-des-Corps,XSH
+Europe,France,Salvaza,Salvaza,CCF
+Europe,France,St Gatien,St Gatien,DOL
+Europe,France,St Jacques,St Jacques,RNS
+Europe,France,Tavaux,Tavaux,DLE
+Europe,France,Toulouse–Blagnac,Toulouse–Blagnac,TLS
+Europe,France,Val De Loire,Val De Loire,TUF
+Europe,France,Vallee de la Dordogne,Vallee de la Dordogne,BVE
+Europe,France,Vias,Vias,BZR
+Europe,Georgia,Batumi,Batumi,BUS
+Europe,Georgia,Kutaisi,Kutaisi,KUT
+Europe,Georgia,Lochini,Lochini,TBS
+Europe,Georgia,Sukhumi Dranda,Sukhumi Dranda,SUI
+Europe,Germany,Berlin Brandenburg,Berlin Brandenburg,BER
+Europe,Germany,Berlin Hauptbahnhof,Berlin Hauptbahnhof,QPP
+Europe,Germany,Berlin Schönefeld,Berlin Schönefeld,SXF
+Europe,Germany,Braunschweig,Braunschweig,BWE
+Europe,Germany,Bremen,Bremen,BRE
+Europe,Germany,Cologne Bonn,Cologne Bonn,CGN
+Europe,Germany,Cologne Railway,Cologne Railway,QKL
+Europe,Germany,Dortmund,Dortmund,DTM
+Europe,Germany,Dresden,Dresden,DRS
+Europe,Germany,Dusseldorf,Dusseldorf,DUS
+Europe,Germany,Dusseldorf Hauptbahnhof,Dusseldorf Hauptbahnhof,QDU
+Europe,Germany,Erfurt,Erfurt,ERF
+Europe,Germany,Frankfurt,Frankfurt,FRA
+Europe,Germany,Frankfurt Hahn,Frankfurt Hahn,HHN
+Europe,Germany,Friedrichshafen,Friedrichshafen,FDH
+Europe,Germany,Hamburg,Hamburg,HAM
+Europe,Germany,Hannover,Hannover,HAJ
+Europe,Germany,Heringsdorf,Heringsdorf,HDF
+Europe,Germany,Karlsruhe/Badern Baden,Karlsruhe/Badern Baden,FKB
+Europe,Germany,Kassel Calden,Kassel Calden,KSF
+Europe,Germany,Laage,Laage,RLG
+Europe,Germany,Leipzig Halle,Leipzig Halle,LEJ
+Europe,Germany,Lubeck Blankensee,Lubeck Blankensee,LBC
+Europe,Germany,Memmingen,Memmingen,FMM
+Europe,Germany,Munich,Munich,MUC
+Europe,Germany,Munster Osnabruck,Munster Osnabruck,FMO
+Europe,Germany,Niederrhein,Niederrhein,NRN
+Europe,Germany,Nuremberg,Nuremberg,NUE
+Europe,Germany,Paderborn Lippstadt,Paderborn Lippstadt,PAD
+Europe,Germany,Saarbrucken,Saarbrucken,SCN
+Europe,Germany,Stuttgart,Stuttgart,STR
+Europe,Germany,Stuttgart Railway Station,Stuttgart Railway Station,ZWS
+Europe,Germany,Westerland Sylt,Westerland Sylt,GWT
+Europe,Gibraltar,North Front,North Front,GIB
+Europe,Greece,Aktio,Aktio,PVK
+Europe,Greece,Araxos,Araxos,GPA
+Europe,Greece,Aristotelis,Aristotelis,KSO
+Europe,Greece,Astypalaia,Astypalaia,JTY
+Europe,Greece,Athens,Athens,ATH
+Europe,Greece,Chania,Chania,CHQ
+Europe,Greece,Chios,Chios,JKH
+Europe,Greece,Corfu,Corfu,CFU
+Europe,Greece,Dimokritos,Dimokritos,AXD
+Europe,Greece,Filippos,Filippos,KZI
+Europe,Greece,Heraklion,Heraklion,HER
+Europe,Greece,Ikaria,Ikaria,JIK
+Europe,Greece,Ioannina,Ioannina,IOA
+Europe,Greece,Kalamata,Kalamata,KLX
+Europe,Greece,Kalymnos Island,Kalymnos Island,JKL
+Europe,Greece,Karpathos,Karpathos,AOK
+Europe,Greece,Kasos Island,Kasos Island,KSJ
+Europe,Greece,Kastelorizo,Kastelorizo,KZS
+Europe,Greece,Kefalonia,Kefalonia,EFL
+Europe,Greece,Kithira,Kithira,KIT
+Europe,Greece,Kos,Kos,KGS
+Europe,Greece,Leros,Leros,LRS
+Europe,Greece,Limnos,Limnos,LXS
+Europe,Greece,Megas Alexandros,Megas Alexandros,KVA
+Europe,Greece,Milos,Milos,MLO
+Europe,Greece,Mitilini,Mitilini,MJT
+Europe,Greece,Mykonos,Mykonos,JMK
+Europe,Greece,Naxos,Naxos,JNX
+Europe,Greece,Nea Anchialos,Nea Anchialos,VOL
+Europe,Greece,Paros,Paros,PAS
+Europe,Greece,Rhodes,Rhodes,RHO
+Europe,Greece,Samos,Samos,SMI
+Europe,Greece,Santorini (Thira),Santorini (Thira),JTR
+Europe,Greece,Sitia,Sitia,JSH
+Europe,Greece,Skiathos,Skiathos,JSI
+Europe,Greece,Skyros,Skyros,SKU
+Europe,Greece,Syros Island,Syros Island,JSY
+Europe,Greece,Thessaloniki,Thessaloniki,SKG
+Europe,Greece,Zakynthos,Zakynthos,ZTH
+Europe,Greenland,Aappilattoq-Nanortalik Heliport,Aappilattoq-Nanortalik Heliport,QUV
+Europe,Greenland,Aappilattoq-Upernanik Heliport,Aappilattoq-Upernanik Heliport,AOQ
+Europe,Greenland,Aasiaat,Aasiaat,JEG
+Europe,Greenland,Akunnaag Heliport,Akunnaag Heliport,QCU
+Europe,Greenland,Alluitsup Paa Heliport,Alluitsup Paa Heliport,LLU
+Europe,Greenland,Ammassivik Heliport,Ammassivik Heliport,QUW
+Europe,Greenland,Arsuk Heliport,Arsuk Heliport,JRK
+Europe,Greenland,Attu Heliport,Attu Heliport,QGQ
+Europe,Greenland,Iginniarfik Heliport,Iginniarfik Heliport,QFI
+Europe,Greenland,Ikamiut Heliport,Ikamiut Heliport,QJI
+Europe,Greenland,Ikerasaarsuk Heliport,Ikerasaarsuk Heliport,QRY
+Europe,Greenland,Ikerasak Heliport,Ikerasak Heliport,IKE
+Europe,Greenland,Ilimanaq Heliport,Ilimanaq Heliport,XIQ
+Europe,Greenland,Innarsuit Heliport,Innarsuit Heliport,IUI
+Europe,Greenland,Isortoq Heliport,Isortoq Heliport,IOQ
+Europe,Greenland,Ittoqqortoormiit Heliport,Ittoqqortoormiit Heliport,OBY
+Europe,Greenland,Jacobshavn,Jacobshavn,JAV
+Europe,Greenland,Kangaatsiaq Heliport,Kangaatsiaq Heliport,QPW
+Europe,Greenland,Kangerlussuaq Sondre Stromfjord,Kangerlussuaq Sondre Stromfjord,SFJ
+Europe,Greenland,Kangersuatsiaq Heliport,Kangersuatsiaq Heliport,KGQ
+Europe,Greenland,Kitsissuarsuit Heliport,Kitsissuarsuit Heliport,QJE
+Europe,Greenland,Kullorsuaq Heliport,Kullorsuaq Heliport,KHQ
+Europe,Greenland,Kulusuk,Kulusuk,KUS
+Europe,Greenland,Kuummiit Heliport,Kuummiit Heliport,KUZ
+Europe,Greenland,Maniitsoq,Maniitsoq,JSU
+Europe,Greenland,Nanortalik Heliport,Nanortalik Heliport,JNN
+Europe,Greenland,Narsaq Heliport,Narsaq Heliport,JNS
+Europe,Greenland,Narsaq Kujalleq Heliport,Narsaq Kujalleq Heliport,QFN
+Europe,Greenland,Narsarsuaq,Narsarsuaq,UAK
+Europe,Greenland,Neerlerit Inaat,Neerlerit Inaat,CNP
+Europe,Greenland,Niagornaarsuk Heliport,Niagornaarsuk Heliport,QMK
+Europe,Greenland,Niaqornat Heliport,Niaqornat Heliport,NIQ
+Europe,Greenland,Nuuk,Nuuk,GOH
+Europe,Greenland,Nuussuaq Heliport,Nuussuaq Heliport,NSQ
+Europe,Greenland,Paamiut,Paamiut,JFR
+Europe,Greenland,Pituffik,Pituffik,THU
+Europe,Greenland,Qaanaaq,Qaanaaq,NAQ
+Europe,Greenland,Qaarsut,Qaarsut,JQA
+Europe,Greenland,Qaqortoq,Qaqortoq,JJU
+Europe,Greenland,Qasigiannguit,Qasigiannguit,JCH
+Europe,Greenland,Qeqertaq Heliport,Qeqertaq Heliport,PQT
+Europe,Greenland,Qeqertarsuaq Heliport,Qeqertarsuaq Heliport,JGO
+Europe,Greenland,Saattut Heliport,Saattut Heliport,SAE
+Europe,Greenland,Saqqaq Heliport,Saqqaq Heliport,QUP
+Europe,Greenland,Sarfannguit Heliport,Sarfannguit Heliport,SZC
+Europe,Greenland,Savissivik Heliport,Savissivik Heliport,SVR
+Europe,Greenland,Sermiligaaq Heliport,Sermiligaaq Heliport,SGG
+Europe,Greenland,Siorapaluk Heliport,Siorapaluk Heliport,SRK
+Europe,Greenland,Sisimiut,Sisimiut,JHS
+Europe,Greenland,Tasiilaq,Tasiilaq,AGM
+Europe,Greenland,Tasiusaq (Nanotalik) Heliport,Tasiusaq (Nanotalik) Heliport,XEQ
+Europe,Greenland,Tasiusaq Heliport (Upernavik),Tasiusaq Heliport (Upernavik),TQA
+Europe,Greenland,Tiniteqilaaq Heliport,Tiniteqilaaq Heliport,TQI
+Europe,Greenland,Ukkusissat Heliport,Ukkusissat Heliport,JUK
+Europe,Greenland,Upernavik,Upernavik,JUV
+Europe,Greenland,Upernavik Kujalleq Heliport,Upernavik Kujalleq Heliport,UPK
+Europe,Greenland,Uummannaq,Uummannaq,UMD
+Europe,Greenland,of Itilleq,of Itilleq,QJG
+Europe,Hungary,Budapest Ferenc Liszt,Budapest Ferenc Liszt,BUD
+Europe,Hungary,Debrecen,Debrecen,DEB
+Europe,Hungary,Pecs-Pogany,Pecs-Pogany,PEV
+Europe,Iceland,Akureyri,Akureyri,AEY
+Europe,Iceland,Bildudalur,Bildudalur,BIU
+Europe,Iceland,Egilsstadir,Egilsstadir,EGS
+Europe,Iceland,Gjogur,Gjogur,GJR
+Europe,Iceland,Grimsey,Grimsey,GRY
+Europe,Iceland,Hornafjordur,Hornafjordur,HFN
+Europe,Iceland,Isafjordur,Isafjordur,IFJ
+Europe,Iceland,Keflavík,Keflavík,KEF
+Europe,Iceland,Reykjavik,Reykjavik,RKV
+Europe,Iceland,Thorshofn,Thorshofn,THO
+Europe,Iceland,Vestmannaeyjar,Vestmannaeyjar,VEY
+Europe,Iceland,Vopnafjordur,Vopnafjordur,VPN
+Europe,Ireland,Cork,Cork,ORK
+Europe,Ireland,Donegal,Donegal,CFN
+Europe,Ireland,Dublin,Dublin,DUB
+Europe,Ireland,Kerry County,Kerry County,KIR
+Europe,Ireland,Knock,Knock,NOC
+Europe,Ireland,Shannon,Shannon,SNN
+Europe,Italy,Alghero,Alghero,AHO
+Europe,Italy,Bari,Bari,BRI
+Europe,Italy,Bologna Guglielmo Marconi,Bologna Guglielmo Marconi,BLQ
+Europe,Italy,Bolzano,Bolzano,BZO
+Europe,Italy,Cagliari Elmas,Cagliari Elmas,CAG
+Europe,Italy,Casale,Casale,BDS
+Europe,Italy,Catania Fontanarossa,Catania Fontanarossa,CTA
+Europe,Italy,Ciampino,Ciampino,CIA
+Europe,Italy,Comiso,Comiso,CIY
+Europe,Italy,Crotone,Crotone,CRV
+Europe,Italy,Falconara,Falconara,AOI
+Europe,Italy,Falcone Borsellino,Falcone Borsellino,PMO
+Europe,Italy,Fiumicino,Fiumicino,FCO
+Europe,Italy,Forli,Forli,FRL
+Europe,Italy,Genova Sestri,Genova Sestri,GOA
+Europe,Italy,Gino Lisa,Gino Lisa,FOG
+Europe,Italy,Lamezia Terme,Lamezia Terme,SUF
+Europe,Italy,Lampedusa,Lampedusa,LMP
+Europe,Italy,Levaldigi,Levaldigi,CUF
+Europe,Italy,Linate,Linate,LIN
+Europe,Italy,Marina Di Campo,Marina Di Campo,EBA
+Europe,Italy,Milan Malpensa,Milan Malpensa,MXP
+Europe,Italy,Naples,Naples,NAP
+Europe,Italy,Olbia Costa Smeralda,Olbia Costa Smeralda,OLB
+Europe,Italy,Orio al Serio,Orio al Serio,BGY
+Europe,Italy,Pantelleria,Pantelleria,PNL
+Europe,Italy,Parma,Parma,PMF
+Europe,Italy,Peretola,Peretola,FLR
+Europe,Italy,Pescara,Pescara,PSR
+Europe,Italy,Pisa,Pisa,PSA
+Europe,Italy,Reggio Calabria,Reggio Calabria,REG
+Europe,Italy,Rimini,Rimini,RMI
+Europe,Italy,Salerno Pontecagnano,Salerno Pontecagnano,QSR
+Europe,Italy,San Domino Island Heliport,San Domino Island Heliport,TQR
+Europe,Italy,Sant Egidio,Sant Egidio,PEG
+Europe,Italy,Trapani Birgi,Trapani Birgi,TPS
+Europe,Italy,Treviso,Treviso,TSF
+Europe,Italy,Trieste,Trieste,TRS
+Europe,Italy,Turin,Turin,TRN
+Europe,Italy,Venice Marco Polo,Venice Marco Polo,VCE
+Europe,Italy,Verona Villafranca,Verona Villafranca,VRN
+Europe,Italy,Vieste Heliport,Vieste Heliport,VIF
+Europe,Kosovo,Pristina,Pristina,PRN
+Europe,Latvia,Riga,Riga,RIX
+Europe,Lithuania,Kaunas,Kaunas,KUN
+Europe,Lithuania,Palanga,Palanga,PLQ
+Europe,Lithuania,Vilnius,Vilnius,VNO
+Europe,Luxembourg,Luxembourg,Luxembourg,LUX
+Europe,Macedonia,Ohrid,Ohrid,OHD
+Europe,Macedonia,Skopje,Skopje,SKP
+Europe,Malta,Malta,Malta,MLA
+Europe,Moldova,Chisinau,Chisinau,KIV
+Europe,Moldova,Chisinau,Chisinau,RMO
+Europe,Monaco,Monaco,Monaco,MCM
+Europe,Montenegro,Podgorica,Podgorica,TGD
+Europe,Montenegro,Tivat,Tivat,TIV
+Europe,Netherlands,Amsterdam Centraal,Amsterdam Centraal,ZYA
+Europe,Netherlands,Eelde,Eelde,GRQ
+Europe,Netherlands,Eindhoven,Eindhoven,EIN
+Europe,Netherlands,Maastricht,Maastricht,MST
+Europe,Netherlands,Rotterdam The Hague,Rotterdam The Hague,RTM
+Europe,Netherlands,Schiphol,Schiphol,AMS
+Europe,Norway,,,MEH
+Europe,Norway,,,VDS
+Europe,Norway,Alta,Alta,ALF
+Europe,Norway,Anda,Anda,SDN
+Europe,Norway,Andenes,Andenes,ANX
+Europe,Norway,Aro,Aro,MOL
+Europe,Norway,Bardufoss,Bardufoss,BDU
+Europe,Norway,Batsfjord,Batsfjord,BJF
+Europe,Norway,Bergen,Bergen,BGO
+Europe,Norway,Berlevag,Berlevag,BVG
+Europe,Norway,Bodo,Bodo,BOO
+Europe,Norway,Bronnoy,Bronnoy,BNN
+Europe,Norway,Floro,Floro,FRO
+Europe,Norway,Forde Bringeland,Forde Bringeland,FDE
+Europe,Norway,Framnes,Framnes,NVK
+Europe,Norway,Hammerfest,Hammerfest,HFT
+Europe,Norway,Harstad-Narvik,Harstad-Narvik,EVE
+Europe,Norway,Hasvik,Hasvik,HAA
+Europe,Norway,Haugesund Karmoy,Haugesund Karmoy,HAU
+Europe,Norway,Kirkenes Hoybuktmoen,Kirkenes Hoybuktmoen,KKN
+Europe,Norway,Kjaerstad,Kjaerstad,MJF
+Europe,Norway,Kristiansand Kjevik,Kristiansand Kjevik,KRS
+Europe,Norway,Kristiansund Kvernberget,Kristiansund Kvernberget,KSU
+Europe,Norway,Lakselv,Lakselv,LKL
+Europe,Norway,Leknes,Leknes,LKN
+Europe,Norway,Namsos HÃ¸knesÃ¸ra,Namsos HÃ¸knesÃ¸ra,OSY
+Europe,Norway,Orland,Orland,OLA
+Europe,Norway,Orsta-Volda,Orsta-Volda,HOV
+Europe,Norway,Oslo Gardermoen,Oslo Gardermoen,OSL
+Europe,Norway,Roeros,Roeros,RRS
+Europe,Norway,Rost,Rost,RET
+Europe,Norway,Ryumsjoen,Ryumsjoen,RVK
+Europe,Norway,RÃ¸ssvoll,RÃ¸ssvoll,MQN
+Europe,Norway,Skagen,Skagen,SKN
+Europe,Norway,Sognolal,Sognolal,SOG
+Europe,Norway,Sorkjosen,Sorkjosen,SOJ
+Europe,Norway,Stavanger Sola,Stavanger Sola,SVG
+Europe,Norway,Stokka,Stokka,SSJ
+Europe,Norway,Stord,Stord,SRP
+Europe,Norway,Svolvaer,Svolvaer,SVJ
+Europe,Norway,Torp,Torp,TRF
+Europe,Norway,Tromso,Tromso,TOS
+Europe,Norway,Trondheim Vaernes,Trondheim Vaernes,TRD
+Europe,Norway,Vaeroy Heliport,Vaeroy Heliport,VRY
+Europe,Norway,Valan,Valan,HVG
+Europe,Norway,Vardoe,Vardoe,VAW
+Europe,Norway,Vigra,Vigra,AES
+Europe,Poland,Babimost,Babimost,IEG
+Europe,Poland,Bydgoszcz Ignacy Jan Paderewski,Bydgoszcz Ignacy Jan Paderewski,BZG
+Europe,Poland,Copernicus Wrocław,Copernicus Wrocław,WRO
+Europe,Poland,Gdańsk Lech Wałęsa,Gdańsk Lech Wałęsa,GDN
+Europe,Poland,Goleniow,Goleniow,SZZ
+Europe,Poland,Jasionka,Jasionka,RZE
+Europe,Poland,Katowice,Katowice,KTW
+Europe,Poland,Kraków John Paul II,Kraków John Paul II,KRK
+Europe,Poland,Lawica,Lawica,POZ
+Europe,Poland,Lublin,Lublin,LUZ
+Europe,Poland,Mazury,Mazury,SZY
+Europe,Poland,Radom,Radom,RDO
+Europe,Poland,Warsaw Chopin,Warsaw Chopin,WAW
+Europe,Poland,Warsaw Modlin,Warsaw Modlin,WMI
+Europe,Poland,Łódź Władysław Reymont,Łódź Władysław Reymont,LCJ
+Europe,Portugal,Braganca,Braganca,BGC
+Europe,Portugal,Cascais Municipal Aerodrome,Cascais Municipal Aerodrome,CAT
+Europe,Portugal,Corvo,Corvo,CVU
+Europe,Portugal,Faro,Faro,FAO
+Europe,Portugal,Graciosa Island,Graciosa Island,GRW
+Europe,Portugal,Horta,Horta,HOR
+Europe,Portugal,Lisbon,Lisbon,LIS
+Europe,Portugal,Madeira,Madeira,FNC
+Europe,Portugal,Pico Island,Pico Island,PIX
+Europe,Portugal,Ponta Delgada,Ponta Delgada,PDL
+Europe,Portugal,Portimao,Portimao,PRM
+Europe,Portugal,Porto,Porto,OPO
+Europe,Portugal,Porto Santo,Porto Santo,PXO
+Europe,Portugal,Santa Cruz,Santa Cruz,FLW
+Europe,Portugal,Santa Maria,Santa Maria,SMA
+Europe,Portugal,Sao Jorge Island,Sao Jorge Island,SJZ
+Europe,Portugal,Terceira Island,Terceira Island,TER
+Europe,Portugal,Vila Real,Vila Real,VRL
+Europe,Portugal,Viseu,Viseu,VSE
+Europe,Romania,Bacau,Bacau,BCM
+Europe,Romania,Baneasa,Baneasa,BBU
+Europe,Romania,Brasov Ghimbav,Brasov Ghimbav,GHV
+Europe,Romania,Cluj,Cluj,CLJ
+Europe,Romania,Craiova,Craiova,CRA
+Europe,Romania,Giarmata,Giarmata,TSR
+Europe,Romania,Henri Coandă,Henri Coandă,OTP
+Europe,Romania,Iasi,Iasi,IAS
+Europe,Romania,Mihail Kogalniceanu,Mihail Kogalniceanu,CND
+Europe,Romania,Oradea,Oradea,OMR
+Europe,Romania,Salcea,Salcea,SCV
+Europe,Romania,Satu Mare,Satu Mare,SUJ
+Europe,Romania,Sibiu,Sibiu,SBZ
+Europe,Romania,Tautii Magheraus,Tautii Magheraus,BAY
+Europe,Romania,Vidrasau,Vidrasau,TGM
+Europe,Russia,Abakan,Abakan,ABA
+Europe,Russia,Aleksandrovsk-Sakhalinskiy,Aleksandrovsk-Sakhalinskiy,UHS
+Europe,Russia,Alykel,Alykel,NSK
+Europe,Russia,Amgu,Amgu,AEM
+Europe,Russia,Astrakhan,Astrakhan,ASF
+Europe,Russia,Balandino,Balandino,CEK
+Europe,Russia,Barataevka,Barataevka,ULV
+Europe,Russia,Barnaul,Barnaul,BAX
+Europe,Russia,Batagay,Batagay,BQJ
+Europe,Russia,Baykit,Baykit,BKA
+Europe,Russia,Beaufort Mcas,Beaufort Mcas,NBC
+Europe,Russia,Belgorod,Belgorod,EGO
+Europe,Russia,Beloyarsky,Beloyarsky,EYK
+Europe,Russia,Beryozovo,Beryozovo,EZV
+Europe,Russia,Beslan,Beslan,OGZ
+Europe,Russia,Blagoveschensk,Blagoveschensk,BQS
+Europe,Russia,Bodaybo,Bodaybo,ODO
+Europe,Russia,Bolshoye Savino,Bolshoye Savino,PEE
+Europe,Russia,Bratsk,Bratsk,BTK
+Europe,Russia,Bruggen,Bruggen,BGN
+Europe,Russia,Bugulma,Bugulma,UUA
+Europe,Russia,Central,Central,RTW
+Europe,Russia,Chara,Chara,CZR
+Europe,Russia,Cheboksary,Cheboksary,CSY
+Europe,Russia,Cheremshanka,Cheremshanka,KCY
+Europe,Russia,Cherepovets,Cherepovets,CEE
+Europe,Russia,Cherskiy,Cherskiy,CYX
+Europe,Russia,Chertovitskoye,Chertovitskoye,VOZ
+Europe,Russia,Chokurdah,Chokurdah,CKH
+Europe,Russia,Dalnegorsk,Dalnegorsk,DHG
+Europe,Russia,Deering,Deering,DEE
+Europe,Russia,Deputatskiy,Deputatskiy,DPT
+Europe,Russia,Dikson,Dikson,DKS
+Europe,Russia,Elista,Elista,ESL
+Europe,Russia,Gagarin,Gagarin,GSV
+Europe,Russia,Gelendzik,Gelendzik,GDZ
+Europe,Russia,Gorno-Altaysk,Gorno-Altaysk,RGK
+Europe,Russia,Grabtsevo,Grabtsevo,KLF
+Europe,Russia,Grozny,Grozny,GRV
+Europe,Russia,Gumrak,Gumrak,VOG
+Europe,Russia,Igarka,Igarka,IAA
+Europe,Russia,Igrim,Igrim,IRM
+Europe,Russia,Irkutsk,Irkutsk,IKT
+Europe,Russia,Iturup,Iturup,ITU
+Europe,Russia,Izhevsk,Izhevsk,IJK
+Europe,Russia,Kadala,Kadala,HTA
+Europe,Russia,Kavalerovo,Kavalerovo,KVR
+Europe,Russia,Kazan,Kazan,KZN
+Europe,Russia,Kemerovo,Kemerovo,KEJ
+Europe,Russia,Keperveyem,Keperveyem,KPW
+Europe,Russia,Kerio Valley,Kerio Valley,KRV
+Europe,Russia,Khanty Mansiysk,Khanty Mansiysk,HMA
+Europe,Russia,Khatanga,Khatanga,HTG
+Europe,Russia,Khomutovo,Khomutovo,UUS
+Europe,Russia,Khrabrovo,Khrabrovo,KGD
+Europe,Russia,Kirovsk,Kirovsk,KVK
+Europe,Russia,Kodinsk,Kodinsk,KNY
+Europe,Russia,Kogalym,Kogalym,KGP
+Europe,Russia,Koltsovo,Koltsovo,SVX
+Europe,Russia,Kotlas,Kotlas,KSZ
+Europe,Russia,Krasnoyarsk,Krasnoyarsk,KJA
+Europe,Russia,Kresty,Kresty,PKV
+Europe,Russia,Kurgan,Kurgan,KRO
+Europe,Russia,Kurumoch,Kurumoch,KUF
+Europe,Russia,Kyzyl,Kyzyl,KYZ
+Europe,Russia,Lensk,Lensk,ULK
+Europe,Russia,Magas,Magas,IGT
+Europe,Russia,Magnitogorsk,Magnitogorsk,MQF
+Europe,Russia,Makhachkala,Makhachkala,MCX
+Europe,Russia,May-Gatka,May-Gatka,GVN
+Europe,Russia,Mineralnye Vody,Mineralnye Vody,MRV
+Europe,Russia,Mirnyj,Mirnyj,MJZ
+Europe,Russia,Moma,Moma,MQJ
+Europe,Russia,Moscow Domodedovo,Moscow Domodedovo,DME
+Europe,Russia,Mukhino,Mukhino,UUD
+Europe,Russia,Murmansk,Murmansk,MMK
+Europe,Russia,Nadym,Nadym,NYM
+Europe,Russia,Nalchik,Nalchik,NAL
+Europe,Russia,Naryan-Mar,Naryan-Mar,NNM
+Europe,Russia,NayUrengoy,NayUrengoy,NUX
+Europe,Russia,Neryungri,Neryungri,NER
+Europe,Russia,Nikolayevsk-na-Amure,Nikolayevsk-na-Amure,NLI
+Europe,Russia,Nizhneangarsk,Nizhneangarsk,NZG
+Europe,Russia,Nizhnevartovsk,Nizhnevartovsk,NJC
+Europe,Russia,Nizhny Novgorod,Nizhny Novgorod,GOJ
+Europe,Russia,Nogliki,Nogliki,NGK
+Europe,Russia,North West Santo,North West Santo,OLZ
+Europe,Russia,Novokuznetsk,Novokuznetsk,NOZ
+Europe,Russia,Novy,Novy,KHV
+Europe,Russia,Noyabrsk,Noyabrsk,NOJ
+Europe,Russia,Nyagan,Nyagan,NYA
+Europe,Russia,Nyurba,Nyurba,NYR
+Europe,Russia,Okha,Okha,OHH
+Europe,Russia,Olenyok,Olenyok,ONK
+Europe,Russia,Orenburg,Orenburg,REN
+Europe,Russia,Orsk,Orsk,OSW
+Europe,Russia,Pashkovsky,Pashkovsky,KRR
+Europe,Russia,Petropavlovsk-Kamchatsky,Petropavlovsk-Kamchatsky,PKC
+Europe,Russia,Petrozavodsk,Petrozavodsk,PES
+Europe,Russia,Pevek,Pevek,PWE
+Europe,Russia,Plastun,Plastun,TLY
+Europe,Russia,Pleasanton Muni,Pleasanton Muni,PEZ
+Europe,Russia,Pobedilovo,Pobedilovo,KVX
+Europe,Russia,Podkamennaya Tunguska,Podkamennaya Tunguska,TGP
+Europe,Russia,Polyarnyj,Polyarnyj,PYJ
+Europe,Russia,Preobrazheniye,Preobrazheniye,RZH
+Europe,Russia,Pulkovo,Pulkovo,LED
+Europe,Russia,Roschino,Roschino,TJM
+Europe,Russia,Rostov Na Donu,Rostov Na Donu,ROV
+Europe,Russia,Sakkyryr,Sakkyryr,SUK
+Europe,Russia,Salekhard,Salekhard,SLY
+Europe,Russia,Saransk,Saransk,SKX
+Europe,Russia,Saskylakh,Saskylakh,SYS
+Europe,Russia,Selfield,Selfield,SES
+Europe,Russia,Severo-Evensk,Severo-Evensk,SWV
+Europe,Russia,Severo-Yeniseyskiy,Severo-Yeniseyskiy,VEO
+Europe,Russia,Shakhtyorsk,Shakhtyorsk,EKS
+Europe,Russia,Sheremetyevo,Sheremetyevo,SVO
+Europe,Russia,Sochi,Sochi,AER
+Europe,Russia,Sokol,Sokol,GDX
+Europe,Russia,Sovetsky Tyumenskaya,Sovetsky Tyumenskaya,OVS
+Europe,Russia,Srednekolymsk,Srednekolymsk,SEK
+Europe,Russia,Stavropol,Stavropol,STW
+Europe,Russia,Strezhevoy,Strezhevoy,SWT
+Europe,Russia,Suntar,Suntar,SUY
+Europe,Russia,Surgut,Surgut,SGC
+Europe,Russia,Svetlaya,Svetlaya,ETL
+Europe,Russia,Syktyvkar,Syktyvkar,SCW
+Europe,Russia,Takismo,Takismo,TKM
+Europe,Russia,Talagi,Talagi,ARH
+Europe,Russia,Talakan,Talakan,TLK
+Europe,Russia,Tambov Donskoye,Tambov Donskoye,TBW
+Europe,Russia,Terney,Terney,NEI
+Europe,Russia,Tiksi,Tiksi,IKS
+Europe,Russia,Tobolsk Remezov,Tobolsk Remezov,RMZ
+Europe,Russia,Tolmachevo,Tolmachevo,OVB
+Europe,Russia,Tomsk Bogashevo,Tomsk Bogashevo,TOF
+Europe,Russia,Tsentralny,Tsentralny,OMS
+Europe,Russia,Tunoshna,Tunoshna,IAR
+Europe,Russia,Tura,Tura,GOY
+Europe,Russia,Turukhansk,Turukhansk,THX
+Europe,Russia,Tynda,Tynda,TYD
+Europe,Russia,Ufa,Ufa,UFA
+Europe,Russia,Ugolny,Ugolny,DYR
+Europe,Russia,Ukhta,Ukhta,UCT
+Europe,Russia,Uraj,Uraj,URJ
+Europe,Russia,Usinsk,Usinsk,USK
+Europe,Russia,Ust-Ilimsk,Ust-Ilimsk,UIK
+Europe,Russia,Ust-Kut,Ust-Kut,UKX
+Europe,Russia,Ust-Kuyga,Ust-Kuyga,UKG
+Europe,Russia,Ust-Nera,Ust-Nera,USR
+Europe,Russia,Ust-Tsilma,Ust-Tsilma,UTS
+Europe,Russia,Vanavara,Vanavara,VAQ
+Europe,Russia,Velikij Ustyug,Velikij Ustyug,VUS
+Europe,Russia,Vityazevo,Vityazevo,AAQ
+Europe,Russia,Vladivostok Knevichi,Vladivostok Knevichi,VVO
+Europe,Russia,Vnukovo,Vnukovo,VKO
+Europe,Russia,Vorkuta,Vorkuta,VKT
+Europe,Russia,Webb Air Force Base,Webb Air Force Base,BGS
+Europe,Russia,Yakutsk,Yakutsk,YKS
+Europe,Russia,Yedinka,Yedinka,EDN
+Europe,Russia,Yuzhny,Yuzhny,IWA
+Europe,Russia,Zeya,Zeya,EYA
+Europe,Russia,Zhigansk,Zhigansk,ZIX
+Europe,Russia,Zhukovsky,Zhukovsky,ZIA
+Europe,Russia,Zonalnoye,Zonalnoye,ZZO
+Europe,Russia,Zyryanka,Zyryanka,ZKP
+Europe,Serbia,Belgrad Nikola Tesla,Belgrad Nikola Tesla,BEG
+Europe,Serbia,Moreva,Moreva,KVO
+Europe,Serbia,Nis,Nis,INI
+Europe,Slovakia,Kosice,Kosice,KSC
+Europe,Slovakia,M R Stefanik,M R Stefanik,BTS
+Europe,Slovakia,Tatry,Tatry,TAT
+Europe,Slovenia,Ljubljana,Ljubljana,LJU
+Europe,Spain,A Coruna,A Coruna,LCG
+Europe,Spain,Aeroport De La Seu,Aeroport De La Seu,LEU
+Europe,Spain,Agoncillo,Agoncillo,RJL
+Europe,Spain,Algeciras,Algeciras,AEI
+Europe,Spain,Alicante–Elche Miguel Hernández,Alicante–Elche Miguel Hernández,ALC
+Europe,Spain,Almeria,Almeria,LEI
+Europe,Spain,Asturias,Asturias,OVD
+Europe,Spain,Barajas,Barajas,MAD
+Europe,Spain,Bilbao,Bilbao,BIO
+Europe,Spain,Castellon-Costa Azahar,Castellon-Costa Azahar,CDT
+Europe,Spain,Ceuta Heliport,Ceuta Heliport,JCU
+Europe,Spain,Cordoba,Cordoba,ODB
+Europe,Spain,Corvera,Corvera,RMU
+Europe,Spain,El Prat,El Prat,BCN
+Europe,Spain,Fuerteventura,Fuerteventura,FUE
+Europe,Spain,Girona,Girona,GRO
+Europe,Spain,Gran Canaria,Gran Canaria,LPA
+Europe,Spain,Granada,Granada,GRX
+Europe,Spain,Ibiza,Ibiza,IBZ
+Europe,Spain,Jerez,Jerez,XRY
+Europe,Spain,La Gomera,La Gomera,GMZ
+Europe,Spain,La Palma,La Palma,SPC
+Europe,Spain,Lanzarote,Lanzarote,ACE
+Europe,Spain,Leon,Leon,LEN
+Europe,Spain,Lleida-Alguaire,Lleida-Alguaire,ILD
+Europe,Spain,Melilla,Melilla,MLN
+Europe,Spain,Menorca,Menorca,MAH
+Europe,Spain,Málaga,Málaga,AGP
+Europe,Spain,Palma De Mallorca,Palma De Mallorca,PMI
+Europe,Spain,Pamplona,Pamplona,PNA
+Europe,Spain,Reus,Reus,REU
+Europe,Spain,Salamanca,Salamanca,SLM
+Europe,Spain,San Sebastian,San Sebastian,EAS
+Europe,Spain,Santander,Santander,SDR
+Europe,Spain,Santiago,Santiago,SCQ
+Europe,Spain,Seville,Seville,SVQ
+Europe,Spain,Talavera La Real,Talavera La Real,BJZ
+Europe,Spain,Tenerife North,Tenerife North,TFN
+Europe,Spain,Tenerife South,Tenerife South,TFS
+Europe,Spain,Valencia Arport,Valencia Arport,VLC
+Europe,Spain,Valladolid,Valladolid,VLL
+Europe,Spain,Valverde,Valverde,VDE
+Europe,Spain,Vigo,Vigo,VGO
+Europe,Spain,Vitoria,Vitoria,VIT
+Europe,Spain,Zaragoza Ab,Zaragoza Ab,ZAZ
+Europe,Sweden,Angelholm,Angelholm,AGH
+Europe,Sweden,Arvidsjaur,Arvidsjaur,AJR
+Europe,Sweden,Bromma,Bromma,BMA
+Europe,Sweden,Froson,Froson,OSD
+Europe,Sweden,Gallivare,Gallivare,GEV
+Europe,Sweden,Göteborg Landvetter,Göteborg Landvetter,GOT
+Europe,Sweden,Göteborg Stallbacka,Göteborg Stallbacka,THN
+Europe,Sweden,Hagfors,Hagfors,HFS
+Europe,Sweden,Halmstad,Halmstad,HAD
+Europe,Sweden,Hemavan,Hemavan,HMV
+Europe,Sweden,Kallax,Kallax,LLA
+Europe,Sweden,Kalmar,Kalmar,KLR
+Europe,Sweden,Kiruna,Kiruna,KRN
+Europe,Sweden,Kramfors,Kramfors,KRF
+Europe,Sweden,Kronoberg,Kronoberg,VXO
+Europe,Sweden,Lycksele,Lycksele,LYC
+Europe,Sweden,Malmö,Malmö,MMX
+Europe,Sweden,Mora,Mora,MXX
+Europe,Sweden,Ornskoldsvik,Ornskoldsvik,OER
+Europe,Sweden,Pajala,Pajala,PJA
+Europe,Sweden,Ronneby,Ronneby,RNB
+Europe,Sweden,Saab,Saab,LPI
+Europe,Sweden,Scandinavian Mountains,Scandinavian Mountains,SCR
+Europe,Sweden,Skavsta,Skavsta,NYO
+Europe,Sweden,Skelleftea,Skelleftea,SFT
+Europe,Sweden,Stockholm Arlanda,Stockholm Arlanda,ARN
+Europe,Sweden,Sundsvall Harnosand,Sundsvall Harnosand,SDL
+Europe,Sweden,Sveg,Sveg,EVG
+Europe,Sweden,Torsby,Torsby,TYF
+Europe,Sweden,Umeå,Umeå,UME
+Europe,Sweden,Vasteras,Vasteras,VST
+Europe,Sweden,Vilhelmina,Vilhelmina,VHM
+Europe,Sweden,Visby,Visby,VBY
+Europe,Switzerland,Bale Mulhouse,Bale Mulhouse,MLH
+Europe,Switzerland,Bern Belp,Bern Belp,BRN
+Europe,Switzerland,Geneva,Geneva,GVA
+Europe,Switzerland,Sion,Sion,SIR
+Europe,Switzerland,St Gallen Altenrhein,St Gallen Altenrhein,ACH
+Europe,Switzerland,Zurich,Zurich,ZRH
+Europe,Turkey,Adiyaman,Adiyaman,ADF
+Europe,Turkey,Agri,Agri,AJI
+Europe,Turkey,Anadolu,Anadolu,AOE
+Europe,Turkey,Ankara Esenboğa,Ankara Esenboğa,ESB
+Europe,Turkey,Antalya,Antalya,AYT
+Europe,Turkey,Batman,Batman,BAL
+Europe,Turkey,Bingol,Bingol,BGG
+Europe,Turkey,Bodrum - Milas,Bodrum - Milas,BJV
+Europe,Turkey,Canakkale,Canakkale,CKZ
+Europe,Turkey,Cardak,Cardak,DNZ
+Europe,Turkey,Cherry Point Mcas,Cherry Point Mcas,NKT
+Europe,Turkey,Corlu,Corlu,TEQ
+Europe,Turkey,Cukurova,Cukurova,COV
+Europe,Turkey,Dalaman,Dalaman,DLM
+Europe,Turkey,Diyarbakir,Diyarbakir,DIY
+Europe,Turkey,Edremit,Edremit,EDO
+Europe,Turkey,Elazig,Elazig,EZS
+Europe,Turkey,Erhac,Erhac,MLX
+Europe,Turkey,Erkilet,Erkilet,ASR
+Europe,Turkey,Erzincan,Erzincan,ERC
+Europe,Turkey,Erzurum,Erzurum,ERZ
+Europe,Turkey,Gazipasa,Gazipasa,GZP
+Europe,Turkey,Hakkari Yuksekova Selahaddin Eyyubi,Hakkari Yuksekova Selahaddin Eyyubi,YKO
+Europe,Turkey,Hatay,Hatay,HTY
+Europe,Turkey,Igdir,Igdir,IGD
+Europe,Turkey,Isparta SÃ¼leyman Demirel,Isparta SÃ¼leyman Demirel,ISE
+Europe,Turkey,Istanbul,Istanbul,IST
+Europe,Turkey,Istanbul Sabiha Gökçen,Istanbul Sabiha Gökçen,SAW
+Europe,Turkey,Kahramanmaras,Kahramanmaras,KCM
+Europe,Turkey,Kapadokya,Kapadokya,NAV
+Europe,Turkey,Kars,Kars,KSY
+Europe,Turkey,Kastamonu,Kastamonu,KFS
+Europe,Turkey,Konya,Konya,KYA
+Europe,Turkey,Mardin,Mardin,MQM
+Europe,Turkey,Merzifon,Merzifon,MZH
+Europe,Turkey,Mus,Mus,MSR
+Europe,Turkey,Oguzeli,Oguzeli,GZT
+Europe,Turkey,Ordu Giresun,Ordu Giresun,OGU
+Europe,Turkey,Rize-Artvin,Rize-Artvin,RZV
+Europe,Turkey,Samsun-Ã‡arÅŸamba,Samsun-Ã‡arÅŸamba,SZF
+Europe,Turkey,Sanliurfa GAP,Sanliurfa GAP,GNY
+Europe,Turkey,Siirt,Siirt,SXZ
+Europe,Turkey,Sinop - Turkey,Sinop - Turkey,NOP
+Europe,Turkey,Sivas,Sivas,VAS
+Europe,Turkey,Tokat,Tokat,TJK
+Europe,Turkey,Trabzon,Trabzon,TZX
+Europe,Turkey,Van,Van,VAN
+Europe,Turkey,Yenisehir,Yenisehir,YEI
+Europe,Turkey,Zafer,Zafer,KZR
+Europe,Turkey,Zonguldak,Zonguldak,ONQ
+Europe,Turkey,İzmir Adnan Menderes,İzmir Adnan Menderes,ADB
+Europe,Ukraine,Simferopol,Simferopol,SIP
+Europe,United Kingdom,Aldergrove,Aldergrove,BFS
+Europe,United Kingdom,Barra,Barra,BRR
+Europe,United Kingdom,Benbecula,Benbecula,BEB
+Europe,United Kingdom,Birmingham,Birmingham,BHX
+Europe,United Kingdom,Bournemouth,Bournemouth,BOH
+Europe,United Kingdom,Bristol,Bristol,BRS
+Europe,United Kingdom,Brize Norton,Brize Norton,BZZ
+Europe,United Kingdom,Campbeltown,Campbeltown,CAL
+Europe,United Kingdom,Cardiff,Cardiff,CWL
+Europe,United Kingdom,City,City,BHD
+Europe,United Kingdom,City,City,LCY
+Europe,United Kingdom,Coll Island,Coll Island,COL
+Europe,United Kingdom,Colonsay Island,Colonsay Island,CSA
+Europe,United Kingdom,Dundee,Dundee,DND
+Europe,United Kingdom,Dyce,Dyce,ABZ
+Europe,United Kingdom,Edinburgh,Edinburgh,EDI
+Europe,United Kingdom,Exeter,Exeter,EXT
+Europe,United Kingdom,Fair Isle,Fair Isle,FIE
+Europe,United Kingdom,Foula,Foula,FOA
+Europe,United Kingdom,Gatwick,Gatwick,LGW
+Europe,United Kingdom,Glasgow,Glasgow,GLA
+Europe,United Kingdom,Heathrow,Heathrow,LHR
+Europe,United Kingdom,Humberside,Humberside,HUY
+Europe,United Kingdom,Inverness,Inverness,INV
+Europe,United Kingdom,Islay,Islay,ILY
+Europe,United Kingdom,Isles of Scilly,Isles of Scilly,ISC
+Europe,United Kingdom,Kirkwall,Kirkwall,KOI
+Europe,United Kingdom,Lands End,Lands End,LEQ
+Europe,United Kingdom,Leeds Bradford,Leeds Bradford,LBA
+Europe,United Kingdom,Lerwick / Tingwall,Lerwick / Tingwall,LWK
+Europe,United Kingdom,Liverpool,Liverpool,LPL
+Europe,United Kingdom,Londonderry Eglinton,Londonderry Eglinton,LDY
+Europe,United Kingdom,Luton,Luton,LTN
+Europe,United Kingdom,Manchester,Manchester,MAN
+Europe,United Kingdom,Newcastle,Newcastle,NCL
+Europe,United Kingdom,North Connel,North Connel,OBN
+Europe,United Kingdom,Norwich,Norwich,NWI
+Europe,United Kingdom,Nottingham,Nottingham,EMA
+Europe,United Kingdom,Paddington Station,Paddington Station,QQP
+Europe,United Kingdom,Prestwick,Prestwick,PIK
+Europe,United Kingdom,Southampton,Southampton,SOU
+Europe,United Kingdom,Southend,Southend,SEN
+Europe,United Kingdom,St Mawgan,St Mawgan,NQY
+Europe,United Kingdom,St Pancras Railway Station,St Pancras Railway Station,QQS
+Europe,United Kingdom,Stansted,Stansted,STN
+Europe,United Kingdom,Stornoway,Stornoway,SYY
+Europe,United Kingdom,Sumburgh,Sumburgh,LSI
+Europe,United Kingdom,Teesside,Teesside,MME
+Europe,United Kingdom,Tiree,Tiree,TRE

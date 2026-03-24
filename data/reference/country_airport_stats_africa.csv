@@ -1,0 +1,327 @@
+continent,country,city,airport_name,airport_code
+Africa,Algeria,Aboubakr Belkaid,Aboubakr Belkaid,CFK
+Africa,Algeria,Ain Arnat,Ain Arnat,QSF
+Africa,Algeria,Annaba,Annaba,AAE
+Africa,Algeria,Bechar,Bechar,CBH
+Africa,Algeria,Biskra,Biskra,BSK
+Africa,Algeria,Bordj Badji Mokhtar,Bordj Badji Mokhtar,BMW
+Africa,Algeria,Bou Chekif,Bou Chekif,TID
+Africa,Algeria,Cheikh Larbi Tebessi,Cheikh Larbi Tebessi,TEE
+Africa,Algeria,El Bayadh,El Bayadh,EBH
+Africa,Algeria,El Golea,El Golea,ELG
+Africa,Algeria,Es Senia,Es Senia,ORN
+Africa,Algeria,Guemar,Guemar,ELU
+Africa,Algeria,Houari Boumediene,Houari Boumediene,ALG
+Africa,Algeria,Illizi,Illizi,VVZ
+Africa,Algeria,In Amenas,In Amenas,IAM
+Africa,Algeria,In Guezzam,In Guezzam,INF
+Africa,Algeria,In Salah,In Salah,INZ
+Africa,Algeria,Jijel,Jijel,GJL
+Africa,Algeria,Laghouat,Laghouat,LOO
+Africa,Algeria,Matsu,Matsu,MZW
+Africa,Algeria,Mohamed Boudiaf,Mohamed Boudiaf,CZL
+Africa,Algeria,Mostepha Ben Boulaid,Mostepha Ben Boulaid,BLJ
+Africa,Algeria,Noumerate,Noumerate,GHA
+Africa,Algeria,Ouargla,Ouargla,OGX
+Africa,Algeria,Oued Irara,Oued Irara,HME
+Africa,Algeria,Sidi Mahdi,Sidi Mahdi,TGR
+Africa,Algeria,Soummam,Soummam,BJA
+Africa,Algeria,Tamanrasset,Tamanrasset,TMR
+Africa,Algeria,Timimoun,Timimoun,TMX
+Africa,Algeria,Tindouf,Tindouf,TIN
+Africa,Algeria,Tiska,Tiska,DJG
+Africa,Algeria,Touat Cheikh Sidi Mohamed Belkebir,Touat Cheikh Sidi Mohamed Belkebir,AZR
+Africa,Algeria,Zenata,Zenata,TLM
+Africa,Angola,Benguela,Benguela,BUG
+Africa,Angola,Cabinda,Cabinda,CAB
+Africa,Angola,Catumbela,Catumbela,CBT
+Africa,Angola,Dr Antonio Agostinho Neto,Dr Antonio Agostinho Neto,NBJ
+Africa,Angola,Dundo,Dundo,DUE
+Africa,Angola,Huambo,Huambo,NOV
+Africa,Angola,Kuito,Kuito,SVP
+Africa,Angola,Luanda 4 De Fevereiro,Luanda 4 De Fevereiro,LAD
+Africa,Angola,Lubango,Lubango,SDD
+Africa,Angola,Luena,Luena,LUO
+Africa,Angola,Menongue,Menongue,SPP
+Africa,Angola,Namibe,Namibe,MSZ
+Africa,Angola,Ondjiva Pereira,Ondjiva Pereira,VPE
+Africa,Angola,Saurimo,Saurimo,VHC
+Africa,Angola,Soyo,Soyo,SZA
+Africa,Benin,Cotonou Cadjehoun,Cotonou Cadjehoun,COO
+Africa,Botswana,Francistown,Francistown,FRW
+Africa,Botswana,Kasane,Kasane,BBK
+Africa,Botswana,Maun,Maun,MUB
+Africa,Botswana,Sir Seretse Khama,Sir Seretse Khama,GBE
+Africa,Burkina Faso,Bobo Dioulasso,Bobo Dioulasso,BOY
+Africa,Burkina Faso,Ouagadougou,Ouagadougou,OUA
+Africa,Burundi,Bujumbura,Bujumbura,BJM
+Africa,Cameroon,Bafoussam,Bafoussam,BFX
+Africa,Cameroon,Douala,Douala,DLA
+Africa,Cameroon,Garoua,Garoua,GOU
+Africa,Cameroon,Maroua Salak,Maroua Salak,MVR
+Africa,Cameroon,Ngaoundere,Ngaoundere,NGE
+Africa,Cameroon,Yaounde Nsimalen,Yaounde Nsimalen,NSI
+Africa,Cape Verde,Amilcar Cabral,Amilcar Cabral,SID
+Africa,Cape Verde,Maio,Maio,MMO
+Africa,Cape Verde,Praia,Praia,RAI
+Africa,Cape Verde,Rabil,Rabil,BVC
+Africa,Cape Verde,Sao Filipe,Sao Filipe,SFL
+Africa,Cape Verde,Sao Nicolau,Sao Nicolau,SNE
+Africa,Cape Verde,Sao Vicente,Sao Vicente,VXE
+Africa,Côte d'Ivoire,Abidjan Felix Houphouet Boigny,Abidjan Felix Houphouet Boigny,ABJ
+Africa,Côte d'Ivoire,Bouake,Bouake,BYK
+Africa,Côte d'Ivoire,Korhogo,Korhogo,HGO
+Africa,Côte d'Ivoire,Man,Man,MJC
+Africa,Côte d'Ivoire,Odienne,Odienne,KEO
+Africa,Côte d'Ivoire,San Pedro,San Pedro,SPY
+Africa,Egypt,Abu Simbel,Abu Simbel,ABS
+Africa,Egypt,Al Alamain,Al Alamain,DBB
+Africa,Egypt,Aswan,Aswan,ASW
+Africa,Egypt,Asyut,Asyut,ATZ
+Africa,Egypt,Borg El Arab,Borg El Arab,HBE
+Africa,Egypt,Cairo,Cairo,CAI
+Africa,Egypt,Cairo Capital,Cairo Capital,CCE
+Africa,Egypt,Hurghada,Hurghada,HRG
+Africa,Egypt,Luxor,Luxor,LXR
+Africa,Egypt,Marsa Alam,Marsa Alam,RMF
+Africa,Egypt,Mersa Matruh,Mersa Matruh,MUH
+Africa,Egypt,Sharm El Sheikh,Sharm El Sheikh,SSH
+Africa,Egypt,Sohag,Sohag,HMB
+Africa,Egypt,Sphinx,Sphinx,SPX
+Africa,Egypt,Taba,Taba,TCP
+Africa,Equatorial Guinea,Annobon,Annobon,NBN
+Africa,Equatorial Guinea,Bata,Bata,BSG
+Africa,Equatorial Guinea,Malabo,Malabo,SSG
+Africa,Equatorial Guinea,Mongomeyen,Mongomeyen,GEM
+Africa,Ethiopia,Aba Segud,Aba Segud,JIM
+Africa,Ethiopia,Aba Tenna Dejazmatch Yilma,Aba Tenna Dejazmatch Yilma,DIR
+Africa,Ethiopia,Addis Ababa Bole,Addis Ababa Bole,ADD
+Africa,Ethiopia,Arba Mintch,Arba Mintch,AMH
+Africa,Ethiopia,Asosa,Asosa,ASO
+Africa,Ethiopia,Awasa,Awasa,AWA
+Africa,Ethiopia,Axum,Axum,AXU
+Africa,Ethiopia,Bahir Dar,Bahir Dar,BJR
+Africa,Ethiopia,Combolcha,Combolcha,DSE
+Africa,Ethiopia,Debra Marcos,Debra Marcos,DBM
+Africa,Ethiopia,Dembidollo,Dembidollo,DEM
+Africa,Ethiopia,Gambella,Gambella,GMB
+Africa,Ethiopia,Goba,Goba,GOB
+Africa,Ethiopia,Gode,Gode,GDE
+Africa,Ethiopia,Gonder,Gonder,GDQ
+Africa,Ethiopia,Gore,Gore,GOR
+Africa,Ethiopia,Humera,Humera,HUE
+Africa,Ethiopia,Indaselassie,Indaselassie,SHC
+Africa,Ethiopia,Jijiga,Jijiga,JIJ
+Africa,Ethiopia,Jinka,Jinka,BCO
+Africa,Ethiopia,Kabri Dar,Kabri Dar,ABK
+Africa,Ethiopia,Lalibella,Lalibella,LLI
+Africa,Ethiopia,Mekele,Mekele,MQX
+Africa,Ethiopia,Mizan Teferi,Mizan Teferi,MTF
+Africa,Ethiopia,Neghelli,Neghelli,EGL
+Africa,Ethiopia,Nekemt,Nekemt,NEK
+Africa,Ethiopia,Semera,Semera,SZE
+Africa,Ethiopia,Yabello,Yabello,BYY
+Africa,Gabon,Franceville Mvengue,Franceville Mvengue,MVB
+Africa,Gabon,Gamba,Gamba,GAX
+Africa,Gabon,Libreville Leon M Ba,Libreville Leon M Ba,LBV
+Africa,Gabon,Makokou,Makokou,MKU
+Africa,Gabon,Oyem,Oyem,OYE
+Africa,Gabon,Port Gentil,Port Gentil,POG
+Africa,Gambia,Banjul,Banjul,BJL
+Africa,Ghana,Kotoka,Kotoka,ACC
+Africa,Ghana,Kumasi,Kumasi,KMS
+Africa,Ghana,Takoradi,Takoradi,TKD
+Africa,Ghana,Tamale,Tamale,TML
+Africa,Ghana,Wa,Wa,WZA
+Africa,Guinea,Conakry,Conakry,CKY
+Africa,Kenya,Amboseli,Amboseli,ASV
+Africa,Kenya,Angama,Angama,ANA
+Africa,Kenya,Eldoret,Eldoret,EDL
+Africa,Kenya,Jomo Kenyatta,Jomo Kenyatta,NBO
+Africa,Kenya,Kakamega,Kakamega,GGM
+Africa,Kenya,Keekorok,Keekorok,KEU
+Africa,Kenya,Kisumu,Kisumu,KIS
+Africa,Kenya,Kitale,Kitale,KTL
+Africa,Kenya,Lamu Manda,Lamu Manda,LAU
+Africa,Kenya,Lodwar,Lodwar,LOK
+Africa,Kenya,Malindi,Malindi,MYD
+Africa,Kenya,Mandera,Mandera,NDE
+Africa,Kenya,Mara Lodges,Mara Lodges,MRE
+Africa,Kenya,Mara North Airstrip,Mara North Airstrip,HKR
+Africa,Kenya,Moi,Moi,MBA
+Africa,Kenya,Nairobi Wilson,Nairobi Wilson,WIL
+Africa,Kenya,Nanyuki,Nanyuki,NYK
+Africa,Kenya,Olare,Olare,OLG
+Africa,Kenya,Olkiombo,Olkiombo,OLX
+Africa,Kenya,Ukunda,Ukunda,UKA
+Africa,Kenya,Wajir,Wajir,WJR
+Africa,Lesotho,Moshoeshoe I,Moshoeshoe I,MSU
+Africa,Libya,Benina,Benina,BEN
+Africa,Libya,Kufra,Kufra,AKF
+Africa,Libya,La Abraq,La Abraq,LAQ
+Africa,Libya,Misurata,Misurata,MRA
+Africa,Libya,Mitiga,Mitiga,MJI
+Africa,Libya,Sebha,Sebha,SEB
+Africa,Libya,Zintan,Zintan,ZIS
+Africa,Madagascar,Antananarivo Ivato,Antananarivo Ivato,TNR
+Africa,Madagascar,Antsiranana Arrachart,Antsiranana Arrachart,DIE
+Africa,Madagascar,Mahajanga Philibert Tsiranana,Mahajanga Philibert Tsiranana,MJN
+Africa,Madagascar,Mananjary,Mananjary,MNJ
+Africa,Madagascar,Maroantsetra,Maroantsetra,WMN
+Africa,Madagascar,Morondava,Morondava,MOQ
+Africa,Madagascar,Nosy Be Fascene,Nosy Be Fascene,NOS
+Africa,Madagascar,Sambava Sud,Sambava Sud,SVB
+Africa,Madagascar,Sante Marie,Sante Marie,SMS
+Africa,Madagascar,Toamasina,Toamasina,TMM
+Africa,Madagascar,Tolagnaro,Tolagnaro,FTU
+Africa,Madagascar,Toliara,Toliara,TLE
+Africa,Malawi,Chileka,Chileka,BLZ
+Africa,Malawi,Kamuzu,Kamuzu,LLW
+Africa,Mali,Bamako Senou,Bamako Senou,BKO
+Africa,Mauritania,Nema,Nema,EMN
+Africa,Mauritania,Nouadhibou,Nouadhibou,NDB
+Africa,Mauritania,Nouakchott,Nouakchott,NKC
+Africa,Mauritania,Tazadit,Tazadit,OUZ
+Africa,Mauritius,Rodrigues Island,Rodrigues Island,RRG
+Africa,Mauritius,Sir Seewoosagur Ramgoolam,Sir Seewoosagur Ramgoolam,MRU
+Africa,Mayotte,Dzaoudzi Pamanzi,Dzaoudzi Pamanzi,DZA
+Africa,Morocco,Angads,Angads,OUD
+Africa,Morocco,Beni Mellal,Beni Mellal,BEM
+Africa,Morocco,Cherif El Idrissi,Cherif El Idrissi,AHU
+Africa,Morocco,Dakhla,Dakhla,VIL
+Africa,Morocco,Essaouira,Essaouira,ESU
+Africa,Morocco,Goulimime,Goulimime,GLN
+Africa,Morocco,Ibn Batouta,Ibn Batouta,TNG
+Africa,Morocco,Inezgane,Inezgane,AGA
+Africa,Morocco,Laayoune,Laayoune,EUN
+Africa,Morocco,Marrakesh Menara,Marrakesh Menara,RAK
+Africa,Morocco,Mohammed V,Mohammed V,CMN
+Africa,Morocco,Moulay Ali Cherif,Moulay Ali Cherif,ERH
+Africa,Morocco,Nadar,Nadar,NDR
+Africa,Morocco,Ouarzazate,Ouarzazate,OZZ
+Africa,Morocco,Plage Blanche,Plage Blanche,TTA
+Africa,Morocco,Saiss,Saiss,FEZ
+Africa,Morocco,Sale,Sale,RBA
+Africa,Morocco,Saniat Rmel,Saniat Rmel,TTU
+Africa,Morocco,Zagora,Zagora,OZG
+Africa,Mozambique,Beira,Beira,BEW
+Africa,Mozambique,Chimoio,Chimoio,VPY
+Africa,Mozambique,Inhambane,Inhambane,INH
+Africa,Mozambique,Lichinga,Lichinga,VXC
+Africa,Mozambique,Maputo,Maputo,MPM
+Africa,Mozambique,Nacala,Nacala,MNC
+Africa,Mozambique,Nampula,Nampula,APL
+Africa,Mozambique,Pemba,Pemba,POL
+Africa,Mozambique,Quelimane,Quelimane,UEL
+Africa,Mozambique,Tete Chingozi,Tete Chingozi,TET
+Africa,Mozambique,Vilankulo,Vilankulo,VNX
+Africa,Namibia,Eros,Eros,ERS
+Africa,Namibia,Luderitz,Luderitz,LUD
+Africa,Namibia,Mokuti Lodge,Mokuti Lodge,OKU
+Africa,Namibia,Mpacha,Mpacha,MPA
+Africa,Namibia,Ondangwa,Ondangwa,OND
+Africa,Namibia,Rooikop,Rooikop,WVB
+Africa,Namibia,Swakopmund,Swakopmund,SWP
+Africa,Namibia,Windhoek Hosea Kutako,Windhoek Hosea Kutako,WDH
+Africa,Nigeria,Abuja Nnamdi Azikiwe,Abuja Nnamdi Azikiwe,ABV
+Africa,Nigeria,Akure,Akure,AKR
+Africa,Nigeria,Akwa Ibom,Akwa Ibom,QUO
+Africa,Nigeria,Asaba,Asaba,ABB
+Africa,Nigeria,Bauchi,Bauchi,BCU
+Africa,Nigeria,Benin,Benin,BNI
+Africa,Nigeria,Calabar,Calabar,CBQ
+Africa,Nigeria,Ekiti Agro Allied Cargo,Ekiti Agro Allied Cargo,EKK
+Africa,Nigeria,Enugu,Enugu,ENU
+Africa,Nigeria,Gombe Lawanti,Gombe Lawanti,GMO
+Africa,Nigeria,Ibadan,Ibadan,IBA
+Africa,Nigeria,Ilorin,Ilorin,ILR
+Africa,Nigeria,Jos,Jos,JOS
+Africa,Nigeria,Kaduna,Kaduna,KAD
+Africa,Nigeria,Kano Mallam Aminu,Kano Mallam Aminu,KAN
+Africa,Nigeria,Katsina,Katsina,DKA
+Africa,Nigeria,Lagos Murtala Muhammed,Lagos Murtala Muhammed,LOS
+Africa,Nigeria,Maiduguri,Maiduguri,MIU
+Africa,Nigeria,Osubi Airstrip,Osubi Airstrip,QRW
+Africa,Nigeria,Port Harcourt,Port Harcourt,PHC
+Africa,Nigeria,Sadiq Abubakar Iii,Sadiq Abubakar Iii,SKO
+Africa,Nigeria,Sam Mbakwe,Sam Mbakwe,QOW
+Africa,Nigeria,Yola,Yola,YOL
+Africa,Reunion,St Denis de la Reunion,St Denis de la Reunion,RUN
+Africa,Rwanda,Kamembe,Kamembe,KME
+Africa,Rwanda,Kigali,Kigali,KGL
+Africa,Senegal,Blaise Diagne,Blaise Diagne,DSS
+Africa,Senegal,Cap Skirring,Cap Skirring,CSK
+Africa,Seychelles,Praslin Island,Praslin Island,PRI
+Africa,Seychelles,Seychelles,Seychelles,SEZ
+Africa,Sierra Leone,Freetown Lungi,Freetown Lungi,FNA
+Africa,South Africa,Bloemfontein,Bloemfontein,BFN
+Africa,South Africa,Cape Town,Cape Town,CPT
+Africa,South Africa,Durban,Durban,DUR
+Africa,South Africa,East London,East London,ELS
+Africa,South Africa,George,George,GRJ
+Africa,South Africa,Hoedspruit Afs,Hoedspruit Afs,HDS
+Africa,South Africa,Johannesburg,Johannesburg,JNB
+Africa,South Africa,Kimberley,Kimberley,KIM
+Africa,South Africa,Kruger Mpumalanga,Kruger Mpumalanga,MQP
+Africa,South Africa,Lanseria,Lanseria,HLA
+Africa,South Africa,Margate,Margate,MGH
+Africa,South Africa,Pietermaritzburg,Pietermaritzburg,PZB
+Africa,South Africa,Pietersburg Muni,Pietersburg Muni,PTG
+Africa,South Africa,Port Elizabeth,Port Elizabeth,PLZ
+Africa,South Africa,Richards Bay,Richards Bay,RCB
+Africa,South Africa,Sishen,Sishen,SIS
+Africa,South Africa,Skukuza,Skukuza,SZK
+Africa,South Africa,Umtata,Umtata,UTT
+Africa,South Africa,Upington,Upington,UTN
+Africa,Swaziland,King Mswati III,King Mswati III,SHO
+Africa,São Tomé and Príncipe,Principe,Principe,PCP
+Africa,São Tomé and Príncipe,Sao Tome,Sao Tome,TMS
+Africa,Tanzania,Arusha,Arusha,ARK
+Africa,Tanzania,Bukoba,Bukoba,BKZ
+Africa,Tanzania,Buzwagi,Buzwagi,KBH
+Africa,Tanzania,Dar Es Salaam,Dar Es Salaam,DAR
+Africa,Tanzania,Dodoma,Dodoma,DOD
+Africa,Tanzania,Geita,Geita,GIT
+Africa,Tanzania,Iringa,Iringa,IRI
+Africa,Tanzania,Kigoma,Kigoma,TKQ
+Africa,Tanzania,Kilimanjaro,Kilimanjaro,JRO
+Africa,Tanzania,Kirawira B Aerodrome,Kirawira B Aerodrome,GTZ
+Africa,Tanzania,Lake Manyara,Lake Manyara,LKY
+Africa,Tanzania,Mafia,Mafia,MFA
+Africa,Tanzania,Mbeya,Mbeya,MBI
+Africa,Tanzania,Mpanda,Mpanda,NPY
+Africa,Tanzania,Mtwara,Mtwara,MYW
+Africa,Tanzania,Musoma,Musoma,MUZ
+Africa,Tanzania,Mwanza,Mwanza,MWZ
+Africa,Tanzania,Pemba,Pemba,PMA
+Africa,Tanzania,Seronera Airstrip,Seronera Airstrip,SEU
+Africa,Tanzania,Songea,Songea,SGX
+Africa,Tanzania,Tabora,Tabora,TBO
+Africa,Tanzania,Tanga,Tanga,TGT
+Africa,Tanzania,Zanzibar,Zanzibar,ZNZ
+Africa,Togo,Lome Tokoin,Lome Tokoin,LFW
+Africa,Tunisia,Enfidha - Hammamet,Enfidha - Hammamet,NBE
+Africa,Tunisia,Habib Bourguiba,Habib Bourguiba,MIR
+Africa,Tunisia,Nefta,Nefta,TOE
+Africa,Tunisia,Thyna,Thyna,SFA
+Africa,Tunisia,Tunis–Carthage,Tunis–Carthage,TUN
+Africa,Tunisia,Zarzis,Zarzis,DJE
+Africa,Uganda,Arua,Arua,RUA
+Africa,Uganda,Entebbe,Entebbe,EBB
+Africa,Uganda,Kasese,Kasese,KSE
+Africa,Uganda,Kihihi,Kihihi,KHX
+Africa,Uganda,Kisoro,Kisoro,KXO
+Africa,Uganda,Pakuba,Pakuba,PAF
+Africa,Zambia,Jeki Airstrip,Jeki Airstrip,JEK
+Africa,Zambia,Kalumbila,Kalumbila,UMB
+Africa,Zambia,Kasama,Kasama,KAA
+Africa,Zambia,Livingstone,Livingstone,LVI
+Africa,Zambia,Lusaka,Lusaka,LUN
+Africa,Zambia,Mansa,Mansa,MNS
+Africa,Zambia,Mfuwe,Mfuwe,MFU
+Africa,Zambia,Royal,Royal,RYL
+Africa,Zambia,Simon M. Kapwepwe,Simon M. Kapwepwe,NLA
+Africa,Zambia,Solwezi,Solwezi,SLI
+Africa,Zimbabwe,Harare,Harare,HRE
+Africa,Zimbabwe,Joshua Mqabuko Nkomo,Joshua Mqabuko Nkomo,BUQ
+Africa,Zimbabwe,Victoria Falls,Victoria Falls,VFA

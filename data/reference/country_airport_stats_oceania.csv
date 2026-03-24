@@ -1,0 +1,345 @@
+continent,country,city,airport_name,airport_code
+Oceania,Australia,Adelaide,Adelaide,ADL
+Oceania,Australia,Albany,Albany,ALH
+Oceania,Australia,Albury,Albury,ABX
+Oceania,Australia,Alice Springs,Alice Springs,ASP
+Oceania,Australia,Armidale,Armidale,ARM
+Oceania,Australia,Aurukun,Aurukun,AUU
+Oceania,Australia,Avalon,Avalon,AVV
+Oceania,Australia,Ayers Rock,Ayers Rock,AYQ
+Oceania,Australia,Badu Island,Badu Island,BDD
+Oceania,Australia,Balgo Hills,Balgo Hills,BQW
+Oceania,Australia,Ballera,Ballera,BBL
+Oceania,Australia,Ballina,Ballina,BNK
+Oceania,Australia,Bamaga,Bamaga,ABM
+Oceania,Australia,Barcaldine,Barcaldine,BCI
+Oceania,Australia,Bedourie,Bedourie,BEU
+Oceania,Australia,Bendigo,Bendigo,BXG
+Oceania,Australia,Biloela,Biloela,ZBL
+Oceania,Australia,Birdsville,Birdsville,BVI
+Oceania,Australia,Blackall,Blackall,BKQ
+Oceania,Australia,Boigu Island,Boigu Island,GIC
+Oceania,Australia,Boulia,Boulia,BQL
+Oceania,Australia,Bourke,Bourke,BRK
+Oceania,Australia,Brisbane,Brisbane,BNE
+Oceania,Australia,Brisbane West Wellcamp,Brisbane West Wellcamp,WTB
+Oceania,Australia,Broken Hill,Broken Hill,BHQ
+Oceania,Australia,Broome,Broome,BME
+Oceania,Australia,Bundaberg,Bundaberg,BDB
+Oceania,Australia,Burketown,Burketown,BUC
+Oceania,Australia,Busselton,Busselton,BQB
+Oceania,Australia,Cairns,Cairns,CNS
+Oceania,Australia,Canberra,Canberra,CBR
+Oceania,Australia,Carnarvon,Carnarvon,CVQ
+Oceania,Australia,Cedun,Cedun,CED
+Oceania,Australia,Charleville,Charleville,CTL
+Oceania,Australia,Cloncurry,Cloncurry,CNJ
+Oceania,Australia,Cobar,Cobar,CAZ
+Oceania,Australia,Coconut Island,Coconut Island,CNC
+Oceania,Australia,Coen,Coen,CUQ
+Oceania,Australia,Coffs Harbor,Coffs Harbor,CFS
+Oceania,Australia,Coober Pedy,Coober Pedy,CPD
+Oceania,Australia,Cooktown,Cooktown,CTN
+Oceania,Australia,Cunnamulla,Cunnamulla,CMA
+Oceania,Australia,Darnley Island,Darnley Island,NLF
+Oceania,Australia,Darwin,Darwin,DRW
+Oceania,Australia,Derby,Derby,DRB
+Oceania,Australia,Devonport,Devonport,DPO
+Oceania,Australia,Doomadgee,Doomadgee,DMD
+Oceania,Australia,Dubbo City Regional,Dubbo City Regional,DBO
+Oceania,Australia,Edward River,Edward River,EDR
+Oceania,Australia,Elcho Island,Elcho Island,ELC
+Oceania,Australia,Emerald,Emerald,EMD
+Oceania,Australia,Esperance,Esperance,EPR
+Oceania,Australia,Fitzroy Crossing,Fitzroy Crossing,FIZ
+Oceania,Australia,Flinders Island,Flinders Island,FLS
+Oceania,Australia,Geraldton,Geraldton,GET
+Oceania,Australia,Gladstone,Gladstone,GLT
+Oceania,Australia,Gold Coast,Gold Coast,OOL
+Oceania,Australia,Gove,Gove,GOV
+Oceania,Australia,Griffith,Griffith,GFF
+Oceania,Australia,Groofe Eylandt,Groofe Eylandt,GTE
+Oceania,Australia,Halls Creek,Halls Creek,HCQ
+Oceania,Australia,Hamilton Island,Hamilton Island,HTI
+Oceania,Australia,Hervey Bay,Hervey Bay,HVB
+Oceania,Australia,Hobart,Hobart,HBA
+Oceania,Australia,Horn Island,Horn Island,HID
+Oceania,Australia,Hughenden,Hughenden,HGD
+Oceania,Australia,Illawara,Illawara,WOL
+Oceania,Australia,Inverell,Inverell,IVR
+Oceania,Australia,Julia Creek,Julia Creek,JCK
+Oceania,Australia,Kalgoorlie,Kalgoorlie,KGI
+Oceania,Australia,Kalumburu,Kalumburu,UBU
+Oceania,Australia,Karratha,Karratha,KTA
+Oceania,Australia,Karumba,Karumba,KRB
+Oceania,Australia,Kens Bore,Kens Bore,KYB
+Oceania,Australia,King Island,King Island,KNS
+Oceania,Australia,Kingscote,Kingscote,KGC
+Oceania,Australia,Kingsford Smith,Kingsford Smith,SYD
+Oceania,Australia,Kowanyama,Kowanyama,KWM
+Oceania,Australia,Kubin,Kubin,KUG
+Oceania,Australia,Kununurra,Kununurra,KNX
+Oceania,Australia,Launceston,Launceston,LST
+Oceania,Australia,Laverton,Laverton,LVO
+Oceania,Australia,Learmonth,Learmonth,LEA
+Oceania,Australia,Leonora,Leonora,LNO
+Oceania,Australia,Lightning Ridge,Lightning Ridge,LHG
+Oceania,Australia,Lockhart River,Lockhart River,IRG
+Oceania,Australia,Longreach,Longreach,LRE
+Oceania,Australia,Lord Howe Island,Lord Howe Island,LDH
+Oceania,Australia,Mabuiag Island,Mabuiag Island,UBB
+Oceania,Australia,Mackay,Mackay,MKY
+Oceania,Australia,Maningrioa,Maningrioa,MNG
+Oceania,Australia,Maroochydore Sunshine Coast,Maroochydore Sunshine Coast,MCY
+Oceania,Australia,Mcarthur River,Mcarthur River,MCV
+Oceania,Australia,Meekatharra,Meekatharra,MKR
+Oceania,Australia,Melbourne,Melbourne,MEL
+Oceania,Australia,Melbourne Essendon,Melbourne Essendon,MEB
+Oceania,Australia,Merimbula,Merimbula,MIM
+Oceania,Australia,Mildura,Mildura,MQL
+Oceania,Australia,Miles,Miles,WLE
+Oceania,Australia,Milingimbi,Milingimbi,MGT
+Oceania,Australia,Monkey Mia,Monkey Mia,MJK
+Oceania,Australia,Moomba,Moomba,MOO
+Oceania,Australia,Moranbah,Moranbah,MOV
+Oceania,Australia,Moree,Moree,MRZ
+Oceania,Australia,Mornington,Mornington,ONG
+Oceania,Australia,Moruya,Moruya,MYA
+Oceania,Australia,Mount Gambier,Mount Gambier,MGB
+Oceania,Australia,Mount Isa,Mount Isa,ISA
+Oceania,Australia,Mount Magnet,Mount Magnet,MMG
+Oceania,Australia,Murray Island,Murray Island,MYI
+Oceania,Australia,Narrabri,Narrabri,NAA
+Oceania,Australia,Narrandera,Narrandera,NRA
+Oceania,Australia,Newcastle,Newcastle,NTL
+Oceania,Australia,Newman,Newman,ZNE
+Oceania,Australia,Normanton,Normanton,NTN
+Oceania,Australia,Olympic Dam,Olympic Dam,OLP
+Oceania,Australia,Onslow,Onslow,ONS
+Oceania,Australia,Orange,Orange,OAG
+Oceania,Australia,Palm Island,Palm Island,PMK
+Oceania,Australia,Paraburdoo,Paraburdoo,PBO
+Oceania,Australia,Parkes,Parkes,PKE
+Oceania,Australia,Perth,Perth,PER
+Oceania,Australia,Port Hedland,Port Hedland,PHE
+Oceania,Australia,Port Lincoln,Port Lincoln,PLO
+Oceania,Australia,Port Macquarie,Port Macquarie,PQQ
+Oceania,Australia,Proserpine,Proserpine,PPP
+Oceania,Australia,Quipi,Quipi,ULP
+Oceania,Australia,Richmond,Richmond,RCM
+Oceania,Australia,Rockhampton,Rockhampton,ROK
+Oceania,Australia,Roma,Roma,RMA
+Oceania,Australia,Saibai Island,Saibai Island,SBR
+Oceania,Australia,St. George,St. George,SGO
+Oceania,Australia,Tamworth,Tamworth,TMW
+Oceania,Australia,Tennant Creek,Tennant Creek,TCA
+Oceania,Australia,Thargomindah,Thargomindah,XTG
+Oceania,Australia,Tindal,Tindal,KTR
+Oceania,Australia,Townsville,Townsville,TSV
+Oceania,Australia,Wagga Wagga,Wagga Wagga,WGA
+Oceania,Australia,Walgett,Walgett,WGE
+Oceania,Australia,Warraber Island,Warraber Island,SYU
+Oceania,Australia,Weipa,Weipa,WEI
+Oceania,Australia,Whyalla,Whyalla,WYA
+Oceania,Australia,Wiluna,Wiluna,WUN
+Oceania,Australia,Windarra,Windarra,WNR
+Oceania,Australia,Winton,Winton,WIN
+Oceania,Australia,Wodgina,Wodgina,GYB
+Oceania,Australia,Wynyard,Wynyard,BWT
+Oceania,Australia,Yam Island,Yam Island,XMY
+Oceania,Australia,Yorke Island,Yorke Island,OKR
+Oceania,Cocos (K) I.,Cocos Islands,Cocos Islands,CCK
+Oceania,Cook Islands,Aitutaki,Aitutaki,AIT
+Oceania,Cook Islands,Rarotonga,Rarotonga,RAR
+Oceania,Fiji,Cicia,Cicia,ICI
+Oceania,Fiji,Koro Island,Koro Island,KXF
+Oceania,Fiji,Labasa,Labasa,LBS
+Oceania,Fiji,Lakeba Island,Lakeba Island,LKB
+Oceania,Fiji,Nadi,Nadi,NAN
+Oceania,Fiji,Nausori,Nausori,SUV
+Oceania,Fiji,Rotuma Island,Rotuma Island,RTA
+Oceania,Fiji,Savusavu,Savusavu,SVU
+Oceania,Fiji,Taveuni,Taveuni,TVU
+Oceania,Fiji,Vanuabalavu,Vanuabalavu,VBV
+Oceania,Fiji,Vunisea,Vunisea,KDV
+Oceania,French Polynesia,Ahe,Ahe,AHE
+Oceania,French Polynesia,Anaa,Anaa,AAA
+Oceania,French Polynesia,Apataki,Apataki,APK
+Oceania,French Polynesia,Aratika-Nord,Aratika-Nord,RKA
+Oceania,French Polynesia,Arutua,Arutua,AXR
+Oceania,French Polynesia,Atuona,Atuona,AUQ
+Oceania,French Polynesia,Bora Bora,Bora Bora,BOB
+Oceania,French Polynesia,Faa\\'a,Faa\\'a,PPT
+Oceania,French Polynesia,Faaite,Faaite,FAC
+Oceania,French Polynesia,Fakahina,Fakahina,FHZ
+Oceania,French Polynesia,Fakarava,Fakarava,FAV
+Oceania,French Polynesia,Fangatau,Fangatau,FGU
+Oceania,French Polynesia,Gambier Island,Gambier Island,GMR
+Oceania,French Polynesia,Hao Island,Hao Island,HOI
+Oceania,French Polynesia,Hikueru,Hikueru,HHZ
+Oceania,French Polynesia,Huahine,Huahine,HUH
+Oceania,French Polynesia,Katiu,Katiu,KXU
+Oceania,French Polynesia,Kauehi,Kauehi,KHZ
+Oceania,French Polynesia,Kaukura Atoll,Kaukura Atoll,KKR
+Oceania,French Polynesia,Makemo,Makemo,MKP
+Oceania,French Polynesia,Manihi,Manihi,XMH
+Oceania,French Polynesia,Mataiva,Mataiva,MVT
+Oceania,French Polynesia,Maupiti,Maupiti,MAU
+Oceania,French Polynesia,Moorea,Moorea,MOZ
+Oceania,French Polynesia,Napuka Island,Napuka Island,NAU
+Oceania,French Polynesia,Niau,Niau,NIU
+Oceania,French Polynesia,Nuku Hiva,Nuku Hiva,NHV
+Oceania,French Polynesia,Nukutavake,Nukutavake,NUK
+Oceania,French Polynesia,Puka Puka,Puka Puka,PKP
+Oceania,French Polynesia,Pukarua,Pukarua,PUK
+Oceania,French Polynesia,Raiatea,Raiatea,RFP
+Oceania,French Polynesia,Raivavae,Raivavae,RVV
+Oceania,French Polynesia,Rangiroa,Rangiroa,RGI
+Oceania,French Polynesia,Raroia,Raroia,RRR
+Oceania,French Polynesia,Reao,Reao,REA
+Oceania,French Polynesia,Rimatara,Rimatara,RMT
+Oceania,French Polynesia,Rorutu,Rorutu,RUR
+Oceania,French Polynesia,Takapoto,Takapoto,TKP
+Oceania,French Polynesia,Takaroa,Takaroa,TKX
+Oceania,French Polynesia,Takume,Takume,TJN
+Oceania,French Polynesia,Tikehau Atoll,Tikehau Atoll,TIH
+Oceania,French Polynesia,Tuamoto,Tuamoto,TKV
+Oceania,French Polynesia,Tubuai,Tubuai,TUB
+Oceania,French Polynesia,Tureira,Tureira,ZTA
+Oceania,French Polynesia,Ua Huka,Ua Huka,UAH
+Oceania,French Polynesia,Ua Pou,Ua Pou,UAP
+Oceania,French Polynesia,Vahitahi,Vahitahi,VHZ
+Oceania,Guam,Guam,Guam,GUM
+Oceania,Kiribati,Abaiang,Abaiang,ABF
+Oceania,Kiribati,Abemama Atoll,Abemama Atoll,AEA
+Oceania,Kiribati,Aranuka,Aranuka,AAK
+Oceania,Kiribati,Arorae Island,Arorae Island,AIS
+Oceania,Kiribati,Beru,Beru,BEZ
+Oceania,Kiribati,Bonriki,Bonriki,TRW
+Oceania,Kiribati,Butaritari Atoll,Butaritari Atoll,BBG
+Oceania,Kiribati,Christmas Island,Christmas Island,CXI
+Oceania,Kiribati,Fanning Island,Fanning Island,TNV
+Oceania,Kiribati,Kuria,Kuria,KUC
+Oceania,Kiribati,Maiana,Maiana,MNK
+Oceania,Kiribati,Makin Island,Makin Island,MTK
+Oceania,Kiribati,Marakei,Marakei,MZK
+Oceania,Kiribati,Nikunau,Nikunau,NIG
+Oceania,Kiribati,Nonouti,Nonouti,NON
+Oceania,Kiribati,Onotoa,Onotoa,OOT
+Oceania,Kiribati,Tabiteuea,Tabiteuea,TBF
+Oceania,Kiribati,Tabiteuea South,Tabiteuea South,TSU
+Oceania,Kiribati,Tamana Island,Tamana Island,TMN
+Oceania,Kiribati,Washington Island,Washington Island,TNQ
+Oceania,Marshall Islands,Kwajalein,Kwajalein,KWA
+Oceania,Marshall Islands,Marshall Islands,Marshall Islands,MAJ
+Oceania,Micronesia,Kosrae,Kosrae,KSA
+Oceania,Micronesia,Pohnpei,Pohnpei,PNI
+Oceania,Micronesia,Truk,Truk,TKK
+Oceania,Micronesia,Yap,Yap,YAP
+Oceania,New Caledonia,Ile Des Pins,Ile Des Pins,ILP
+Oceania,New Caledonia,La Tontouta,La Tontouta,NOU
+Oceania,New Caledonia,Lifou,Lifou,LIF
+Oceania,New Caledonia,Mare,Mare,MEE
+Oceania,New Caledonia,Noumea Magenta,Noumea Magenta,GEA
+Oceania,New Caledonia,Ouvea,Ouvea,UVE
+Oceania,New Zealand,Auckland,Auckland,AKL
+Oceania,New Zealand,Christchurch,Christchurch,CHC
+Oceania,New Zealand,Dunedin,Dunedin,DUD
+Oceania,New Zealand,Gisborne,Gisborne,GIS
+Oceania,New Zealand,Hamilton,Hamilton,HLZ
+Oceania,New Zealand,Hokitika,Hokitika,HKK
+Oceania,New Zealand,Invercargill,Invercargill,IVC
+Oceania,New Zealand,Karewa,Karewa,CHT
+Oceania,New Zealand,Kerikeri,Kerikeri,KKE
+Oceania,New Zealand,Napier,Napier,NPE
+Oceania,New Zealand,Nelson,Nelson,NSN
+Oceania,New Zealand,New Plymouth,New Plymouth,NPL
+Oceania,New Zealand,Palmerston North,Palmerston North,PMR
+Oceania,New Zealand,Paraparaumu,Paraparaumu,PPQ
+Oceania,New Zealand,Picton Aerodrome,Picton Aerodrome,PCN
+Oceania,New Zealand,Queenstown,Queenstown,ZQN
+Oceania,New Zealand,Rotorua,Rotorua,ROT
+Oceania,New Zealand,Taupo,Taupo,TUO
+Oceania,New Zealand,Tauranga City,Tauranga City,TRG
+Oceania,New Zealand,Timaru,Timaru,TIU
+Oceania,New Zealand,Wanganui,Wanganui,WAG
+Oceania,New Zealand,Wellington,Wellington,WLG
+Oceania,New Zealand,Whakatane,Whakatane,WHK
+Oceania,New Zealand,Whangarei,Whangarei,WRE
+Oceania,New Zealand,Woodbourne,Woodbourne,BHE
+Oceania,Niue,Niue,Niue,IUE
+Oceania,Norfolk Island,Norfolk Island,Norfolk Island,NLK
+Oceania,Northern Mariana Islands,Rota,Rota,ROP
+Oceania,Northern Mariana Islands,Saipan,Saipan,SPN
+Oceania,Northern Mariana Islands,Tinian,Tinian,TIQ
+Oceania,Palau,Koror,Koror,ROR
+Oceania,Papua New Guinea,Alotau,Alotau,GUR
+Oceania,Papua New Guinea,Buka,Buka,BUA
+Oceania,Papua New Guinea,Daru,Daru,DAU
+Oceania,Papua New Guinea,Goroka,Goroka,GKA
+Oceania,Papua New Guinea,Kavieng,Kavieng,KVG
+Oceania,Papua New Guinea,Kimbe,Kimbe,HKN
+Oceania,Papua New Guinea,Kineshma,Kineshma,KIE
+Oceania,Papua New Guinea,Kiunga,Kiunga,UNG
+Oceania,Papua New Guinea,Lablab,Lablab,LAB
+Oceania,Papua New Guinea,Madang,Madang,MAG
+Oceania,Papua New Guinea,Manus Island,Manus Island,MAS
+Oceania,Papua New Guinea,Mendi,Mendi,MDU
+Oceania,Papua New Guinea,Moro,Moro,MXH
+Oceania,Papua New Guinea,Mount Hagen,Mount Hagen,HGU
+Oceania,Papua New Guinea,Nadzab,Nadzab,LAE
+Oceania,Papua New Guinea,Popondetta,Popondetta,PNP
+Oceania,Papua New Guinea,Port Moresby Jacksons,Port Moresby Jacksons,POM
+Oceania,Papua New Guinea,Tabubil,Tabubil,TBG
+Oceania,Papua New Guinea,Tari,Tari,TIZ
+Oceania,Papua New Guinea,Tokua,Tokua,RAB
+Oceania,Papua New Guinea,Vanimo,Vanimo,VAI
+Oceania,Papua New Guinea,Wapenamanda,Wapenamanda,WBM
+Oceania,Papua New Guinea,Wewak,Wewak,WWK
+Oceania,Samoa,Fagali I,Fagali I,FGI
+Oceania,Samoa,Faleolo,Faleolo,APW
+Oceania,Solomon Islands,Auki,Auki,AKS
+Oceania,Solomon Islands,Balalae,Balalae,BAS
+Oceania,Solomon Islands,Barakoma,Barakoma,VEV
+Oceania,Solomon Islands,Bellona,Bellona,BNY
+Oceania,Solomon Islands,Choiseul Bay,Choiseul Bay,CHY
+Oceania,Solomon Islands,Fera Island,Fera Island,FRE
+Oceania,Solomon Islands,Honiara,Honiara,HIR
+Oceania,Solomon Islands,Kaghau Island,Kaghau Island,KGE
+Oceania,Solomon Islands,Lomlom,Lomlom,LLM
+Oceania,Solomon Islands,Mono,Mono,MNY
+Oceania,Solomon Islands,Munda,Munda,MUA
+Oceania,Solomon Islands,Ngorangora,Ngorangora,IRA
+Oceania,Solomon Islands,Nusatupe,Nusatupe,GZO
+Oceania,Solomon Islands,Parasi,Parasi,PRS
+Oceania,Solomon Islands,Ramato,Ramato,RBV
+Oceania,Solomon Islands,Rennell,Rennell,RNL
+Oceania,Solomon Islands,Santa Ana,Santa Ana,NNB
+Oceania,Solomon Islands,Santa Cruz Island,Santa Cruz Island,SCZ
+Oceania,Solomon Islands,Sege,Sege,EGM
+Oceania,Solomon Islands,Suavanao,Suavanao,VAO
+Oceania,Solomon Islands,Ulawa,Ulawa,RNA
+Oceania,Tonga,HaApa,HaApa,HPA
+Oceania,Tonga,Kaufana,Kaufana,EUA
+Oceania,Tonga,Mata'aho,Mata'aho,NFO
+Oceania,Tonga,Niuatoputapu,Niuatoputapu,NTT
+Oceania,Tonga,Nuku'Alofa,Nuku'Alofa,TBU
+Oceania,Tonga,Vava'u,Vava'u,VAV
+Oceania,Tuvalu,Funafuti,Funafuti,FUN
+Oceania,Vanuatu,Anelghowhat,Anelghowhat,AUY
+Oceania,Vanuatu,Craig Cove,Craig Cove,CCV
+Oceania,Vanuatu,Gaua,Gaua,ZGU
+Oceania,Vanuatu,Lamap,Lamap,LPM
+Oceania,Vanuatu,Lamen Bay,Lamen Bay,LNB
+Oceania,Vanuatu,Longana,Longana,LOD
+Oceania,Vanuatu,Lonorore,Lonorore,LNE
+Oceania,Vanuatu,Maewo,Maewo,MWF
+Oceania,Vanuatu,Mota Lava,Mota Lava,MTV
+Oceania,Vanuatu,Norsup,Norsup,NUS
+Oceania,Vanuatu,Port Vila Bauerfield,Port Vila Bauerfield,VLI
+Oceania,Vanuatu,Santo,Santo,SON
+Oceania,Vanuatu,Sara,Sara,SSR
+Oceania,Vanuatu,Sola,Sola,SLH
+Oceania,Vanuatu,Tanna,Tanna,TAH
+Oceania,Vanuatu,Torres,Torres,TOH
+Oceania,Vanuatu,Walaha,Walaha,WLH

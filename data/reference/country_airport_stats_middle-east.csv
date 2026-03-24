@@ -1,0 +1,96 @@
+continent,country,city,airport_name,airport_code
+Middle East,Bahrain,Bahrain,Bahrain,BAH
+Middle East,Iran,Abadan,Abadan,ABD
+Middle East,Iran,Abu Musa,Abu Musa,AEU
+Middle East,Iran,Ahwaz,Ahwaz,AWZ
+Middle East,Iran,Ala'Marvdasht,Ala'Marvdasht,PGU
+Middle East,Iran,Ardabil,Ardabil,ADU
+Middle East,Iran,Bandar Abbas,Bandar Abbas,BND
+Middle East,Iran,Bandar Lengeh,Bandar Lengeh,BDH
+Middle East,Iran,Birjand,Birjand,XBJ
+Middle East,Iran,Bojnord,Bojnord,BJB
+Middle East,Iran,Bushehr,Bushehr,BUZ
+Middle East,Iran,Chah Bahar,Chah Bahar,ZBR
+Middle East,Iran,Dashte Naz,Dashte Naz,SRY
+Middle East,Iran,Dayrestan,Dayrestan,GSM
+Middle East,Iran,Esfahan Shahid Beheshti,Esfahan Shahid Beheshti,IFN
+Middle East,Iran,Gorgan,Gorgan,GBT
+Middle East,Iran,Hamadan,Hamadan,HDM
+Middle East,Iran,Ilam,Ilam,IIL
+Middle East,Iran,Imam Khomeini,Imam Khomeini,IKA
+Middle East,Iran,Kerman,Kerman,KER
+Middle East,Iran,Kish,Kish,KIH
+Middle East,Iran,Lar,Lar,LRR
+Middle East,Iran,Mahshahr,Mahshahr,MRX
+Middle East,Iran,Mashhad,Mashhad,MHD
+Middle East,Iran,Mehrabad,Mehrabad,THR
+Middle East,Iran,Now Shahr,Now Shahr,NSH
+Middle East,Iran,Ramsar,Ramsar,RZR
+Middle East,Iran,Rasht,Rasht,RAS
+Middle East,Iran,Sanandaj,Sanandaj,SDG
+Middle East,Iran,Shahid Ashrafi Esfahani,Shahid Ashrafi Esfahani,KSH
+Middle East,Iran,Shiraz Shahid Dastghaib,Shiraz Shahid Dastghaib,SYZ
+Middle East,Iran,Sirjan,Sirjan,SYJ
+Middle East,Iran,Tabriz,Tabriz,TBZ
+Middle East,Iran,Urmieh,Urmieh,OMH
+Middle East,Iran,Yazd Shahid Sadooghi,Yazd Shahid Sadooghi,AZD
+Middle East,Iran,Zabol,Zabol,ACZ
+Middle East,Iran,Zahedan,Zahedan,ZAH
+Middle East,Iran,Zanjan,Zanjan,JWN
+Middle East,Iraq,Al Najaf,Al Najaf,NJF
+Middle East,Iraq,Baghdad,Baghdad,BGW
+Middle East,Iraq,Basrah,Basrah,BSR
+Middle East,Iraq,Erbil,Erbil,EBL
+Middle East,Iraq,Kirkuk AB,Kirkuk AB,KIK
+Middle East,Iraq,Mosul,Mosul,OSM
+Middle East,Iraq,Sulaymaniyah,Sulaymaniyah,ISU
+Middle East,Israel,Ben Gurion,Ben Gurion,TLV
+Middle East,Israel,Haifa,Haifa,HFA
+Middle East,Israel,Ramon,Ramon,ETM
+Middle East,Jordan,Aqaba,Aqaba,AQJ
+Middle East,Jordan,Marka,Marka,ADJ
+Middle East,Jordan,Queen Alia,Queen Alia,AMM
+Middle East,Kuwait,Kuwait,Kuwait,KWI
+Middle East,Lebanon,Beirut,Beirut,BEY
+Middle East,Oman,Duqm,Duqm,DQM
+Middle East,Oman,Khasab,Khasab,KHS
+Middle East,Oman,Masirah,Masirah,MSH
+Middle East,Oman,Salalah,Salalah,SLL
+Middle East,Oman,Seeb,Seeb,MCT
+Middle East,Oman,Sohar,Sohar,OHS
+Middle East,Qatar,Hamad,Hamad,DOH
+Middle East,Saudi Arabia,Abha,Abha,AHB
+Middle East,Saudi Arabia,Al-Aqiq,Al-Aqiq,ABT
+Middle East,Saudi Arabia,Arar,Arar,RAE
+Middle East,Saudi Arabia,Bisha,Bisha,BHH
+Middle East,Saudi Arabia,Dawadmi,Dawadmi,DWD
+Middle East,Saudi Arabia,Gassim,Gassim,ELQ
+Middle East,Saudi Arabia,Gurayat,Gurayat,URY
+Middle East,Saudi Arabia,Hail,Hail,HAS
+Middle East,Saudi Arabia,Hofuf,Hofuf,HOF
+Middle East,Saudi Arabia,Jazan,Jazan,GIZ
+Middle East,Saudi Arabia,Jouf,Jouf,AJF
+Middle East,Saudi Arabia,King Abdulaziz,King Abdulaziz,JED
+Middle East,Saudi Arabia,King Fahd,King Fahd,DMM
+Middle East,Saudi Arabia,King Khaled,King Khaled,RUH
+Middle East,Saudi Arabia,Madinah,Madinah,MED
+Middle East,Saudi Arabia,Nejran,Nejran,EAM
+Middle East,Saudi Arabia,Neom Bay,Neom Bay,NUM
+Middle East,Saudi Arabia,Prince Abdul Majeed bin Abdulaziz,Prince Abdul Majeed bin Abdulaziz,ULH
+Middle East,Saudi Arabia,Qaisumah,Qaisumah,AQI
+Middle East,Saudi Arabia,Rafha,Rafha,RAH
+Middle East,Saudi Arabia,Red Sea,Red Sea,RSI
+Middle East,Saudi Arabia,Sharurah,Sharurah,SHW
+Middle East,Saudi Arabia,Tabuk,Tabuk,TUU
+Middle East,Saudi Arabia,Taif,Taif,TIF
+Middle East,Saudi Arabia,Turaif,Turaif,TUI
+Middle East,Saudi Arabia,Wadi Ad Dawasir,Wadi Ad Dawasir,WAE
+Middle East,Saudi Arabia,Yenbo,Yenbo,YNB
+Middle East,United Arab Emirates,Al Ain,Al Ain,AAN
+Middle East,United Arab Emirates,Dubai,Dubai,DXB
+Middle East,United Arab Emirates,Dubai,Dubai,XNB
+Middle East,United Arab Emirates,Dubai Al Maktoum,Dubai Al Maktoum,DWC
+Middle East,United Arab Emirates,Fujairah,Fujairah,FJR
+Middle East,United Arab Emirates,Ras Al Khaimah,Ras Al Khaimah,RKT
+Middle East,United Arab Emirates,Sharjah,Sharjah,SHJ
+Middle East,United Arab Emirates,Zayed,Zayed,AUH

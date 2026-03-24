@@ -1,0 +1,340 @@
+continent,country,city,airport_name,airport_code
+South America,Argentina,Aeroparque Jorge Newbery,Aeroparque Jorge Newbery,AEP
+South America,Argentina,Aeropuerto Internacional Valle del Conlara,Aeropuerto Internacional Valle del Conlara,RLO
+South America,Argentina,Almirante Zar,Almirante Zar,REL
+South America,Argentina,Ambrosio L V Taravella,Ambrosio L V Taravella,COR
+South America,Argentina,Catamarca,Catamarca,CTC
+South America,Argentina,Comandante Espora,Comandante Espora,BHI
+South America,Argentina,Comodoro Rivadavia,Comodoro Rivadavia,CRD
+South America,Argentina,Corrientes,Corrientes,CNQ
+South America,Argentina,El Calafate,El Calafate,FTE
+South America,Argentina,El Plumerillo,El Plumerillo,MDZ
+South America,Argentina,El Tehuelche,El Tehuelche,PMY
+South America,Argentina,Esquel,Esquel,EQS
+South America,Argentina,Formosa,Formosa,FMA
+South America,Argentina,General Pico,General Pico,GPO
+South America,Argentina,General Urquiza,General Urquiza,PRA
+South America,Argentina,Gobernador Castello,Gobernador Castello,VDM
+South America,Argentina,Iguazu,Iguazu,IGR
+South America,Argentina,Jujuy,Jujuy,JUJ
+South America,Argentina,La Rioja,La Rioja,IRJ
+South America,Argentina,Mar Del Plata,Mar Del Plata,MDQ
+South America,Argentina,Ministro Pistarini,Ministro Pistarini,EZE
+South America,Argentina,Posadas,Posadas,PSS
+South America,Argentina,Presidente Peron,Presidente Peron,NQN
+South America,Argentina,Resistencia,Resistencia,RES
+South America,Argentina,Rio Cuarto Area De Material,Rio Cuarto Area De Material,RCU
+South America,Argentina,Rio Gallegos,Rio Gallegos,RGL
+South America,Argentina,Rio Grande,Rio Grande,RGA
+South America,Argentina,Rio Hondo,Rio Hondo,RHD
+South America,Argentina,Rosario,Rosario,ROS
+South America,Argentina,Salta,Salta,SLA
+South America,Argentina,San Carlos,San Carlos,BRC
+South America,Argentina,San Juan,San Juan,UAQ
+South America,Argentina,San Luis,San Luis,LUQ
+South America,Argentina,San Martin De Los Andes,San Martin De Los Andes,CPC
+South America,Argentina,San Rafael,San Rafael,AFA
+South America,Argentina,Santa Rosa,Santa Rosa,RSA
+South America,Argentina,Santiago Del Estero,Santiago Del Estero,SDE
+South America,Argentina,Sauce Viejo,Sauce Viejo,SFN
+South America,Argentina,Teniente Benjamin Matienzo,Teniente Benjamin Matienzo,TUC
+South America,Argentina,Ushuaia Malvinas Argentinas,Ushuaia Malvinas Argentinas,USH
+South America,Bolivia,Cap De Av Emilio Beltran,Cap De Av Emilio Beltran,GYA
+South America,Bolivia,Cap De Av Selin Zeitun Lopez,Cap De Av Selin Zeitun Lopez,RIB
+South America,Bolivia,Capitan Anibal Arab,Capitan Anibal Arab,CIJ
+South America,Bolivia,Capitan Oriel Lea Plaza,Capitan Oriel Lea Plaza,TJA
+South America,Bolivia,El Alto,El Alto,LPB
+South America,Bolivia,Jorge Wilsterman,Jorge Wilsterman,CBB
+South America,Bolivia,Juan Mendoza,Juan Mendoza,ORU
+South America,Bolivia,Juana Azurduy De Padilla,Juana Azurduy De Padilla,SRE
+South America,Bolivia,Rurrenabaque,Rurrenabaque,RBQ
+South America,Bolivia,Santa Cruz,Santa Cruz,VVI
+South America,Bolivia,Tte Av Jorge Henrich Arauz,Tte Av Jorge Henrich Arauz,TDD
+South America,Bolivia,Uyuni,Uyuni,UYU
+South America,Brazil,. Pres. Castro Pinto,. Pres. Castro Pinto,JPA
+South America,Brazil,A. De Barros,A. De Barros,PPB
+South America,Brazil,Aeroporto Brigadeiro Firmino Ayres,Aeroporto Brigadeiro Firmino Ayres,JPO
+South America,Brazil,Aeroporto Municipal de Salinas,Aeroporto Municipal de Salinas,IAL
+South America,Brazil,Aeroporto de Porto Seguro,Aeroporto de Porto Seguro,BPS
+South America,Brazil,Afonso Pena,Afonso Pena,CWB
+South America,Brazil,Alta Floresta,Alta Floresta,AFL
+South America,Brazil,Altamira,Altamira,ATM
+South America,Brazil,Aracatuba,Aracatuba,ARU
+South America,Brazil,Araguaina,Araguaina,AUX
+South America,Brazil,Araraquara,Araraquara,AQA
+South America,Brazil,Araripina,Araripina,JAW
+South America,Brazil,Araxa,Araxa,AAX
+South America,Brazil,Aripuana,Aripuana,AIR
+South America,Brazil,Augusto Severo,Augusto Severo,NAT
+South America,Brazil,Barcelos,Barcelos,BAZ
+South America,Brazil,Barra Do Garcas,Barra Do Garcas,BPG
+South America,Brazil,Barreiras,Barreiras,BRA
+South America,Brazil,Barretos,Barretos,BAT
+South America,Brazil,Bauru-Arealva,Bauru-Arealva,JTC
+South America,Brazil,Belo Horizonte,Belo Horizonte,CNF
+South America,Brazil,Boa Vista,Boa Vista,BVB
+South America,Brazil,Bonito,Bonito,BYO
+South America,Brazil,Borba,Borba,RBB
+South America,Brazil,Breves,Breves,BVS
+South America,Brazil,Cabo Frio,Cabo Frio,CFB
+South America,Brazil,Cachimbo,Cachimbo,ITB
+South America,Brazil,Cacoal,Cacoal,OAL
+South America,Brazil,Cajazeiras,Cajazeiras,CJZ
+South America,Brazil,Caldas Novas,Caldas Novas,CLV
+South America,Brazil,Campo Dos Bugres,Campo Dos Bugres,CXJ
+South America,Brazil,Campo Grande,Campo Grande,CGR
+South America,Brazil,Carajas,Carajas,CKS
+South America,Brazil,Caruaru,Caruaru,CAU
+South America,Brazil,Cascavel,Cascavel,CAC
+South America,Brazil,Cataratas,Cataratas,IGU
+South America,Brazil,Chapeco,Chapeco,XAP
+South America,Brazil,Coari,Coari,CIZ
+South America,Brazil,Congonhas,Congonhas,CGH
+South America,Brazil,Coronel Horacio de Mattos,Coronel Horacio de Mattos,LEC
+South America,Brazil,Corumba,Corumba,CMG
+South America,Brazil,Cruzeiro Do Sul,Cruzeiro Do Sul,CZS
+South America,Brazil,Deputado Luis Eduardo Magalhaes,Deputado Luis Eduardo Magalhaes,SSA
+South America,Brazil,Divinopolis,Divinopolis,DIQ
+South America,Brazil,Dourados,Dourados,DOU
+South America,Brazil,Eduardo Gomes,Eduardo Gomes,MAO
+South America,Brazil,Fabio Perini,Fabio Perini,PBA
+South America,Brazil,Fernando De Noronha,Fernando De Noronha,FEN
+South America,Brazil,Fortaleza,Fortaleza,FOR
+South America,Brazil,Franca,Franca,FRC
+South America,Brazil,Galeao Antonio Carlos Jobim,Galeao Antonio Carlos Jobim,GIG
+South America,Brazil,Garanhuns,Garanhuns,QGP
+South America,Brazil,Glauber Rocha,Glauber Rocha,VDC
+South America,Brazil,Goiabeiras,Goiabeiras,VIX
+South America,Brazil,Governador Jorge Teixeira De Oliveira,Governador Jorge Teixeira De Oliveira,PVH
+South America,Brazil,Governador Valadares,Governador Valadares,GVR
+South America,Brazil,Guaira,Guaira,GGJ
+South America,Brazil,Guanambi,Guanambi,GNM
+South America,Brazil,Guararapes,Guararapes,REC
+South America,Brazil,Hercilio Luz,Hercilio Luz,FLN
+South America,Brazil,Humberto Bortoluzzi Regional,Humberto Bortoluzzi Regional,JJG
+South America,Brazil,Ilheus,Ilheus,IOS
+South America,Brazil,Imperatriz,Imperatriz,IMP
+South America,Brazil,Jacarepagua-Roberto Marinho,Jacarepagua-Roberto Marinho,RRJ
+South America,Brazil,Jericoacoara,Jericoacoara,JJD
+South America,Brazil,Ji-Parana,Ji-Parana,JPR
+South America,Brazil,Julio Belem,Julio Belem,PIN
+South America,Brazil,Juvenal Loureiro Cardoso,Juvenal Loureiro Cardoso,PTO
+South America,Brazil,Labrea,Labrea,LBR
+South America,Brazil,Lauro Carneiro de Loyola,Lauro Carneiro de Loyola,JOI
+South America,Brazil,Lauro Kurtz,Lauro Kurtz,PFB
+South America,Brazil,Leite Lopes,Leite Lopes,RAO
+South America,Brazil,Linhares Municipal,Linhares Municipal,LHN
+South America,Brazil,Londrina,Londrina,LDB
+South America,Brazil,Lorenzo,Lorenzo,MXQ
+South America,Brazil,Macapa,Macapa,MCP
+South America,Brazil,Major Brigadeiro Trompowsky,Major Brigadeiro Trompowsky,VAG
+South America,Brazil,Manhuacu Elias Breder,Manhuacu Elias Breder,JMA
+South America,Brazil,Manicore,Manicore,MNX
+South America,Brazil,Maraba,Maraba,MAB
+South America,Brazil,Marechal Cunha Machado,Marechal Cunha Machado,SLZ
+South America,Brazil,Marechal Rondon,Marechal Rondon,CGB
+South America,Brazil,Marilia,Marilia,MII
+South America,Brazil,Maringa,Maringa,MGF
+South America,Brazil,Maues,Maues,MBZ
+South America,Brazil,Monte Dourado,Monte Dourado,MEU
+South America,Brazil,Montes Claros,Montes Claros,MOC
+South America,Brazil,Navegantes Itajai,Navegantes Itajai,NVT
+South America,Brazil,Orlando Bezerra de Menezes,Orlando Bezerra de Menezes,JDO
+South America,Brazil,Orlando de Carvalho,Orlando de Carvalho,UMU
+South America,Brazil,Ourilandia,Ourilandia,OIA
+South America,Brazil,Palmas,Palmas,PMW
+South America,Brazil,Paracatu,Paracatu,PYT
+South America,Brazil,Paragominas,Paragominas,JPE
+South America,Brazil,Parnaiba,Parnaiba,PHB
+South America,Brazil,Patos de Minas,Patos de Minas,POJ
+South America,Brazil,Pelotas,Pelotas,PET
+South America,Brazil,Petrolina,Petrolina,PNZ
+South America,Brazil,Ponta Pora,Ponta Pora,PMG
+South America,Brazil,Porto de Moz,Porto de Moz,PTQ
+South America,Brazil,Pres. Medici,Pres. Medici,RBR
+South America,Brazil,Presidente Joao Suassuna,Presidente Joao Suassuna,CPV
+South America,Brazil,Presidente Juscelino Kubitschek,Presidente Juscelino Kubitschek,BSB
+South America,Brazil,Professor Urbano Ernesto Stumpf,Professor Urbano Ernesto Stumpf,SJK
+South America,Brazil,Reg do Planalto Serrano,Reg do Planalto Serrano,EEA
+South America,Brazil,Rondonopolis,Rondonopolis,ROO
+South America,Brazil,Rubem Berta,Rubem Berta,URG
+South America,Brazil,Salgado Filho,Salgado Filho,POA
+South America,Brazil,Salinopolis,Salinopolis,OPP
+South America,Brazil,Santa Genoveva,Santa Genoveva,GYN
+South America,Brazil,Santa Magalhaes,Santa Magalhaes,SET
+South America,Brazil,Santa Maria,Santa Maria,AJU
+South America,Brazil,Santa Maria,Santa Maria,RIA
+South America,Brazil,Santa Maria,Santa Maria,STM
+South America,Brazil,Santo Angelo,Santo Angelo,GEL
+South America,Brazil,Santos Dumont,Santos Dumont,SDU
+South America,Brazil,Sao Gabriel da Cachoeira,Sao Gabriel da Cachoeira,SJL
+South America,Brazil,Sao Jose Do Rio Preto,Sao Jose Do Rio Preto,SJP
+South America,Brazil,Senador Petronio Portella,Senador Petronio Portella,THE
+South America,Brazil,Sinop,Sinop,OPS
+South America,Brazil,Sorisso,Sorisso,SMT
+South America,Brazil,São Paulo/Guarulhos,São Paulo/Guarulhos,GRU
+South America,Brazil,Tabatinga,Tabatinga,TBT
+South America,Brazil,Tefe,Tefe,TFF
+South America,Brazil,Telemaco Borba,Telemaco Borba,TEC
+South America,Brazil,Teofilo Otoni,Teofilo Otoni,TFL
+South America,Brazil,Trombetas,Trombetas,TMT
+South America,Brazil,Tucurui,Tucurui,TUR
+South America,Brazil,Uberaba,Uberaba,UBA
+South America,Brazil,Uberlandia,Uberlandia,UDI
+South America,Brazil,Una-Comandatuba,Una-Comandatuba,UNA
+South America,Brazil,Uniao da Vitoria,Uniao da Vitoria,UVI
+South America,Brazil,Usiminas,Usiminas,IPN
+South America,Brazil,Val De Caes,Val De Caes,BEL
+South America,Brazil,Vilhena,Vilhena,BVH
+South America,Brazil,Viracopos,Viracopos,VCP
+South America,Brazil,Zona da Mata Regional,Zona da Mata Regional,IZA
+South America,Brazil,Zumbi Dos Palmares,Zumbi Dos Palmares,MCZ
+South America,Chile,Aeropuerto Capitan Fuentes Martinez,Aeropuerto Capitan Fuentes Martinez,WPR
+South America,Chile,Arturo Merino Benítez,Arturo Merino Benítez,SCL
+South America,Chile,Balmaceda,Balmaceda,BBA
+South America,Chile,Canal Bajo Carlos Hott Siebert,Canal Bajo Carlos Hott Siebert,ZOS
+South America,Chile,Carlos Ibanez Del Campo,Carlos Ibanez Del Campo,PUQ
+South America,Chile,Carriel Sur,Carriel Sur,CCP
+South America,Chile,Cerro Moreno,Cerro Moreno,ANF
+South America,Chile,Chacalluta,Chacalluta,ARI
+South America,Chile,Chamonate,Chamonate,CPO
+South America,Chile,Diego Aracena,Diego Aracena,IQQ
+South America,Chile,El Loa,El Loa,CJC
+South America,Chile,El Tepual,El Tepual,PMC
+South America,Chile,Guardiamarina Zanartu,Guardiamarina Zanartu,WPU
+South America,Chile,La Florida,La Florida,LSC
+South America,Chile,Mataveri,Mataveri,IPC
+South America,Chile,Mocopulli,Mocopulli,MHC
+South America,Chile,Pampa Guanaco,Pampa Guanaco,DPB
+South America,Chile,Pichoy,Pichoy,ZAL
+South America,Chile,Puerto Natales,Puerto Natales,PNT
+South America,Chile,Temuco,Temuco,ZCO
+South America,Colombia,Alfonso Bonilla Aragon,Alfonso Bonilla Aragon,CLO
+South America,Colombia,Alfonso Lopez Pumarejo,Alfonso Lopez Pumarejo,VUP
+South America,Colombia,Alfredo Vasquez Cobo,Alfredo Vasquez Cobo,LET
+South America,Colombia,Antonio Narino,Antonio Narino,PSO
+South America,Colombia,Apartado,Apartado,APO
+South America,Colombia,Benito Salas,Benito Salas,NVA
+South America,Colombia,Camilo Daza,Camilo Daza,CUC
+South America,Colombia,Eduardo Falla Solano,Eduardo Falla Solano,SVI
+South America,Colombia,El AlcaravÃ¡n,El AlcaravÃ¡n,EYP
+South America,Colombia,El Bagre,El Bagre,EBG
+South America,Colombia,El Carano,El Carano,UIB
+South America,Colombia,El Dorado,El Dorado,BOG
+South America,Colombia,El Eden,El Eden,AXM
+South America,Colombia,Ernesto Cortissoz,Ernesto Cortissoz,BAQ
+South America,Colombia,Fabio Alberto Leon Bentley,Fabio Alberto Leon Bentley,MVP
+South America,Colombia,Gerardo Tobar Lopez,Gerardo Tobar Lopez,BUN
+South America,Colombia,Golfo de Morrosquillo,Golfo de Morrosquillo,TLU
+South America,Colombia,Guapi,Guapi,GPI
+South America,Colombia,Guillermo Leon Valencia,Guillermo Leon Valencia,PPN
+South America,Colombia,Gustavo Artunduaga Paredes,Gustavo Artunduaga Paredes,FLA
+South America,Colombia,Hacaritama,Hacaritama,HAY
+South America,Colombia,Jorge E Gonzalez Torres,Jorge E Gonzalez Torres,SJE
+South America,Colombia,Jose Celestino Mutis,Jose Celestino Mutis,BSC
+South America,Colombia,Jose Maria Cordova,Jose Maria Cordova,MDE
+South America,Colombia,Juan H. White,Juan H. White,CAQ
+South America,Colombia,La Chorrera,La Chorrera,LCR
+South America,Colombia,La Florida,La Florida,TCO
+South America,Colombia,La Macarena,La Macarena,LMC
+South America,Colombia,La Nubia,La Nubia,MZL
+South America,Colombia,La Pedrera,La Pedrera,LPD
+South America,Colombia,Las Brujas,Las Brujas,CZU
+South America,Colombia,Los Colonizadores,Los Colonizadores,RVE
+South America,Colombia,Los Garzones,Los Garzones,MTR
+South America,Colombia,Matecana,Matecana,PEI
+South America,Colombia,Montelibano,Montelibano,MTB
+South America,Colombia,Morelia,Morelia,MSK
+South America,Colombia,Nuqui,Nuqui,NQU
+South America,Colombia,Olaya Herrera,Olaya Herrera,EOH
+South America,Colombia,Palonegro,Palonegro,BGA
+South America,Colombia,Perales,Perales,IBE
+South America,Colombia,Pitalito,Pitalito,PTX
+South America,Colombia,Providencia,Providencia,PVA
+South America,Colombia,Puerto Carreno,Puerto Carreno,PCR
+South America,Colombia,Puerto Inirida,Puerto Inirida,PDA
+South America,Colombia,Puerto Leguizamo,Puerto Leguizamo,LQM
+South America,Colombia,Rafael Nunez,Rafael Nunez,CTG
+South America,Colombia,Riohacha,Riohacha,RCH
+South America,Colombia,San Andres Island,San Andres Island,ADZ
+South America,Colombia,San Luis,San Luis,IPI
+South America,Colombia,Santiago Perez,Santiago Perez,AUC
+South America,Colombia,Simon Bolivar,Simon Bolivar,SMR
+South America,Colombia,Tame,Tame,TME
+South America,Colombia,Tarapaca,Tarapaca,TCD
+South America,Colombia,Tres De Mayo,Tres De Mayo,PUU
+South America,Colombia,Vanguardia,Vanguardia,VVC
+South America,Colombia,Villa Garzon,Villa Garzon,VGZ
+South America,Colombia,Yariguies,Yariguies,EJA
+South America,Ecuador,Ciudad de Catamayo,Ciudad de Catamayo,LOH
+South America,Ecuador,Coronel Artilleria Victor Larrea,Coronel Artilleria Victor Larrea,ETR
+South America,Ecuador,Eloy Alfaro,Eloy Alfaro,MEC
+South America,Ecuador,Francisco De Orellana,Francisco De Orellana,OCC
+South America,Ecuador,Galapagos,Galapagos,GPS
+South America,Ecuador,General Rivadeneira,General Rivadeneira,ESM
+South America,Ecuador,Mariscal Lamar,Mariscal Lamar,CUE
+South America,Ecuador,Mariscal Sucre,Mariscal Sucre,UIO
+South America,Ecuador,San Cristobal,San Cristobal,SCY
+South America,Ecuador,Simon Bolivar,Simon Bolivar,GYE
+South America,Falkland Islands (Malvinas),Mount Pleasant,Mount Pleasant,MPN
+South America,French Guiana,Camopi,Camopi,OYC
+South America,French Guiana,Guadalcanal,Guadalcanal,GSI
+South America,French Guiana,Maripasoula,Maripasoula,MPY
+South America,French Guiana,Rochambeau,Rochambeau,CAY
+South America,French Guiana,Saint Laurent du Maroni,Saint Laurent du Maroni,LDX
+South America,French Guiana,Saul,Saul,XAU
+South America,Guyana,Cheddi Jagan,Cheddi Jagan,GEO
+South America,Guyana,Ogle,Ogle,OGL
+South America,Paraguay,Silvio Pettirossi,Silvio Pettirossi,ASU
+South America,Paraguay,Teniente Amin Ayub Gonzalez,Teniente Amin Ayub Gonzalez,ENO
+South America,Peru,Cap Fap David Avenzur Rengifo,Cap Fap David Avenzur Rengifo,PCL
+South America,Peru,Capitan Carlos Martinez De Pinillos,Capitan Carlos Martinez De Pinillos,TRU
+South America,Peru,Capitan Concha,Capitan Concha,PIU
+South America,Peru,Capitan Montes,Capitan Montes,TYL
+South America,Peru,Capt Jose Abelardo Quinones Gonzales,Capt Jose Abelardo Quinones Gonzales,CIX
+South America,Peru,Chachapoyas,Chachapoyas,CHH
+South America,Peru,Commandante Fap German Arias Grazziani,Commandante Fap German Arias Grazziani,ATA
+South America,Peru,Coronel Fap Alfredo Mendivil Duarte,Coronel Fap Alfredo Mendivil Duarte,AYP
+South America,Peru,Coronel Fap Carlos Ciriani Santa Rosa,Coronel Fap Carlos Ciriani Santa Rosa,TCQ
+South America,Peru,Coronel Fap Francisco Secada Vignetta,Coronel Fap Francisco Secada Vignetta,IQT
+South America,Peru,Huanuco,Huanuco,HUU
+South America,Peru,Jauja,Jauja,JAU
+South America,Peru,Jorge Chávez,Jorge Chávez,LIM
+South America,Peru,Juliaca,Juliaca,JUL
+South America,Peru,Manuel Prado,Manuel Prado,MZA
+South America,Peru,Mayor General FAP Armando Revoredo Iglesias,Mayor General FAP Armando Revoredo Iglesias,CJA
+South America,Peru,Padre Aldamiz,Padre Aldamiz,PEM
+South America,Peru,Pedro Canga,Pedro Canga,TBP
+South America,Peru,Rodriguez Ballon,Rodriguez Ballon,AQP
+South America,Peru,Shumba,Shumba,JAE
+South America,Peru,Tarapoto,Tarapoto,TPP
+South America,Peru,Tingo Maria,Tingo Maria,TGI
+South America,Peru,Velazco Astete,Velazco Astete,CUZ
+South America,Suriname,Johan A Pengel,Johan A Pengel,PBM
+South America,Uruguay,Carrasco,Carrasco,MVD
+South America,Uruguay,El Jaguel,El Jaguel,PDP
+South America,Uruguay,Nueva Hesperides,Nueva Hesperides,STY
+South America,Uruguay,Rivera,Rivera,RVY
+South America,Venezuela,Antonio Jose De Sucre,Antonio Jose De Sucre,CUM
+South America,Venezuela,Arturo Michelena,Arturo Michelena,VLN
+South America,Venezuela,Barinas,Barinas,BNS
+South America,Venezuela,Barquisimeto,Barquisimeto,BRM
+South America,Venezuela,Canaima,Canaima,CAJ
+South America,Venezuela,Casique Aramare,Casique Aramare,PYH
+South America,Venezuela,Ciudad Bolivar,Ciudad Bolivar,CBL
+South America,Venezuela,Del Caribe Gen Santago Marino,Del Caribe Gen Santago Marino,PMV
+South America,Venezuela,Dr Antonio Nicolas Briceno,Dr Antonio Nicolas Briceno,VLV
+South America,Venezuela,El Vigia,El Vigia,VIG
+South America,Venezuela,General Jose Antonio Anzoategui,General Jose Antonio Anzoategui,BLA
+South America,Venezuela,Josefa Camejo,Josefa Camejo,LSP
+South America,Venezuela,La Chinita,La Chinita,MAR
+South America,Venezuela,La Fria,La Fria,LFR
+South America,Venezuela,Los Roques,Los Roques,LRV
+South America,Venezuela,Maturin,Maturin,MUN
+South America,Venezuela,Mayor Buenaventura Vivas,Mayor Buenaventura Vivas,STD
+South America,Venezuela,Puerto Ordaz,Puerto Ordaz,PZO
+South America,Venezuela,San Antonio Del Tachira,San Antonio Del Tachira,SVZ
+South America,Venezuela,San Fernando De Apure,San Fernando De Apure,SFD
+South America,Venezuela,Santa Barbara Del Zulia,Santa Barbara Del Zulia,STB
+South America,Venezuela,Santa Elena,Santa Elena,SNV
+South America,Venezuela,Simon Bolivar,Simon Bolivar,CCS

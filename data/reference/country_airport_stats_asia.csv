@@ -1,0 +1,897 @@
+continent,country,city,airport_name,airport_code
+Asia,American Samoa,Pago Pago,Pago Pago,PPG
+Asia,Bangladesh,Barisal,Barisal,BZL
+Asia,Bangladesh,Coxs Bazar,Coxs Bazar,CXB
+Asia,Bangladesh,Jessore,Jessore,JSR
+Asia,Bangladesh,Rajshahi,Rajshahi,RJH
+Asia,Bangladesh,Saidpur,Saidpur,SPD
+Asia,Bangladesh,Shah Amanat,Shah Amanat,CGP
+Asia,Bangladesh,Sylhet,Sylhet,ZYL
+Asia,Bangladesh,Zia,Zia,DAC
+Asia,Bhutan,Bathpalathang,Bathpalathang,BUT
+Asia,Bhutan,Gelephu,Gelephu,GLU
+Asia,Bhutan,Paro,Paro,PBH
+Asia,Bhutan,Yongphulla,Yongphulla,YON
+Asia,Brunei Darussalam,Brunei,Brunei,BWN
+Asia,Cambodia,Dara Sakor,Dara Sakor,DSY
+Asia,Cambodia,Kratie,Kratie,KTI
+Asia,Cambodia,Phnom Penh,Phnom Penh,PNH
+Asia,Cambodia,Siem Reap-Ankor,Siem Reap-Ankor,SAI
+Asia,Cambodia,Sihanoukville,Sihanoukville,KOS
+Asia,China,,,WEC
+Asia,China,Aksu,Aksu,AKU
+Asia,China,Alaer Talimu,Alaer Talimu,ACF
+Asia,China,Ali Pulan,Ali Pulan,APJ
+Asia,China,Altay,Altay,AAT
+Asia,China,Alxa Left Banner,Alxa Left Banner,AXF
+Asia,China,An Shun/Huang Guo Shu,An Shun/Huang Guo Shu,AVA
+Asia,China,Anqing,Anqing,AQG
+Asia,China,Anshan Teng'ao,Anshan Teng'ao,AOG
+Asia,China,Arxan Yiershi,Arxan Yiershi,YIE
+Asia,China,Baicheng Chang'an,Baicheng Chang'an,DBC
+Asia,China,Bailian,Bailian,LZH
+Asia,China,Bangda,Bangda,BPX
+Asia,China,Baoshan,Baoshan,BSD
+Asia,China,Baotou,Baotou,BAV
+Asia,China,Bayannur Tianjitai,Bayannur Tianjitai,RLK
+Asia,China,Beihai,Beihai,BHY
+Asia,China,Beihu,Beihu,HCZ
+Asia,China,Beijing Capital,Beijing Capital,PEK
+Asia,China,Bole Alashankou,Bole Alashankou,BPL
+Asia,China,Bozhou,Bozhou,BZJ
+Asia,China,Brkol Dahe,Brkol Dahe,DHH
+Asia,China,Cangyuan Washan,Cangyuan Washan,CWJ
+Asia,China,ChaGanHu,ChaGanHu,YSQ
+Asia,China,Changbaishan,Changbaishan,NBS
+Asia,China,Changchun Longjia,Changchun Longjia,CGQ
+Asia,China,Changde,Changde,CGD
+Asia,China,Changsha Huanghua,Changsha Huanghua,CSX
+Asia,China,Changzhi,Changzhi,CIH
+Asia,China,Changzhou,Changzhou,CZX
+Asia,China,Chaoyang,Chaoyang,CHG
+Asia,China,Cheng Xian,Cheng Xian,LNL
+Asia,China,Chengdu Shuangliu,Chengdu Shuangliu,CTU
+Asia,China,Chifeng,Chifeng,CIF
+Asia,China,Chizhou Jiuhuashan,Chizhou Jiuhuashan,JUH
+Asia,China,Chongqing Jiangbei,Chongqing Jiangbei,CKG
+Asia,China,Chongqing Wushan,Chongqing Wushan,WSK
+Asia,China,Chongqing Xiannvshan,Chongqing Xiannvshan,CQW
+Asia,China,Dali,Dali,DLU
+Asia,China,Dalian Zhoushuizi,Dalian Zhoushuizi,DLC
+Asia,China,Dandong,Dandong,DDG
+Asia,China,Daocheng Yading,Daocheng Yading,DCY
+Asia,China,Daqing Shi,Daqing Shi,DQA
+Asia,China,Datong,Datong,DAT
+Asia,China,Daxing,Daxing,PKX
+Asia,China,Dayong,Dayong,DYG
+Asia,China,Dazhou Jinya,Dazhou Jinya,DZH
+Asia,China,Dedu,Dedu,DTU
+Asia,China,Dehong Mangshi,Dehong Mangshi,LUM
+Asia,China,Diqing Shangri-La,Diqing Shangri-La,DIG
+Asia,China,Dongshan,Dongshan,HLD
+Asia,China,Dongsheng,Dongsheng,DSN
+Asia,China,Dongying,Dongying,DOY
+Asia,China,Dunhuang,Dunhuang,DNH
+Asia,China,Enshi,Enshi,ENH
+Asia,China,Enyang,Enyang,BZX
+Asia,China,Eren Hot,Eren Hot,ERL
+Asia,China,Ezhou Huahu,Ezhou Huahu,EHU
+Asia,China,Foshan,Foshan,FUO
+Asia,China,Fuqiang,Fuqiang,AKA
+Asia,China,Fuyang,Fuyang,FUG
+Asia,China,Fuyuan,Fuyuan,FYJ
+Asia,China,Fuyun Koktokay,Fuyun Koktokay,FYN
+Asia,China,Fuzhou Changle,Fuzhou Changle,FOC
+Asia,China,Gannan Xiahe,Gannan Xiahe,GXH
+Asia,China,Ganzhou,Ganzhou,KOW
+Asia,China,Ganzhou Ruijin,Ganzhou Ruijin,JRJ
+Asia,China,Ganzi,Ganzi,GZG
+Asia,China,Golmud,Golmud,GOQ
+Asia,China,Golog Maqin,Golog Maqin,GMQ
+Asia,China,Guangyuan,Guangyuan,GYS
+Asia,China,Guangzhou Baiyun,Guangzhou Baiyun,CAN
+Asia,China,Guilin Liangjiang,Guilin Liangjiang,KWL
+Asia,China,Guiyang Longdongbao,Guiyang Longdongbao,KWE
+Asia,China,Gunsa,Gunsa,NGQ
+Asia,China,Guyuan Liupanshan,Guyuan Liupanshan,GYU
+Asia,China,Haikou Meilan,Haikou Meilan,HAK
+Asia,China,Hami,Hami,HMI
+Asia,China,Handan,Handan,HDG
+Asia,China,Hangzhou Xiaoshan,Hangzhou Xiaoshan,HGH
+Asia,China,Hanzhong,Hanzhong,HZG
+Asia,China,Hefei Xinqiao,Hefei Xinqiao,HFE
+Asia,China,Heihe,Heihe,HEK
+Asia,China,Hengyang Nanyue,Hengyang Nanyue,HNY
+Asia,China,Heze Mudan,Heze Mudan,HZA
+Asia,China,Hilton Head,Hilton Head,HXD
+Asia,China,Hohhot Baita,Hohhot Baita,HET
+Asia,China,Hong Qiqu,Hong Qiqu,HQQ
+Asia,China,Hongqiao,Hongqiao,SHA
+Asia,China,Hongqilafu,Hongqilafu,HQL
+Asia,China,Hongyuan,Hongyuan,AHJ
+Asia,China,Hotan,Hotan,HTN
+Asia,China,Huai'an Lianshui,Huai'an Lianshui,HIA
+Asia,China,Huatugou,Huatugou,HTT
+Asia,China,Huizhou,Huizhou,HUZ
+Asia,China,Huolinhe,Huolinhe,HUO
+Asia,China,Jiagedaqi,Jiagedaqi,JGD
+Asia,China,Jiamusi,Jiamusi,JMU
+Asia,China,Jiangbulake,Jiangbulake,JBK
+Asia,China,Jiansanjiang,Jiansanjiang,JSJ
+Asia,China,Jiaxing Nanhu,Jiaxing Nanhu,JNH
+Asia,China,Jiayuguan,Jiayuguan,JGN
+Asia,China,Jinan Yaoqiang,Jinan Yaoqiang,TNA
+Asia,China,Jinchuan,Jinchuan,JIC
+Asia,China,Jingdezhen,Jingdezhen,JDZ
+Asia,China,Jinggangshan,Jinggangshan,JGS
+Asia,China,Jingmai,Jingmai,JMJ
+Asia,China,Jining Da'an,Jining Da'an,JNG
+Asia,China,Jinzhou,Jinzhou,JNZ
+Asia,China,Jiujiang Lushan,Jiujiang Lushan,JIU
+Asia,China,Jiuzhai Huanglong,Jiuzhai Huanglong,JZH
+Asia,China,Jixi,Jixi,JXA
+Asia,China,Kaili Huangping,Kaili Huangping,KJH
+Asia,China,Kanas,Kanas,KJI
+Asia,China,Kangding,Kangding,KGT
+Asia,China,Karamay,Karamay,KRY
+Asia,China,Kashi,Kashi,KHG
+Asia,China,Korla,Korla,KRL
+Asia,China,Kunming Changshui,Kunming Changshui,KMG
+Asia,China,Kuqa,Kuqa,KCA
+Asia,China,Langzhong Gucheng,Langzhong Gucheng,LZG
+Asia,China,Lanzhou Zhongchuan,Lanzhou Zhongchuan,LHW
+Asia,China,Lhasa,Lhasa,LXA
+Asia,China,Lianyungang,Lianyungang,LYG
+Asia,China,Libo County Libo City,Libo County Libo City,LLB
+Asia,China,Lijiang Sanyi,Lijiang Sanyi,LJG
+Asia,China,Lincang,Lincang,LNJ
+Asia,China,Linfen Qiaoli,Linfen Qiaoli,LFQ
+Asia,China,Lingling,Lingling,LLF
+Asia,China,Linyi,Linyi,LYI
+Asia,China,Lishui,Lishui,LIJ
+Asia,China,Liupanshui Yuezhao,Liupanshui Yuezhao,LPF
+Asia,China,Longyan,Longyan,LCX
+Asia,China,Lu Kou,Lu Kou,NKG
+Asia,China,Luliang,Luliang,LLV
+Asia,China,Luoyang,Luoyang,LYA
+Asia,China,Luqiao,Luqiao,HYN
+Asia,China,Manzhouli,Manzhouli,NZH
+Asia,China,Maotai,Maotai,WMT
+Asia,China,Meixian,Meixian,MXZ
+Asia,China,Mianyang,Mianyang,MIG
+Asia,China,Minggang,Minggang,XAI
+Asia,China,Mohe,Mohe,OHE
+Asia,China,Mudanjiang,Mudanjiang,MDG
+Asia,China,Nalati,Nalati,NLT
+Asia,China,Nanchang,Nanchang,KHN
+Asia,China,Nanchong,Nanchong,NAO
+Asia,China,Nanning Wuxu,Nanning Wuxu,NNG
+Asia,China,Nanniwan,Nanniwan,ENY
+Asia,China,Nanping Wuyishan,Nanping Wuyishan,WUS
+Asia,China,Nantong,Nantong,NTG
+Asia,China,Nanyang,Nanyang,NNY
+Asia,China,Ningbo Lishe,Ningbo Lishe,NGB
+Asia,China,Ninglang Luguhu,Ninglang Luguhu,NLH
+Asia,China,Nyingchi,Nyingchi,LZY
+Asia,China,Panzhihua,Panzhihua,PZI
+Asia,China,Penglai,Penglai,YNT
+Asia,China,Phoenix,Phoenix,SYX
+Asia,China,Puning,Puning,CDE
+Asia,China,Qianjiang Wulingshan,Qianjiang Wulingshan,JIQ
+Asia,China,Qiemo,Qiemo,IQM
+Asia,China,Qingdao Jiaodong,Qingdao Jiaodong,TAO
+Asia,China,Qingshan,Qingshan,XIC
+Asia,China,Qingyang,Qingyang,IQN
+Asia,China,Qinhuangdao Beidaihe,Qinhuangdao Beidaihe,BPE
+Asia,China,Qionghai Bo'ao,Qionghai Bo'ao,BAR
+Asia,China,Qiqihar Sanjiazi,Qiqihar Sanjiazi,NDG
+Asia,China,Quanzhou,Quanzhou,JJN
+Asia,China,Quzhou,Quzhou,JUZ
+Asia,China,Rizhao Shanzihe,Rizhao Shanzihe,RIZ
+Asia,China,Ruoqiang,Ruoqiang,RQA
+Asia,China,Sanhe,Sanhe,YYA
+Asia,China,Sanming Shaxian,Sanming Shaxian,SQJ
+Asia,China,Sanqingshan,Sanqingshan,SQD
+Asia,China,Senipah,Senipah,SZH
+Asia,China,Shache,Shache,QSZ
+Asia,China,Shanghai Pudong,Shanghai Pudong,PVG
+Asia,China,Shannan Longzi,Shannan Longzi,LGZ
+Asia,China,Shaoguan,Shaoguan,HSC
+Asia,China,Shashi,Shashi,SHS
+Asia,China,Shekou Port,Shekou Port,ZYK
+Asia,China,Shenyang Taoxian,Shenyang Taoxian,SHE
+Asia,China,Shenzhen Bao'an,Shenzhen Bao'an,SZX
+Asia,China,Shigatse Peace,Shigatse Peace,RKZ
+Asia,China,Shihezi Huayuan,Shihezi Huayuan,SHF
+Asia,China,Shijiazhuang Daguocun,Shijiazhuang Daguocun,SJW
+Asia,China,Shiyan Wudangshan,Shiyan Wudangshan,WDS
+Asia,China,Simao,Simao,SYM
+Asia,China,Suifenhe Dongning,Suifenhe Dongning,HSF
+Asia,China,Tacheng,Tacheng,TCG
+Asia,China,Taiping,Taiping,HRB
+Asia,China,Taiyuan Wusu,Taiyuan Wusu,TYN
+Asia,China,Tangshan Sannuhe,Tangshan Sannuhe,TVS
+Asia,China,Tangwangcheng,Tangwangcheng,TWC
+Asia,China,Tengchong Tuofeng,Tengchong Tuofeng,TCZ
+Asia,China,Tianfu,Tianfu,TFU
+Asia,China,Tianjin Binhai,Tianjin Binhai,TSN
+Asia,China,Tianma,Tianma,ZFL
+Asia,China,Tianyang,Tianyang,AEB
+Asia,China,Tonghua Sanyuanpu,Tonghua Sanyuanpu,TNH
+Asia,China,Tongliao,Tongliao,TGO
+Asia,China,Tongren,Tongren,TEN
+Asia,China,Tunxi,Tunxi,TXN
+Asia,China,Turpan Jiaohe,Turpan Jiaohe,TLQ
+Asia,China,Ulanhot,Ulanhot,HLH
+Asia,China,Ulanqab,Ulanqab,UCB
+Asia,China,Wai Sha,Wai Sha,SWA
+Asia,China,Wanfang,Wanfang,YTW
+Asia,China,Wanxian,Wanxian,WXN
+Asia,China,Weifang,Weifang,WEF
+Asia,China,Weihai,Weihai,WEH
+Asia,China,Wenshan,Wenshan,WNH
+Asia,China,Wenzhou Yongqiang,Wenzhou Yongqiang,WNZ
+Asia,China,Wugang,Wugang,WGN
+Asia,China,Wuhai,Wuhai,WUA
+Asia,China,Wuhan Tianhe,Wuhan Tianhe,WUH
+Asia,China,Wutaishan,Wutaishan,WUT
+Asia,China,Wuxi,Wuxi,WUX
+Asia,China,Xi'an Xianyang,Xi'an Xianyang,XIY
+Asia,China,Xiamen Gaoqi,Xiamen Gaoqi,XMN
+Asia,China,Xiangfan,Xiangfan,XFN
+Asia,China,Xiangxi Biancheng,Xiangxi Biancheng,DXJ
+Asia,China,Xigaze Dingri,Xigaze Dingri,DDR
+Asia,China,Xijiang,Xijiang,WUZ
+Asia,China,Xilinhot,Xilinhot,XIL
+Asia,China,Xingtai,Xingtai,XNT
+Asia,China,Xingyi,Xingyi,ACX
+Asia,China,Xining Caojiabu,Xining Caojiabu,XNN
+Asia,China,Xishuangbanna Gasa,Xishuangbanna Gasa,JHG
+Asia,China,Xuanzhou,Xuanzhou,WHA
+Asia,China,Xuzhou Guanyin,Xuzhou Guanyin,XUZ
+Asia,China,Yancheng,Yancheng,YNZ
+Asia,China,Yangzhou Taizhou,Yangzhou Taizhou,YTY
+Asia,China,Yanji,Yanji,YNJ
+Asia,China,Yibin,Yibin,YBP
+Asia,China,Yichang,Yichang,YIH
+Asia,China,Yichun Mingyueshan,Yichun Mingyueshan,YIC
+Asia,China,Yichun Shi,Yichun Shi,LDS
+Asia,China,Yinchuan Hedong,Yinchuan Hedong,INC
+Asia,China,Yingkou,Yingkou,YKH
+Asia,China,Yining,Yining,YIN
+Asia,China,Yiwu,Yiwu,YIW
+Asia,China,Yulin,Yulin,UYN
+Asia,China,Yulin Fumian,Yulin Fumian,YLX
+Asia,China,Yunlong,Yunlong,LZO
+Asia,China,Yushu Batang,Yushu Batang,YUS
+Asia,China,Zhalantun Chengjisihan,Zhalantun Chengjisihan,NZL
+Asia,China,Zhangjiakou Ningyuan,Zhangjiakou Ningyuan,ZQZ
+Asia,China,Zhangxiao,Zhangxiao,YCU
+Asia,China,Zhangye Ganzhou,Zhangye Ganzhou,YZY
+Asia,China,Zhanjiang,Zhanjiang,ZHA
+Asia,China,Zhaotong,Zhaotong,ZAT
+Asia,China,Zhengzhou Xinzheng,Zhengzhou Xinzheng,CGO
+Asia,China,Zhijiang,Zhijiang,HJJ
+Asia,China,Zhongwei Xiangshan,Zhongwei Xiangshan,ZHY
+Asia,China,Zhoushan,Zhoushan,HSN
+Asia,China,Zhuhai,Zhuhai,ZUH
+Asia,China,Zhuhai Jinwan,Zhuhai Jinwan,ZUH
+Asia,China,Zunyi Xinzhou,Zunyi Xinzhou,ZYI
+Asia,China,Ürümqi Diwopu,Ürümqi Diwopu,URC
+Asia,East Timor,Dili,Dili,DIL
+Asia,Hong Kong,Hong Kong,Hong Kong,HKG
+Asia,Hong Kong,Sheung Wan Heliport,Sheung Wan Heliport,HHP
+Asia,India,Adampur,Adampur,AIP
+Asia,India,Agartala,Agartala,IXA
+Asia,India,Agatti Island,Agatti Island,AGX
+Asia,India,Agra,Agra,AGR
+Asia,India,Ahmedabad,Ahmedabad,AMD
+Asia,India,Aizawl,Aizawl,AJL
+Asia,India,Ajmer,Ajmer,KQH
+Asia,India,Allahabad,Allahabad,IXD
+Asia,India,Amravati,Amravati,AVR
+Asia,India,Amritsar,Amritsar,ATQ
+Asia,India,Aurangabad,Aurangabad,IXU
+Asia,India,Ayodhya,Ayodhya,AYJ
+Asia,India,Bagdogra,Bagdogra,IXB
+Asia,India,Bareilly,Bareilly,BEK
+Asia,India,Bathinda,Bathinda,BUP
+Asia,India,Belgaum,Belgaum,IXG
+Asia,India,Bhavnagar,Bhavnagar,BHU
+Asia,India,Bhopal,Bhopal,BHO
+Asia,India,Bhubaneshwar,Bhubaneshwar,BBI
+Asia,India,Bhuj,Bhuj,BHJ
+Asia,India,Bidar,Bidar,IXX
+Asia,India,Bilaspur,Bilaspur,PAB
+Asia,India,Birsa Munda,Birsa Munda,IXR
+Asia,India,Birsi,Birsi,GDB
+Asia,India,Calicut,Calicut,CCJ
+Asia,India,Chandigarh,Chandigarh,IXC
+Asia,India,Chennai,Chennai,MAA
+Asia,India,Chhatrapati Shivaji Maharaj,Chhatrapati Shivaji Maharaj,BOM
+Asia,India,Cochin,Cochin,COK
+Asia,India,Coimbatore,Coimbatore,CJB
+Asia,India,Cooch Behar,Cooch Behar,COH
+Asia,India,Cuddapah,Cuddapah,CDP
+Asia,India,Darbhanga,Darbhanga,DBR
+Asia,India,Datia,Datia,DPP
+Asia,India,Dehradun,Dehradun,DED
+Asia,India,Deoghar,Deoghar,DGH
+Asia,India,Devi Ahilyabai Holkar,Devi Ahilyabai Holkar,IDR
+Asia,India,Dibrugarh,Dibrugarh,DIB
+Asia,India,Dimapur,Dimapur,DMU
+Asia,India,Diu,Diu,DIU
+Asia,India,Gaggal,Gaggal,DHM
+Asia,India,Gaya,Gaya,GAY
+Asia,India,Goa,Goa,GOI
+Asia,India,Gorakhpur,Gorakhpur,GOP
+Asia,India,Gwalior,Gwalior,GWL
+Asia,India,Hindon,Hindon,HDO
+Asia,India,Hirasar,Hirasar,HSR
+Asia,India,Hissar,Hissar,HSS
+Asia,India,Hollongi,Hollongi,HGI
+Asia,India,Hubli,Hubli,HBX
+Asia,India,Imphal,Imphal,IMF
+Asia,India,Indira Gandhi,Indira Gandhi,DEL
+Asia,India,Jabalpur,Jabalpur,JLR
+Asia,India,Jagdalpur,Jagdalpur,JGB
+Asia,India,Jaipur,Jaipur,JAI
+Asia,India,Jaisalmer,Jaisalmer,JSA
+Asia,India,Jalgaon,Jalgaon,JLG
+Asia,India,Jammu,Jammu,IXJ
+Asia,India,Jamnagar,Jamnagar,JGA
+Asia,India,Jamshedpur,Jamshedpur,IXW
+Asia,India,Jeypore,Jeypore,PYB
+Asia,India,Jindal,Jindal,VDY
+Asia,India,Jodhpur,Jodhpur,JDH
+Asia,India,Jorhat,Jorhat,JRH
+Asia,India,Kandla,Kandla,IXY
+Asia,India,Kannur,Kannur,CNN
+Asia,India,Kanpur,Kanpur,KNU
+Asia,India,Kazi Nazrul Islam,Kazi Nazrul Islam,RDP
+Asia,India,Kempegowda,Kempegowda,BLR
+Asia,India,Keshod,Keshod,IXK
+Asia,India,Khajuraho,Khajuraho,HJR
+Asia,India,Kolhapur,Kolhapur,KLH
+Asia,India,Kolkata Netaji Subhas Chandra Bose,Kolkata Netaji Subhas Chandra Bose,CCU
+Asia,India,Kullu Manali,Kullu Manali,KUU
+Asia,India,Kurnool,Kurnool,KJB
+Asia,India,Leh,Leh,IXL
+Asia,India,Lilabari,Lilabari,IXI
+Asia,India,Lokpriya Gopinath Bordoloi,Lokpriya Gopinath Bordoloi,GAU
+Asia,India,Lucknow,Lucknow,LKO
+Asia,India,Madurai,Madurai,IXM
+Asia,India,Mangalore,Mangalore,IXE
+Asia,India,Mopa,Mopa,GOX
+Asia,India,Mysore,Mysore,MYQ
+Asia,India,Nagpur,Nagpur,NAG
+Asia,India,Nal,Nal,BKB
+Asia,India,Nanded,Nanded,NDC
+Asia,India,Navi Mumbai,Navi Mumbai,NMI
+Asia,India,Ozar,Ozar,ISK
+Asia,India,Pantnagar,Pantnagar,PGH
+Asia,India,Pasighat,Pasighat,IXT
+Asia,India,Patna,Patna,PAT
+Asia,India,Porbandar,Porbandar,PBD
+Asia,India,Port Blair,Port Blair,IXZ
+Asia,India,Puducherry,Puducherry,PNY
+Asia,India,Pune,Pune,PNQ
+Asia,India,Purnea,Purnea,PXN
+Asia,India,Raipur,Raipur,RPR
+Asia,India,Rajahmundry,Rajahmundry,RJA
+Asia,India,Rajiv Gandhi,Rajiv Gandhi,HYD
+Asia,India,Rewa,Rewa,REW
+Asia,India,Rourkela,Rourkela,RRK
+Asia,India,Rupsi,Rupsi,RUP
+Asia,India,Salem,Salem,SXV
+Asia,India,Shillong,Shillong,SHL
+Asia,India,Shimla,Shimla,SLV
+Asia,India,Shirdi,Shirdi,SAG
+Asia,India,Shivamogga,Shivamogga,RQY
+Asia,India,Sholapur,Sholapur,SSE
+Asia,India,Silchar,Silchar,IXS
+Asia,India,Sindhudurg,Sindhudurg,SDW
+Asia,India,Srinagar,Srinagar,SXR
+Asia,India,Surat,Surat,STV
+Asia,India,Tezu,Tezu,TEI
+Asia,India,Thiruvananthapuram,Thiruvananthapuram,TRV
+Asia,India,Tiruchirappalli,Tiruchirappalli,TRZ
+Asia,India,Tirupati,Tirupati,TIR
+Asia,India,Tuticorin,Tuticorin,TCR
+Asia,India,Udaipur,Udaipur,UDR
+Asia,India,Utkela,Utkela,UKE
+Asia,India,Vadodara,Vadodara,BDQ
+Asia,India,Varanasi,Varanasi,VNS
+Asia,India,Veer Surendra Sai,Veer Surendra Sai,JRG
+Asia,India,Vijayawada,Vijayawada,VGA
+Asia,India,Vishakhapatnam,Vishakhapatnam,VTZ
+Asia,India,Ziro,Ziro,ZER
+Asia,Indonesia,Abdul Rachman Saleh,Abdul Rachman Saleh,MLG
+Asia,Indonesia,Achmad Yani,Achmad Yani,SRG
+Asia,Indonesia,Adi Sutjipto,Adi Sutjipto,JOG
+Asia,Indonesia,Aji Pangeran Tumenggung,Aji Pangeran Tumenggung,AAP
+Asia,Indonesia,Alor Island,Alor Island,ARD
+Asia,Indonesia,Arung Palakka,Arung Palakka,APD
+Asia,Indonesia,Babullah,Babullah,TTE
+Asia,Indonesia,Bajawa Soa,Bajawa Soa,BJW
+Asia,Indonesia,Bali,Bali,DPS
+Asia,Indonesia,Bandar Lampung,Bandar Lampung,TKG
+Asia,Indonesia,Batulicin,Batulicin,BTW
+Asia,Indonesia,Baubau,Baubau,BUW
+Asia,Indonesia,Berau,Berau,BEJ
+Asia,Indonesia,Blimbingsari,Blimbingsari,BWX
+Asia,Indonesia,Bubung,Bubung,LUW
+Asia,Indonesia,Buli,Buli,PGQ
+Asia,Indonesia,Bulutumbang,Bulutumbang,TJQ
+Asia,Indonesia,David C. Saudale,David C. Saudale,RTI
+Asia,Indonesia,Dhoho,Dhoho,DHX
+Asia,Indonesia,Dibrugarh,Dibrugarh,MOH
+Asia,Indonesia,Dobo,Dobo,DOB
+Asia,Indonesia,El Tari,El Tari,KOE
+Asia,Indonesia,Emalamo Sanana,Emalamo Sanana,SQN
+Asia,Indonesia,Ewer,Ewer,EWE
+Asia,Indonesia,Fak Fak,Fak Fak,FKQ
+Asia,Indonesia,Ferdinand Lumban Tobing,Ferdinand Lumban Tobing,FLZ
+Asia,Indonesia,Frans Kaisiepo,Frans Kaisiepo,BIK
+Asia,Indonesia,Gunungsitoli,Gunungsitoli,GNS
+Asia,Indonesia,Gusti Syamsir Alam,Gusti Syamsir Alam,KBU
+Asia,Indonesia,H Hasan Aroeboesman,H Hasan Aroeboesman,ENE
+Asia,Indonesia,H. Aroeppala,H. Aroeppala,KSR
+Asia,Indonesia,H. Asan,H. Asan,SMQ
+Asia,Indonesia,Haji Muhammad Sidik,Haji Muhammad Sidik,HMS
+Asia,Indonesia,Halim Perdanakusuma,Halim Perdanakusuma,HLP
+Asia,Indonesia,Haliwen,Haliwen,ABU
+Asia,Indonesia,Hang Nadim,Hang Nadim,BTH
+Asia,Indonesia,Husein Sastranegara,Husein Sastranegara,BDO
+Asia,Indonesia,Jalaluddin,Jalaluddin,GTO
+Asia,Indonesia,Jefman,Jefman,SOQ
+Asia,Indonesia,Jos Orno Imsula,Jos Orno Imsula,JIO
+Asia,Indonesia,Juanda,Juanda,SUB
+Asia,Indonesia,Kaimana,Kaimana,KNG
+Asia,Indonesia,Kasiguncu,Kasiguncu,PSJ
+Asia,Indonesia,Kau,Kau,KAZ
+Asia,Indonesia,Kepi,Kepi,KEI
+Asia,Indonesia,Kertajati,Kertajati,KJT
+Asia,Indonesia,Knokke,Knokke,KNO
+Asia,Indonesia,Kolonel RA Bessing,Kolonel RA Bessing,LNU
+Asia,Indonesia,Labuan Bajo,Labuan Bajo,LBJ
+Asia,Indonesia,Lagaligo,Lagaligo,LLO
+Asia,Indonesia,Langguri,Langguri,LUV
+Asia,Indonesia,Larantuka,Larantuka,LKA
+Asia,Indonesia,Letung,Letung,LMU
+Asia,Indonesia,Lombok,Lombok,LOP
+Asia,Indonesia,Malikus Saleh,Malikus Saleh,LSW
+Asia,Indonesia,Maratua,Maratua,RTU
+Asia,Indonesia,Matahora,Matahora,WNI
+Asia,Indonesia,Mau Hau,Mau Hau,WGP
+Asia,Indonesia,Melalan,Melalan,GHS
+Asia,Indonesia,Melangguane,Melangguane,MNA
+Asia,Indonesia,Mopah,Mopah,MKQ
+Asia,Indonesia,Moses Kilangin,Moses Kilangin,TIM
+Asia,Indonesia,Muara Bungo,Muara Bungo,BUU
+Asia,Indonesia,Muhammad Salahuddin,Muhammad Salahuddin,BMU
+Asia,Indonesia,Mutiara,Mutiara,PLW
+Asia,Indonesia,Nabire,Nabire,NBX
+Asia,Indonesia,Naha,Naha,NAH
+Asia,Indonesia,Namlea,Namlea,NAM
+Asia,Indonesia,Namrole,Namrole,NRE
+Asia,Indonesia,Natuna Ranai,Natuna Ranai,NTX
+Asia,Indonesia,New Yogyakarta,New Yogyakarta,YIA
+Asia,Indonesia,Nop Goliath,Nop Goliath,DEX
+Asia,Indonesia,Noto Hadinegoro,Noto Hadinegoro,JBB
+Asia,Indonesia,Oesman Sadik,Oesman Sadik,LAH
+Asia,Indonesia,Oksibil,Oksibil,OKL
+Asia,Indonesia,Padang Kemiling,Padang Kemiling,BKS
+Asia,Indonesia,Pangkalanboun,Pangkalanboun,PKN
+Asia,Indonesia,Pangkalpinang,Pangkalpinang,PGK
+Asia,Indonesia,Pattimura,Pattimura,AMQ
+Asia,Indonesia,Pitu,Pitu,OTI
+Asia,Indonesia,Pomala,Pomala,PUM
+Asia,Indonesia,Putussibau,Putussibau,PSU
+Asia,Indonesia,Rahadi Usman,Rahadi Usman,KTG
+Asia,Indonesia,Raja Haji Fisabilillah,Raja Haji Fisabilillah,TNJ
+Asia,Indonesia,Rendani,Rendani,MKW
+Asia,Indonesia,Sam Ratulangi,Sam Ratulangi,MDC
+Asia,Indonesia,Sangia Nibandera,Sangia Nibandera,KXB
+Asia,Indonesia,Satar Tacik,Satar Tacik,RTG
+Asia,Indonesia,Saumlaki,Saumlaki,SXK
+Asia,Indonesia,Sentani,Sentani,DJJ
+Asia,Indonesia,Sepinggan,Sepinggan,BPN
+Asia,Indonesia,Silampari,Silampari,LLJ
+Asia,Indonesia,Silangit,Silangit,DTB
+Asia,Indonesia,Sintang,Sintang,SQG
+Asia,Indonesia,Sitkinak Island Coast Guard Station,Sitkinak Island Coast Guard Station,SKJ
+Asia,Indonesia,Soekarno Hatta,Soekarno Hatta,CGK
+Asia,Indonesia,Solo City,Solo City,SOC
+Asia,Indonesia,Stevanus Rumbewas,Stevanus Rumbewas,ZRI
+Asia,Indonesia,Sugimanuru,Sugimanuru,RAQ
+Asia,Indonesia,Sultan Bantilan,Sultan Bantilan,TLI
+Asia,Indonesia,Sultan Iskandarmuda,Sultan Iskandarmuda,BTJ
+Asia,Indonesia,Sultan Mahmud Badaruddin Ii,Sultan Mahmud Badaruddin Ii,PLM
+Asia,Indonesia,Sultan Muhammad Kaharuddin III,Sultan Muhammad Kaharuddin III,SWQ
+Asia,Indonesia,Sultan Syarif Kasim Ii,Sultan Syarif Kasim Ii,PKU
+Asia,Indonesia,Sultan Thaha,Sultan Thaha,DJB
+Asia,Indonesia,Supadio,Supadio,PNK
+Asia,Indonesia,Syamsudin Noor,Syamsudin Noor,BDJ
+Asia,Indonesia,Tabing,Tabing,PDG
+Asia,Indonesia,Takengon Rembele,Takengon Rembele,TXE
+Asia,Indonesia,Tambolaka,Tambolaka,TMC
+Asia,Indonesia,Tampa Padang,Tampa Padang,MJU
+Asia,Indonesia,Tanahmerah,Tanahmerah,TMH
+Asia,Indonesia,Tanjung Selor,Tanjung Selor,TJS
+Asia,Indonesia,Tarakan,Tarakan,TRK
+Asia,Indonesia,Tjilik Riwut,Tjilik Riwut,PKY
+Asia,Indonesia,Toraja,Toraja,TRT
+Asia,Indonesia,Ujung Pandang,Ujung Pandang,UPG
+Asia,Indonesia,Wai Oti,Wai Oti,MOF
+Asia,Indonesia,Wamena,Wamena,WMX
+Asia,Indonesia,Wolter Monginsidi,Wolter Monginsidi,KDI
+Asia,Indonesia,Wunopito,Wunopito,LWE
+Asia,Japan,Akita,Akita,AXT
+Asia,Japan,Amakusa,Amakusa,AXJ
+Asia,Japan,Amami O Shima,Amami O Shima,ASJ
+Asia,Japan,Aomori,Aomori,AOJ
+Asia,Japan,Asahikawa,Asahikawa,AKJ
+Asia,Japan,Fukue,Fukue,FUJ
+Asia,Japan,Fukuoka,Fukuoka,FUK
+Asia,Japan,Fukushima,Fukushima,FKS
+Asia,Japan,Hachijo Jima,Hachijo Jima,HAC
+Asia,Japan,Hakodate,Hakodate,HKD
+Asia,Japan,Hanamaki,Hanamaki,HNA
+Asia,Japan,Haneda,Haneda,HND
+Asia,Japan,Hiroshima,Hiroshima,HIJ
+Asia,Japan,Ibaraki,Ibaraki,IBR
+Asia,Japan,Iki,Iki,IKI
+Asia,Japan,Ishigaki,Ishigaki,ISG
+Asia,Japan,Iwakuni Kintaikyo,Iwakuni Kintaikyo,IWK
+Asia,Japan,Iwami,Iwami,IWJ
+Asia,Japan,Izumo,Izumo,IZO
+Asia,Japan,Kagoshima,Kagoshima,KOJ
+Asia,Japan,Kansai,Kansai,KIX
+Asia,Japan,Kikaiga Shima,Kikaiga Shima,KKX
+Asia,Japan,Kitadaito,Kitadaito,KTD
+Asia,Japan,Kitakyushu,Kitakyushu,KKJ
+Asia,Japan,Kobe,Kobe,UKB
+Asia,Japan,Kochi,Kochi,KCZ
+Asia,Japan,Komatsu,Komatsu,KMQ
+Asia,Japan,Kumamoto,Kumamoto,KMJ
+Asia,Japan,Kumejima,Kumejima,UEO
+Asia,Japan,Kushiro,Kushiro,KUH
+Asia,Japan,Matsumoto,Matsumoto,MMJ
+Asia,Japan,Matsuyama,Matsuyama,MYJ
+Asia,Japan,Memanbetsu,Memanbetsu,MMB
+Asia,Japan,Miho,Miho,YGJ
+Asia,Japan,Minami Daito,Minami Daito,MMD
+Asia,Japan,Misawa Ab,Misawa Ab,MSJ
+Asia,Japan,Miyako Jima,Miyako Jima,MMY
+Asia,Japan,Miyazaki,Miyazaki,KMI
+Asia,Japan,Monbetsu,Monbetsu,MBE
+Asia,Japan,Nagasaki,Nagasaki,NGS
+Asia,Japan,Nagoya,Nagoya,NGO
+Asia,Japan,Nagoya,Nagoya,NKM
+Asia,Japan,Naha Air Force Base,Naha Air Force Base,AHA
+Asia,Japan,Nakashibetsu,Nakashibetsu,SHB
+Asia,Japan,Narita,Narita,NRT
+Asia,Japan,New Tanegashima,New Tanegashima,TNE
+Asia,Japan,Niigata,Niigata,KIJ
+Asia,Japan,Noto,Noto,NTQ
+Asia,Japan,Obihiro,Obihiro,OBO
+Asia,Japan,Odate Noshiro,Odate Noshiro,ONJ
+Asia,Japan,Oita,Oita,OIT
+Asia,Japan,Okayama,Okayama,OKJ
+Asia,Japan,Oki Island,Oki Island,OKI
+Asia,Japan,Okinawa,Okinawa,OKA
+Asia,Japan,Okino Erabu,Okino Erabu,OKE
+Asia,Japan,Okushiri,Okushiri,OIR
+Asia,Japan,Osaka,Osaka,ITM
+Asia,Japan,Rishiri,Rishiri,RIS
+Asia,Japan,Saga,Saga,HSG
+Asia,Japan,Sapporo,Sapporo,CTS
+Asia,Japan,Sapporo,Sapporo,OKD
+Asia,Japan,Sendai,Sendai,SDJ
+Asia,Japan,Shimojishima,Shimojishima,SHI
+Asia,Japan,Shirahama,Shirahama,SHM
+Asia,Japan,Shizuoka,Shizuoka,FSZ
+Asia,Japan,Shonai,Shonai,SYO
+Asia,Japan,Tajima,Tajima,TJH
+Asia,Japan,Takamatsu,Takamatsu,TAK
+Asia,Japan,Taramajma,Taramajma,TRA
+Asia,Japan,Tokunoshima,Tokunoshima,TKN
+Asia,Japan,Tokushima,Tokushima,TKS
+Asia,Japan,Tottori,Tottori,TTJ
+Asia,Japan,Toyama,Toyama,TOY
+Asia,Japan,Tsushima,Tsushima,TSJ
+Asia,Japan,Wakkanai,Wakkanai,WKJ
+Asia,Japan,Yakushima,Yakushima,KUM
+Asia,Japan,Yamagata,Yamagata,GAJ
+Asia,Japan,Yamaguchi Ube,Yamaguchi Ube,UBJ
+Asia,Japan,Yonaguni Jima,Yonaguni Jima,OGN
+Asia,Japan,Yoron,Yoron,RNJ
+Asia,Kazakhstan,Aktau,Aktau,SCO
+Asia,Kazakhstan,Aktyubinsk,Aktyubinsk,AKX
+Asia,Kazakhstan,Almaty,Almaty,ALA
+Asia,Kazakhstan,Atyrau,Atyrau,GUW
+Asia,Kazakhstan,Kokshetau,Kokshetau,KOV
+Asia,Kazakhstan,Kostanay,Kostanay,KSN
+Asia,Kazakhstan,Kzyl-Orda,Kzyl-Orda,KZO
+Asia,Kazakhstan,Nursultan Nazarbayev,Nursultan Nazarbayev,NQZ
+Asia,Kazakhstan,Pavlodar,Pavlodar,PWQ
+Asia,Kazakhstan,Petropavlovsk,Petropavlovsk,PPK
+Asia,Kazakhstan,Sary-Arka,Sary-Arka,KGF
+Asia,Kazakhstan,Semipalatinsk,Semipalatinsk,PLX
+Asia,Kazakhstan,Shymkent,Shymkent,CIT
+Asia,Kazakhstan,Taldykorgan,Taldykorgan,TDK
+Asia,Kazakhstan,Taraz,Taraz,DMB
+Asia,Kazakhstan,Turkistan,Turkistan,HSA
+Asia,Kazakhstan,Uralsk,Uralsk,URA
+Asia,Kazakhstan,Ust-Kamenogorsk,Ust-Kamenogorsk,UKK
+Asia,Kazakhstan,Zhezkazgan,Zhezkazgan,DZN
+Asia,Kyrgyzstan,Issyk-Kul,Issyk-Kul,IKU
+Asia,Kyrgyzstan,Karakol,Karakol,IKG
+Asia,Kyrgyzstan,Manas,Manas,BSZ
+Asia,Kyrgyzstan,Manas,Manas,FRU
+Asia,Kyrgyzstan,Osh,Osh,OSS
+Asia,Laos,Bokeo,Bokeo,BOR
+Asia,Laos,Boun Neua,Boun Neua,PCQ
+Asia,Laos,Luang Namtha,Luang Namtha,LXG
+Asia,Laos,Luang Prabang,Luang Prabang,LPQ
+Asia,Laos,Pakse,Pakse,PKZ
+Asia,Laos,Sam Neua,Sam Neua,NEU
+Asia,Laos,Savannakhet,Savannakhet,ZVK
+Asia,Laos,Sayaboury,Sayaboury,ZBY
+Asia,Laos,Wattay,Wattay,VTE
+Asia,Laos,Xieng Khouang,Xieng Khouang,XKH
+Asia,Macao,Macau,Macau,MFM
+Asia,Macao,Macau Ferry Pier,Macau Ferry Pier,XZM
+Asia,Malaysia,Bakalalan,Bakalalan,BKM
+Asia,Malaysia,Bario,Bario,BBN
+Asia,Malaysia,Bintulu,Bintulu,BTU
+Asia,Malaysia,Kota Kinabalu,Kota Kinabalu,BKI
+Asia,Malaysia,Kuala Lumpur,Kuala Lumpur,KUL
+Asia,Malaysia,Kuantan,Kuantan,KUA
+Asia,Malaysia,Kuching,Kuching,KCH
+Asia,Malaysia,Labuan,Labuan,LBU
+Asia,Malaysia,Lahad Datu,Lahad Datu,LDU
+Asia,Malaysia,Langkawi,Langkawi,LGK
+Asia,Malaysia,Lawas,Lawas,LWY
+Asia,Malaysia,Limbang,Limbang,LMN
+Asia,Malaysia,Long Akah,Long Akah,LKH
+Asia,Malaysia,Long Banga,Long Banga,LBP
+Asia,Malaysia,Long Lellang,Long Lellang,LGL
+Asia,Malaysia,Long Seridan,Long Seridan,ODN
+Asia,Malaysia,Malacca,Malacca,MKZ
+Asia,Malaysia,Marudi,Marudi,MUR
+Asia,Malaysia,Miri,Miri,MYY
+Asia,Malaysia,Mukah,Mukah,MKM
+Asia,Malaysia,Mulu,Mulu,MZV
+Asia,Malaysia,Penang,Penang,PEN
+Asia,Malaysia,Sandakan,Sandakan,SDK
+Asia,Malaysia,Sibu,Sibu,SBW
+Asia,Malaysia,Sultan Abdul Aziz Shah,Sultan Abdul Aziz Shah,SZB
+Asia,Malaysia,Sultan Abdul Halim,Sultan Abdul Halim,AOR
+Asia,Malaysia,Sultan Azlan Shah,Sultan Azlan Shah,IPH
+Asia,Malaysia,Sultan Ismail,Sultan Ismail,JHB
+Asia,Malaysia,Sultan Ismail Petra,Sultan Ismail Petra,KBR
+Asia,Malaysia,Sultan Mahmud,Sultan Mahmud,TGG
+Asia,Malaysia,Tanjung Manis,Tanjung Manis,TGC
+Asia,Malaysia,Tawau,Tawau,TWU
+Asia,Maldives,Dhaalu Atoll,Dhaalu Atoll,DDD
+Asia,Maldives,Dharavandhoo AIrport,Dharavandhoo AIrport,DRV
+Asia,Maldives,Faresmathoda,Faresmathoda,FMT
+Asia,Maldives,Funadhoo Station,Funadhoo Station,FND
+Asia,Maldives,Fuvahmulaku Island,Fuvahmulaku Island,FVM
+Asia,Maldives,Gan Island,Gan Island,GAN
+Asia,Maldives,Hanimaadhoo,Hanimaadhoo,HAQ
+Asia,Maldives,Hoarafushi,Hoarafushi,HRF
+Asia,Maldives,Ifuru,Ifuru,IFU
+Asia,Maldives,Kaadedhdhoo,Kaadedhdhoo,KDM
+Asia,Maldives,Kadhonoo,Kadhonoo,KDO
+Asia,Maldives,Kooddoo Island,Kooddoo Island,GKK
+Asia,Maldives,Kulhudhuffushi,Kulhudhuffushi,HDK
+Asia,Maldives,Maafaru,Maafaru,NMF
+Asia,Maldives,Maamigili Island,Maamigili Island,VAM
+Asia,Maldives,Maavarulu,Maavarulu,RUL
+Asia,Maldives,Madivaru,Madivaru,LMV
+Asia,Maldives,Male,Male,MLE
+Asia,Maldives,Muli,Muli,MUM
+Asia,Maldives,Thimarafushi,Thimarafushi,TMF
+Asia,Mongolia,Altai,Altai,LTI
+Asia,Mongolia,Bayankhongor,Bayankhongor,BYN
+Asia,Mongolia,Chinggis Khan,Chinggis Khan,UBN
+Asia,Mongolia,Donoi,Donoi,ULZ
+Asia,Mongolia,Gurvan Saikhan,Gurvan Saikhan,DLZ
+Asia,Mongolia,Khovd,Khovd,HVD
+Asia,Mongolia,Moron,Moron,MXV
+Asia,Mongolia,Olgii,Olgii,ULG
+Asia,Mongolia,Ulaangom,Ulaangom,ULO
+Asia,Myanmar,Dawei,Dawei,TVY
+Asia,Myanmar,Heho,Heho,HEH
+Asia,Myanmar,Homalin,Homalin,HOX
+Asia,Myanmar,Kalay,Kalay,KMV
+Asia,Myanmar,Kawthoung,Kawthoung,KAW
+Asia,Myanmar,Kengtung,Kengtung,KET
+Asia,Myanmar,Khamti,Khamti,KHM
+Asia,Myanmar,Kyaukpyu,Kyaukpyu,KYP
+Asia,Myanmar,Magwe,Magwe,MWQ
+Asia,Myanmar,Mandalay,Mandalay,MDL
+Asia,Myanmar,Mawlamyine,Mawlamyine,MNU
+Asia,Myanmar,Monywa,Monywa,NYW
+Asia,Myanmar,Myeik,Myeik,MGZ
+Asia,Myanmar,Myitkyina,Myitkyina,MYT
+Asia,Myanmar,Nay Pyi Taw,Nay Pyi Taw,NYT
+Asia,Myanmar,Nyaung,Nyaung,NYU
+Asia,Myanmar,Putao,Putao,PBU
+Asia,Myanmar,Sittwe,Sittwe,AKY
+Asia,Myanmar,Tachilek,Tachilek,THL
+Asia,Myanmar,Yangon,Yangon,RGN
+Asia,Nepal,Bhadrapur,Bhadrapur,BDP
+Asia,Nepal,Bhairahawa,Bhairahawa,BWA
+Asia,Nepal,Bharatpur,Bharatpur,BHR
+Asia,Nepal,Biratnagar,Biratnagar,BIR
+Asia,Nepal,Dhangarhi,Dhangarhi,DHI
+Asia,Nepal,Janakpur,Janakpur,JKR
+Asia,Nepal,Nepalganj,Nepalganj,KEP
+Asia,Nepal,Phan Thiet,Phan Thiet,PHH
+Asia,Nepal,Pokhara,Pokhara,PKR
+Asia,Nepal,Rajbiraj,Rajbiraj,RJB
+Asia,Nepal,Simara,Simara,SIF
+Asia,Nepal,Surkhet,Surkhet,SKH
+Asia,Nepal,Tribhuvan,Tribhuvan,KTM
+Asia,Nepal,Tumling Tar,Tumling Tar,TMI
+Asia,Pakistan,Allama Iqbal,Allama Iqbal,LHE
+Asia,Pakistan,Faisalabad,Faisalabad,LYP
+Asia,Pakistan,Gilgit,Gilgit,GIL
+Asia,Pakistan,Gwadar,Gwadar,GWD
+Asia,Pakistan,Islamabad,Islamabad,ISB
+Asia,Pakistan,Jinnah,Jinnah,KHI
+Asia,Pakistan,Multan,Multan,MUX
+Asia,Pakistan,Peshawar,Peshawar,PEW
+Asia,Pakistan,Quetta,Quetta,UET
+Asia,Pakistan,Sialkot,Sialkot,SKT
+Asia,Pakistan,Skardu,Skardu,KDU
+Asia,Pakistan,Sukkur,Sukkur,SKZ
+Asia,Pakistan,Turbat,Turbat,TUK
+Asia,Philippines,Antique,Antique,SJI
+Asia,Philippines,Basco,Basco,BSO
+Asia,Philippines,Bicol,Bicol,DRP
+Asia,Philippines,Bohol,Bohol,TAG
+Asia,Philippines,Borongan,Borongan,BPA
+Asia,Philippines,Borongan,Borongan,BPR
+Asia,Philippines,Busuanga,Busuanga,USU
+Asia,Philippines,Butuan,Butuan,BXU
+Asia,Philippines,Cagayan De Oro,Cagayan De Oro,CGY
+Asia,Philippines,Calbayog,Calbayog,CYP
+Asia,Philippines,Camiguin,Camiguin,CGM
+Asia,Philippines,Catarman,Catarman,CRM
+Asia,Philippines,Cauayan,Cauayan,CYZ
+Asia,Philippines,Cotabato,Cotabato,CBO
+Asia,Philippines,Daniel Z Romualdez,Daniel Z Romualdez,TAC
+Asia,Philippines,Diosdado Macapagal,Diosdado Macapagal,CRK
+Asia,Philippines,Dipolog,Dipolog,DPL
+Asia,Philippines,Dumaguete,Dumaguete,DGT
+Asia,Philippines,El Nido,El Nido,ENI
+Asia,Philippines,Evelio Javier,Evelio Javier,EUQ
+Asia,Philippines,Francisco Bangoy,Francisco Bangoy,DVO
+Asia,Philippines,General Santos,General Santos,GES
+Asia,Philippines,Godofredo P,Godofredo P,MPH
+Asia,Philippines,Iloilo,Iloilo,ILO
+Asia,Philippines,Kalibo,Kalibo,KLO
+Asia,Philippines,Laoag,Laoag,LAO
+Asia,Philippines,Mactan–Cebu,Mactan–Cebu,CEB
+Asia,Philippines,Masbate,Masbate,MBT
+Asia,Philippines,Naga,Naga,WNP
+Asia,Philippines,Ninoy Aquino,Ninoy Aquino,MNL
+Asia,Philippines,Ozamis,Ozamis,OZC
+Asia,Philippines,Pagadian,Pagadian,PAG
+Asia,Philippines,Puerto Princesa,Puerto Princesa,PPS
+Asia,Philippines,Roxas,Roxas,RXS
+Asia,Philippines,San Vicente,San Vicente,SWL
+Asia,Philippines,Sanga Sanga,Sanga Sanga,TWT
+Asia,Philippines,Sayak,Sayak,IAO
+Asia,Philippines,Silay,Silay,BCD
+Asia,Philippines,Surigao,Surigao,SUG
+Asia,Philippines,Tuguegarao,Tuguegarao,TUG
+Asia,Philippines,Virac,Virac,VRC
+Asia,Philippines,Zamboanga,Zamboanga,ZAM
+Asia,Singapore,Seletar,Seletar,XSP
+Asia,Singapore,Singapore Changi,Singapore Changi,SIN
+Asia,South Korea,Cheongju,Cheongju,CJJ
+Asia,South Korea,Daegu Ab,Daegu Ab,TAE
+Asia,South Korea,Gimhae,Gimhae,PUS
+Asia,South Korea,Gimpo,Gimpo,GMP
+Asia,South Korea,Gunsan,Gunsan,KUV
+Asia,South Korea,Gwangju,Gwangju,KWJ
+Asia,South Korea,Incheon,Incheon,ICN
+Asia,South Korea,Jeju,Jeju,CJU
+Asia,South Korea,Jinju,Jinju,HIN
+Asia,South Korea,Kunsan Ab,Kunsan Ab,KUB
+Asia,South Korea,Pohang,Pohang,KPO
+Asia,South Korea,Ulsan,Ulsan,USN
+Asia,South Korea,Wonju,Wonju,WJU
+Asia,South Korea,Yangyang,Yangyang,YNY
+Asia,South Korea,Yeosu,Yeosu,RSU
+Asia,Sri Lanka,Bandaranaike,Bandaranaike,CMB
+Asia,Sri Lanka,Kankesanturai,Kankesanturai,JAF
+Asia,Sri Lanka,Mattala Rajapaksa,Mattala Rajapaksa,HRI
+Asia,Taiwan,Chiayi,Chiayi,CYI
+Asia,Taiwan,Hualien,Hualien,HUN
+Asia,Taiwan,Kaohsiung,Kaohsiung,KHH
+Asia,Taiwan,Mafikeng North,Mafikeng North,MFK
+Asia,Taiwan,Makung,Makung,MZG
+Asia,Taiwan,Matsu Nangan,Matsu Nangan,LZN
+Asia,Taiwan,Shang Yi,Shang Yi,KNH
+Asia,Taiwan,Sungshan,Sungshan,TSA
+Asia,Taiwan,Taichung,Taichung,RMQ
+Asia,Taiwan,Tainan,Tainan,TNN
+Asia,Taiwan,Taitung,Taitung,TTT
+Asia,Taiwan,Taoyuan,Taoyuan,TPE
+Asia,Tajikistan,Dushanbe,Dushanbe,DYU
+Asia,Tajikistan,Khudzhand,Khudzhand,LBD
+Asia,Tajikistan,Kulob,Kulob,TJU
+Asia,Tajikistan,Qurghonteppa,Qurghonteppa,KQT
+Asia,Thailand,Buri Ram,Buri Ram,BFV
+Asia,Thailand,Cha Ian,Cha Ian,NST
+Asia,Thailand,Chiang Mai,Chiang Mai,CNX
+Asia,Thailand,Chiang Rai,Chiang Rai,CEI
+Asia,Thailand,Chumphon,Chumphon,CJM
+Asia,Thailand,Don Mueang,Don Mueang,DMK
+Asia,Thailand,Hat Yai,Hat Yai,HDY
+Asia,Thailand,Hua Hin,Hua Hin,HHQ
+Asia,Thailand,Khon Kaen,Khon Kaen,KKC
+Asia,Thailand,Krabi,Krabi,KBV
+Asia,Thailand,Lampang,Lampang,LPT
+Asia,Thailand,Loei,Loei,LOE
+Asia,Thailand,Mae Sot,Mae Sot,MAQ
+Asia,Thailand,Nakhon Phanom,Nakhon Phanom,KOP
+Asia,Thailand,Nan,Nan,NNT
+Asia,Thailand,Narathiwat,Narathiwat,NAW
+Asia,Thailand,Phitsanulok,Phitsanulok,PHS
+Asia,Thailand,Phuket,Phuket,HKT
+Asia,Thailand,Ranong,Ranong,UNN
+Asia,Thailand,Roi Et,Roi Et,ROI
+Asia,Thailand,Sakon Nakhon,Sakon Nakhon,SNO
+Asia,Thailand,Samui,Samui,USM
+Asia,Thailand,Sukhothai,Sukhothai,THS
+Asia,Thailand,Surat Thani,Surat Thani,URT
+Asia,Thailand,Suvarnabhumi,Suvarnabhumi,BKK
+Asia,Thailand,Trang,Trang,TST
+Asia,Thailand,Trat,Trat,TDX
+Asia,Thailand,U Taphao,U Taphao,UTP
+Asia,Thailand,Ubon Ratchathani,Ubon Ratchathani,UBP
+Asia,Thailand,Udon Thani,Udon Thani,UTH
+Asia,Uzbekistan,Andizhan,Andizhan,AZN
+Asia,Uzbekistan,Bukhara,Bukhara,BHK
+Asia,Uzbekistan,Fergana,Fergana,FEG
+Asia,Uzbekistan,Islam Karimov Tashkent,Islam Karimov Tashkent,TAS
+Asia,Uzbekistan,Karshi,Karshi,KSQ
+Asia,Uzbekistan,Muynaq,Muynaq,MOK
+Asia,Uzbekistan,Namangan,Namangan,NMA
+Asia,Uzbekistan,Navoi,Navoi,NVI
+Asia,Uzbekistan,Nukus,Nukus,NCU
+Asia,Uzbekistan,Osmanabad,Osmanabad,OMN
+Asia,Uzbekistan,Qoqon,Qoqon,OQN
+Asia,Uzbekistan,Samarkand,Samarkand,SKD
+Asia,Uzbekistan,Shahrisabz Southwest,Shahrisabz Southwest,RBZ
+Asia,Uzbekistan,Termez,Termez,TMJ
+Asia,Uzbekistan,Urgench,Urgench,UGC
+Asia,Vietnam,Bai Thuong,Bai Thuong,THD
+Asia,Vietnam,Banmethuot,Banmethuot,BMV
+Asia,Vietnam,Cam Ranh,Cam Ranh,CXR
+Asia,Vietnam,Cat Bi,Cat Bi,HPH
+Asia,Vietnam,Chu Lai,Chu Lai,VCL
+Asia,Vietnam,Co Ong,Co Ong,VCS
+Asia,Vietnam,Da Nang,Da Nang,DAD
+Asia,Vietnam,Dalat,Dalat,DLI
+Asia,Vietnam,Dien Bien Phu,Dien Bien Phu,DIN
+Asia,Vietnam,Dong Hoi,Dong Hoi,VDH
+Asia,Vietnam,Dong Tac,Dong Tac,TBB
+Asia,Vietnam,Duong Dong,Duong Dong,PQC
+Asia,Vietnam,Noibai,Noibai,HAN
+Asia,Vietnam,Phu Bai,Phu Bai,HUI
+Asia,Vietnam,Pleiku,Pleiku,PXU
+Asia,Vietnam,Qui Nhon,Qui Nhon,UIH
+Asia,Vietnam,Rach Gia,Rach Gia,VKG
+Asia,Vietnam,Tansonnhat,Tansonnhat,SGN
+Asia,Vietnam,TrÃ  NÃ³c,TrÃ  NÃ³c,VCA
+Asia,Vietnam,Van Don,Van Don,VDO
+Asia,Vietnam,Vinh,Vinh,VII

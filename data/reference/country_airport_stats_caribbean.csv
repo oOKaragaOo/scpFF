@@ -1,0 +1,92 @@
+continent,country,city,airport_name,airport_code
+Caribbean,Anguilla,Wallblake,Wallblake,AXA
+Caribbean,Antigua & Barbuda,Antigua,Antigua,ANU
+Caribbean,Aruba,Reina Beatrix,Reina Beatrix,AUA
+Caribbean,Bahamas,Bimini,Bimini,NSB
+Caribbean,Bahamas,Capital City,Capital City,CXY
+Caribbean,Bahamas,Colonel Hill,Colonel Hill,CRI
+Caribbean,Bahamas,Deadmans Cay,Deadmans Cay,LGI
+Caribbean,Bahamas,Duncan Town,Duncan Town,DCT
+Caribbean,Bahamas,George Town,George Town,GGT
+Caribbean,Bahamas,Governors Harbour,Governors Harbour,GHB
+Caribbean,Bahamas,Grand Bahama,Grand Bahama,FPO
+Caribbean,Bahamas,Great Harbour,Great Harbour,GHC
+Caribbean,Bahamas,Marsh Harbour,Marsh Harbour,MHH
+Caribbean,Bahamas,Matthew Town,Matthew Town,IGA
+Caribbean,Bahamas,Mayaguana,Mayaguana,MYG
+Caribbean,Bahamas,Nassau,Nassau,NAS
+Caribbean,Bahamas,New Port Nelson,New Port Nelson,RCY
+Caribbean,Bahamas,North Eleuthera,North Eleuthera,ELH
+Caribbean,Bahamas,Rock Sound,Rock Sound,RSD
+Caribbean,Bahamas,San Salvador,San Salvador,ZSA
+Caribbean,Bahamas,South Bimini,South Bimini,BIM
+Caribbean,Bahamas,Spring Point,Spring Point,AXP
+Caribbean,Bahamas,Stella Maris,Stella Maris,SML
+Caribbean,Barbados,Grantley Adams,Grantley Adams,BGI
+Caribbean,Bermuda,Hamilton,Hamilton,BDA
+Caribbean,Bonaire St Eustatius and Saba,F D Roosevelt,F D Roosevelt,EUX
+Caribbean,Bonaire St Eustatius and Saba,Flamingo,Flamingo,BON
+Caribbean,Bonaire St Eustatius and Saba,J. Yrausquin,J. Yrausquin,SAB
+Caribbean,Cayman Islands,Cayman Brac Is,Cayman Brac Is,CYB
+Caribbean,Cayman Islands,Grand Cayman,Grand Cayman,GCM
+Caribbean,Cayman Islands,Little Cayman,Little Cayman,LYB
+Caribbean,Cuba,Abel Santamaria,Abel Santamaria,SNU
+Caribbean,Cuba,Antonio Maceo,Antonio Maceo,SCU
+Caribbean,Cuba,Cayo Largo Del Sur,Cayo Largo Del Sur,CYO
+Caribbean,Cuba,Frank Pais,Frank Pais,HOG
+Caribbean,Cuba,Ign Agramonte,Ign Agramonte,CMW
+Caribbean,Cuba,Jardines del Rey,Jardines del Rey,CCC
+Caribbean,Cuba,Jose Marti,Jose Marti,HAV
+Caribbean,Cuba,Juan Gualberto Gomez,Juan Gualberto Gomez,VRA
+Caribbean,Cuba,Mariana Grajales,Mariana Grajales,GAO
+Caribbean,Cuba,Rafael Perez,Rafael Perez,GER
+Caribbean,Curaçao,Hato,Hato,CUR
+Caribbean,Dominica,Dominica,Dominica,DOM
+Caribbean,Dominican Republic,Cibao,Cibao,STI
+Caribbean,Dominican Republic,Dr Joaquin Balaguer,Dr Joaquin Balaguer,JBQ
+Caribbean,Dominican Republic,Gregorio Luperon,Gregorio Luperon,POP
+Caribbean,Dominican Republic,La Romana,La Romana,LRM
+Caribbean,Dominican Republic,Las Americas,Las Americas,SDQ
+Caribbean,Dominican Republic,Punta Cana,Punta Cana,PUJ
+Caribbean,Dominican Republic,SamanÃ¡ El Catey,SamanÃ¡ El Catey,AZS
+Caribbean,Grenada,Grenada,Grenada,GND
+Caribbean,Guadeloupe,Le Raizet,Le Raizet,PTP
+Caribbean,Haiti,Hugo Chavez,Hugo Chavez,CAP
+Caribbean,Haiti,Jacmel,Jacmel,JAK
+Caribbean,Haiti,Jeremie,Jeremie,JEE
+Caribbean,Haiti,Les Cayes,Les Cayes,CYA
+Caribbean,Haiti,Port Au Prince,Port Au Prince,PAP
+Caribbean,Jamaica,Boscobel,Boscobel,OCJ
+Caribbean,Jamaica,Norman Manley,Norman Manley,KIN
+Caribbean,Jamaica,Sangster,Sangster,MBJ
+Caribbean,Martinique,Le Lamentin,Le Lamentin,FDF
+Caribbean,Montserrat,Bramble,Bramble,MNI
+Caribbean,Puerto Rico,Benjamin Rivera Noriega,Benjamin Rivera Noriega,CPX
+Caribbean,Puerto Rico,Eugenio Maria De Hostos,Eugenio Maria De Hostos,MAZ
+Caribbean,Puerto Rico,Fernando Luis Ribas Dominicci,Fernando Luis Ribas Dominicci,SIG
+Caribbean,Puerto Rico,Jose Aponte de la Torre,Jose Aponte de la Torre,NRR
+Caribbean,Puerto Rico,Luis Munoz Marin,Luis Munoz Marin,SJU
+Caribbean,Puerto Rico,Mercedita,Mercedita,PSE
+Caribbean,Puerto Rico,Rafael Hernandez,Rafael Hernandez,BQN
+Caribbean,Puerto Rico,Vieques,Vieques,VQS
+Caribbean,Saint Barthelemy,St. Barthelemy,St. Barthelemy,SBH
+Caribbean,Saint Kitts and Nevis,Robert L. Bradshaw,Robert L. Bradshaw,SKB
+Caribbean,Saint Kitts and Nevis,Vance Winkworth Amory,Vance Winkworth Amory,NEV
+Caribbean,Saint Lucia,George F L Charles,George F L Charles,SLU
+Caribbean,Saint Lucia,St. Lucia,St. Lucia,UVF
+Caribbean,Saint Martin,Esperance,Esperance,SFG
+Caribbean,Saint Vincent & Grenadines,E T Joshua,E T Joshua,SVD
+Caribbean,Sint Maarten,Princess Juliana,Princess Juliana,SXM
+Caribbean,Trinidad and Tobago,Crown Point,Crown Point,TAB
+Caribbean,Trinidad and Tobago,Piarco,Piarco,POS
+Caribbean,Turks & Caicos Islands,JAGS McCartney,JAGS McCartney,GDT
+Caribbean,Turks & Caicos Islands,North Caicos,North Caicos,NCA
+Caribbean,Turks & Caicos Islands,Providenciales,Providenciales,PLS
+Caribbean,Turks & Caicos Islands,Salt Cay,Salt Cay,SLX
+Caribbean,Turks & Caicos Islands,South Caicos,South Caicos,XSC
+Caribbean,UK Virgin Islands,Beef Island,Beef Island,EIS
+Caribbean,UK Virgin Islands,Virgin Gorda,Virgin Gorda,VIJ
+Caribbean,US Virgin Islands,Christiansted Harbor Seaplane Base,Christiansted Harbor Seaplane Base,SSB
+Caribbean,US Virgin Islands,Saint Croix,Saint Croix,STX
+Caribbean,US Virgin Islands,Saint Thomas,Saint Thomas,STT
+Caribbean,US Virgin Islands,St. Thomas Seaplane Base,St. Thomas Seaplane Base,SPB
